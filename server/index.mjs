@@ -4,6 +4,9 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync, unlinkSync, realpathSync, statSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { DatabaseSync } from 'node:sqlite';
+import { createContentStore } from './content-store.mjs';
+import { ContentError } from './content-validation.mjs';
+import { serveContent } from './content-http.mjs';
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const moduleIds = ['research','creation','review','publishing','feedback'];
@@ -51,50 +54,71 @@ function createStore(dataDir,seedDir){
   const select=db.prepare('SELECT payload FROM records WHERE kind=? AND id=?');
   const get=(kind,id)=>JSON.parse(select.get(kind,id).payload);
   const list=kind=>ids[kind].map(id=>get(kind,id));
-  const exportAll=()=>({app:'content-workbench-local',version:1,exportedAt:new Date().toISOString(),modules:list('modules'),tasks:list('tasks')});
+  let content;
+  const exportAll=()=>{
+    const backup={app:'content-workbench-local',version:1,exportedAt:new Date().toISOString(),modules:list('modules'),tasks:list('tasks'),content:content.exportAll()};
+    if(Buffer.byteLength(JSON.stringify(backup),'utf8')>maxRestoreBody)fail('完整备份超过 16 MiB，操作已拒绝；请减少本次新增内容或素材后重试。',413);
+    return backup;
+  };
+  function backup(){
+    db.exec('BEGIN');
+    try{const value=exportAll();db.exec('COMMIT');return value;}
+    catch(error){db.exec('ROLLBACK');throw error;}
+  }
   function snapshot(type){
     mkdirSync(backupsDir,{recursive:true});
     const date=new Date().toISOString();
     const filename=type==='daily'?`daily-${date.slice(0,10)}.json`:`pre-restore-${date.replaceAll(':','-')}-${randomUUID()}.json`;
     const destination=path.join(backupsDir,filename);
     if(type==='daily'&&existsSync(destination))return;
-    writeFileSync(destination,JSON.stringify(exportAll(),null,2),{encoding:'utf8',flag:'wx'});
+    writeFileSync(destination,JSON.stringify(exportAll()),{encoding:'utf8',flag:'wx'});
     const own=type==='daily'?/^daily-\d{4}-\d{2}-\d{2}\.json$/:/^pre-restore-\d{4}-\d{2}-\d{2}T[\d.-]+Z-[a-f0-9-]{36}\.json$/;
     const files=readdirSync(backupsDir).filter(name=>own.test(name)).sort().reverse();
     for(const name of files.slice(type==='daily'?30:20))unlinkSync(path.join(backupsDir,name));
   }
+  content=createContentStore(db,dataDir,{snapshot,checkBackupSize:()=>exportAll()});
   const update=db.prepare('UPDATE records SET payload=?,revision=? WHERE kind=? AND id=? AND revision=?');
   function save(kind,raw){
     const item=validateItem(raw,kind,ids[kind]);
-    if(get(kind,item.id).revision!==item.revision)fail('这条记录已在其他页面更新。请重新载入最新内容后再保存。',409);
-    snapshot('daily');
-    const next={...item,revision:item.revision+1,updatedAt:new Date().toISOString()};
-    const result=update.run(JSON.stringify(next),next.revision,kind,item.id,item.revision);
-    if(result.changes!==1)fail('这条记录已被更新，请重新载入后再保存。',409);
-    return next;
+    db.exec('BEGIN IMMEDIATE');
+    try{
+      if(get(kind,item.id).revision!==item.revision)fail('这条记录已在其他页面更新。请重新载入最新内容后再保存。',409);
+      snapshot('daily');
+      if(item.revision>=Number.MAX_SAFE_INTEGER-1)fail('记录版本达到安全整数上限，未保存。');
+      const next={...item,revision:item.revision+1,updatedAt:new Date().toISOString()};
+      const result=update.run(JSON.stringify(next),next.revision,kind,item.id,item.revision);
+      if(result.changes!==1)fail('这条记录已被更新，请重新载入后再保存。',409);
+      exportAll();
+      db.exec('COMMIT');
+      return next;
+    }catch(error){db.exec('ROLLBACK');throw error;}
   }
   function restore(raw){
     if(!object(raw)||raw.app!=='content-workbench-local'||raw.version!==1||typeof raw.exportedAt!=='string'||!Number.isFinite(Date.parse(raw.exportedAt)))fail('这不是兼容的本地工作台备份（版本 1）。');
-    if(Object.keys(raw).some(key=>!['app','version','exportedAt','modules','tasks'].includes(key)))fail('备份包含无法识别的字段。');
+    if(Object.keys(raw).some(key=>!['app','version','exportedAt','modules','tasks','content'].includes(key)))fail('备份包含无法识别的字段。');
     const validated={};
     for(const kind of ['modules','tasks']){
       if(!Array.isArray(raw[kind])||raw[kind].length!==ids[kind].length)fail('备份记录数量与当前工作台不符，未更改现有数据。');
       validated[kind]=raw[kind].map(item=>validateItem(item,kind,ids[kind]));
       if(new Set(validated[kind].map(item=>item.id)).size!==ids[kind].length)fail('备份有重复或缺失记录，未更改现有数据。');
     }
+    const validatedContent=content.validateBackup(raw.content);
     db.exec('BEGIN IMMEDIATE');
     try{
+      content.validateBackup(raw.content);
       snapshot('daily');snapshot('pre-restore');
       const now=new Date().toISOString();
       for(const kind of ['modules','tasks'])for(const item of validated[kind]){
-        const previous=get(kind,item.id);const next={...item,revision:previous.revision+1,updatedAt:now};
+        const previous=get(kind,item.id);if(previous.revision>=Number.MAX_SAFE_INTEGER-1)fail('记录版本达到安全整数上限，未恢复。');const next={...item,revision:previous.revision+1,updatedAt:now};
         update.run(JSON.stringify(next),next.revision,kind,item.id,previous.revision);
       }
+      content.restore(validatedContent);
+      exportAll();
       db.exec('COMMIT');
     }catch(error){db.exec('ROLLBACK');throw error;}
-    return {ok:true,modules:list('modules'),tasks:list('tasks')};
+    return {ok:true,modules:list('modules'),tasks:list('tasks'),content:{items:content.list()}};
   }
-  return {list,save,restore,exportAll,close:()=>db.close()};
+  return {list,save,restore,backup,content,close:()=>db.close()};
 }
 
 async function readBody(req,limit=maxBody){
@@ -124,7 +148,8 @@ export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.
       if(pathname==='/api'||pathname.startsWith('/api/')){
         if(req.headers['sec-fetch-site']==='cross-site'||(req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`))fail('已拒绝来自其他网站的请求，请从本地工作台页面操作。',403);
         if(req.method==='GET'&&pathname==='/api/health')return json(res,200,{app:'content-workbench-local',version:1});
-        if(req.method==='GET'&&pathname==='/api/backup')return json(res,200,store.exportAll(),{'Content-Disposition':`attachment; filename="workbench-backup-${new Date().toISOString().slice(0,10)}.json"`});
+        if(req.method==='GET'&&pathname==='/api/backup')return json(res,200,store.backup(),{'Content-Disposition':`attachment; filename="workbench-backup-${new Date().toISOString().slice(0,10)}.json"`});
+        if(pathname==='/api/content'||pathname.startsWith('/api/content/'))return await serveContent(req,res,pathname,store.content,{readBody,json});
         for(const kind of ['modules','tasks'])if(pathname===`/api/${kind}`){
           if(req.method==='GET')return json(res,200,{items:store.list(kind)});
           if(req.method==='PUT')return json(res,200,{item:store.save(kind,await readBody(req))});
@@ -150,7 +175,7 @@ export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.
       if(!actual.startsWith(root+path.sep))fail('无法访问该路径。',403);
       res.writeHead(200,{'Content-Type':mime[path.extname(filename)]||'application/octet-stream','Cache-Control':'no-cache'});
       res.end(req.method==='HEAD'?undefined:readFileSync(filename));
-    }catch(error){if(!res.headersSent)json(res,error instanceof RequestError?error.status:500,{error:error instanceof RequestError?error.message:'本地数据操作失败，请查看 data/server-error.log 并重试。'});else res.end();if(!(error instanceof RequestError))console.error(error);}
+    }catch(error){const expected=error instanceof RequestError||error instanceof ContentError;if(!res.headersSent)json(res,expected?error.status:500,{error:expected?error.message:'本地数据操作失败，请查看 data/server-error.log 并重试。'});else res.end();if(!expected)console.error(error);}
   });
   server.requestTimeout=15000;server.headersTimeout=10000;
   try{await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',()=>{server.off('error',reject);resolve();});});}catch(error){store.close();throw error;}
