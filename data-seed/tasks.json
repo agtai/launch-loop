@@ -1,0 +1,1203 @@
+[
+  {
+    "id": "s1",
+    "module": "shared",
+    "part": "产品与品牌资料",
+    "title": "建立产品事实与品牌上下文",
+    "input": "项目 README、功能说明、限制、已有演示",
+    "steps": [
+      "区分已实现与计划",
+      "记录目标用户假设与证据",
+      "固定术语、口吻、禁用断言"
+    ],
+    "output": "product-context.md；事实表和品牌说明",
+    "acceptance": "每条关键功能有原始来源；假设明确标记",
+    "reuse": [
+      {
+        "name": "product-marketing + Frontify 的品牌规范做法",
+        "how": "用一份可版本化文档存产品事实和语气，写稿与审稿都读取同一份",
+        "why": "减少反复解释产品和不同人写出互相矛盾的内容",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/SKILL.md"
+      }
+    ],
+    "dependsOn": [],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "s2",
+    "module": "shared",
+    "part": "素材与版本",
+    "title": "整理演示、图片和已批准素材",
+    "input": "录屏、截图、Logo、授权说明",
+    "steps": [
+      "按项目/内容编号建目录",
+      "标注来源、版本、用途与使用限制",
+      "只在内容包引用已批准版本"
+    ],
+    "output": "素材索引和文件目录",
+    "acceptance": "每个文件能找到出处与当前版本",
+    "reuse": [
+      {
+        "name": "Frontify / Air 的素材与版本管理模式",
+        "how": "首版用本地文件夹+素材索引；多人素材量增大后再采购 DAM",
+        "why": "复用成熟管理方法，避免首版开发素材搜索、预览和权限系统",
+        "url": "https://www.frontify.com/"
+      }
+    ],
+    "dependsOn": [
+      "s1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "s3",
+    "module": "shared",
+    "part": "交接与分工",
+    "title": "定义操作者、审查者和任务接口",
+    "input": "五模块与参与人员",
+    "steps": [
+      "指定一个最终批准人",
+      "为每项工作填负责人",
+      "用复制任务包交接输入和验收条件"
+    ],
+    "output": "分工表与任务交接包",
+    "acceptance": "另一位执行者无需读聊天历史也能开始",
+    "reuse": [
+      {
+        "name": "本地工作台的任务卡与 Markdown 导出",
+        "how": "填负责人和成果链接，复制本项任务交给人或 agent；在本地主机汇总结果",
+        "why": "以文档接口并行工作，不必先开发完整多人协作平台",
+        "url": "https://docs.github.com/en/issues"
+      }
+    ],
+    "dependsOn": [
+      "s1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "s4",
+    "module": "shared",
+    "part": "服务连接",
+    "title": "建立服务与账号清单",
+    "input": "选定渠道、服务账号、所需权限",
+    "steps": [
+      "记录服务用途与账号负责人",
+      "用服务原生连接流程授权",
+      "记录已验证操作和失效处理方法"
+    ],
+    "output": "连接台账；不记录密钥正文",
+    "acceptance": "任何操作者知道哪个账号能做什么；未接入明确标记",
+    "reuse": [
+      {
+        "name": "Buffer / Typefully 原生账号授权",
+        "how": "从服务网页连接平台，先手动试草稿，再按官方 API/MCP 加自动化",
+        "why": "复用平台持续维护的 OAuth 与渠道适配",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "s5",
+    "module": "shared",
+    "part": "数据与恢复",
+    "title": "维护本地备份与交接副本",
+    "input": "本地数据库与成果文档",
+    "steps": [
+      "定期导出 JSON 备份",
+      "保留素材文件的独立副本",
+      "换电脑前验证备份可恢复"
+    ],
+    "output": "数据库备份+素材文件夹",
+    "acceptance": "在测试目录恢复后模块和任务记录一致",
+    "reuse": [
+      {
+        "name": "本地 SQLite、自动快照和导出恢复",
+        "how": "用页面的数据备份按钮；复制整个 data 与素材目录到你选定的备份位置",
+        "why": "无需云数据库费用，降低误覆盖和设备损坏带来的损失",
+        "url": ""
+      }
+    ],
+    "dependsOn": [],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r1",
+    "module": "research",
+    "part": "产品理解",
+    "title": "核实本轮可宣传的功能",
+    "input": "产品事实文档与目标版本",
+    "steps": [
+      "阅读对应版本说明",
+      "选一个可以演示的场景",
+      "列出不能保证的效果"
+    ],
+    "output": "本轮事实清单",
+    "acceptance": "性能数字能对应样本、模型和测量条件",
+    "reuse": [
+      {
+        "name": "product-marketing",
+        "how": "把已证实事实写进共享背景，新增事实先补证据",
+        "why": "避免 agent 从旧印象或模板生成不存在的功能",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "s1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r2",
+    "module": "research",
+    "part": "用户与场景",
+    "title": "选择一个目标用户和任务",
+    "input": "产品能力与已有用户信息",
+    "steps": [
+      "选择一个具体角色",
+      "写明当前解决任务的方法",
+      "把尚未验证的痛点作为假设"
+    ],
+    "output": "一页受众与任务假设",
+    "acceptance": "能回答写给谁、对方何时会需要它",
+    "reuse": [
+      {
+        "name": "product-marketing / customer-research",
+        "how": "用已有资料生成假设；拿真实评论或访谈修正，不捏造画像",
+        "why": "减少泛化内容，让首次反馈能检验明确假设",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "r1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r3",
+    "module": "research",
+    "part": "需求证据",
+    "title": "搜集真实问题与用户原话",
+    "input": "社区帖子、Issues、搜索结果",
+    "steps": [
+      "找与场景直接相关的问题",
+      "摘录少量原话并保留链接日期",
+      "区分重复转载与独立反馈"
+    ],
+    "output": "需求证据表",
+    "acceptance": "每条原话有来源，不能把点赞当购买意愿",
+    "reuse": [
+      {
+        "name": "customer-research + 现有网页检索",
+        "how": "将公开原文交给技能做主题归纳，采集本身使用已授权工具",
+        "why": "成熟分析提示可复用，无需先写全网抓取器",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "r2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r4",
+    "module": "research",
+    "part": "工具竞争分析",
+    "title": "比较完成五步流程的产品",
+    "input": "本工作台的品牌管理和营销产品调研",
+    "steps": [
+      "筛出直接竞品与部分功能工具",
+      "按实际输入输出、审批、发布、反馈比较",
+      "选一套首轮组合并写排除理由"
+    ],
+    "output": "工具选型表与能力边界",
+    "acceptance": "每项能力有来源；文档核查与实测分开",
+    "reuse": [
+      {
+        "name": "本次 Frontify / 营销产品横向矩阵",
+        "how": "先读复用库与对照表，再用一条自己的内容验证最关键接口",
+        "why": "已有调研直接成为试用清单，减少从零搜索",
+        "url": "https://www.frontify.com/"
+      }
+    ],
+    "dependsOn": [],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r5",
+    "module": "research",
+    "part": "产品定位",
+    "title": "比较用户当前的替代方案",
+    "input": "目标场景、竞品官网和公开演示",
+    "steps": [
+      "选2至3个真实替代方案",
+      "按同一任务比较成本、步骤和限制",
+      "只写有证据的区别"
+    ],
+    "output": "产品定位比较卡",
+    "acceptance": "不把内容运营工具的比较当成 system1 模型性能比较",
+    "reuse": [
+      {
+        "name": "competitor-profiling 的档案结构",
+        "how": "先人工提供官网材料；需要 SEO 指标时再评估其采集依赖",
+        "why": "复用比较维度，避免凭印象写贬低竞品的宣传",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitor-profiling/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "r2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r6",
+    "module": "research",
+    "part": "渠道研究",
+    "title": "确认发布渠道与社区规则",
+    "input": "目标读者活动平台、社区规则",
+    "steps": [
+      "选1个主渠道和1个讨论社区",
+      "记录允许的自荐、链接、AI内容规则",
+      "确认是否需要人工原生发帖"
+    ],
+    "output": "渠道规则卡",
+    "acceptance": "规则链接及核查日期齐全；无通用自动发帖假设",
+    "reuse": [
+      {
+        "name": "平台官方规则 + Buffer 渠道支持说明",
+        "how": "规则变化时重新检查；对不允许 AI 文案的渠道由作者本人写作",
+        "why": "发布约束来自平台，不能用统一模板代替",
+        "url": "https://news.ycombinator.com/newsguidelines.html"
+      }
+    ],
+    "dependsOn": [
+      "r2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r7",
+    "module": "research",
+    "part": "选题与简报",
+    "title": "形成一个可执行选题",
+    "input": "事实清单、需求证据、渠道卡",
+    "steps": [
+      "提出3个候选角度",
+      "选一个问题和一个行动目标",
+      "指定论据、素材、长度和交付时间"
+    ],
+    "output": "一页内容简报",
+    "acceptance": "制作人员知道对象、要点、证据与不该声称什么",
+    "reuse": [
+      {
+        "name": "content-strategy",
+        "how": "把证据文件和渠道约束一起输入技能，输出一页简报",
+        "why": "复用选题框架，不需要首版搭建关键词数据库",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "r1",
+      "r3",
+      "r6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "r8",
+    "module": "research",
+    "part": "效果设计",
+    "title": "定义这条内容要验证什么",
+    "input": "选题简报与用户获取路径",
+    "steps": [
+      "区分曝光、访问、试用和反馈",
+      "选1个主指标及少量辅助指标",
+      "确认哪些数据实际可导出"
+    ],
+    "output": "观察目标与数据来源表",
+    "acceptance": "不承诺不可取得的转化归因",
+    "reuse": [
+      {
+        "name": "analytics 技能的测量计划 + 发布工具统计",
+        "how": "先记录能拿到的指标；缺失数据填未知；用带来源参数的链接作辅助",
+        "why": "避免只追求 star/like 而不知道内容有没有帮助",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "r7"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c1",
+    "module": "creation",
+    "part": "主稿",
+    "title": "写一份基于证据的主稿",
+    "input": "批准的简报、事实表、品牌上下文",
+    "steps": [
+      "选择一个开头问题",
+      "按场景、做法、限制、下一步写稿",
+      "标注需要作者补充的经历"
+    ],
+    "output": "文章或帖子主稿 v1",
+    "acceptance": "无虚构用户、经历、数字或证言",
+    "reuse": [
+      {
+        "name": "social / copywriting",
+        "how": "社媒用 social；落地页用 copywriting；技术内容附来源另审",
+        "why": "复用不同格式的写作方法，保留事实控制",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "r7",
+      "s1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c2",
+    "module": "creation",
+    "part": "真实演示",
+    "title": "制作一个能说明价值的演示",
+    "input": "可运行的项目与场景脚本",
+    "steps": [
+      "先列演示步骤",
+      "由项目操作者实际录屏或截图",
+      "保存版本、输入和运行条件"
+    ],
+    "output": "录屏或截图及演示说明",
+    "acceptance": "看到的是实际运行；不能把生成图片冒充产品结果",
+    "reuse": [
+      {
+        "name": "现有录屏工具与仓库演示",
+        "how": "先使用已有许可的仓库演示；缺素材时再录一段单场景演示",
+        "why": "产品演示比新做宣传系统更快验证价值",
+        "url": "https://github.com/ThinkFlowLab/system1-agents"
+      }
+    ],
+    "dependsOn": [
+      "r1",
+      "s2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c3",
+    "module": "creation",
+    "part": "事实关联",
+    "title": "给主稿建立事实引用",
+    "input": "主稿与源文件",
+    "steps": [
+      "标出每项可核验断言",
+      "附对应来源与条件",
+      "未知项退回补资料"
+    ],
+    "output": "逐项事实对照表",
+    "acceptance": "每个数字和功能表述都能定位原材料",
+    "reuse": [
+      {
+        "name": "产品事实表 + 固定审查模板",
+        "how": "用编号把正文断言和来源关联起来",
+        "why": "审查者不必重新搜索整篇文章",
+        "url": "https://github.com/ThinkFlowLab/system1-agents"
+      }
+    ],
+    "dependsOn": [
+      "c1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c4",
+    "module": "creation",
+    "part": "渠道适配",
+    "title": "改写为目标平台版本",
+    "input": "主稿与渠道规则卡",
+    "steps": [
+      "调整开头与篇幅",
+      "检查链接和媒体限制",
+      "保留关键条件与来源"
+    ],
+    "output": "目标渠道正文",
+    "acceptance": "改写没有丢掉限制条件或改变事实",
+    "reuse": [
+      {
+        "name": "social / Typefully 草稿编辑",
+        "how": "先由 skill 改写，再放入平台或 Typefully 草稿预览",
+        "why": "复用成熟编辑体验，不开发富文本和各平台预览器",
+        "url": "https://typefully.com/docs/api"
+      }
+    ],
+    "dependsOn": [
+      "c1",
+      "r6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c5",
+    "module": "creation",
+    "part": "视觉素材",
+    "title": "准备封面和解释图",
+    "input": "品牌样式、真实截图、内容主题",
+    "steps": [
+      "优先选真实截图或清晰图解",
+      "只在有帮助时生成说明图",
+      "核查文字、授权及视觉一致性"
+    ],
+    "output": "封面或配图及说明",
+    "acceptance": "生成图明确是示意，技术细节可读",
+    "reuse": [
+      {
+        "name": "现有 imagegen + Frontify 的模板思路",
+        "how": "固定少量样式、尺寸和配色；图像生成按需调用",
+        "why": "避免每篇重新设计，也不必先建模板编辑器",
+        "url": "https://www.frontify.com/"
+      }
+    ],
+    "dependsOn": [
+      "c1",
+      "s2"
+    ],
+    "priority": "验证后",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c6",
+    "module": "creation",
+    "part": "视频衍生",
+    "title": "制作短视频脚本与字幕",
+    "input": "真实演示、主稿、渠道要求",
+    "steps": [
+      "截取一个能讲清问题的片段",
+      "写口播和字幕",
+      "对照录屏核查字幕内容"
+    ],
+    "output": "短视频文件及字幕",
+    "acceptance": "无需声音也能理解关键步骤，字幕没有夸大效果",
+    "reuse": [
+      {
+        "name": "现有剪辑/字幕工具 + 内容复用流程",
+        "how": "先人工剪辑现有演示；频率提高后再评估视频工具",
+        "why": "视频渲染与媒体处理复杂，适合复用成熟工具",
+        "url": ""
+      }
+    ],
+    "dependsOn": [
+      "c2",
+      "c4"
+    ],
+    "priority": "后续",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "c7",
+    "module": "creation",
+    "part": "交付包装",
+    "title": "把正文、素材和来源放入内容包",
+    "input": "各渠道稿件与素材",
+    "steps": [
+      "给本条内容分配编号",
+      "写版本、文件位置与未决问题",
+      "交给审查负责人"
+    ],
+    "output": "内容包目录与索引",
+    "acceptance": "审查者打开一处就能找到所有材料",
+    "reuse": [
+      {
+        "name": "Air / Frontify 的版本与素材关联模式",
+        "how": "本地文件夹先实现；用成果链接指向交接文档",
+        "why": "减少散落附件和错误版本流转",
+        "url": "https://www.frontify.com/"
+      }
+    ],
+    "dependsOn": [
+      "c3",
+      "c4"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q1",
+    "module": "review",
+    "part": "事实审查",
+    "title": "核实功能和性能表述",
+    "input": "内容包与事实对照表",
+    "steps": [
+      "检查数字、版本和比较条件",
+      "核对已实现与计划",
+      "无证据的断言退回作者"
+    ],
+    "output": "事实审查记录",
+    "acceptance": "通过项和待修项逐条可追溯",
+    "reuse": [
+      {
+        "name": "独立事实核查模板",
+        "how": "由审查 agent 读取原文，作者对产品事实作最终确认",
+        "why": "表达技能不能代替真实性审查",
+        "url": "https://github.com/ThinkFlowLab/system1-agents"
+      }
+    ],
+    "dependsOn": [
+      "c7"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q2",
+    "module": "review",
+    "part": "语言审查",
+    "title": "检查表达与品牌一致性",
+    "input": "主稿、品牌语气、术语表",
+    "steps": [
+      "标出套话与歧义",
+      "保持术语、责任主体和限制条件",
+      "对比修改前后事实是否变化"
+    ],
+    "output": "语言修改稿与必要说明",
+    "acceptance": "没有为了顺口而删掉前提或扩大承诺",
+    "reuse": [
+      {
+        "name": "本机 shuorenhua",
+        "how": "将事实已确认的正文交给技能；技术代码与引文不随意改写",
+        "why": "已存在的审稿方法可直接用，免做所谓 AI 检测评分",
+        "url": ""
+      }
+    ],
+    "dependsOn": [
+      "q1",
+      "s1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q3",
+    "module": "review",
+    "part": "素材与权限",
+    "title": "核查素材授权和信息暴露",
+    "input": "配图、录屏与来源索引",
+    "steps": [
+      "确认使用权和署名",
+      "检查屏幕上的密钥、邮箱及内部信息",
+      "核对图片是否与实际产品相符"
+    ],
+    "output": "素材检查记录",
+    "acceptance": "没有不该公开的信息；来源说明完整",
+    "reuse": [
+      {
+        "name": "Frontify / Bynder 的素材使用规范思路",
+        "how": "给索引增加来源与可公开字段，首版人工检查",
+        "why": "复用规范比开发权利管理系统更合适",
+        "url": "https://www.frontify.com/"
+      }
+    ],
+    "dependsOn": [
+      "c7"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q4",
+    "module": "review",
+    "part": "平台与链接",
+    "title": "核查渠道规则和跳转路径",
+    "input": "渠道正文、规则卡、所有链接",
+    "steps": [
+      "打开链接",
+      "检查自荐、AI内容和链接规则",
+      "确认目标用户能访问目的地"
+    ],
+    "output": "渠道发布前检查表",
+    "acceptance": "不存在错误链接或登录后才能看见的关键资料",
+    "reuse": [
+      {
+        "name": "平台官方规则与原生预览",
+        "how": "每个渠道独立检查；不要从另一个平台成功推断这里可用",
+        "why": "减少内容正确但渠道不接受的问题",
+        "url": "https://news.ycombinator.com/newsguidelines.html"
+      }
+    ],
+    "dependsOn": [
+      "c4",
+      "r6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q5",
+    "module": "review",
+    "part": "阅读体验",
+    "title": "检查手机排版和演示可读性",
+    "input": "排版预览与媒体",
+    "steps": [
+      "查看手机宽度",
+      "检查长段落、截图字号和字幕",
+      "核对正文与媒体顺序"
+    ],
+    "output": "预览检查结果",
+    "acceptance": "读者能看清关键步骤与行动入口",
+    "reuse": [
+      {
+        "name": "平台原生预览 / 现成发布工具预览",
+        "how": "在最终目标编辑器中查看，不自建高仿预览",
+        "why": "平台实际呈现比自定义预览更可靠",
+        "url": "https://typefully.com/docs/api"
+      }
+    ],
+    "dependsOn": [
+      "q2",
+      "q3"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q6",
+    "module": "review",
+    "part": "批准版本",
+    "title": "锁定实际获准发布的内容",
+    "input": "修订完成的内容包",
+    "steps": [
+      "记录批准人、时间和内容版本",
+      "保存最终正文与素材清单",
+      "重大修改重新送审"
+    ],
+    "output": "批准版本与审查记录",
+    "acceptance": "发布人能唯一定位批准稿",
+    "reuse": [
+      {
+        "name": "Buffer 审批 / Typefully 团队审稿模式",
+        "how": "先在本地记录批准稿；选择支持审批的套餐后迁移到原生审批",
+        "why": "把批准绑定版本，避免误发旧稿或未审稿",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "q1",
+      "q2",
+      "q4",
+      "q5"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "q7",
+    "module": "review",
+    "part": "返工与交接",
+    "title": "把问题退回并记录处理",
+    "input": "审查意见、修订稿",
+    "steps": [
+      "区分必须修改与建议",
+      "给制作负责人具体问题",
+      "复核后交给发布"
+    ],
+    "output": "可执行修改清单与发布交接",
+    "acceptance": "每项必须修改问题有处理结果",
+    "reuse": [
+      {
+        "name": "任务卡备注和成果链接",
+        "how": "一条问题对应原文位置、理由和验收，不只写“优化一下”",
+        "why": "明确输入输出让非技术人员也能处理返工",
+        "url": ""
+      }
+    ],
+    "dependsOn": [
+      "q6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p1",
+    "module": "publishing",
+    "part": "选型",
+    "title": "选择一个发布工具",
+    "input": "渠道卡、预算、审批需求",
+    "steps": [
+      "核对目标平台支持",
+      "比较审批、排期、统计接口",
+      "选一个工具试跑，记录替代方案"
+    ],
+    "output": "发布工具决策卡",
+    "acceptance": "选择理由来自实际渠道与权限需求",
+    "reuse": [
+      {
+        "name": "Buffer / Typefully / Postiz",
+        "how": "多渠道优先评估 Buffer；文字工作流评估 Typefully；有自托管需求再看 Postiz",
+        "why": "复用发布能力，避免一开始维护社交平台接口",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "r4",
+      "r6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p2",
+    "module": "publishing",
+    "part": "账号连接",
+    "title": "验证账号和权限",
+    "input": "发布工具与目标社交账号",
+    "steps": [
+      "由账号持有人完成原生授权",
+      "核对发布身份",
+      "创建一条不公开的草稿验证权限"
+    ],
+    "output": "账号连接与草稿验证记录",
+    "acceptance": "目标账号准确；知道何时会失效",
+    "reuse": [
+      {
+        "name": "所选工具的原生授权",
+        "how": "账号授权放在服务自己的界面完成；密钥不写任务备注",
+        "why": "不用自己存平台密码和维护授权协议",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p1"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p3",
+    "module": "publishing",
+    "part": "草稿装配",
+    "title": "将批准稿放入发布工具",
+    "input": "批准版本和媒体清单",
+    "steps": [
+      "逐项复制正文与媒体",
+      "核对平台字段",
+      "保存草稿 ID 和预览"
+    ],
+    "output": "发布工具中的草稿",
+    "acceptance": "内容与批准版本一致",
+    "reuse": [
+      {
+        "name": "Buffer / Typefully 草稿 API 或界面",
+        "how": "第一轮手动操作；确认可用后再接官方 MCP/API",
+        "why": "复用草稿与排期状态，不重建内容编辑器",
+        "url": "https://typefully.com/docs/api"
+      }
+    ],
+    "dependsOn": [
+      "q7",
+      "p2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p4",
+    "module": "publishing",
+    "part": "排期",
+    "title": "安排合理时间与频率",
+    "input": "草稿、目标地区时区、日历",
+    "steps": [
+      "确认时区和发布时间",
+      "避免多条重复占用同一时段",
+      "记录撤销与改期入口"
+    ],
+    "output": "排期记录",
+    "acceptance": "操作者清楚何时发布以及如何取消",
+    "reuse": [
+      {
+        "name": "发布服务日历和队列",
+        "how": "直接在原生日历排期；本地仅记录 ID 和状态",
+        "why": "不用自己运行常驻排期服务",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p3"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p5",
+    "module": "publishing",
+    "part": "执行",
+    "title": "完成最终确认并提交",
+    "input": "草稿预览、批准记录、发布身份",
+    "steps": [
+      "确认账号和版本",
+      "按已有授权提交发布或排期",
+      "保存服务返回状态"
+    ],
+    "output": "执行记录",
+    "acceptance": "不把草稿成功当成发布成功",
+    "reuse": [
+      {
+        "name": "发布服务原生执行 / 已验证 MCP",
+        "how": "用具体草稿 ID 执行；自动化不在提交途中重写内容",
+        "why": "已有执行接口与权限模型更易维护",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p4"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p6",
+    "module": "publishing",
+    "part": "结果验证",
+    "title": "打开真实帖子核对结果",
+    "input": "帖子 URL 或排期状态",
+    "steps": [
+      "确认正文和媒体",
+      "检查链接和可见性",
+      "记录真实发布时间"
+    ],
+    "output": "真实帖子链接与核验记录",
+    "acceptance": "有可访问结果，或明确仍在排期",
+    "reuse": [
+      {
+        "name": "平台网页与发布服务状态",
+        "how": "首轮由人打开检查；后续接口校验仍保留异常人工处理",
+        "why": "避免把 API 接受请求误当成用户已经看见",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p5"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p7",
+    "module": "publishing",
+    "part": "异常处理",
+    "title": "处理失败和重复提交风险",
+    "input": "服务错误、草稿 ID、帖子列表",
+    "steps": [
+      "先查是否已发出",
+      "区分权限、内容、限流和网络问题",
+      "确认未发布后再重试"
+    ],
+    "output": "异常与重试记录",
+    "acceptance": "同一批准版本没有误发两次",
+    "reuse": [
+      {
+        "name": "发布服务日志；后续 n8n 重试机制",
+        "how": "先人工查状态；有稳定重复需求再用内容 ID 去重与有限重试",
+        "why": "不必首版编写通用调度和重试引擎",
+        "url": "https://docs.n8n.io/"
+      }
+    ],
+    "dependsOn": [
+      "p5"
+    ],
+    "priority": "验证后",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "p8",
+    "module": "publishing",
+    "part": "相关讨论",
+    "title": "参与有实际关联的社区讨论",
+    "input": "与产品场景相关的真实帖子",
+    "steps": [
+      "先读完整上下文",
+      "给出对问题有用的答复",
+      "适合时说明作者关系并引用项目"
+    ],
+    "output": "人工确认的回复与链接",
+    "acceptance": "没有无关自荐、批量重复评论或冒充用户",
+    "reuse": [
+      {
+        "name": "网页检索 + 答复草稿模板",
+        "how": "agent 找候选和拟稿，作者判断是否值得回复并执行",
+        "why": "讨论质量比自动评论数量更能得到真实反馈",
+        "url": "https://news.ycombinator.com/newsguidelines.html"
+      }
+    ],
+    "dependsOn": [
+      "r3",
+      "r6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f1",
+    "module": "feedback",
+    "part": "指标采集",
+    "title": "收集实际可获取的表现数据",
+    "input": "已发布帖子、观察目标",
+    "steps": [
+      "导出服务支持的指标",
+      "记录时间窗口和定义",
+      "未知项留空并注明"
+    ],
+    "output": "原始指标文件",
+    "acceptance": "浏览量、点击、试用分别定义，不混为转化",
+    "reuse": [
+      {
+        "name": "Buffer / Typefully 原生统计与导出",
+        "how": "先导出 CSV 或手工记录；确认接口后再自动同步",
+        "why": "发布服务已维护平台差异，免做全平台统计采集",
+        "url": "https://developers.buffer.com/guides/integrations/mcp.html"
+      }
+    ],
+    "dependsOn": [
+      "p6",
+      "r8"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f2",
+    "module": "feedback",
+    "part": "评论与问题",
+    "title": "收集反馈原文与来源",
+    "input": "评论、Issues、Discussions、问卷",
+    "steps": [
+      "保留原话和来源",
+      "区分用户、作者回复及重复信息",
+      "记录采集范围和遗漏"
+    ],
+    "output": "反馈证据表",
+    "acceptance": "不假定发布 API 能读出全部评论",
+    "reuse": [
+      {
+        "name": "GitHub Issues / Discussions + 平台评论界面",
+        "how": "先人工摘录；只有官方接口确认覆盖的来源才接自动化",
+        "why": "使用真实反馈，避免把模型总结当用户声音",
+        "url": "https://docs.github.com/en/issues"
+      }
+    ],
+    "dependsOn": [
+      "p6"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f3",
+    "module": "feedback",
+    "part": "归类去重",
+    "title": "提取痛点、疑问与功能请求",
+    "input": "反馈证据表",
+    "steps": [
+      "按问题而非情绪先分类",
+      "合并重复问题但保留来源数",
+      "标注置信度和矛盾"
+    ],
+    "output": "问题主题表",
+    "acceptance": "每个主题能回到原文；少样本不作总体结论",
+    "reuse": [
+      {
+        "name": "customer-research",
+        "how": "输入去标识后的必要原文，用技能提取主题、引用和不确定项",
+        "why": "复用成熟定性研究模板，无需训练情感模型",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "f2"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f4",
+    "module": "feedback",
+    "part": "效果解释",
+    "title": "把内容表现与产品反馈分开",
+    "input": "指标表和主题表",
+    "steps": [
+      "对照观察目标",
+      "写清采样窗口和基数",
+      "区分相关性与可证明原因"
+    ],
+    "output": "本轮表现说明",
+    "acceptance": "没有用点赞推断产品有效或用户满意",
+    "reuse": [
+      {
+        "name": "Spreadsheets + analytics 的测量框架",
+        "how": "用真实导出文件计算；先看基数、来源和异常再比较",
+        "why": "表格足以处理首轮数据，暂不建设大屏与数据仓库",
+        "url": ""
+      }
+    ],
+    "dependsOn": [
+      "f1",
+      "f3"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f5",
+    "module": "feedback",
+    "part": "优先级",
+    "title": "挑出值得行动的发现",
+    "input": "问题主题、用户场景、表现说明",
+    "steps": [
+      "按影响与证据强度排序",
+      "区分文案解释与产品缺陷",
+      "每项指定行动和负责人"
+    ],
+    "output": "最多3个优先行动",
+    "acceptance": "行动能验证，不只是泛泛“提升曝光”",
+    "reuse": [
+      {
+        "name": "customer-research + 简单行动模板",
+        "how": "每项写原话、判断、行动、验证方式",
+        "why": "把分析收束成下一步，减少报表工作",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "f4"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f6",
+    "module": "feedback",
+    "part": "产品回流",
+    "title": "将反馈转成可处理的产品待办",
+    "input": "优先行动与复现材料",
+    "steps": [
+      "区分 bug/功能请求/文档问题",
+      "补环境、步骤和期待行为",
+      "在授权后登记到项目"
+    ],
+    "output": "Issue 草稿或已登记链接",
+    "acceptance": "反馈原文与技术判断分开，能复现才标复现",
+    "reuse": [
+      {
+        "name": "GitHub Issue 模板",
+        "how": "先在本地写草稿；项目负责人审核后创建或关联已有 Issue",
+        "why": "复用开源项目现有协作入口，不另建反馈系统",
+        "url": "https://docs.github.com/en/issues"
+      }
+    ],
+    "dependsOn": [
+      "f5"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f7",
+    "module": "feedback",
+    "part": "回复",
+    "title": "回答疑问并邀请具体试用反馈",
+    "input": "真实问题与产品事实",
+    "steps": [
+      "针对原问题作答",
+      "承认限制和未知",
+      "邀请提供必要环境与复现步骤"
+    ],
+    "output": "回复草稿及处理状态",
+    "acceptance": "有帮助、无虚构承诺、无批量骚扰",
+    "reuse": [
+      {
+        "name": "品牌背景 + 回复模板 + 原生评论界面",
+        "how": "agent 提草稿；作者按渠道规则确认回复",
+        "why": "延续统一表达，同时保留作者判断",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "f3"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f8",
+    "module": "feedback",
+    "part": "下一轮",
+    "title": "让反馈形成下一条内容简报",
+    "input": "行动项、常见问题、产品更新",
+    "steps": [
+      "选一条最常见或最重要问题",
+      "补证据与演示",
+      "回到研究简报而非直接批量生成"
+    ],
+    "output": "下一轮选题卡",
+    "acceptance": "能说明选题来自哪条真实反馈",
+    "reuse": [
+      {
+        "name": "content-strategy",
+        "how": "把反馈证据编号作为下一轮输入",
+        "why": "闭环建立在证据上，避免内容越写越偏",
+        "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/SKILL.md"
+      }
+    ],
+    "dependsOn": [
+      "f5"
+    ],
+    "priority": "现在",
+    "initialStatus": "待开始"
+  },
+  {
+    "id": "f9",
+    "module": "feedback",
+    "part": "自动化评估",
+    "title": "只自动化已稳定重复的步骤",
+    "input": "至少两轮真实执行记录",
+    "steps": [
+      "找出频繁、规则稳定、可判成功的步骤",
+      "估算节省与维护成本",
+      "选一个连接验证回退"
+    ],
+    "output": "小范围自动化计划",
+    "acceptance": "每条自动化都能说明输入、成功条件与失败去向",
+    "reuse": [
+      {
+        "name": "n8n / Gumloop / Relevance AI 三选一",
+        "how": "先接一个已验证 API；不要同时搭三套编排",
+        "why": "复用执行、重试和人工审批，比自建 agent 平台更省维护",
+        "url": "https://docs.n8n.io/"
+      }
+    ],
+    "dependsOn": [
+      "f8"
+    ],
+    "priority": "后续",
+    "initialStatus": "待开始"
+  }
+]

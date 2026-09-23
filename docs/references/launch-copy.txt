@@ -1,0 +1,116 @@
+system1-agents launch copy
+
+
+1. LinkedIn article
+Title
+Give your agents a Jev-like System 1 decision model. Start from a prebuilt agent or build your own.
+Describe the task. Claude Code or Codex runs a prebuilt System 1 agent or builds a new one, on models such as Jev, Laya or Cua-S1 Nano. Browser use, computer use, robotics and games ship ready to run. Up to 6× faster and 25× cheaper than an LLM, at the same score. The repository went public this week: github.com/ThinkFlowLab/system1-agents
+Jev-like System 1 decision models
+Jev, TypeSafe's System 1 decision model, took the AI community by storm in September. Since then builders have released Jev-like models of their own, Laya and Cua-S1 Nano among them. system1-agents integrates them: build a System 1 agent on them, or give your existing agent System 1 capabilities.
+The problem with current agents: every step goes through a System 2 LLM
+A tool-using agent spends one LLM turn per step. The LLM rereads everything that has happened so far and writes the next action as text. Each step takes seconds. The cost grows as the run gets longer. Most of those steps are a pick from a list: a page lists its buttons, a game lists its legal moves, a ticket goes to one of five queues.
+The solution: a System 1 decision model makes each pick in one pass
+A System 1 decision model takes the situation and the options and returns one option, with a probability for each. It writes no text. In system1-agents it sits in the model slot of the agent and takes every step that is a pick from a list. The LLM keeps planning, arithmetic and the final answer.
+Two skills ship with the repository
+The caller skill lets Claude Code and Codex use the repository's agents directly. After one install line, npx skills add ThinkFlowLab/system1-agents, the host knows when to hand a task to a System 1 agent and which command to run.
+The builder skill builds a new System 1 agent for your task. It probes the task with a dozen hand-written decisions first and declines when a step needs deduction or arithmetic.
+Either way, you reduce the cost and increase the speed of your Claude with Jev-like System 1 decision models. Every number is on the benchmarks page with its run records: github.com/ThinkFlowLab/system1-agents
+Transform your agents by using System 1 agents.
+#Jev #SystemOneModels #AIAgents #OpenSource
+Posting: publish as a LinkedIn article with the launch image as the cover. Hashtags go on the feed post, not on the article. Publish the article first, then paste its URL into the feed post.
+2. LinkedIn feed post
+Give your agents a Jev-like System 1 decision model. Start from a prebuilt agent or build your own.
+Jev took the AI community by storm in September. Jev-like models followed, Laya and Cua-S1 Nano among them. system1-agents puts them in your existing agent: prebuilt browser use and computer use, or build your own System 1 agent. Up to 6× faster and 25× cheaper than an LLM, at the same score.
+How it works, and how to add it to Claude Code or Codex: [ARTICLE URL]
+#Jev #SystemOneModels #AIAgents #OpenSource
+Posting: attach the launch image. Put the repo link in the first comment. Tag the company pages TypeSafe AI (linkedin.com/company/typesafe-ai), Cua (linkedin.com/company/cua-ai) and Convai Innovations Pvt. Ltd. (in.linkedin.com/company/convai-innovations-pvt-ltd) in the text.
+3. X
+Give your agents a Jev-like System 1 decision model. Start from a prebuilt agent or build your own. Browser use, computer use, robotics and games ship, on models like Jev, Laya or Cua-S1 Nano. Up to 6× faster and 25× cheaper than an LLM, at the same score. github.com/ThinkFlowLab/system1-agents
+@typesafeai's Jev took the AI community by storm in September. Since then builders have released Jev-like System 1 decision models of their own, @Nandakishorm1's Laya and @trycua's Cua-S1 Nano among them. system1-agents integrates them.
+Today every agent step goes through a System 2 LLM. It rereads the whole run and writes the next action as text. Most steps are a pick from a list. A System 1 decision model makes that pick in one pass and writes no text.
+Two skills ship with the repo. The caller skill: Claude Code and Codex use the prebuilt agents directly after npx skills add ThinkFlowLab/system1-agents. The builder skill: describe a task, get a new System 1 agent.
+Measured on the same agent with only the model in the slot changed: up to 6× faster and 25× cheaper, at the same score. Every run's record is on the benchmarks page.
+Reduce the cost and increase the speed of your Claude with Jev-like System 1 decision models. github.com/ThinkFlowLab/system1-agents #Jev #SystemOneModels #AIAgents
+Posting: attach the launch image to post 1 and a replay GIF to post 5. Post the Show HN link as a reply to post 1, never inside the thread. Pin the thread to your profile for the week. @typesafeai and @trycua are the vendors' accounts. Laya has no company account on X; @Nandakishorm1 appears to be its author's personal account and is unverified, so open the profile before posting and drop the tag if the bio does not say Convai Innovations.
+4. Show HN
+Title
+Show HN: System1-agents – give your agents a Jev-like System 1 decision model
+URL
+https://github.com/ThinkFlowLab/system1-agents
+First comment
+Author here. TypeSafe launched Jev on September 15 under the name System One model. Since then builders have released Jev-like System 1 decision models of their own, Laya and Cua-S1 Nano among them. system1-agents takes them in the same slot: build a System 1 agent on them, or give an existing agent System 1 capabilities. Of the ones that ship today, Jev answers over an API and Laya and Cua-S1 Nano run in process. The decision model makes every step that is a pick from a list in one pass; the LLM keeps planning and the final answer. Browser use, computer use, robotics and games ship ready to run. A builder skill makes a new agent from a task description and declines when a step needs deduction or arithmetic.
+Measured on the same agent with the same tools and only the model in the slot changed: up to 6× faster and 25× cheaper than the LLM, at the same score. The headline rows are single episodes; the series with confidence intervals and every run's record are in docs/benchmarks.md.
+Try it without a key: uv sync --extra cua runs Cua-S1 Nano in process. From Claude Code or Codex: npx skills add ThinkFlowLab/system1-agents. Questions welcome.
+Posting: submit the URL with the title, post the first comment right away, answer every comment for the first two hours. Never ask anyone for upvotes.
+5. Product Hunt
+Name
+system1-agents
+Tagline
+Give your agents a Jev-like System 1 decision model
+Description
+Describe the task. Claude Code or Codex runs a prebuilt System 1 agent or builds a new one, on models like Jev, Laya or Cua-S1 Nano. Browser use, computer use, robotics and games ship. Up to 6× faster and 25× cheaper than an LLM, at the same score.
+Maker comment: Hi Product Hunt. Jev, TypeSafe's System 1 decision model, took the AI community by storm in September. Since then builders have released Jev-like models of their own, Laya and Cua-S1 Nano among them. system1-agents integrates them: build a System 1 agent on them, or give your existing agent System 1 capabilities. Today every agent step goes through a System 2 LLM. It rereads the whole run and writes the next action as text. Most of those steps are a pick from a list. A System 1 decision model makes that pick in one pass and leaves planning and the final answer to the LLM. Two skills ship: one lets Claude Code and Codex use the prebuilt agents directly, one builds a new System 1 agent for your task. Reduce the cost and increase the speed of your Claude with Jev-like System 1 decision models. Which steps in your agents are a pick from a list?
+Posting: topics Developer Tools, Open Source, Artificial Intelligence, GitHub. Gallery: the launch image first, then the replay GIFs. Launch at 00:01 PT on a Tuesday, Wednesday or Thursday. The maker comment goes in as the first comment.
+6. Reddit
+r/ClaudeCode
+Give Claude Code a Jev-like System 1 decision model: prebuilt browser and computer-use agents, or build your own, up to 6× faster and 25× cheaper at the same score
+r/AI_Agents
+Give your agents a Jev-like System 1 decision model: start from a prebuilt agent or build your own, up to 6× faster and 25× cheaper than the LLM at the same score
+r/mcp
+s1a-mcp: a Jev-like System 1 decision model for any MCP host, with prebuilt browser and computer-use agents or build your own
+Body
+Describe the task. Claude Code or Codex runs a prebuilt System 1 agent or builds a new one, on models such as Jev, Laya or Cua-S1 Nano. Browser use, computer use, robotics and games ship ready to run.
+Jev, TypeSafe's System 1 decision model, took the AI community by storm in September. Since then builders have released Jev-like models of their own, Laya and Cua-S1 Nano among them. system1-agents integrates them: build a System 1 agent on them, or give your existing agent System 1 capabilities.
+Today every agent step goes through a System 2 LLM. It rereads the whole run and writes the next action as text. Most of those steps are a pick from a list. A System 1 decision model makes that pick in one pass and writes no text; the LLM keeps planning and the final answer.
+Two skills ship with the repository. The caller skill lets Claude Code and Codex use the prebuilt agents directly after npx skills add ThinkFlowLab/system1-agents. The builder skill builds a new System 1 agent for your task and declines when a step needs deduction or arithmetic. An MCP server exposes the same agents to any host.
+Measured on the same agent with only the model in the slot changed: up to 6× faster and 25× cheaper than the LLM, at the same score. Every run's record is on the benchmarks page. Cua-S1 Nano runs without a key.
+Repo: github.com/ThinkFlowLab/system1-agents. Which steps in your agents are a pick from a list?
+Posting: flairs are r/ClaudeCode Self-Promotion, r/ClaudeAI Built with Claude (message the mods first), r/AgentsOfAI I Made This, r/opensource Promotional, r/MachineLearning [P] in the title. No hashtags on Reddit. Answer comments in the first hour.
+7. Newsletters
+Blurb
+system1-agents gives an existing agent a Jev-like System 1 decision model (such as Jev, Laya or Cua-S1 Nano) that makes every pick-from-a-list step in one pass while the LLM keeps planning and the final answer. Browser use, computer use, robotics and games ship ready to run. A builder skill makes a new agent from a task description. Measured on the same agent with only the model changed: up to 6× faster and 25× cheaper, at the same score. Claude Code and Codex use it after npx skills add ThinkFlowLab/system1-agents.
+Pitch email
+Subject: system1-agents: give your agents a Jev-like System 1 decision model, up to 6× faster and 25× cheaper at the same score
+Hi [NAME],
+system1-agents (ThinkFlowLab) went public this week. Describe the task, and Claude Code or Codex runs a prebuilt System 1 agent or builds a new one, on models such as Jev, Laya or Cua-S1 Nano. Browser use, computer use, robotics and games ship ready to run.
+TypeSafe launched Jev on September 15 under the name System One model. Since then builders have released Jev-like System 1 decision models of their own, Laya and Cua-S1 Nano among them. system1-agents takes them in the same slot: build a System 1 agent on them, or give an existing agent System 1 capabilities.
+Today every agent step goes through a System 2 LLM. A System 1 decision model makes each pick from a list in one pass and leaves planning and the final answer to the LLM. Measured on the same agent with only the model changed: up to 6× faster and 25× cheaper, at the same score. The side-by-side replays are in the README.
+Repo: https://github.com/ThinkFlowLab/system1-agents Numbers with run records: https://github.com/ThinkFlowLab/system1-agents/blob/main/docs/benchmarks.md
+[NAME], ThinkFlowLab
+ThursdAI DM
+Hi Alex, we open-sourced system1-agents this week: a System 1 decision model (such as Jev, Laya or Cua-S1 Nano) in the model slot of a tool-using agent, prebuilt browser and computer-use agents or build your own, up to 6× faster and 25× cheaper at the same score. Replays and run records: github.com/ThinkFlowLab/system1-agents. Happy to demo live in 90 seconds.
+Posting: send from your own address with the blurb pasted under the signature. dev.to: cross-post the article with the tags ai, agents, jev, showdev and the canonical URL set to the LinkedIn article.
+8. Press and media
+Pitch email
+Subject: Two weeks after TypeSafe launched Jev as a System One model, an open-source repository puts it in the model slot of an agent
+Hi [NAME],
+TypeSafe launched Jev on September 15 under the name System One model. Since then builders have released Jev-like System 1 decision models of their own, Laya and Cua-S1 Nano among them. system1-agents, public this week from ThinkFlowLab, puts models like these in the model slot of a tool-using agent. Describe the task, and Claude Code or Codex runs a prebuilt agent or builds a new one. Browser use, computer use, robotics and games ship ready to run.
+The decision model makes every step that is a pick from a list in one pass; the LLM keeps planning and the final answer. Measured on the same agent with only the model changed: up to 6× faster and 25× cheaper, at the same score.
+A one-page backgrounder with a quote is attached. I can provide a live demo and the raw run records.
+[NAME], ThinkFlowLab, [EMAIL]
+Backgrounder
+system1-agents: give your agents a Jev-like System 1 decision model
+What it is. An open-source repository (github.com/ThinkFlowLab/system1-agents) that puts a System 1 decision model in the model slot of a tool-using agent. On every step that is a pick from a list, the decision model returns one option with a probability per option, in one pass and with no text. The LLM stays in the same agent for planning and the final answer.
+Why now. TypeSafe launched Jev on September 15, 2026 under the name System One model. Since then builders have released Jev-like System 1 decision models of their own; Laya and Cua-S1 Nano are on Hugging Face and run in process. system1-agents takes models like these in the same slot. Every step of a tool-using agent is one LLM turn, with a cost that grows with the length of the run.
+What ships. Prebuilt agents for browser use, computer use, robotics and games, and two skills: one lets Claude Code and Codex use the prebuilt agents directly, the other builds a new System 1 agent from a task description.
+What was measured. The same agent with the same tools, once with the decision model and once with the LLM in the slot: up to 6× faster and 25× cheaper, at the same score. Every run's record is in docs/benchmarks.md. Steps that need deduction or arithmetic stay with the LLM.
+Quote, [NAME], ThinkFlowLab: "Most steps of a tool-using agent are a pick from a list the environment already wrote. We hand those to a decision model and keep the LLM for the steps that need it."
+Contact: [EMAIL]. Images: the launch image and the replay GIFs under docs/assets/demos/ in the repository.
+机器之心 / 量子位 投稿（寻求报道）
+标题：system1-agents 开源：给你的智能体一个 System 1 决策模型，同样得分下最高快 6 倍、省 25 倍成本
+system1-agents（ThinkFlowLab，本周开源）把 System 1 决策模型（例如 TypeSafe Jev、Laya、Cua-S1 Nano）放进工具型智能体的模型槽位。Jev 在九月引爆了 AI 社区；此后 Laya、Cua-S1 Nano 等类 Jev 的 System 1 决策模型相继发布，system1-agents 把它们都接入同一个槽位。描述任务，Claude Code 或 Codex 直接运行预置的 System 1 智能体，或为你构建 一个新的；浏览器操作、电脑操作、机器人和游戏开箱即用。今天智能体的每一步都要经过一个 System 2 的 LLM；System 1 决策模型一次前向就完成"从列表中选一个"的步骤，规划和最终答案仍由 LLM 完成。同一智能体、同样的工具，只换槽位里的模型： 最高快 6 倍、省 25 倍成本，得分相同。仓库：github.com/ThinkFlowLab/system1-agents，运行记录见 docs/benchmarks.md。 可提供复现步骤和对比回放 GIF。
+Posting: attach the backgrounder as a PDF. The Chinese outlets take the 寻求报道 forms on their sites.
+9. Comments
+HN comment
+Disclosure: I maintain system1-agents. It puts a Jev-like System 1 decision model (such as Jev) in the model slot of a tool-using agent for every step that is a pick from a list; the LLM keeps planning and the final answer. Measured on the same agent with only the model changed: up to 6× faster and 25× cheaper, at the same score. Run records: github.com/ThinkFlowLab/system1-agents/blob/main/docs/benchmarks.md
+X replies
+We put a Jev-like System 1 decision model (such as Jev, Laya or Cua-S1 Nano) in the model slot of a tool-using agent for every pick-from-a-list step and kept the LLM for planning. Measured on the same agent with only the model changed: up to 6× faster and 25× cheaper, at the same score. github.com/ThinkFlowLab/system1-agents
+LinkedIn comments
+We measured this with the same agent and tools and only the model in the slot changed: a Jev-like System 1 decision model ran up to 6× faster and 25× cheaper than the LLM, at the same score. The write-up: [ARTICLE URL]
+Discord
+system1-agents: give your agents a Jev-like System 1 decision model (such as Jev, Laya or Cua-S1 Nano). Prebuilt browser and computer-use agents, or build your own. Up to 6× faster and 25× cheaper than the LLM, at the same score. Claude Code skill, plugin and MCP server. github.com/ThinkFlowLab/system1-agents
+awesome-list line
+system1-agents: a System 1 decision model (such as Jev, Laya or Cua-S1 Nano) in the model slot of a tool-using agent; prebuilt browser and computer-use agents or build your own; Claude Code skill, plugin and MCP server.
+LangChain forum reply
+We built one: system1-agents puts Jev in the model slot of a tool-using agent for every step that is a pick from a list and keeps the LLM for planning and the final answer. Prebuilt browser and computer-use agents, or build your own with the builder skill. Up to 6× faster and 25× cheaper at the same score. github.com/ThinkFlowLab/system1-agents
+Posting: only in threads about agent cost, latency, Jev or decision models. Disclosure first, one link, no hashtags.

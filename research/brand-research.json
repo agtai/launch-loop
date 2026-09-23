@@ -1,0 +1,230 @@
+[
+  {
+    "id": "frontify",
+    "name": "Frontify",
+    "category": "品牌规范与素材中枢（DAM + 模板 + 审批）",
+    "summary": "把品牌规则、已批准素材和受控模板放在同一处；它给内容运营提供持续可引用的品牌上下文。最适合借鉴其贯穿流程的治理方式。",
+    "stages": [
+      "research",
+      "creation",
+      "review",
+      "publishing",
+      "feedback"
+    ],
+    "workflow": [
+      "品牌负责人先建立规范页面：定位、语气、标志、颜色、字体与用法；录入素材并整理元数据、版本与使用权。",
+      "运营查找可用素材，或用 Brand Assistant 查询品牌规则；AI 回答可链接回规范来源。",
+      "选择设计师发布的模板，只修改获准字段，从素材库取图；设计师可用 Figma、InDesign、Storyteq 等已有工具准备模板。",
+      "提交模板作品或项目素材审批，指定审核人、规则与截止日期；新修订可重置审批响应，避免旧结论沿用。",
+      "批准后导出交付给渠道工具，或通过既有集成/API 使用素材；不要将产品中的 publish 一词直接等同于所有社交平台的一键发布。",
+      "查看规范访问、素材下载、搜索行为与模板使用情况，更新品牌资料和模板。"
+    ],
+    "nontechnicalUse": "日常运营的核心动作是查规则、选素材、填模板、送审、拿到批准版本；管理员/设计师负责初始规范、权限和模板配置。该流程按官方产品页及帮助文档重建，未登录试用。",
+    "reuseWhat": "共享品牌档案；带来源的规则回答；素材状态和使用权；受限模板；审批与具体修订绑定。",
+    "reuseHow": "本地先维护 brandId、定位、目标受众、语气、禁止说法、产品事实、正反例、logo/色值、规则版本；内容卡关联 brandId、assetId、revisionId。生成提示词与审核清单读取同一版本；发布前显示批准版本及素材授权状态。已有 Frontify 账号时优先研究官方只读 discovery MCP 或 API，避免再同步一整套品牌库。",
+    "reuseWhy": "减少每次写作重新解释品牌、把过期素材当最新版、审核与实际发布版本脱节。它是五模块的共用数据层，不能只做成素材网站快捷链接。",
+    "avoidBuilding": "起步不造企业级 DAM、Figma/InDesign 模板编辑器、权限组织树、跨区域资产分发/CDN。已有企业客户、多个品牌与外部代理协作，且资产授权/权限/模板规模成为真实负担时，再采购或接入。",
+    "boundaries": "research 只指读取内部品牌资料，不提供市场热点调研。feedback 主要是门户和素材使用分析，不等于渠道曝光、点击、销售归因。官网说能接 CMS/设计工具，但本次未逐一验证中国社交平台发布连接。MCP 已有官方文档，需管理员启用；默认 discovery 只读，另有写入工具包。未测试 AI 准确率、中文可用性、模板质量、真实账号权限或数据迁移。",
+    "pricingModel": "官方采用月活跃用户 MAU 定制报价，价格页说明使用六个月平均平滑波动；无公开固定金额。MCP 帮助页称管理员启用 MCP 无额外费用，但仍需 Frontify 账号与相应产品权益。",
+    "license": "商业托管服务；本次未核验源码开源或自托管授权。建议复用流程模式或官方接口，不把商业产品当作可复制安装的开源组件。",
+    "evidenceLevel": "官方产品页 + 官方操作帮助文档；文档核验，未上手测试。商业收益与易用性不作为独立验证结论。",
+    "checkedAt": "2026-09-23",
+    "sources": [
+      {
+        "title": "Frontify 平台概览与身份",
+        "url": "https://www.frontify.com/en/product-overview"
+      },
+      {
+        "title": "AI：来源链接、品牌问答、标签与搜索",
+        "url": "https://www.frontify.com/en/artificial-intelligence"
+      },
+      {
+        "title": "模板、锁定元素与设计工具集成",
+        "url": "https://www.frontify.com/en/templates"
+      },
+      {
+        "title": "模板作品审批操作",
+        "url": "https://help.frontify.com/en/articles/4768116-create-approvals-approve-publications"
+      },
+      {
+        "title": "项目审批规则与新版本重置",
+        "url": "https://help.frontify.com/en/articles/4111876-feedback-and-approval-process"
+      },
+      {
+        "title": "Frontify MCP：默认只读、写入包、启用条件",
+        "url": "https://help.frontify.com/en/articles/14787214-frontify-mcp"
+      },
+      {
+        "title": "Analytics：内部使用指标",
+        "url": "https://www.frontify.com/en/analytics"
+      },
+      {
+        "title": "MAU 定制报价",
+        "url": "https://www.frontify.com/en/pricing"
+      }
+    ]
+  },
+  {
+    "id": "bynder",
+    "name": "Bynder",
+    "category": "企业 DAM 与结构化内容工作流",
+    "summary": "可把 Bynder 分成两条线理解：DAM 管理素材；Content Workflow 用项目、内容字段、模板和状态组织文稿。对本地内容工作台最有价值的是结构化内容卡和明确交接。",
+    "stages": [
+      "creation",
+      "review",
+      "publishing",
+      "feedback"
+    ],
+    "workflow": [
+      "管理员建立项目与内容模板，例如文章、邮件活动；每种内容由文本字段、素材字段和填写规则组成。",
+      "运营在分配给自己的条目中填写内容、附素材、遵循字段旁的指南。",
+      "团队通过评论、@提及、修订历史协作；按项目配置从草稿到完成/发布的工作流。",
+      "需要图像或视频模板时，在 Studio 使用设计师设置了权限和限制的模板。",
+      "文稿可用集成/API 交接，也能导出 Word、HTML 或 CSV；DAM 素材可通过集合和连接器交给下游工具。",
+      "素材运营观察使用报告；本次未核实外部内容平台的端到端转化归因。"
+    ],
+    "nontechnicalUse": "运营主要面对“我被分配的内容”和带说明的表单字段，无需自己搭技术接口；初始模板、角色与工作流需要管理员设置。该操作顺序来自官方入门教程，未登录试用。",
+    "reuseWhat": "内容结构先于编辑器；一条内容保留 brief、文稿字段、素材、负责人、版本、审核状态与交付格式；文本审批和视觉素材审批可以分别管理。",
+    "reuseHow": "在创建模块为各渠道定义字段：标题、正文、CTA、素材、字数/格式规则、引用来源、负责人；提供完整度检查与审核待办；把导出包作为可执行的发布交接点。已有 Bynder 时接入资产检索，不重建其素材库。",
+    "reuseWhy": "非技术运营看到“下一步填什么、谁来审、交付什么”，而不是工具链接或一个空白提示框；减少内容散落在多个文件中的交接损耗。",
+    "avoidBuilding": "不从头开发完整协作编辑器、商业 DAM 搜索、动态媒体转换、多渠道 CDN 或大型集成市场。先借结构化表单和少数导出格式。是否采购由素材规模、多团队协作、现有 Bynder/内容基础设施决定。",
+    "boundaries": "Content Workflow 是独立产品能力，官方要求联系客户成功团队了解开通与成本；不能假定购买 DAM 就全含。Studio 的高级模板/审核能力按套餐区分。Bynder MCP 检索资产要求有效 DAM portal；读取品牌指南另需 CX User Community，管理员先创建 OAuth2 App。未核实中国社交平台原生发帖或账号效果分析。",
+    "pricingModel": "订阅定制报价，受用户数、存储、MarTech 使用量、所购产品及支持级别影响；无统一公开固定价。各附加模块需核对实际报价。",
+    "license": "商业托管订阅服务；本次未核验源码开源或自托管授权。可复用工作流模式，接口依赖客户账号和授权。",
+    "evidenceLevel": "官方 Support 操作教程、套餐说明、产品定价页与集成目录；文档核验，未上手测试。",
+    "checkedAt": "2026-09-23",
+    "sources": [
+      {
+        "title": "Content Workflow：从建项目到导出",
+        "url": "https://support.bynder.com/hc/en-us/articles/14788733803922-Get-Started-with-Content-Workflow"
+      },
+      {
+        "title": "Studio：给非设计师使用的受控模板",
+        "url": "https://support.bynder.com/hc/en-us/sections/15693340052370-Studio"
+      },
+      {
+        "title": "Studio 套餐能力与审批",
+        "url": "https://support.bynder.com/hc/en-us/articles/20579398218514-Understanding-Bynder-s-Studio-Package-Offerings"
+      },
+      {
+        "title": "DAM 管理与素材使用报告",
+        "url": "https://support.bynder.com/hc/en-us/articles/360013931739-Best-Practices-for-Digital-Asset-Management"
+      },
+      {
+        "title": "Bynder MCP 的账号、CXUC 与权限条件",
+        "url": "https://support.bynder.com/hc/en-us/articles/39027548047890-Understanding-Bynder-MCP"
+      },
+      {
+        "title": "定价与模块",
+        "url": "https://www.bynder.com/en/pricing/"
+      },
+      {
+        "title": "官方集成目录",
+        "url": "https://marketplace.bynder.com/en-US/listing?page=2"
+      }
+    ]
+  },
+  {
+    "id": "papirfly",
+    "name": "Papirfly",
+    "category": "品牌门户、受控模板与多区域活动",
+    "summary": "重点是总部准备品牌和模板，地方团队按限制改字、换图、出不同格式；活动计划、素材与审批关联。值得借鉴“固定规则 + 可编辑字段”的运营体验。",
+    "stages": [
+      "creation",
+      "review",
+      "publishing",
+      "feedback"
+    ],
+    "workflow": [
+      "管理员设置品牌门户、素材权限和活动计划，关联任务、时间、联系人与素材。",
+      "设计师设置主模板：哪些元素不可改、哪些从预批准选项里选、哪些允许填写并需要审核。",
+      "运营选活动、语言/格式及模板，从已批准素材中选择图片，修改可编辑内容。",
+      "提交审批；可有单阶段或多阶段审核人，反馈、标注和新版本留在项目中。",
+      "输出多尺寸材料并存回 DAM，通过已配置的下游集成或导出进行分发。",
+      "观察素材复用、内部采用情况以及可获得的活动指标，再调整模板和活动。"
+    ],
+    "nontechnicalUse": "主模板预先配置好后，运营使用受限表单和选项，不必掌握设计软件。官网宣称适合非设计师；具体学习成本、中文体验和输出质量未实际测试。",
+    "reuseWhat": "模板字段三分法：锁定、预设选择、自由输入待审；活动与全部派生内容绑定；不同市场/渠道复用同一套批准事实。",
+    "reuseHow": "本地内容模板给每个字段标注 locked/select/editable；运营只填开放部分。用 campaignId 将 brief、模板、草稿、审核、交付和反馈连接起来；先做常用文案与简单配图模板，保留模板版本。",
+    "reuseWhy": "把品牌约束放在创作前，减少写完再整篇返工；活动关联能找到这次发布所用的素材与审核依据。",
+    "avoidBuilding": "不复制多品牌多租户套件、印刷排版引擎、InDesign 转换、企业权限和所有渠道尺寸生产器。大量门店/加盟商/地区团队确实需要总部模板分发时，采购才有清晰理由。",
+    "boundaries": "发布至社交和邮件平台在定价页列为自定义扩展，接口、渠道名单与费用需另核实。analytics 页面列出采用、素材复用和活动表现，但本次未查到覆盖全部目标渠道的指标采集清单。所有“保证合规/绝不偏品牌”等官网宣传不视为已验证保证。",
+    "pricingModel": "按选用 DAM、Templated Content Creation 等方案及组织规模定制报价；集成和扩展另按范围定义。官方说明合同通常从 12 个月起，无公开统一固定价。",
+    "license": "商业云端服务；本次未核验源码开源或自托管授权。这里借用产品设计模式，不复用厂商实现。",
+    "evidenceLevel": "官方产品与功能页、官方定价页；无登录操作体验，未独立验证营销收益。",
+    "checkedAt": "2026-09-23",
+    "sources": [
+      {
+        "title": "Papirfly Suite 产品范围与云端部署",
+        "url": "https://www.papirfly.com/papirfly-suite/"
+      },
+      {
+        "title": "模板锁定、选项、自由输入与本地化",
+        "url": "https://www.papirfly.com/templated-content-creation/"
+      },
+      {
+        "title": "活动、单/多阶段审批、版本与反馈",
+        "url": "https://www.papirfly.com/campaign-management/"
+      },
+      {
+        "title": "DAM analytics 的指标范围",
+        "url": "https://www.papirfly.com/data-analytics/"
+      },
+      {
+        "title": "定价、功能包、自定义发布扩展与合同周期",
+        "url": "https://www.papirfly.com/pricing/"
+      }
+    ]
+  },
+  {
+    "id": "air",
+    "name": "Air",
+    "category": "视觉素材协作、审核与版本",
+    "summary": "围绕同一份素材组织评论、状态和版本；其公开帮助文档给出很轻的审核实现：自定义状态字段 + 已保存视图 + @审核人 + 版本栈。适合研究小团队怎样保持素材和决策在一起。",
+    "stages": [
+      "creation",
+      "review",
+      "publishing",
+      "feedback"
+    ],
+    "workflow": [
+      "上传素材，填写活动/用途等自定义字段；库中可按内容搜索，系统提供自动元数据。",
+      "设为待审核，通过评论 @审核人；审核人直接在图上或视频时间点反馈。",
+      "上传修改版到同一版本栈，更新为需要修改或已批准；审核状态用视图/看板呈现。",
+      "最终批准版本通过分享或下游流程交付；Canvas 可用于素材改尺寸、换背景等再加工，衍生版本仍应再审。",
+      "若配置相应连接，可把 Meta 表现信号接回素材库，识别值得复用的创意；未验证其他渠道同等覆盖。"
+    ],
+    "nontechnicalUse": "运营围绕缩略图、素材预览、评论和状态按钮工作；审核教程不要求写代码。自动化通知与外部连接需额外配置，不能把示例状态字段误当成已经强制执行的审批门禁。",
+    "reuseWhat": "素材、评论、版本、审批同记录；待审核/已批准/需修改的保存视图；点位/时间戳反馈；用 assetId 关联效果指标。",
+    "reuseHow": "本地先做 assetId + revisionId + status + reviewer + reviewedAt，草稿改动后撤销旧批准；为修改意见保存片段/时间戳或文字位置。用审核待办视图替代散落的聊天。外部指标先用手动 CSV 导入并关联发布记录，再决定接 API。",
+    "reuseWhy": "运营能快速回答“当前该用哪个文件、谁批的、哪里要改”；反馈可追溯到实际发布版本，减少 final_v3 一类文件名承担流程状态。",
+    "avoidBuilding": "不自建完整视觉 DAM、视频转码/逐帧审片、AI 图像编辑模型、跨工具桌面同步。素材协作和视频审核成为瓶颈时，可对 Air 做真实小样验证，再决定购买或接入。",
+    "boundaries": "帮助教程中的审批依赖字段、评论与版本管理；本次未证明所有套餐都有不可绕过的权限门禁。官方 Creative Intelligence 页明确提到 Meta 性能信号，不代表跨所有渠道的统一归因。最新定价与旧帮助页可能存在套餐差异；未验证真实账号套餐权限、中文或自动化动作。",
+    "pricingModel": "截至核验日，官方定价页为 credits 模式，存储、图像编辑和视频生成消耗月度额度；所有方案不限席位。Free 显示每月 120 credits、无期限及无需信用卡；已取得的静态页面未完整显示付费档金额，不能据此报固定价格。未注册或使用免费计划。",
+    "license": "商业托管服务，有免费计划；免费不等于开源或可本地部署。本次未核验自托管授权。",
+    "evidenceLevel": "官方 Help Center 审核教程 + 功能页 + 当前定价页；文档核验，未注册、上传或试用。",
+    "checkedAt": "2026-09-23",
+    "sources": [
+      {
+        "title": "Air 轻量审核操作教程",
+        "url": "https://help.air.inc/en/articles/11464157-setting-up-an-approval-workflow-on-air"
+      },
+      {
+        "title": "点位评论、视频时间戳、看板、审批与版本",
+        "url": "https://air.inc/features/review-approvals"
+      },
+      {
+        "title": "Creative Workflows：Canvas 与工具连接",
+        "url": "https://air.inc/use-cases/creative-workflows"
+      },
+      {
+        "title": "Creative Intelligence：元数据与 Meta 信号",
+        "url": "https://air.inc/features/creative-intelligence"
+      },
+      {
+        "title": "当前 credits 定价与免费额度",
+        "url": "https://air.inc/pricing"
+      }
+    ]
+  }
+]

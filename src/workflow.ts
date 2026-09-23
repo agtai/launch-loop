@@ -1,0 +1,18 @@
+export type ModuleId = 'research' | 'creation' | 'review' | 'publishing' | 'feedback';
+export type WorkStatus = '待补充' | '待试跑' | '进行中' | '已跑通';
+export type WorkItem = {id:ModuleId;owner:string;status:WorkStatus;input:string;steps:string[];output:string;acceptance:string;tools:string;notes:string;resultUrl:string;revision:number;updatedAt:string|null};
+export const stages = [
+  {id:'research',number:'01',title:'研究',english:'RESEARCH',description:'找到有来源的机会，整理成内容简报。',handoff:'研究简报',color:'#315df4'},
+  {id:'creation',number:'02',title:'内容制作',english:'CREATE',description:'按简报完成初稿，适配选定的渠道。',handoff:'内容包',color:'#8850cc'},
+  {id:'review',number:'03',title:'内容审查',english:'REVIEW',description:'核对事实、表达和渠道要求，形成定稿。',handoff:'批准版本',color:'#b76d13'},
+  {id:'publishing',number:'04',title:'发布执行',english:'PUBLISH',description:'把定稿交给现成发布工具，记录结果。',handoff:'发布记录',color:'#138272'},
+  {id:'feedback',number:'05',title:'反馈分析',english:'LEARN',description:'汇总评论与表现，给下一轮研究提供线索。',handoff:'反馈简报',color:'#c14d66'},
+] as const;
+export const defaults:WorkItem[] = [
+  {id:'research',owner:'',status:'待试跑',input:'示例项目：https://github.com/ThinkFlowLab/system1-agents\n先选一个场景：工单路由或浏览器任务。\n补充：目标读者、想发布的渠道、本轮希望回答的问题。',steps:['把仓库说明、已发布功能和限制放入同一份产品背景。','查找目标用户的问题与现有替代方案；保留原始链接和核查日期。','挑选一个内容角度，写明受众、问题、可证明的价值和下一步。'],output:'一页研究简报：目标读者、具体问题、三个来源、选题角度、证据与待确认项。',acceptance:'执行者能说清写给谁、解决什么问题；每个外部事实都能追溯来源。',tools:'现有网页检索 + product-marketing / content-strategy（候选，待试用）',notes:'先用一个真实任务验证 skill 的输出，不急着接自动化。',resultUrl:'',revision:0,updatedAt:null},
+  {id:'creation',owner:'',status:'待试跑',input:'上一模块的研究简报；项目事实和素材；目标渠道与语言。',steps:['根据简报生成一份主稿，标出需要作者补充的经历和数据。','按一个目标渠道改写长度、开头和配图建议。','把正文、媒体素材、来源和下一步放进同一个内容包。'],output:'一份文章或帖子初稿 + 演示素材清单 + 事实来源。',acceptance:'没有虚构用户、成果或测试数字；接手人知道还缺什么素材。',tools:'copywriting / social（候选）+ 现有 imagegen（按需）',notes:'system1-agents 的首篇可以是工单路由示例；性能表述带上实验条件。',resultUrl:'',revision:0,updatedAt:null},
+  {id:'review',owner:'',status:'待试跑',input:'待审内容包；原始资料；目标平台规则。',steps:['逐条核对功能和数字，区分已实现、实验结果和计划。','用文案审查或去 AI 味 skill 提出修改；保留原意和责任主体。','由负责人确认最终正文、媒体与链接，并标记批准版本。'],output:'可发布定稿 + 必须修改的问题 + 批准人和版本标识。',acceptance:'批准内容可定位到具体版本；事实有来源；平台允许该内容制作方式。',tools:'现有 shuorenhua + 人工事实核查',notes:'HN 不允许发布 AI 生成或 AI 润色文字；该渠道由作者本人写作。',resultUrl:'',revision:0,updatedAt:null},
+  {id:'publishing',owner:'',status:'待补充',input:'已批准版本；已连接的发布账号；渠道与发布时间。',steps:['先选一个发布工具并人工连接账号，核查它支持的目标渠道。','将批准内容放入草稿或排期，首轮由本人确认提交。','打开发布结果检查正文、媒体和链接，保存帖子 URL。'],output:'发布记录：内容版本、渠道、时间、帖子 URL、成功或失败原因。',acceptance:'有真实发布链接；失败时能判断是否已发出，避免重复发布。',tools:'Buffer / Typefully 托管服务，或 Postiz（候选，未连接）',notes:'此页面只管理流程和交接，不会替你发送帖子。平台连接由后续模块接入。',resultUrl:'',revision:0,updatedAt:null},
+  {id:'feedback',owner:'',status:'待试跑',input:'帖子 URL、可获得的表现数据、评论原文、GitHub Issues / Discussions。',steps:['先手动导出或粘贴少量数据，保留原文与来源。','区分疑问、试用障碍、功能请求和一般评价；归并重复问题。','整理三个可行动发现，关联下一轮选题或产品待办。'],output:'反馈简报：来源、原话、问题类别、证据、下一步和负责人。',acceptance:'统计表现与用户反馈分开；缺失数据写明未知；结论能回到原文。',tools:'发布工具统计 + GitHub + 通用总结模板；量大后再接 n8n',notes:'先复用导出与人工录入。能发布的接口不一定能读取评论。',resultUrl:'',revision:0,updatedAt:null},
+];
+export function taskBrief(item:WorkItem,all:WorkItem[]=[]){const index=stages.findIndex(s=>s.id===item.id);const stage=stages[index];const previous=index>0?all.find(i=>i.id===stages[index-1].id):undefined;const upstream=index===0?'本模块从项目资料开始。':`${stages[index-1].title}成果：${previous?.resultUrl||'输入待补充，请提供上游成果链接或直接粘贴材料。'}`;return `任务：${stage.title}\n负责人：${item.owner||'待分配'}\n状态：${item.status}\n\n上游材料\n${upstream}\n\n输入\n${item.input}\n\n操作步骤\n${item.steps.map((s,i)=>`${i+1}. ${s}`).join('\n')}\n\n优先复用\n${item.tools}\n\n交付物\n${item.output}\n\n验收条件\n${item.acceptance}\n\n补充说明\n${item.notes}\n\n成果链接\n${item.resultUrl||'待补充'}\n\n边界：先复用现有 skill 与工具。未接入的外部操作不要假称完成。仅交付本模块，交接时附来源、操作记录与待确认事项。`;}

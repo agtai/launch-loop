@@ -1,0 +1,272 @@
+{
+  "checkedAt": "2026-09-23",
+  "scope": "只读核查本机技能与原作者仓库；未安装、未执行第三方代码；以下复用建议为本次评估，不是原作者承诺。",
+  "conclusion": "首版保持研究、内容制作、内容审查、发布执行、反馈分析五块。技能承载方法；平台账号连接、发布、取数仍由工具或人工承担。",
+  "recommendedCore": [
+    "product-marketing",
+    "content-strategy",
+    "social",
+    "shuorenhua",
+    "imagegen",
+    "spreadsheets"
+  ],
+  "firstVersion": {
+    "研究": "用 product-marketing 维护一份共享背景；content-strategy 将手动提供的来源和问题转成少量优先选题。需要真实用户语料时再用 customer-research。",
+    "内容制作": "social 做社媒改写和平台版本；imagegen 按需做图片；营销页面另用 copywriting，仓库说明另用 readme-skills。",
+    "内容审查": "shuorenhua 做表达与保真检查，另用一张短清单核查数字、链接、来源与平台格式；该技能本身不承担事实核查。",
+    "发布执行": "第一版生成可复制文案、素材与发布清单，由本人登录平台发布并回填URL和时间；social只提供排期方法。",
+    "反馈分析": "第一版人工录入或导入平台CSV，用 social 的周复盘框架与本机 spreadsheets 计算；有转化网站后再加 analytics 的UTM和事件方案。"
+  },
+  "candidates": [
+    {
+      "id": "product-marketing",
+      "name": "product-marketing",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "研究"
+      ],
+      "status": "未安装候选",
+      "provides": "从仓库或现有材料形成产品、受众、定位、品牌语言和证据背景文件，供其他营销技能复用。",
+      "missing": "不是独立市场调查；自动草稿中的受众和定位仍需材料或本人确认。",
+      "dependencies": "低：Agent读取文件；需要产品材料，无必需付费API。",
+      "installation": "可按单项安装，或复制完整技能目录及引用文件；原仓库支持 npx skills add coreyhaines31/marketingskills --skill product-marketing。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/SKILL.md",
+      "recommendation": "首选；只作为五阶段共享背景，不另建第六个模块。"
+    },
+    {
+      "id": "content-strategy",
+      "name": "content-strategy",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "研究"
+      ],
+      "status": "未安装候选",
+      "provides": "把关键词、访谈、论坛和竞品材料整理成主题、优先选题和受众阶段，并记录选题理由。",
+      "missing": "不等于已经获得关键词数据库或平台热度数据；不是文章生成器。",
+      "dependencies": "低至中：可从用户材料开始；网上研究需要搜索能力；关键词量化可另导入数据。",
+      "installation": "单项安装 content-strategy，保留references。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/content-strategy/SKILL.md",
+      "recommendation": "首选；首版只产出本周3至5个候选，不照搬庞大内容战略。"
+    },
+    {
+      "id": "customer-research",
+      "name": "customer-research",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "研究",
+        "反馈分析"
+      ],
+      "status": "未安装候选",
+      "provides": "分析已有访谈、评论、问卷和工单；提取原话、痛点、主题、矛盾和研究缺口，标记置信度与样本局限。",
+      "missing": "不自带访问私有社群、CRM或评论平台的权限；不会自动招募访谈对象。",
+      "dependencies": "低至中：已有文本即可分析；线上采集需搜索或相应连接器。",
+      "installation": "单项安装 customer-research，保留来源指南与访谈参考文件。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/customer-research/SKILL.md",
+      "recommendation": "按需启用；适合让真实评论回流选题，避免虚构用户画像。"
+    },
+    {
+      "id": "competitor-profiling",
+      "name": "competitor-profiling",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "研究"
+      ],
+      "status": "未安装候选",
+      "provides": "按竞品URL采集官网、定价和评论，结合SEO数据生成逐个竞品档案，保存带日期的原始资料。",
+      "missing": "技能不附带采集和SEO账号；流量、外链等估值不能当成竞品经营事实。",
+      "dependencies": "高：原工作流明显依赖Firecrawl及DataForSEO MCP、密钥和可能的服务费用。",
+      "installation": "技能文件安装之外，还须单独配置所需服务；只复制SKILL.md不足以跑完整流程。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/competitor-profiling/SKILL.md",
+      "recommendation": "后置；第一版人工提供2至3个竞品页面即可，暂不复制完整采集链。"
+    },
+    {
+      "id": "copywriting",
+      "name": "copywriting",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "内容制作"
+      ],
+      "status": "未安装候选",
+      "provides": "为营销页面组织标题、正文、行动号召与备选版本，说明主要文案选择。",
+      "missing": "主要针对营销页面；不能代替原创采访、技术验证或普通长文写作的证据。",
+      "dependencies": "低：产品背景、目标受众、已有证据；无需必需API。",
+      "installation": "单项安装 copywriting，保留references。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/copywriting/SKILL.md",
+      "recommendation": "按需用于落地页/产品介绍；不必成为每条内容的必经步骤。"
+    },
+    {
+      "id": "social",
+      "name": "social",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "内容制作",
+        "发布执行",
+        "反馈分析"
+      ],
+      "status": "未安装候选",
+      "provides": "从长材料拆成平台文案、轮播图脚本或短视频脚本；给排期模板、发布队列建议与周复盘问题。",
+      "missing": "不自带登录授权或发布执行器；主要示例面向海外平台，不能直接视为小红书、公众号、知乎的已验证规则。",
+      "dependencies": "低至中：生成文案只需材料；实际发帖、排程与指标读取另需平台或工具。",
+      "installation": "单项安装 social；当前名称已从social-content改名。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/social/SKILL.md",
+      "recommendation": "首选；复用跨平台改写和复盘方法，平台频率/最佳时间不作为固定真理。"
+    },
+    {
+      "id": "analytics",
+      "name": "analytics",
+      "owner": "coreyhaines31/marketingskills",
+      "stages": [
+        "反馈分析"
+      ],
+      "status": "未安装候选",
+      "provides": "定义事件、转化与UTM命名，给GA4/GTM实现和验证参考，输出测量计划。",
+      "missing": "偏测量方案与埋点实施，不能直接把各社交账号数据拉成看板；数据访问需另接工具。",
+      "dependencies": "中至高：分析导出数据门槛低，网站埋点需要网站权限、GA4/GTM等账号或连接器。",
+      "installation": "单项安装 analytics；完整工具指导还引用仓库tools目录，不能只复制主文件。",
+      "license": "MIT，已核查仓库LICENSE",
+      "licenseUrl": "https://github.com/coreyhaines31/marketingskills/blob/main/LICENSE",
+      "url": "https://github.com/coreyhaines31/marketingskills/blob/main/skills/analytics/SKILL.md",
+      "recommendation": "后置；第一版用平台导出与少量指标即可，有落地页转化后再接。"
+    },
+    {
+      "id": "readme-skills",
+      "name": "readme-skills",
+      "owner": "Shiaoming123/readme-skills",
+      "stages": [
+        "研究",
+        "内容制作",
+        "内容审查"
+      ],
+      "status": "本机已可用",
+      "provides": "从仓库代码和文档核实产品主张，制作、审查或同步多语言README，区分已验证、推断、缺失与冲突。",
+      "missing": "不适用于所有内容形式；不会自动提交、推送或发布GitHub变更。",
+      "dependencies": "低至中：需读取实际仓库；验证命令依项目条件。",
+      "installation": "无需重复安装；新环境应保留完整技能目录及references。",
+      "license": "MIT，本机frontmatter及原仓库均已核查",
+      "licenseUrl": "https://github.com/Shiaoming123/readme-skills/blob/main/LICENSE",
+      "url": "https://github.com/Shiaoming123/readme-skills/blob/main/SKILL.md",
+      "recommendation": "按需；软件产品可用来建立产品事实依据，通用工作台不能把它设为所有项目默认。"
+    },
+    {
+      "id": "shuorenhua",
+      "name": "说人话 / shuorenhua",
+      "owner": "本机自定义技能",
+      "stages": [
+        "内容审查"
+      ],
+      "status": "本机已可用",
+      "provides": "中英文表达编辑或只标问题，保留事实、责任主体、条件、数字、术语和原作者意图。",
+      "missing": "不做事实调查，也不判断AI含量；不自动检查平台禁限词或合规。",
+      "dependencies": "低：提供待审文本及编辑范围即可。",
+      "installation": "无需重复安装。",
+      "license": "未知：本机SKILL.md未声明，目录未发现LICENSE；未核查公开发行来源。",
+      "url": null,
+      "sourceNote": "仅确认本机文件，不能虚构官方公开链接。",
+      "recommendation": "首选；直接复用，另外保留简短事实与发布格式检查。"
+    },
+    {
+      "id": "imagegen",
+      "name": "imagegen",
+      "owner": "本机Codex系统技能",
+      "stages": [
+        "内容制作"
+      ],
+      "status": "本机已可用",
+      "provides": "生成或编辑封面、配图、插画和位图素材，支持参考图与保留编辑约束。",
+      "missing": "不是排版或发布系统；图片中的文字和产品细节仍需检查。",
+      "dependencies": "在提供 image_gen 的 Agent 环境中可直接使用；本工作台未内置或连接图像生成。其他执行环境需自行配置对应工具，权限和费用取决于所选服务。",
+      "installation": "无需重复安装，直接调用本机内置能力。",
+      "license": "Apache-2.0，已核查本机LICENSE.txt；这是技能代码许可，不是模型服务或生成素材条款的判断。",
+      "url": null,
+      "sourceNote": "本机系统包是本次核查依据；未确认与本机版本对应的公开仓库URL。",
+      "recommendation": "首选但按需；不为每篇内容强制生成图片。"
+    },
+    {
+      "id": "spreadsheets",
+      "name": "Spreadsheets",
+      "owner": "本机OpenAI运行时插件",
+      "stages": [
+        "反馈分析"
+      ],
+      "status": "本机已可用",
+      "provides": "读取CSV/XLSX等实际数据，做计算、汇总、图表和可追溯的反馈报表。",
+      "missing": "不等于社交平台数据连接器；需要手工录入、导出数据或另接来源。",
+      "dependencies": "低：本机已有依赖加载器和表格运行时；创建文件按技能加载相应运行环境。",
+      "installation": "无需重复安装；新环境需相应插件和运行时。",
+      "license": "未知：本次未核查该打包插件的再分发许可。",
+      "url": null,
+      "sourceNote": "本机插件技能已读；未确认与此版本对应的公开源码URL。",
+      "recommendation": "首选；首版一张内容明细表配少量汇总就够，不建复杂BI。"
+    },
+    {
+      "id": "doc-coauthoring",
+      "name": "doc-coauthoring",
+      "owner": "anthropics/skills",
+      "stages": [
+        "内容制作",
+        "内容审查"
+      ],
+      "status": "未安装候选",
+      "provides": "分上下文收集、逐节写作、陌生读者测试三个阶段，适合说明文、提案、操作文档。",
+      "missing": "不是渠道运营技能；没有发布或取数功能，完整对话流程对日常短内容偏重。",
+      "dependencies": "低至中：文本材料即可；陌生读者测试最好有独立Agent或新会话；共享文档还需连接器。",
+      "installation": "可复制完整单技能目录或通过兼容安装器添加；不能把Anthropic整仓库当作同一许可。",
+      "license": "未完全核实：原仓库说明许多示例为Apache-2.0，但本次未取到该目录独立LICENSE，暂标未知；docx/pdf/pptx/xlsx明确为source-available而非开源。",
+      "licenseUrl": "https://github.com/anthropics/skills/blob/main/README.md",
+      "url": "https://github.com/anthropics/skills/blob/main/skills/doc-coauthoring/SKILL.md",
+      "recommendation": "备选；复用陌生读者检查思路，首版不引入完整多轮共创流程。"
+    }
+  ],
+  "ecosystem": {
+    "vercelSkills": {
+      "url": "https://github.com/vercel-labs/skills",
+      "directoryUrl": "https://skills.sh/",
+      "findSkillUrl": "https://github.com/vercel-labs/skills/blob/main/skills/find-skills/SKILL.md",
+      "license": "MIT，已核查原仓库声明",
+      "role": "发现与安装技能的入口，不是内容运营或平台连接器。安装量只作发现线索，本次实际核对了原作者SKILL.md。",
+      "dependency": "选择CLI安装需要Node/npm；本次没有执行npx或安装。"
+    },
+    "nameChanges": {
+      "product-marketing-context": "product-marketing",
+      "social-content": "social",
+      "analytics-tracking": "analytics"
+    }
+  },
+  "minimalInputs": [
+    "产品/项目一句话",
+    "目标受众",
+    "本次目标",
+    "渠道",
+    "已确认事实与来源",
+    "文风及禁用表达"
+  ],
+  "minimalContentRecord": [
+    "标题",
+    "当前阶段",
+    "来源链接",
+    "稿件",
+    "审查结论",
+    "发布URL与时间",
+    "反馈数据",
+    "下一次改动"
+  ],
+  "gapsToKeepExplicit": [
+    "尚未连接任何社交平台账号",
+    "尚未获得平台发布权限",
+    "尚无自动数据拉取",
+    "国外平台范例不能直接当作中文平台最新规则",
+    "表达审查与事实核查需要分别完成"
+  ]
+}

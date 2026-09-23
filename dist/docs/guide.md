@@ -1,4 +1,4 @@
-# launch-loop
+# launch-loop · 本地运行与交接指南
 
 为个人开发者和内容运营执行者准备的本地工作台，把研究、内容制作、审稿、发布和反馈的资料、分工与交接放在一起。无需安装 Codex，也无需登录 ChatGPT 或原来的 Sites 页面。
 
@@ -24,7 +24,7 @@ node --version
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start-Workbench.ps1
 ```
 
-也可以在文件管理器中双击 **[启动工作台.cmd](启动工作台.cmd)**。启动成功后浏览器自动打开：
+也可以在文件管理器中双击 **[启动工作台.cmd](https://github.com/agtai/launch-loop/blob/main/启动工作台.cmd)**。启动成功后浏览器自动打开：
 
 **[http://127.0.0.1:4318](http://127.0.0.1:4318)**
 
@@ -32,7 +32,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start-Workbench.ps1
 
 仓库保留了构建好的 `dist/`，**只使用工作台不需要运行 `npm install` 或 `npm ci`**。Git 克隆不包含 `runtime/node.exe`；请按上面的步骤安装 Node.js。已有完整便携包或自行放入的 `runtime/node.exe` 也可由启动器使用。
 
-结束时双击 **[停止工作台.cmd](停止工作台.cmd)**，或执行：
+结束时双击 **[停止工作台.cmd](https://github.com/agtai/launch-loop/blob/main/停止工作台.cmd)**，或执行：
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Stop-Workbench.ps1
@@ -54,7 +54,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Stop-Workbench.ps1
 
 本地资料和台账可以离线使用。外部来源、在线 Agent 和发布工具需要网络；其账号权限、用量与费用由相应服务决定。本工作台本身不调用付费模型，也不使用 Sites 托管额度。
 
-供应商研究属于官方文档核查，不代表已连接账号或登录商业产品试用。完整事实、来源和未验证项见 [竞品与复用调研](docs/完整竞品与复用调研.md)。
+供应商研究属于官方文档核查，不代表已连接账号或登录商业产品试用。完整事实、来源和未验证项见 [竞品与复用调研](https://github.com/agtai/launch-loop/blob/main/docs/完整竞品与复用调研.md)。
 
 ## 备份与交接
 
@@ -104,17 +104,17 @@ npm start
 
 按此顺序阅读：
 
-1. [会话交接](docs/SESSION_HANDOFF.md)：已完成事项、关键决定、当前状态与下一步。
-2. [Agent 工作约定](AGENTS.md)：继续工作时需遵守的项目边界和验证方式。
-3. [内容生产与发布需求](docs/内容生产与发布需求.md)：完整双语内容、编辑迭代、真实执行与验收目标。
-4. [用户参考资料](docs/references/README.md)：[Launch kit](docs/references/launch-kit.docx)、[Launch copy](docs/references/launch-copy.docx)、[s1a-launch-kit skill](docs/references/s1a-launch-kit/SKILL.md) 及其分析。
-5. [全部工作与复用清单](docs/全部工作与复用清单.md)、[完整调研](docs/完整竞品与复用调研.md)、[流程试跑样例](docs/流程试跑样例.md)。
+1. [会话交接](https://github.com/agtai/launch-loop/blob/main/docs/SESSION_HANDOFF.md)：已完成事项、关键决定、当前状态与下一步。
+2. [Agent 工作约定](https://github.com/agtai/launch-loop/blob/main/AGENTS.md)：继续工作时需遵守的项目边界和验证方式。
+3. [内容生产与发布需求](https://github.com/agtai/launch-loop/blob/main/docs/内容生产与发布需求.md)：完整双语内容、编辑迭代、真实执行与验收目标。
+4. [用户参考资料](https://github.com/agtai/launch-loop/blob/main/docs/references/README.md)：[Launch kit](https://github.com/agtai/launch-loop/blob/main/docs/references/launch-kit.docx)、[Launch copy](https://github.com/agtai/launch-loop/blob/main/docs/references/launch-copy.docx)、[s1a-launch-kit skill](https://github.com/agtai/launch-loop/blob/main/docs/references/s1a-launch-kit/SKILL.md) 及其分析。
+5. [全部工作与复用清单](https://github.com/agtai/launch-loop/blob/main/docs/全部工作与复用清单.md)、[完整调研](https://github.com/agtai/launch-loop/blob/main/docs/完整竞品与复用调研.md)、[流程试跑样例](https://github.com/agtai/launch-loop/blob/main/docs/流程试跑样例.md)。
 
 可把下面这段作为新会话的起点：
 
 > 请先读取 AGENTS.md、docs/SESSION_HANDOFF.md 和 docs/内容生产与发布需求.md，核对代码现状后继续 launch-loop。保留已完成的本地工作台，优先复用现有 Claude／Codex 账号与 docs/references 中的项目 skill。下一阶段围绕真实中英文内容的生成、阅读编辑、修订和导出展开；不要把未接入的发布或反馈能力描述为已经完成。
 
-其他接入依据：[LinkedIn 发布与反馈核查](docs/LinkedIn发布与反馈接入核查.md)。历史验证见 [验证记录](docs/验证记录.md)，本次迁移范围见 [迁移记录](docs/MIGRATION.md)。
+其他接入依据：[LinkedIn 发布与反馈核查](https://github.com/agtai/launch-loop/blob/main/docs/LinkedIn发布与反馈接入核查.md)。历史验证见 [验证记录](https://github.com/agtai/launch-loop/blob/main/docs/验证记录.md)，本次迁移范围见 [迁移记录](https://github.com/agtai/launch-loop/blob/main/docs/MIGRATION.md)。
 
 ## 常见问题
 
@@ -135,4 +135,6 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start-Workbench.ps1 -P
 
 此时访问 `http://127.0.0.1:4320`，停止方式不变。macOS、Linux 和 Windows ARM 尚未完成目标环境验证。
 
-第三方依赖声明见 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)；参考材料的来源与使用边界见 [资料索引](docs/references/README.md)。
+第三方依赖声明见 [THIRD-PARTY-NOTICES.md](https://github.com/agtai/launch-loop/blob/main/THIRD-PARTY-NOTICES.md)；参考材料的来源与使用边界见 [资料索引](https://github.com/agtai/launch-loop/blob/main/docs/references/README.md)。
+
+本指南由仓库 README 同步而来。离线时可在本地仓库按同名路径阅读；线上资料链接指向 GitHub main 分支。

@@ -1,0 +1,14 @@
+node_modules/
+data/
+work/
+*.tsbuildinfo
+runtime/node.exe
+.env
+.env.*
+!.env.example
+*.log
+.superpowers/
+.DS_Store
+Thumbs.db
+*.zip
+*.zip.sha256

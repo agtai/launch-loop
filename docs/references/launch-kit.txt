@@ -1,0 +1,187 @@
+system1-agents launch kit: one piece per audience
+Every number comes from the repository on 2026-09-23: README.md, docs/benchmarks.md, docs/why.md, docs/skills.md and the v0.1.0 release notes. The JSON quoted below is a real s1a decide run from this afternoon through OpenRouter. Placeholders to fill before anything goes out: [CHAT MODEL] (the README's own placeholder for the LLM behind the six non-browser rows of the table), [ARTICLE URL], [HN URL], [NAME].
+Register per audience, the rule each piece follows:
+LinkedIn: second person, one idea per paragraph, the numbers as a list, one ask at the end.
+X: one number per post, the mechanism in one sentence, media on posts 1, 3 and 4.
+Hacker News: caveats before claims, the eval protocol named, no adjectives, every technical reply with a file path.
+Product Hunt: the benefit, the install line, a question to the community.
+Reddit: each subreddit's own concern first (workflow, architecture, the server, the eval), an invitation to argue.
+Newsletters: a paste-ready blurb of three sentences that leaves the editor nothing to write.
+Press: the news angle in the first sentence, a quotable line, the backgrounder attached.
+Comments: disclosure first, then one number and one link.
+1. LinkedIn article
+Title: Give your agents a System 1 decision model. Start from a prebuilt agent or build your own.
+Cover image: a still from one of the side-by-side replays (LinkedIn cover: 1280×720 or larger).
+Describe the task. Claude Code or Codex runs a prebuilt System 1 agent or builds a new one, on Jev, Laya or Cua-S1 Nano. Browser use, computer use, robotics and games ship ready to run. Up to 6× faster and 25× cheaper than an LLM, at the same score. The repository went public this week: github.com/ThinkFlowLab/system1-agents
+The problem with current agents: every step goes through a System 2 LLM
+A tool-using agent spends one LLM turn per step. The LLM rereads everything that has happened so far and writes the next action as text. Each step takes seconds. The cost grows as the run gets longer. Most of those steps are a pick from a list: a page lists its buttons, a game lists its legal moves, a ticket goes to one of five queues.
+The solution: a System 1 decision model makes each pick in one pass
+A System 1 decision model takes the situation and the options and returns one option, with a probability for each. It writes no text. In system1-agents it sits in the model slot of the agent and takes every step that is a pick from a list. The LLM keeps planning, arithmetic and the final answer.
+Two skills ship with the repository
+The caller skill lets Claude Code and Codex use the repository's agents directly. After one install line, npx skills add ThinkFlowLab/system1-agents, the host knows when to hand a task to a System 1 agent and which command to run.
+The builder skill builds a new System 1 agent for your task. It probes the task with a dozen hand-written decisions first and declines when a step needs deduction or arithmetic.
+Either way, you reduce the cost and increase the speed of your Claude with Jev-like System 1 decision models. Every number is on the benchmarks page with its run records: github.com/ThinkFlowLab/system1-agents
+Transform your agents by using System 1 agents.
+2. LinkedIn feed post
+Up to 6× faster and 25× cheaper at the same score. Your agent keeps its loop, its tools and its LLM.
+system1-agents adds a System 1 decision model (Jev, Laya or Cua-S1 Nano) and hands it every step that is a pick from a list: which control, which move, which queue. The LLM keeps planning, arithmetic and the final answer.
+Measured on seven scenarios with only the model in the slot changed: browser use, computer use, a ticket router, ALFWorld, 2048, Millionaire and Blackjack. Faster and cheaper in all seven, at the same score in five.
+Claude Code and Codex call it after one line: npx skills add ThinkFlowLab/system1-agents
+The article, with every number and its run records: [ARTICLE URL]
+Attach the Blackjack replay as MP4. Put the repo link in the first comment; LinkedIn down-ranks posts with an external link in the body.
+3. X
+Thread, seven posts:
+Your agent keeps its LLM for planning. A System 1 decision model (Jev, Laya or Cua-S1 Nano) takes every step that is a pick from a list. Up to 6× faster and 25× cheaper at the same score, on the same tools and seeds. system1-agents is open source: github.com/ThinkFlowLab/system1-agents [replay GIF]
+The mechanism. Most agent steps are a pick from a list the environment already wrote: page controls, legal moves, admissible commands. A decision model returns a probability per option in one forward pass. An LLM rereads the whole transcript and writes the pick token by token.
+Only the model in the slot changes between the two columns. Allrecipes: 35.7 s vs 138.7 s, 16× cheaper. Blackjack: 2.3 s vs 14.7 s, 25× cheaper. Ticket router, 30 tickets: 12.7 s vs 65.3 s, 30/30 on both. ALFWorld: 7.4 s vs 25.7 s. Windows Calculator: 17.2 s vs 30.1 s. [table image]
+The gap widens with the transcript. 150 moves of 2048: $0.003 on Jev, $0.31 on the LLM, 1,104 vs 1,188 points. [2048 GIF]
+One line from Claude Code or Codex: npx skills add ThinkFlowLab/system1-agents. "Route this ticket to one of five queues" comes back as {"choice": "returns", "probabilities": {"returns": 0.91, "payment": 0.09, ...}, "confidence": 0.88} in under a second.
+What stays with the LLM: planning, arithmetic, constraint solving, typed values, the final answer. The split is per turn inside one agent. The builder skill probes a task with 8 to 12 decisions and declines it when a step needs deduction.
+Build your own: one module ending in a frozen SPEC, Blackjack is 111 lines. Every number with its run records: github.com/ThinkFlowLab/system1-agents/blob/main/docs/benchmarks.md
+Reply to post 1 with the Show HN link once it is up; a link in the thread body costs reach.
+Standalone post for amplifiers to quote (@CompleteSkeptic, @typesafeai, @simonw, @swyx, @gregpr07, @trycua):
+system1-agents: your existing agent keeps its LLM for planning and hands every pick-from-a-list step to a System 1 decision model. Up to 6× faster and 25× cheaper at the same score, measured on the same tools and seeds. Replays and run records: github.com/ThinkFlowLab/system1-agents [Blackjack GIF]
+4. Show HN
+Title A (78 characters): Show HN: System1-agents – a decision model for an agent's pick-from-a-list steps
+Title B (75 characters): Show HN: System1-agents – a System 1 decision model picks each agent action
+URL: https://github.com/ThinkFlowLab/system1-agents
+First comment, posted right after submitting:
+Author here. The claim in one line: put a System 1 decision model (TypeSafe Jev over HTTP, or Laya / Cua-S1 Nano in process) in the model slot of a tool-using agent, hand it every step that is a pick from a list, and keep the LLM for planning, typed values and the final answer.
+Caveats before numbers. The table in the README is one episode per row on one seed; the browser row is each side's median of three runs. The series in docs/benchmarks.md has 100 Blackjack hands and 12 ALFWorld episodes with 95% confidence intervals. Browser-task timings drift day to day; the same code measured 7.3 s one day and 11.8 s the next. The page shows the per-step probe waits behind that. The LLM of the six older rows is [CHAT MODEL]; the Allrecipes row names it, Claude Fable 5.1 through OpenRouter. What does not fit: any step that needs deduction or arithmetic. In our probes the decision model answered 45 of 48 single-step decisions; the misses were Minesweeper, Wordle and a severity rubric.
+Numbers, same agent, tools and seeds, only the model in the slot changed. Allrecipes, WebVoyager task 0 headed on the live site: 35.7 s vs 138.7 s, $0.09 vs $1.49, the same recipe on both. Blackjack: 2.3 s vs 14.7 s, $0.000021 vs $0.000531, both won. Ticket router, 30 tickets to five queues: 12.7 s vs 65.3 s, 30/30 on both. ALFWorld: 7.4 s vs 25.7 s. Windows Calculator through Cua Driver: 17.2 s vs 30.1 s. Over 100 Blackjack hands both slots play the identical basic strategy at 0.6 s vs 3.0 s per hand. Over 150 moves of 2048 the LLM scores higher (1,188 vs 1,104) and spends $0.31 vs $0.003. On 12 ALFWorld episodes the LLM solves 11 to Jev's 9 at 16× the dollars.
+One decision from the CLI this afternoon, through OpenRouter:
+uv run s1a decide --state '{"title": "Charged twice", "description": "I was charged twice for order 4411 and I want the second charge refunded.", "order_status": "delivered"}' --option logistics="delivery tracking, delivery progress or delivery problems" --option payment="charges, failed payments or duplicate payments" --option returns="requests for returns, exchanges or refunds" --option account="login or account access problems" --option human="insufficient information, several independent requests, or an explicit request for a human" --rules "Route the current explicit request to exactly one queue. A payment problem with an explicit request for a refund belongs to returns. If no unique queue fits, choose human."
+{"choice": "returns", "probabilities": {"payment": 0.09, "logistics": 0.0, "account": 0.0, "returns": 0.91, "human": 0.0}, "confidence": 0.88, "ms": 970}
+Direct TypeSafe access measures 350 to 420 ms per decision and OpenRouter 450 to 510 ms in the documented runs. This run took 970 ms.
+Try it without a key: uv sync --extra cua, then pick the cua model and Cua-S1 Nano answers in process. From Claude Code or Codex: npx skills add ThinkFlowLab/system1-agents. The eval protocol is in evals/README.md. I will answer questions about it here.
+5. Product Hunt
+Name: system1-agents
+Tagline (46 characters): Let your agents use a System 1 decision model
+Description (under 260 characters): Your agent keeps its LLM for planning and hands every pick-from-a-list step to a System 1 decision model (Jev, Laya, Cua-S1 Nano). Up to 6× faster and 25× cheaper at the same score. Browser use, computer use and games ship. One line from Claude Code or Codex.
+Topics: Developer Tools, Open Source, Artificial Intelligence, GitHub
+Gallery: the seven comparison GIFs from docs/assets/demos/, Allrecipes first.
+Maker comment: Hi Product Hunt. Every step of a tool-using agent costs one LLM turn. Most of those steps are a pick from a list the environment already wrote. system1-agents hands that pick to a System 1 decision model and keeps planning, arithmetic and the final answer with the LLM. With only the model in the slot changed: a WebVoyager Allrecipes task 35.7 s and $0.09 against 138.7 s and $1.49 for Claude Fable 5.1, the same recipe on both; Blackjack 2.3 s against 14.7 s per hand; a 30-ticket router 12.7 s against 65.3 s at 30 of 30 on both. Claude Code and Codex call it after npx skills add ThinkFlowLab/system1-agents. Cua-S1 Nano runs without a key. Which steps in your agents are pure selections? I am collecting them for the next agents.
+6. Reddit, one post per subreddit
+Flairs from the outlet list: r/ClaudeCode Self-Promotion, r/ClaudeAI Built with Claude (modmail first), r/AgentsOfAI I Made This, r/opensource Promotional, r/MachineLearning [P]. r/LocalLLaMA waits until the Laya or Cua-S1 slot has numbers.
+r/ClaudeCode (the workflow)
+Title: A skill that gives Claude Code a System 1 decision model for browser and computer-use steps, up to 16× cheaper and 4× faster with the same result
+Body:
+npx skills add ThinkFlowLab/system1-agents installs a skill that tells Claude Code when to hand a task to a System 1 agent: one selection over a fixed option list (routing, ranking, gating), a page task with enumerable controls, or a game that lists its legal moves. The plugin (claude plugin marketplace add ThinkFlowLab/system1-agents && claude plugin install s1a@system1-agents) adds a browser subagent and an MCP server.
+Example. Ask Claude Code: "Route this ticket to logistics, payment, returns, account or human: I was charged twice for order 4411 and I want the second charge refunded." It runs one s1a decide over the five queues and gets:
+{"choice": "returns", "probabilities": {"payment": 0.09, "logistics": 0.0, "account": 0.0, "returns": 0.91, "human": 0.0}, "confidence": 0.88, "ms": 970}
+The model in the slot is TypeSafe Jev ($0.042 per million input tokens, output free), or Laya / Cua-S1 Nano in process; the cua model needs no key. Planning, arithmetic and free text stay with Claude.
+Numbers with only the model in the slot changed: Allrecipes (WebVoyager task 0, live site) 35.7 s and $0.09 vs 138.7 s and $1.49 with Claude Fable 5.1 in the slot, same recipe; Windows Calculator 17.2 s vs 30.1 s; Blackjack 2.3 s vs 14.7 s per hand; 30 tickets 12.7 s vs 65.3 s, 30/30 on both. The 16× and 4× in the title are the Allrecipes row; the benchmarks page has each run's records and the n=1 caveat on the single-episode rows.
+Repo: github.com/ThinkFlowLab/system1-agents. Which steps in your Claude Code workflows are pure selections? I am collecting them for the next agents.
+r/AI_Agents (the architecture)
+Title: Moving every pick-from-a-list step from the LLM to a System 1 decision model ran the same agent up to 6× faster and 25× cheaper, at the same score on five of seven scenarios
+Body:
+The setup. A tool-using agent has a model slot. We put a System 1 decision model in it (TypeSafe Jev over HTTP, or Laya / Cua-S1 Nano in process) and kept the LLM in the same agent for planning, typed values and the final answer. The split is per turn: on a decision turn the model gets the state and the enumerated options and returns one option with a probability per option and a confidence. It emits no free text.
+The fit rule, from 48 hand-written probe decisions (45 right): a task fits when the environment enumerates the actions at each step, the right pick is readable from a text state, the chain of steps is long, and no step needs deduction or arithmetic. The three misses were Minesweeper, Wordle and a severity rubric.
+The numbers, same agent, tools and seeds, only the model in the slot changed: Allrecipes (WebVoyager task 0, live site, Claude Fable 5.1 as the LLM) 35.7 s and $0.09 vs 138.7 s and $1.49, same recipe; Blackjack 2.3 s vs 14.7 s per hand at $0.000021 vs $0.000531; a 30-ticket router 12.7 s vs 65.3 s at 30/30 on both; ALFWorld 7.4 s vs 25.7 s; Windows Calculator 17.2 s vs 30.1 s; 2048 over 20 moves 27.1 s vs 68.5 s with the LLM ahead on points, 80 to 64. Over 150 moves of 2048 the LLM spends $0.31 to Jev's $0.003.
+The same model runs a rail: the injection guard asks "does this text instruct the agent?" after each tool call and scores 20 of 20 on its labelled set at a median of 464 ms. Tool-call gating and escalation rails are on the roadmap with the same shape, a threshold on a calibrated probability.
+Repo: github.com/ThinkFlowLab/system1-agents, protocol in evals/README.md. Where would this break in your stack? I am most interested in the steps you think are selections and turn out to need deduction.
+r/mcp (the server)
+Title: s1a-mcp: three tools (list_agents, run_agent, decide) that give any MCP host a System 1 decision model
+Body:
+s1a-mcp serves the agents of system1-agents over stdio as three tools. list_agents() returns every agent with its front, its description and the flags run_agent accepts for it. run_agent(name, flags) runs one agent (a Google Flights search, a Windows app, a ticket batch, a game) and returns its JSON object. decide(state, options, rules) answers one choice question and returns the chosen key, a probability per option, a confidence and the latency in ms. Same call from the CLI, this afternoon:
+{"choice": "returns", "probabilities": {"payment": 0.09, "logistics": 0.0, "account": 0.0, "returns": 0.91, "human": 0.0}, "confidence": 0.88, "ms": 970}
+Add it to Codex with codex mcp add s1a -- uv run --project /path/to/system1-agents s1a-mcp; the Claude Code plugin registers it for you. For decide at volume the server is the cheaper path: the CLI pays a 1.3 s import on every call and the long-lived server pays it once.
+The model behind decide is TypeSafe Jev (a key from TypeSafe or OpenRouter); run_agent also takes Laya and Cua-S1 Nano in process. Repo: github.com/ThinkFlowLab/system1-agents. The tool contracts are in docs/skills.md. What would you want decide to return that it does not?
+r/MachineLearning (the eval)
+Title: [P] system1-agents: a System 1 decision model in the model slot of a tool-using agent, measured against an LLM on the same tools and seeds
+Body:
+Protocol. One agent, one loop, one set of tools and rules text per eval; one flag selects jev, llm, random, rule, laya or cua and changes only the model in the slot. Score, seconds, steps, decisions and dollars are compared on the same seeds. Timings are quoted only from runs where every arm used the same browser, the same decisions backend and the same LLM, back to back.
+Results with intervals (docs/benchmarks.md). Blackjack, 100 hands per slot: jev, llm and a basic-strategy rule all score -0.06 [-0.25, 0.13]; jev takes 0.6 s per hand, llm 3.0 s. ALFWorld text, 12 episodes: jev 0.75 [0.50, 1.00], llm 0.917 [0.75, 1.00], oracle plan 0.917; llm spends 16× the dollars. 2048, five games of 150 moves: jev 1,115 [924, 1,238], $0.0032 per game.
+Replays in the README, one seed each: Allrecipes (WebVoyager task 0, headed on the live site, three runs per side, medians shown) 35.7 s vs 138.7 s at $0.09 vs $1.49 with Claude Fable 5.1 through OpenRouter as the LLM, same recipe; a 30-ticket router 12.7 s vs 65.3 s at 30/30 on both; Windows Calculator 17.2 s vs 30.1 s; ALFWorld 7.4 s vs 25.7 s; 2048 over 20 moves 27.1 s vs 68.5 s with the LLM ahead 80 to 64; Blackjack 2.3 s vs 14.7 s.
+Limits. The single-episode rows are n=1 and the Allrecipes row is n=3. The laya and cua slots have no numbers yet. The Google Flights study compares four drivers on the same decision model, with no LLM arm, and documents day-to-day drift (7.3 s to 11.8 s for the same code). The fit rule came from 48 hand-written probe decisions (45 right; misses: Minesweeper, Wordle, a severity rubric) and one worked counter-example, E-CommerceBench, whose score depends on generated prices and negotiation text.
+Repo: github.com/ThinkFlowLab/system1-agents. Which public benchmarks with enumerated action spaces would you want in the series next?
+7. Newsletters
+Targets from the outlet list: AlphaSignal (editorial@alphasignal.ai), TLDR AI, Ben's Bites, The Rundown, Changelog News (changelog.com/news/submit), Console.dev (hello@console.dev), Latent Space (pitch form), ThursdAI (@altryne by X DM), dev.to #showdev (cross-post, opener in section 10).
+Paste-ready blurb (three sentences, for the editor to drop in):
+system1-agents lets an existing agent hand every pick-from-a-list step to a System 1 decision model (TypeSafe Jev, Laya or Cua-S1 Nano) and keep its LLM for planning and the final answer. On seven scenarios with only the model in the slot changed, it ran up to 6× faster and 25× cheaper at the same score; on a WebVoyager browser task it took 35.7 s and $0.09 against 138.7 s and $1.49 for Claude Fable 5.1 in the same agent, with the same recipe as the answer. Claude Code and Codex call it after npx skills add ThinkFlowLab/system1-agents.
+Pitch email:
+Subject: system1-agents: a System 1 decision model for an agent's selection steps, up to 6× faster at the same score
+Hi [NAME],
+system1-agents (ThinkFlowLab) went public this week. It lets an existing agent hand every step that is a pick from a list to a System 1 decision model, TypeSafe Jev or the open-weight Laya and Cua-S1 Nano, and keep its LLM for planning, arithmetic and the final answer.
+Measured with only the model in the slot changed: a WebVoyager Allrecipes task 35.7 s and $0.09 against 138.7 s and $1.49 for Claude Fable 5.1 in the same agent, the same recipe on both; Blackjack 2.3 s against 14.7 s per hand; a 30-ticket router 12.7 s against 65.3 s at 30 of 30 on both. Over 150 moves of 2048 the LLM spends $0.31 to Jev's $0.003. Seven side-by-side replays are in the README.
+Claude Code and Codex call it after npx skills add ThinkFlowLab/system1-agents. A paste-ready blurb is below the signature.
+Repo: https://github.com/ThinkFlowLab/system1-agents Numbers with run records: https://github.com/ThinkFlowLab/system1-agents/blob/main/docs/benchmarks.md
+[NAME], ThinkFlowLab
+ThursdAI DM (X, two sentences):
+Hi Alex, we open-sourced system1-agents this week: a System 1 decision model (Jev, Laya, Cua-S1 Nano) in the model slot of a tool-using agent, measured against the LLM on the same tools and seeds, up to 6× faster at the same score. Replays and run records: github.com/ThinkFlowLab/system1-agents. Happy to demo the ticket router live in 90 seconds.
+8. Press and media
+Targets: The New Stack, InfoQ, VentureBeat, MarkTechPost, 机器之心 and 量子位 (their 寻求报道 forms). The pitch goes in the email body; the backgrounder goes as an attachment or a link.
+Pitch email:
+Subject: Two weeks after TypeSafe launched Jev as a System One model, an open-source agent harness measures it against an LLM
+Hi [NAME],
+TypeSafe launched Jev on September 15 under the name System One model. Laya and Cua-S1 Nano are on Hugging Face. system1-agents, public this week from ThinkFlowLab, puts all three in the model slot of a tool-using agent and measures each against an LLM inside the same agent, on the same tools and seeds.
+The result on seven scenarios: up to 6× faster and 25× cheaper, at the same score on five of the seven and one win each on the other two. On a WebVoyager browser task the agent took 35.7 s and $0.09 with the decision model against 138.7 s and $1.49 with Claude Fable 5.1. Both found the same recipe. The decision model takes the steps that are a pick from a list; the LLM keeps planning, arithmetic and the final answer. Claude Code and Codex call it after one install line.
+The backgrounder with the full table, the replays and a quote is attached. I can provide a live demo of the ticket router and the raw run records.
+[NAME], ThinkFlowLab, [EMAIL]
+Backgrounder (one page):
+system1-agents: a System 1 decision model for an agent's selection steps
+What it is. An open-source repository (github.com/ThinkFlowLab/system1-agents) that puts a System 1 decision model in the model slot of a tool-using agent. On every step that is a pick from a list, the decision model gets the state and the enumerated options and returns one option with a probability per option and a confidence. The LLM stays in the same agent for planning, arithmetic, typed values and the final answer.
+Why now. TypeSafe launched Jev on September 15, 2026 under the name System One model. Laya and Cua-S1 Nano are on Hugging Face and run in process. Every step of a tool-using agent is one LLM turn, with a cost that grows with the transcript.
+What was measured. Seven scenarios, the decision model against an LLM in the same agent with the same tools and seeds; one episode each, the browser row the median of three runs per side:
+Browser use, WebVoyager's Allrecipes task on the live site, Claude Fable 5.1 as the LLM: 35.7 s against 138.7 s, $0.09 against $1.49, the same recipe on both.
+Ticket router, 30 support tickets to five queues: 12.7 s against 65.3 s, 30 of 30 on both.
+Computer use, the Windows Calculator: 17.2 s against 30.1 s, both solved.
+Robotics, an ALFWorld household task: 7.4 s against 25.7 s, both solved.
+2048, 20 moves: 27.1 s against 68.5 s, the LLM ahead 80 to 64.
+Millionaire quiz: 15.3 s against 21.6 s, $1,000 for the decision model against $0.
+Blackjack, one hand: 2.3 s against 14.7 s, $0.000021 against $0.000531, both won.
+Over 150 moves of 2048 the decision model spent $0.003 and the LLM $0.31. Over 100 Blackjack hands both played the identical basic strategy at 0.6 s against 3.0 s per hand. Every run's record is in docs/benchmarks.md.
+What it does not do. Steps that need deduction or arithmetic stay with the LLM; in probes the decision model answered 45 of 48 single-step decisions; the misses were Minesweeper, Wordle and a severity rubric.
+Availability. Nine agents (browser use, computer use, a ticket router, ALFWorld, three games, an injection-guard rail), a skill for Claude Code, Codex and Cursor (npx skills add ThinkFlowLab/system1-agents), a Claude Code plugin and an MCP server. Cua-S1 Nano runs without any API key.
+Quote, [NAME], ThinkFlowLab: "Most steps of a tool-using agent are a pick from a list the environment already wrote. We hand those to a decision model and keep the LLM for the steps that need it."
+Contact: [EMAIL]. Replays: the seven GIFs under docs/assets/demos/ in the repository.
+机器之心 / 量子位 投稿（寻求报道）:
+标题：system1-agents 开源：让现有智能体用上 System 1 决策模型，同样得分下最高快 6 倍
+system1-agents（ThinkFlowLab，本周开源）把 System 1 决策模型（TypeSafe Jev，以及 Hugging Face 上的 Laya 和 Cua-S1 Nano）放进工具型智能体的模型槽位。凡是"从环境已列出的选项中选一个"的步骤都交给决策模型；规划、算术和最终答案 仍由 LLM 完成。七个场景、同一智能体、同样的工具和随机种子，只换槽位里的模型：浏览器任务（WebVoyager 的 Allrecipes 任务，槽位里换成 Claude Fable 5.1 作对照）35.7 秒、$0.09 对 138.7 秒、$1.49，答案为同一食谱；Blackjack 每手 2.3 秒对 14.7 秒，成本 $0.000021 对 $0.000531；30 张工单路由 12.7 秒对 65.3 秒，双方 30/30；ALFWorld 7.4 秒对 25.7 秒。七个场景中五个得分相同，其余两个各胜一场。Claude Code、Codex 一行命令即可调用：npx skills add ThinkFlowLab/system1-agents。仓库： github.com/ThinkFlowLab/system1-agents，基准数据与运行记录见 docs/benchmarks.md。可提供复现步骤和对比回放 GIF。
+9. Comments, one per register
+HN and technical threads on agent cost or latency:
+Disclosure: I maintain system1-agents. We put a decision model (Jev) in the model slot of a tool-using agent and ran it against the LLM on the same tools and seeds. The decision model takes every step that is a pick from a list. On a 30-ticket router it took 12.7 s against 65.3 s at 30 of 30 on both; over 150 moves of 2048 it spent $0.003 against $0.31 with the LLM scoring 7% higher. Run records: github.com/ThinkFlowLab/system1-agents/blob/main/docs/benchmarks.md
+X replies under Browser Use or Cua posts (under 280 characters):
+We put Jev in the model slot of a browser agent and ran it against Claude Fable 5.1 on WebVoyager's Allrecipes task: 35.7 s and $0.09 vs 138.7 s and $1.49, same recipe. Replays and run records: github.com/ThinkFlowLab/system1-agents
+X replies under Jev or TypeSafe posts (under 280 characters):
+We put Jev in the model slot of a tool-using agent and ran it against the LLM on the same tools and seeds: 30 tickets routed in 12.7 s vs 65.3 s at 30/30 on both. Replays and run records: github.com/ThinkFlowLab/system1-agents
+LinkedIn comments under posts about agent cost:
+We measured this on seven scenarios with the same agent and tools and only the model in the slot changed: a System 1 decision model routed 30 support tickets in 12.7 s against 65.3 s for the LLM, at 30 of 30 on both. The write-up with every run record: [ARTICLE URL]
+Discord showcase message (Browser Use, Anthropic Claude Developers, OpenRouter, TypeSafe):
+system1-agents: a System 1 decision model (Jev, Laya, Cua-S1 Nano) in the model slot of a tool-using agent, with a Google Flights search over Playwright MCP, computer use through Cua Driver, a ticket router and four games. Same agent, tools and seeds against the LLM: Allrecipes 35.7 s vs 138.7 s at 16× lower cost, Blackjack 2.3 s vs 14.7 s per hand. Claude Code skill, plugin and MCP server. github.com/ThinkFlowLab/system1-agents [Blackjack GIF]
+awesome-list PR line:
+system1-agents: a System 1 decision model (Jev, Laya, Cua-S1 Nano) in the model slot of a tool-using agent; browser use, computer use, games and a rail; Claude Code skill, plugin and MCP server.
+LangChain forum "Talking Shop" reply (their Jev thread asks for projects):
+We built one: system1-agents puts Jev in the model slot of a tool-using agent for every step that is a pick from a list and keeps the LLM for planning and the final answer. A 30-ticket router ran 12.7 s against 65.3 s at 30 of 30 on both. The builder skill probes a task with 8 to 12 decisions before it writes code and declines tasks that need deduction. github.com/ThinkFlowLab/system1-agents
+10. dev.to opener (the tutorial register; the article body follows)
+Route a support ticket to one of five queues from the command line, with a probability per queue, in under a second:
+uv run s1a decide \
+  --state '{"title": "Charged twice", "description": "I was charged twice for order 4411 and I want the second charge refunded.", "order_status": "delivered"}' \
+  --option logistics="delivery tracking, delivery progress or delivery problems" \
+  --option payment="charges, failed payments or duplicate payments" \
+  --option returns="requests for returns, exchanges or refunds" \
+  --option account="login or account access problems" \
+  --option human="insufficient information, several independent requests, or an explicit request for a human" \
+  --rules "Route the current explicit request to exactly one queue. A payment problem with an explicit request for a refund belongs to returns. If no unique queue fits, choose human."
+
+{"choice": "returns", "probabilities": {"payment": 0.09, "logistics": 0.0, "account": 0.0, "returns": 0.91, "human": 0.0}, "confidence": 0.88, "ms": 970}
+No LLM ran. The answer came from a System 1 decision model. It takes the state and the enumerated options and returns a probability per option in one forward pass. The rest of this post shows what happens when that model sits in the model slot of a full agent and the LLM keeps only the steps that need it.
+11. Schedule
+Prep, Wed 2026-09-23 to Mon 2026-09-28:
+Fill the README placeholder with the LLM behind the six non-browser rows of the table. It is HN's first question.
+Set the GitHub social preview (web UI): the 2×2 of replay stills or the table.
+Convert two replays to MP4 for LinkedIn and X: ffmpeg -i docs/assets/demos/blackjack-comparison-2x.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" blackjack.mp4
+Render the seven-row table as a PNG for X post 3 (LinkedIn articles render no tables either).
+Automatic listings: OpenRouter app attribution headers, mcp-publisher to the MCP Registry, the Claude Code marketplace submission after claude plugin validate. skills.sh indexes on the first npx skills add.
+Re-point the local checkout's origin to ThinkFlowLab (still agtai as of today).
+Check the flag name on launch day: public main says --slot, the working tree renames it to --model. The kit names no flag. The README quickstart shows the flag and needs the current name.
+Launch, Tue 2026-09-29, 08:30 ET (21:30 JST):
+Show HN, then the first comment.
+X thread; the HN link as a reply to post 1.
+LinkedIn article, then the feed post with the repo in the first comment.
+r/ClaudeCode and r/AI_Agents.
+Discords the same hour: Browser Use showcase, Anthropic Claude Developers, OpenRouter, TypeSafe. LangChain forum reply. madewithjev.com submission. PRs to yibie/awesome-jev and cobanov/awesome-jev.
+Newsletter emails, press emails and amplifier DMs (@CompleteSkeptic, @typesafeai, @simonw, @swyx, @gregpr07, @trycua, @dbreunig, @HamelHusain).
+Day 2, Wed 2026-09-30: r/mcp, r/MachineLearning, r/ClaudeAI after the modmail, dev.to cross-post, the 机器之心 and 量子位 forms, and a Chinese post (掘金 or 知乎).
+Week 2, Tue 2026-10-06, 00:01 PT: Product Hunt, with HN and Reddit feedback folded into the maker comment. r/LocalLLaMA once the Laya slot has numbers.
+From 2026-10-07: the awesome lists gated on 14 days or 100 stars (awesome-claude-code, awesome-claude-skills, awesome-mcp-servers, awesome-ai-agents, awesome-computer-use). AI Engineer Code Summit lightning-talk CFP closes 2026-10-11.
