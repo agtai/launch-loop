@@ -1,0 +1,12 @@
+export type ContentLanguage = 'zh' | 'en';
+export type ContentKind = 'linkedin_article' | 'linkedin_post';
+export type ContentBlock = {id:string; type:'paragraph'|'heading'|'list'|'quote'; text:string};
+export type ContentDocument = {id:string; language:ContentLanguage; kind:ContentKind; title:string; blocks:ContentBlock[]; postingNote:string};
+export type ContentSource = {id:string; label:string; url:string; checkedAt:string; notes:string};
+export type ContentAsset = {id:string; label:string; url:string; caption:string};
+export type ContentComment = {id:string; documentId:string; blockId:string|null; text:string; resolved:boolean};
+export type ContentDraft = {name:string; brief:string; skillVersion:string; documents:ContentDocument[]; sources:ContentSource[]; assets:ContentAsset[]; comments:ContentComment[]};
+export type ContentVersion = {id:string; number:number; createdAt:string; note:string; content:ContentDraft};
+export type ContentApproval = {versionId:string; approvedAt:string};
+export type ContentProject = {id:string; revision:number; createdAt:string; updatedAt:string; currentVersionId:string; approvedVersionId:string|null; versions:ContentVersion[]; approvals:ContentApproval[]};
+export type ContentSummary = {id:string; name:string; revision:number; updatedAt:string; currentVersionId:string; approvedVersionId:string|null; versionNumber:number};

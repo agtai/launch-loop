@@ -2,6 +2,8 @@
 
 核验日期：2026-09-23。依据官方帮助、开发文档和用户提供的公开文章；没有连接账号、申请权限、试发内容或调用有凭据的 API。
 
+后续讨论已确定反馈分析暂留空，本文相关规划仅保留作历史参考。五个平台的最新发布接入核查与工作台调整建议见 [发布接入与工作台调整记录](发布接入与工作台调整记录.md)，最终方案仍待确定及账号验证。
+
 ## 首先区分两种产出
 
 用户的 [首篇文章](https://www.linkedin.com/pulse/give-your-agents-jev-like-system-1-decision-model-kai-yuan-phd-ymhgc) 是 LinkedIn 原生长文（Pulse URL），有封面、标题和带小标题的正文。它不是在 feed 中发一段文案并附上外部链接。工作台应保留 `linkedin_article` 与 `linkedin_post` 两种目标，不能互相冒充。
