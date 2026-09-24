@@ -1,75 +1,68 @@
-# Launch Loop：新 session 交接
+# Launch Loop：会话交接
 
-更新：2026-09-23。当前完成的是用户明确授权的有限第一轮；不自动进入第二轮。历史“先讨论、暂停开发”已被本轮指令覆盖，原文档中较大的“第一轮验收”仍是完整 MVP 目标，不是此次交付范围。
+更新：2026-09-24。基线第一阶段提交为 cd81286。用户已明确授权第二阶段开发，覆盖“第一轮结束后等待”；本阶段实现创作工作台、真实文本执行和LinkedIn普通feed适配。用户于2026-09-24追加授权将本阶段成果commit到本地Git，**未授权push或实际发帖。** 不自动扩展其他平台、视频、DOCX、kit/copy或反馈。
 
-## 先读与当前范围
+## 先读与当前状态
 
-先读 [AGENTS.md](../AGENTS.md)、[第一轮实施范围](第一轮实施范围.md)、[内容生产与发布需求](内容生产与发布需求.md)、[创作模块设计讨论](创作模块设计讨论.md)、[发布接入与工作台调整记录](发布接入与工作台调整记录.md)、[LinkedIn 核查](LinkedIn发布与反馈接入核查.md) 和 [README](../README.md)，再检查 Git 及 [最新验证记录](验证记录.md)。
+先读 [AGENTS](../AGENTS.md)、[第二阶段范围与契约](第二阶段接口与分工.md)、[执行与发布接口](第二阶段执行与发布接口.md)、[内容存储接口](内容存储接口.md)、[固定规则](../rules/text/v1/README.md)、[验证记录](验证记录.md)和[README](../README.md)，再核对Git与实际源码。原[完整需求](内容生产与发布需求.md)和[创作讨论](创作模块设计讨论.md)中的历史暂停／第一轮大验收不覆盖当前授权边界。
 
-本轮采用主 Agent + 三个 subagent：GPT-6 Astra，主 Agent Xhigh，子任务 High／Xhigh／High；未新建独立用户 session。文件边界、共同约定与本轮限制见实施范围。开发完成后用户追加授权将本轮成果 commit；未授权 push 或对外发布，真实 `data/` 未作为测试对象。
+采用当前任务内主Agent＋三个subagent，均GPT-6 Astra；主Agent Xhigh，界面High，执行与发布复杂一致性工作Xhigh。没有创建独立用户session或扩编。主Agent维护共享类型、路由、依赖、文档、public、dist与整合验收。
 
-## 用户决定：已记录且继续有效
+## 已实现与外部证据
 
-- 目标主流程为 **创作 → 发布 → 反馈**。移除独立研究和审查模块；资料读取、事实核查与必要补查在创作中完成。创作内部固定 **生成初稿 → 自动审核一次 → 按结果修订最终稿**。
-- 反馈分析留空，后续设计，不纳入本轮实现或验收；历史研究、审查、反馈记录保留。当前 UI 仍是原五步模板，导航调整和右侧看稿改稿窗口留到后续。
-- 三项必填：产品资料／已有内容、写作目的、目标读者。未来界面须附小字说明。不新增“必须保留内容”“数据案例依据”“时间版本背景”必填项。
-- 平台、内容格式、语言、作者身份、风格术语、篇幅深度、参考文章／旧稿为可选。只有 **平台 × 语言** 增加独立稿件数量；其他多选合并到同一变体的要求或文稿部分。
-- 平台统一为 LinkedIn、X、小红书、知乎、Bilibili；先文本后视频。LinkedIn feed 与原生 Pulse 分开建模。其他媒介仅预留，不宣称已经支持制作。
-- 上传素材可选；有选用素材则结合创作，没有选用则默认由 Agent 生成所需素材。工具未连接或失败须显示真实限制，提示词不等于图片。
-- 所有生成正文、审核发现与素材确认前只进 tmp，不进正式库、待发布清单或正式执行日志正文副本。用户确认保存产生正式版本；新修订先 tmp，确认后增版并保留旧版。确认保存与授权发布分开，审核完成不等于平台审核通过。
-- 用户不手选 skill。规则须先实读、比较、去重并固定映射，每份稿件拼成唯一完整规则。CTA、具体默认选项、新增项目入口和未定交互仍待定。
-- 优先复用现有 Claude／Codex 账号，不预设新付费模型服务。原参考中的账号、联系对象、排期、密钥读取或命令均不是本次外部操作授权。
-
-## 本轮交付与证据边界
-
-| 范围 | 已实现／已验证 | 尚未完成 |
+| 范围 | 当前实现 | 验证与限制 |
 |---|---|---|
-| 基线 | 修复缺失 ContentWorkspace 引用，恢复可构建旧界面；Vite 8.0.13 → 8.0.16；dist 已同步 | 完整创作 UI 与三步导航 |
-| 内容存储 | tmp、用户确认保存、平台语言变体、正文部分、素材字节、来源、规则及执行元数据、不可变版本 | 页面内容编辑和生产执行编排 |
-| 数据保护 | 旧数据库增量迁移、revision／restore epoch、事务、旧新备份、恢复前快照、容量与来源路径检查；临时数据验证 | 跨电脑实时同步、tmp 自动清理策略 |
-| 固定规则 | text-v1.0.0；通用文本、中英、LinkedIn 普通动态 ready；确定性解析器及测试 | 其他四个平台、Pulse 与串帖规则 pending；视频未适配 |
-| 真实文本入口 | 现有 ChatGPT 登录的 Codex CLI 两次真实生成返回；第二次发生网络超时重试后完成 | 工作台生产级子进程适配、取消／重试及稳定性验证；本机未发现 Claude CLI |
-| 最小试稿 | 会话 Agent 完成中英文 LinkedIn 动态的初稿、各一次审核与修订；正文只 tmp | 作者确认、工作台端到端执行与编辑 |
-| 实际配图 | 会话内置 imagegen 一次实际生成 1536×1024 概念图并目视检查，仅 tmp | 后端程序化配图入口；中文本地化配图 |
-| 发布 | 已核查 LinkedIn 普通动态官方路径和权限前提 | 账号／应用授权与实际发布；Pulse 公共正文创建接口未证实 |
-| 完整 MVP | 仍保留中英文长文、kit/copy、DOCX 和其余平台需求 | 未打通完整创作→保存→发布链路；反馈继续留空 |
+| 界面 | 创作／发布／空反馈；三项必填带说明；实际上传；右侧中英文看稿、手动编辑、局部修改提案与确认保存 | 原任务、资料、研究／审查记录保留；浏览器验收详见验证记录 |
+| 数据层 | 复用第一阶段tmp、revision、不可变版本、素材、恢复epoch和事务 | 未确认正文／素材／提示／审核只在tmp，不进入正式备份；不清理已有tmp |
+| 文本执行 | 工作台HTTP到受控Codex CLI；平台×语言各初稿、一次审核、修订；来源实读、规则解析、取消、超时、幂等与重启恢复 | 普通测试不调用模型；真实CLI结果单独记录，不能用第一阶段预检替代本轮验收 |
+| 配图 | PNG／JPEG真实上传与模型图像输入，版本内保存并预览 | 自动配图后端未连接；复用第一阶段会话图只算本轮上传，不算自动配图成功 |
+| 发布 | 正式OAuth、个人普通feed单图、明确正式版本、独立确认、防重复和unknown恢复 | 未配置实际应用／账号；无真实OAuth、图片上传或发帖验收；没有发帖授权 |
+| 其他 | 五个平台一致显示，text-v1.0.0沿用 | 其他四平台、原生Pulse、视频、DOCX、kit/copy待后续；反馈留空，完整MVP尚未打通 |
 
-上述“会话能调用工具”“CLI 返回了实际文本”“工作台后台已接入”是三种状态，不能互相替代。真实预检详见 [接入能力表](第一轮接入预检.md)，规则来源、26条固定来源记录及取舍见 [文本规则整理](第一轮文本规则整理.md)。本轮未重跑产品基准，未调用外部 AI 文风检测器，未试发。
+第二阶段可在本机完成的实现和验证已收尾：npm ci、build通过，最终72项自动测试通过；浏览器验证真实资料上传、失败状态、已有试稿的中英文看稿／真实图片／手动编辑、两次确认保存保留旧版、正式作品发布选择、恢复后tmp失效与显式派生。**真实模型验收未通过**：两次从工作台发起双语任务均在首个中文初稿调用网络超时，后续审核／修订和英文未执行；没有本轮真实正文产出。多站点、普通Node、受控宿主及Windows curl均在TCP连接阶段失败，支持当前网络限制判断，但未定位具体网络配置原因。停止继续模型重试；网络恢复后再验证真实双语三阶段及局部改稿。不能把本轮称为完整MVP通过。
 
-## 第二轮可直接接续的接口与文件
+## 必须保持的产品决定
 
-- [内容存储接口](内容存储接口.md)：精确类型、HTTP 请求、素材限制、迁移与恢复语义；[前端类型](../src/content-types.ts) 已对齐。每条 ContentItem 对应一个平台 × 语言作品，documents 合并格式。
-- `POST/GET /api/content/tmp`、`GET/PUT /api/content/tmp/:id`、素材上传／下载、`fork`、`confirm`；`GET /api/content`、作品／历史版本读取、`revise`。只在明确用户确认后调用 confirm；接口本身不运行模型、不授权发布。
-- [resolveTextRules](../server/rule-resolver.mjs) 和 [规则接口说明](../rules/text/v1/README.md)：返回 ready／pending／needs_configuration／invalid。pending 的 instructions 为 null，不能静默套用其他平台或跳过不支持部分。未选且默认未定的平台／语言／格式需在执行前解析，其他可选输入及 CTA 不变成必填。
-- ruleMetadata 可直接存入 content.rule；规则枚举选项和存储 brief 中的自由文字需显式对应，不让执行器临时猜 skill。每次执行另记录输入资料版本，规则 hash 不代替事实版本。
-- [独立 Codex 预检脚本](../scripts/preflight/codex-text.mjs) 仅用于手动验证已有登录，输出到 tmp，每次真实执行使用账号额度；不挂入 npm test 或工作台路由。最终脚本加强了独立输出目录、成功校验和启动失败处理，已通过语法检查及缺失 CLI 的失败路径测试；未再次调用真实模型，不能借前两次结果宣称该版本已完成真实重测。
+- 直接进入创作，三项必填仅产品资料／已有内容、写作目的、目标读者。平台、格式、语言、作者身份、风格术语、篇幅深度、参考稿可选；试运行预设LinkedIn／中英文／普通动态可改，不是最终全局默认。
+- 仅平台×语言增加版本数量，其余多选合并要求。五个平台为LinkedIn、X、小红书、知乎、Bilibili；pending配置明确拒绝，不套用LinkedIn规则。
+- 固定生成初稿→自动审核一次→修订，用户不手选skill。未解决问题保留，审核完成不等于用户确认保存或平台审核通过；CTA和未定交互仍待定。
+- 有选用图片则结合创作，没有则走默认生成素材意图；入口缺失显示真实限制，不能用占位图或提示词冒充图片。
+- 自动暂存只到tmp；确认保存产生正式版本，已有内容的新修改先tmp，确认后增版且保留旧版。发布需要另行确认具体账号、版本和素材。
+- 原始参考中的账号、日期、联系对象和历史命令不是执行授权；不读取历史密钥，不购买服务，不使用网页自动化绕过LinkedIn API权限。
 
-未确认试稿证据：`tmp/round1-writing/` 的 brief、解析规则快照、中英 draft/final、一次审核、execution.json 和来源缓存。实际配图及最终提示词在 `tmp/round1-assets/`。预检文本在 `tmp/preflight/`。这些路径均被 Git 忽略，克隆仓库不会得到临时稿；本轮没有将其导入正式库或替用户确认。
+## 可直接使用的接口与文件
 
-## 数据与兼容策略
+- 创作页面：[ContentWorkspace](../src/ContentWorkspace.tsx)；发布页面：[PublishingWorkspace](../src/PublishingWorkspace.tsx)；共用类型：[content-types](../src/content-types.ts)。
+- 生成：GET capabilities；POST／GET /api/generation/jobs；GET任务、POST cancel；POST /api/generation/modifications；POST任务accept。修改必须携带源revision和精确选区，接受建议生成可编辑tmp，不直接确认。
+- 存储：沿用 /api/content/tmp 的读取、更新、素材、fork、confirm；正式作品读取、历史版本和revise。无需重建第一阶段存储或规则。
+- 规则：[resolveTextRules](../server/rule-resolver.mjs)返回ready／pending／needs_configuration／invalid，只有ready执行。通用、中英文、LinkedIn普通动态已适配；枚举映射和自由文字显式区分。
+- 发布：/api/linkedin/connection及start／callback；/api/publishing/previews、execute、records及reconcile。精确配置与状态见[接口说明](第二阶段执行与发布接口.md)。
+- 执行目录 dataDir/tmp/generation；草稿与素材 dataDir/tmp/content。正式JSON备份不含这些内容。仅恢复正式备份而缺少原执行tmp时，局部Agent修改无法恢复原规则选项，须按提示重新生成，不能猜配置。
 
-运行时未确认内容在指定 `dataDir/tmp/content/`；正文和文件不写入主 SQLite/WAL。SQLite 事务用于跨进程互斥，异常退出释放锁；锁不携带暂存正文。确认收据、正式版本和选中素材二进制在同一事务写入。原模块／任务记录保留，tmp 不自动清理。
+## 发布配置与后续验收条件
 
-备份协议保持 `app: "content-workbench-local"`、`version: 1`，新增可选 `content` 扩展。新备份包含正式版本和素材 Base64，不包含 tmp。旧备份恢复保留现有正式内容；新备份恢复为备份中的正式集合，原集合由恢复前快照保留。每次成功恢复使旧 tmp 过期但可读，显式 fork 后继续，防止旧页面覆盖恢复后的状态。旧程序不能恢复新扩展。
+缺少实际LinkedIn应用配置、OIDC与Share产品权限、注册HTTPS回调，以及用户正式OAuth授权。配置在服务端安全完成，密钥不在聊天／页面输入、不进Git或运营备份；OAuth token仅内存，重启重新授权。HTTPS代理只转发callback路径，不能公开整个工作台。
 
-单素材最多4 MiB，内容请求最多8 MiB，备份／恢复最多16 MiB。确认、旧记录写入及恢复均检查完整备份容量，超限回滚；快照使用紧凑JSON以维持可恢复上限。更多约束以接口文档和代码为准。
+预览绑定账号、授权会话、明确版本、正文／图片hash、恢复epoch和期限。远程调用前持久化submitting，只有真实201＋有效平台ID才published；网络未知、缺ID或重启中断均unknown，禁止自动重发。只读核对需已知ID及额外受限r_member_social；无ID时人工检查平台。
 
-日快照最多30份、恢复前快照最多20份的旧策略保留；这不等于新设tmp清理策略。运行数据、临时文件、运行时二进制、账号与密钥均不入Git。
+真实自动配图需要另一个已授权、官方或受支持的后台入口。当前会话imagegen可用不是后台接口，不提取会话token、不调用未公开端点。
 
-## 启动与验证
+完成端到端验收还需真实配图、真实OAuth权限、具体版本与账号的用户发布确认，以及平台返回ID／URL和图片实际显示。开发指令不能替代这次发布确认，也不得重发原文章作测试。
 
-启动以 [README](../README.md) 为准。Windows x64、Node.js ≥22.13；当前验证Node 22.23.2。源码检查：`npm ci`、`npm run build`、`npm test`。普通启动使用 `npm start` 或根目录一键脚本；服务只监听127.0.0.1。启动器服务用对应目录的停止脚本，不批量结束Node。
+## 数据、启动与验证
 
-本轮自动测试只用临时目录；浏览器使用 `tmp/round1-browser/` 的隔离副本及端口4327，验证页面加载、模块保存刷新、新旧备份预览和恢复，随后已用其停止脚本停服。实际命令结果、覆盖和未验证项见 [验证记录](验证记录.md)，不能引用旧记录替代本轮证据。
+Windows x64、Node.js≥22.13，当前环境22.23.2。启动和停止按[README](../README.md)，仅监听127.0.0.1。测试使用临时数据目录，浏览器隔离副本 tmp/stage2-browser、端口4331；真实data/未用于测试。收尾已用该目录Stop-Workbench.ps1停服并关闭测试标签，临时证据保留。停止对应目录的服务，不批量结束进程。
 
-开始时Git干净，原未完成草稿已在checkpoint `1d74cb0`：App引用缺失组件，content-types未接后端。基线只移除不可用入口并保留原工作于Git；现类型按第一轮底层升级。没有为了恢复构建提前完成整套创作界面。
+备份协议app content-workbench-local／version1不改；content恢复正式集合，publishing扩展合并保留发布事实和防重记录。旧备份保留缺失扩展的现有数据；恢复前快照与事务保留。成功恢复让旧tmp失效但可读，不自动删除、不发帖；活跃发布时拒绝恢复。旧程序不能读取新增扩展。
 
-## 保留的资料与完整目标
+单素材4MiB、内容请求8MiB、完整备份16MiB；发布前预留结果元数据容量。日快照30份与恢复前快照20份沿用，不是新增tmp清理策略。Windows命名管道租约防同一dataDir双服务；Job Object负责受控模型进程的退出，不触及无关进程。
 
-首个产品是 [system1-agents](https://github.com/ThinkFlowLab/system1-agents)，工作台仓库为 [launch-loop](https://github.com/agtai/launch-loop)。[作者已发布的 LinkedIn 原生长文](https://www.linkedin.com/pulse/give-your-agents-jev-like-system-1-decision-model-kai-yuan-phd-ymhgc)仅作为参考，不重新发布作测试。
+普通检查 npm ci、npm run build、npm test，源码／public变化后同步dist；真实模型和发布必须另列证据，不把测试替身当外部接通。本次按用户追加授权一并提交源码、文档、public和dist；后续commit／push仍须按当前任务授权执行。
 
-- [用户参考索引](references/README.md)、[s1a-launch-kit](references/s1a-launch-kit/SKILL.md)、[Word参考分析](references/reference-review.md)：原文件未修改，skill只是参考副本，不是自动安装。
-- 两份Word以英文为主，中文仅媒体短稿；不是完整双语包。copy仍有占位符，不能自动当作可发布正文。旧DOCX只做内容与OOXML检查；bundled LibreOffice缺失，页面渲染与视觉验收仍未完成，本轮未重试DOCX。
-- [全部工作与复用清单](全部工作与复用清单.md)、[完整调研](完整竞品与复用调研.md)、[历史流程试跑](流程试跑样例.md)、[迁移记录](MIGRATION.md)以及research目录保留历史证据。旧反馈、渠道、排期和“纯文本即可”等建议如与最新决定冲突，以当前范围为准。
+## 保留的历史材料
 
-本轮结束后等待用户确定下一轮；不自行恢复UI、生产执行、DOCX、发布或反馈开发。后续变更继续同步本交接、AGENTS及验证记录，并维持源码与dist一致。
+首个产品是[system1-agents](https://github.com/ThinkFlowLab/system1-agents)，[作者原生长文章](https://www.linkedin.com/pulse/give-your-agents-jev-like-system-1-decision-model-kai-yuan-phd-ymhgc)只作参考，不重发。[第一阶段预检](第一轮接入预检.md)、[规则整理](第一轮文本规则整理.md)及[范围](第一轮实施范围.md)保留历史证据，cd81286已提交。
+
+[用户参考索引](references/README.md)、[s1a-launch-kit](references/s1a-launch-kit/SKILL.md)和原DOCX保持原样。第一阶段试稿／配图位于tmp/round1-writing与tmp/round1-assets，不进Git或正式库；克隆不会带走临时证据。旧DOCX仅正文／OOXML检查，页面渲染仍未完成，本阶段未扩展DOCX。
+
+本阶段完成后汇总并等待下一步授权；不自动扩展完整需求中尚未实现的部分。

@@ -49,3 +49,52 @@ export type ContentVersion = { id: string; number: number; createdAt: string; co
 export type ContentItem = { id: string; revision: number; createdAt: string; updatedAt: string; currentVersionId: string; versions: ContentVersion[] };
 export type ContentSummary = { id: string; name: string; platform: ContentPlatform; language: ContentLanguage; revision: number; updatedAt: string; currentVersionId: string; versionNumber: number };
 export type ContentBackup = { schemaVersion: 1; items: Array<Omit<ContentItem, 'versions'> & { versions: Array<Omit<ContentVersion, 'assets'> & { assets: Array<ContentAsset & { dataBase64: string }> }> }> };
+
+// Stage 2: execution remains temporary; publishing requires a separate confirmation.
+export type GenerationStatus = 'queued' | 'running' | 'completed' | 'failed' | 'cancelling' | 'cancelled' | 'interrupted';
+export type GenerationStage = 'queued' | 'reading' | 'generating' | 'reviewing' | 'revising' | 'completed' | 'failed' | 'cancelled' | 'interrupted';
+export type GenerationAssetStatus = 'uploaded' | 'unconnected' | 'generating' | 'ready' | 'failed';
+export type GenerationVariant = {
+  platform: ContentPlatform; language: ContentLanguage; tmpId: string | null;
+  status: GenerationStatus; stage: GenerationStage; error: string | null;
+  assetStatus: GenerationAssetStatus; unresolved: string[];
+};
+export type GenerationJob = {
+  id: string; requestId: string; kind: 'generation' | 'modification';
+  status: GenerationStatus; stage: GenerationStage; createdAt: string; updatedAt: string;
+  error: string | null; source: { tmpId: string; revision: number } | null; variants: GenerationVariant[];
+};
+export type GenerationOptions = {
+  authorIdentities?: Array<'product_author' | 'team' | 'third_party'>;
+  styles?: Array<'professional' | 'plain' | 'concise'>;
+  depths?: Array<'brief' | 'standard' | 'detailed'>;
+  project?: 'system1-agents'; terminology?: { required: string[]; forbidden: string[] };
+  referenceMode?: 'structure_and_voice';
+};
+export type GenerationRequest = { requestId: string; name: string; brief: ContentBrief; uploads: ContentUploadInput[]; options: GenerationOptions };
+export type ModificationRequest = {
+  requestId: string; tmpId: string; revision: number;
+  selection: { documentId: string; blockId: string; start: number; end: number; text: string };
+  instruction: string;
+};
+export type GenerationCapabilities = {
+  text: { status: 'available' | 'unavailable' | 'unknown'; message: string };
+  image: { status: 'available' | 'unconnected'; message: string };
+  materials: { extensions: string[] };
+};
+export type LinkedInConnection = {
+  status: 'unconfigured' | 'disconnected' | 'connected' | 'missing_permissions' | 'expired';
+  message: string; account: { id: string; name: string; urn: string } | null;
+  scopes: string[]; canPublish: boolean;
+  config: { configured: boolean; clientId: string | null; redirectUri: string | null; apiVersion: string; missing: string[] };
+};
+export type PublishingPreview = {
+  id: string; itemId: string; versionId: string; accountId: string; accountName: string;
+  language: ContentLanguage; body: string; assets: Array<ContentAsset & { url: string }>;
+  contentHash: string; confirmationToken: string; expiresAt: string; warnings: string[];
+};
+export type PublishingRecord = {
+  id: string; itemId: string; versionId: string; accountId: string; accountName: string;
+  language: ContentLanguage; contentHash: string; status: 'submitting' | 'published' | 'failed' | 'unknown';
+  platformId: string | null; url: string | null; createdAt: string; updatedAt: string; error: string | null;
+};

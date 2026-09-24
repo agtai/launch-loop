@@ -18,6 +18,7 @@ async function launcherFixture(t){
   for(const folder of ['server','data-seed','dist','runtime'])await mkdir(path.join(root,folder));
   for(const name of ['Start-Workbench.ps1','Stop-Workbench.ps1'])await cp(path.join(project,name),path.join(root,name));
   await cp(path.join(project,'server'),path.join(root,'server'),{recursive:true});
+  await cp(path.join(project,'rules'),path.join(root,'rules'),{recursive:true});
   await cp(process.execPath,path.join(root,'runtime','node.exe'));
   const modules=['research','creation','review','publishing','feedback'].map(id=>({id,owner:'',status:'待试跑',input:'输入',steps:[],output:'成果',acceptance:'验收',tools:'',notes:'',resultUrl:'',revision:0,updatedAt:null}));
   await writeFile(path.join(root,'data-seed','modules.json'),JSON.stringify(modules));
