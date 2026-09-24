@@ -15,4 +15,24 @@ export const defaults:WorkItem[] = [
   {id:'publishing',owner:'',status:'待补充',input:'已批准版本；已连接的发布账号；渠道与发布时间。',steps:['先选一个发布工具并人工连接账号，核查它支持的目标渠道。','将批准内容放入草稿或排期，首轮由本人确认提交。','打开发布结果检查正文、媒体和链接，保存帖子 URL。'],output:'发布记录：内容版本、渠道、时间、帖子 URL、成功或失败原因。',acceptance:'有真实发布链接；失败时能判断是否已发出，避免重复发布。',tools:'Buffer / Typefully 托管服务，或 Postiz（候选，未连接）',notes:'此页面只管理流程和交接，不会替你发送帖子。平台连接由后续模块接入。',resultUrl:'',revision:0,updatedAt:null},
   {id:'feedback',owner:'',status:'待试跑',input:'帖子 URL、可获得的表现数据、评论原文、GitHub Issues / Discussions。',steps:['先手动导出或粘贴少量数据，保留原文与来源。','区分疑问、试用障碍、功能请求和一般评价；归并重复问题。','整理三个可行动发现，关联下一轮选题或产品待办。'],output:'反馈简报：来源、原话、问题类别、证据、下一步和负责人。',acceptance:'统计表现与用户反馈分开；缺失数据写明未知；结论能回到原文。',tools:'发布工具统计 + GitHub + 通用总结模板；量大后再接 n8n',notes:'先复用导出与人工录入。能发布的接口不一定能读取评论。',resultUrl:'',revision:0,updatedAt:null},
 ];
-export function taskBrief(item:WorkItem,all:WorkItem[]=[]){const index=stages.findIndex(s=>s.id===item.id);const stage=stages[index];const previous=index>0?all.find(i=>i.id===stages[index-1].id):undefined;const upstream=index===0?'本模块从项目资料开始。':`${stages[index-1].title}成果：${previous?.resultUrl||'输入待补充，请提供上游成果链接或直接粘贴材料。'}`;return `任务：${stage.title}\n负责人：${item.owner||'待分配'}\n状态：${item.status}\n\n上游材料\n${upstream}\n\n输入\n${item.input}\n\n操作步骤\n${item.steps.map((s,i)=>`${i+1}. ${s}`).join('\n')}\n\n优先复用\n${item.tools}\n\n交付物\n${item.output}\n\n验收条件\n${item.acceptance}\n\n补充说明\n${item.notes}\n\n成果链接\n${item.resultUrl||'待补充'}\n\n边界：先复用现有 skill 与工具。未接入的外部操作不要假称完成。仅交付本模块，交接时附来源、操作记录与待确认事项。`;}
+/** Translate only untouched seed fields. User records and API values stay canonical. */
+export function moduleForDisplay(item:WorkItem,locale:'zh'|'en'):WorkItem {
+  const seed=moduleSeed.find(value=>value.id===item.id);
+  if(locale==='zh'||!seed)return item;
+  const result={...item,steps:[...item.steps]};
+  for(const field of ['input','output','acceptance','tools','notes'] as const){
+    if(item[field]===seed[field])result[field]=translateBuiltin(seed[field],locale);
+  }
+  if(JSON.stringify(item.steps)===JSON.stringify(seed.steps))result.steps=translateBuiltin(seed.steps,locale);
+  return result;
+}
+type BriefOptions={locale?:'zh'|'en';t?:(source:string,params?:Record<string,string|number>)=>string};
+export function taskBrief(item:WorkItem,all:WorkItem[]=[],options:BriefOptions={}){
+  const locale=options.locale||'zh',tr=options.t||((source:string)=>source);
+  const index=stages.findIndex(s=>s.id===item.id),stage=translateBuiltin(stages[index],locale);
+  const shown=moduleForDisplay(item,locale),previous=index>0?all.find(i=>i.id===stages[index-1].id):undefined;
+  const upstream=index===0?tr('本模块从项目资料开始。'):`${translateBuiltin(stages[index-1].title,locale)} · ${tr('成果链接')}：${previous?.resultUrl||tr('输入待补充，请提供上游成果链接或直接粘贴材料。')}`;
+  return `${tr('任务')}：${stage.title}\n${tr('负责人')}：${item.owner||tr('待分配')}\n${tr('状态')}：${tr(item.status)}\n\n${tr('上游材料')}\n${upstream}\n\n${tr('输入')}\n${shown.input}\n\n${tr('操作步骤')}\n${shown.steps.map((s,i)=>`${i+1}. ${s}`).join('\n')}\n\n${tr('优先复用')}\n${shown.tools}\n\n${tr('交付物')}\n${shown.output}\n\n${tr('验收条件')}\n${shown.acceptance}\n\n${tr('补充说明')}\n${shown.notes}\n\n${tr('成果链接')}\n${item.resultUrl||tr('待补充')}\n\n${tr('边界：先复用现有 skill 与工具。未接入的外部操作不要假称完成。仅交付本模块，交接时附来源、操作记录与待确认事项。')}`;
+}
+import moduleSeed from '../data-seed/modules.json';
+import {translateBuiltin} from './i18n';

@@ -18,7 +18,7 @@ export async function contentApi<T>(path: string, method = 'GET', body?: unknown
 
 export const errorMessage = (error: unknown) => error instanceof Error ? error.message : '请求失败，输入仍保留。';
 export const platformNames = {linkedin: 'LinkedIn', x: 'X', xiaohongshu: '小红书', zhihu: '知乎', bilibili: '哔哩哔哩（Bilibili）'};
-export const languageNames = {zh: '中文', en: 'English'};
+export const languageNames = {zh: '中文', en: '英文'};
 
 export async function uploadInput(file: File): Promise<ContentUploadInput> {
   if (file.size > 4 * 1024 * 1024) throw new Error(`${file.name} 超过单文件 4 MiB 限制。`);
