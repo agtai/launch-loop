@@ -264,5 +264,8 @@
   "无法读取 {value1}": "Could not read {value1}",
   "Launch Loop · 本地内容工作台": "Launch Loop · Local Content Workbench",
   "未知": "Unknown",
-  "界面语言": "Interface language"
+  "界面语言": "Interface language",
+  "OAuth 返回地址必须是本机工作台。": "The OAuth return address must be the local workbench.",
+  "OAuth 界面语言无效。": "The OAuth interface language is invalid.",
+  "下载授权配置指南（中文）": "Download the authorization setup guide (Chinese)"
 }

@@ -30,6 +30,30 @@ test('Windows Job Object host preserves literal stdin and validates completion o
   assert.equal((await runCodex({ directory: folder(t), prompt, schema: {}, testOnlyCommand: command('warning'), timeoutMs: 10000 })).actual, prompt);
   for (const mode of ['missing-event', 'invalid', 'tool']) await assert.rejects(runCodex({ directory: folder(t), prompt, schema: {}, testOnlyCommand: command(mode), timeoutMs: 10000 }));
 });
+test('Windows containment preserves process-scoped proxy environment without serializing it into supervisor configuration', { skip: process.platform !== 'win32' }, async t => {
+  const expected = { HTTP_PROXY: 'http://127.0.0.1:34891', HTTPS_PROXY: 'http://127.0.0.1:34891', NO_PROXY: 'localhost,127.0.0.1,::1' };
+  const previous = Object.fromEntries(Object.keys(expected).map(name => [name, process.env[name]]));
+  Object.assign(process.env, expected);
+  try {
+    const directory = folder(t);
+    const result = await runCodex({
+      directory, prompt: 'SYNTHETIC environment inheritance test; no network or model.', schema: {}, timeoutMs: 10000,
+      testOnlyCommand: {
+        executable: process.execPath,
+        args: ({ outputPath }) => ['--input-type=module', '-e', 'import {writeFileSync} from "node:fs"; const values = Object.fromEntries(["HTTP_PROXY","HTTPS_PROXY","NO_PROXY"].map(name => [name, process.env[name]])); writeFileSync(process.argv[1], JSON.stringify(values)); console.log(JSON.stringify({type:"turn.completed"}));', outputPath],
+      },
+    });
+    assert.deepEqual(result, expected);
+    assert.deepEqual(Object.fromEntries(Object.keys(expected).map(name => [name, process.env[name]])), expected);
+    const configuration = readFileSync(path.join(directory, 'supervisor.json'), 'utf8');
+    assert.equal(Object.hasOwn(JSON.parse(configuration), 'env'), false);
+    assert.ok(!configuration.includes(expected.HTTPS_PROXY));
+  } finally {
+    for (const [name, value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[name]; else process.env[name] = value;
+    }
+  }
+});
 test('cancellation and timeout terminate the owned CLI and its child process', { skip: process.platform !== 'win32' }, async t => {
   for (const mode of ['cancel', 'timeout']) {
     const directory = folder(t), marker = path.join(directory, 'heartbeat'), controller = new AbortController();

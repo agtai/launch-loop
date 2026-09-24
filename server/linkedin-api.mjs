@@ -3,6 +3,15 @@ import { postId, postUrl } from './publishing-store.mjs';
 
 const apiRoot = 'https://api.linkedin.com';
 const knownPostId = value => { try { return postId(value); } catch { return null; } };
+function grantedScopes(value) {
+  // LinkedIn documents this token-response field as URL-encoded. Missing or
+  // malformed values must not inherit the scopes requested by the application.
+  if (typeof value !== 'string' || value.length > 2048) return [];
+  let decoded;
+  try { decoded = decodeURIComponent(value.replace(/\+/g, ' ')); } catch { return []; }
+  const scopes = [...new Set(decoded.split(/[ ,]+/).filter(Boolean))];
+  return scopes.every(scope => /^[a-z][a-z0-9_]{0,99}$/.test(scope)) ? scopes : [];
+}
 export class LinkedInError extends Error {
   constructor(message, status = null) { super(message); this.status = status; }
 }
@@ -43,10 +52,10 @@ export function createLinkedInApi({ fetchImpl = globalThis.fetch, apiVersion, ti
       body: new URLSearchParams({ grant_type: 'authorization_code', code, client_id: clientId, client_secret: clientSecret, redirect_uri: redirectUri }).toString(),
     }, 'OAuth 换取凭证');
     const token = await json(response, 'OAuth 换取凭证');
-    if (typeof token.access_token !== 'string' || !token.access_token || token.access_token.length > 10000 || !Number.isSafeInteger(token.expires_in) || token.expires_in < 1 || token.expires_in > 366 * 86400) throw new LinkedInError('OAuth 凭证或有效期无效。');
+    if (typeof token.access_token !== 'string' || !token.access_token || token.access_token.length > 10000 || /[\r\n\0]/.test(token.access_token) || !Number.isSafeInteger(token.expires_in) || token.expires_in < 1 || token.expires_in > 366 * 86400) throw new LinkedInError('OAuth 凭证或有效期无效。');
     const profile = await json(await request(`${apiRoot}/v2/userinfo`, { headers: { Authorization: `Bearer ${token.access_token}` } }, '读取授权账号'), '读取授权账号');
     if (typeof profile.sub !== 'string' || !/^[-a-zA-Z0-9_]{1,120}$/.test(profile.sub) || typeof profile.name !== 'string' || !profile.name.trim() || profile.name.length > 120) throw new LinkedInError('无法验证授权账号的 ID 与姓名。');
-    const scopes = typeof token.scope === 'string' ? [...new Set(token.scope.split(/[ ,]+/).filter(Boolean))] : [];
+    const scopes = grantedScopes(token.scope);
     return { token: token.access_token, expiresIn: token.expires_in, scopes, account: { id: profile.sub, name: profile.name, urn: `urn:li:person:${profile.sub}` } };
   }
   async function upload({ token, account, asset, bytes }) {

@@ -43,7 +43,7 @@ async function fixture(t, options = {}) {
       if (mode === 'known_unknown') return json({}, 202, { 'x-restli-id': 'urn:li:share:123456789' });
       return json({}, 201, { 'x-restli-id': 'urn:li:share:123456789' });
     }
-    if (url.includes('/rest/posts/')) return json({ id: 'urn:li:share:123456789', author: `urn:li:person:${account}`, lifecycleState: 'PUBLISHED' });
+    if (url.includes('/rest/posts/')) return mode === 'revoked' ? json({ message: 'TOKEN_SENTINEL RAW_REMOTE_BODY' }, 401) : json({ id: 'urn:li:share:123456789', author: `urn:li:person:${account}`, lifecycleState: 'PUBLISHED' });
     throw new Error(`Unexpected test request: ${url}`);
   };
   function open() {
@@ -248,6 +248,18 @@ test('restart converts interrupted submitting to unknown and retains confirmatio
   assert.equal(f.store.list()[0].status, 'unknown'); assert.equal(f.service.execute(confirmation(preview)).status, 'unknown');
   await f.connect(); assert.throws(() => f.service.execute(confirmation(f.preview(saved))), error(409));
   assert.equal(f.calls.filter(call => call.url.includes('/rest/')).length, 0);
+});
+
+test('reconciliation HTTP 401 expires the session while preserving the unknown record and dedupe', async t => {
+  const f = await fixture(t); f.scopes = 'openid profile w_member_social r_member_social'; await f.connect();
+  const saved = f.save(); f.mode = 'known_unknown';
+  f.service.execute(confirmation(f.preview(saved))); const record = await f.settle();
+  assert.equal(record.status, 'unknown');
+  f.mode = 'revoked'; await assert.rejects(f.service.reconcile(record.id), error(502));
+  assert.equal(f.service.connection().status, 'expired'); assert.equal(f.service.connection().canPublish, false);
+  assert.equal(f.store.get(record.id).status, 'unknown');
+  assert.throws(() => f.preview(saved), error(409));
+  assert.equal(f.calls.filter(call => call.url.endsWith('/rest/posts')).length, 1);
 });
 
 test('backup is strict, contains no content or credentials, and old/new restore cannot erase facts or guards', async t => {

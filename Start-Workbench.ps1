@@ -1,7 +1,8 @@
-﻿param([ValidateRange(1024,65535)][int]$Port = 4318, [switch]$NoBrowser)
+﻿param([ValidateRange(1024,65535)][int]$Port = 4318, [switch]$NoBrowser, [switch]$UseSystemProxy)
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath($PSScriptRoot)
 . (Join-Path $root 'server\Launcher.Common.ps1')
+. (Join-Path $root 'server\Launcher.Proxy.ps1')
 $lock = $null
 try {
     $lock = Get-WorkbenchLock $root
@@ -25,6 +26,7 @@ try {
             $listener = Get-NetTCPConnection -LocalAddress '127.0.0.1' -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
             if (-not ($listener | Where-Object { $_.OwningProcess -eq $existing.Id }) -or -not (Test-WorkbenchHealth $Port)) { throw '已记录的工作台进程未正常响应。请运行停止工作台后重试，并查看 data/server-error.log。' }
             Write-Host ('工作台已在运行，继续使用：' + $url)
+            if ($UseSystemProxy) { Write-Host '现有服务的代理环境不会改变；如需应用 -UseSystemProxy，请先运行 Stop-Workbench.ps1 再重新启动。' }
             if (-not $NoBrowser) { Start-Process $url }
             exit 0
         }
@@ -33,11 +35,22 @@ try {
     $nodePath = Find-WorkbenchNode $root
     [IO.Directory]::CreateDirectory($dataDir) | Out-Null
     $serverPath = Join-Path $root 'server\index.mjs'
-    $oldPort = $env:PORT; $oldDataDir = $env:DATA_DIR
-    try {
-        $env:PORT = [string]$Port; $env:DATA_DIR = $dataDir
-        $child = Start-Process -FilePath $nodePath -ArgumentList ('"' + $serverPath + '"') -WorkingDirectory $root -WindowStyle Hidden -RedirectStandardOutput (Join-Path $dataDir 'server.log') -RedirectStandardError (Join-Path $dataDir 'server-error.log') -PassThru
-    } finally { $env:PORT = $oldPort; $env:DATA_DIR = $oldDataDir }
+    $proxy = Get-WorkbenchProxyOverrides -UseSystemProxy:$UseSystemProxy
+    if ($proxy.Mode -eq 'system') { Write-Host '本次工作台启动将复用当前无凭据手工系统代理；不会更改全局网络设置。' }
+    if ($proxy.Mode -eq 'existing') { Write-Host '保留已有进程代理配置；仅为本次子进程补充本机回环地址绕过代理。' }
+    if ($proxy.Mode -eq 'existing' -and -not $env:HTTP_PROXY -and -not $env:HTTPS_PROXY) { Write-Host '当前仅设置 ALL_PROXY：将保留给 Codex CLI 使用；Node 原生代理只读取 HTTP_PROXY/HTTPS_PROXY，不会推测 ALL_PROXY。' }
+    $nodeArguments = '"' + $serverPath + '"'
+    if ($UseSystemProxy) {
+        $proxyFlag = Get-WorkbenchNodeProxyFlag ((& $nodePath --help 2>$null | Out-String))
+        if ($proxyFlag) { $nodeArguments = $proxyFlag + ' ' + $nodeArguments }
+        else { Write-Host '当前 Node.js 不支持 --use-env-proxy：Codex CLI 可继承代理，Node 原生网络请求仍需受支持的代理入口。' }
+    }
+    $childEnvironment = $proxy.Values
+    $childEnvironment.PORT = [string]$Port
+    $childEnvironment.DATA_DIR = $dataDir
+    $child = Invoke-WithWorkbenchEnvironment $childEnvironment {
+        Start-Process -FilePath $nodePath -ArgumentList $nodeArguments -WorkingDirectory $root -WindowStyle Hidden -RedirectStandardOutput (Join-Path $dataDir 'server.log') -RedirectStandardError (Join-Path $dataDir 'server-error.log') -PassThru
+    }
     $child.Refresh()
     $record = @{ pid = $child.Id; port = $Port; script = $serverPath; executable = $nodePath; startedAtTicks = $child.StartTime.ToUniversalTime().Ticks.ToString() }
     $record | ConvertTo-Json | Set-Content -LiteralPath $recordPath -Encoding UTF8

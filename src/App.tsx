@@ -67,6 +67,12 @@ export default function App() {
         setLoading(false);
     } }
     useEffect(() => { void refresh(); }, []);
+    useEffect(() => {
+        if (!['#publishing', '#publishing?linkedin=connected'].includes(window.location.hash)) return;
+        // The marker selects a page only; PublishingWorkspace reads actual server-side authorization.
+        setView('publishing'); setPublishingOpened(true);
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }, []);
     useEffect(() => { if (!notice)
         return; const t = setTimeout(() => setNotice(''), 5000); return () => clearTimeout(t); }, [notice]);
     function navigate(next: string) { setView(next); if (next === 'publishing')

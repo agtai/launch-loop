@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID, timingSafeEqual } from 'node:crypto';
 import * as v from './content-validation.mjs';
 import { createLinkedInApi, LinkedInError } from './linkedin-api.mjs';
+import { oauthLocale, workbenchOrigin } from './linkedin-oauth.mjs';
 
 const requiredScopes = ['openid', 'profile', 'w_member_social'];
 const now = () => Date.now();
@@ -46,21 +47,23 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     if (!connection().canPublish) v.bad(connection().message, 409);
     return session;
   }
-  function startAuth() {
+  function startAuth({ returnOrigin = null, locale = 'zh' } = {}) {
     if (closed) v.bad('发布服务已关闭。', 503);
     if (!config.public.configured) v.bad(connection().message, 409);
+    const browser = { origin: returnOrigin === null ? null : workbenchOrigin(returnOrigin), locale: oauthLocale(locale) };
     store.assertCanRestore();
     session = null; previews.clear(); authGeneration++;
     const state = randomBytes(32).toString('base64url');
-    pending = { state, expiresAt: clock() + 10 * 60 * 1000, generation: authGeneration };
+    pending = { state, expiresAt: clock() + 10 * 60 * 1000, generation: authGeneration, browser };
     const url = new URL('https://www.linkedin.com/oauth/v2/authorization');
     url.search = new URLSearchParams({ response_type: 'code', client_id: config.clientId, redirect_uri: config.redirectUri, state, scope: config.scopes.join(' ') }).toString();
     return { authorizationUrl: url.href };
   }
-  async function callback(input) {
+  async function exchangeCallback(input, onValidatedContext) {
     const params = input instanceof URLSearchParams ? input : new URLSearchParams(input);
     if (params.getAll('state').length !== 1 || !pending || pending.expiresAt <= clock() || !equal(params.get('state'), pending.state)) v.bad('OAuth state 无效、已使用或已过期；请从工作台重新连接。', 401);
-    const generation = pending.generation; pending = null;
+    const attempt = pending, generation = attempt.generation; pending = null;
+    onValidatedContext?.(attempt.browser);
     if (params.has('error')) v.bad('LinkedIn 登录或授权已取消；未建立连接。', 400);
     const code = params.get('code');
     if (params.getAll('code').length !== 1 || typeof code !== 'string' || !code || code.length > 10000 || /[\r\n\0]/.test(code)) v.bad('OAuth 回调缺少有效授权码。');
@@ -70,6 +73,18 @@ export function createLinkedInService({ store, content, env = process.env, fetch
       session = { ...result, id: randomUUID(), expiresAt: clock() + result.expiresIn * 1000 };
       return connection();
     } catch (error) { if (error instanceof v.ContentError) throw error; asExpected(error); }
+  }
+  const callback = input => exchangeCallback(input);
+  async function browserCallback(input) {
+    let browser = null;
+    try {
+      const result = await exchangeCallback(input, context => { browser = context; });
+      // Only the origin bound to a valid state can receive a successful redirect.
+      if (!browser?.origin) return { ok: false, status: 500, returnOrigin: null, locale: 'zh' };
+      return { ok: true, status: 303, connection: result, returnOrigin: browser.origin, locale: browser.locale };
+    } catch (error) {
+      return { ok: false, status: error instanceof v.ContentError ? error.status : 500, returnOrigin: browser?.origin ?? null, locale: browser?.locale ?? 'zh' };
+    }
   }
   function disconnect() { authGeneration++; session = null; pending = null; previews.clear(); return connection(); }
   function savedPayload(itemId, versionId) {
@@ -165,7 +180,10 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     if (current.account.id !== record.accountId) v.bad('请连接该发布记录对应的账号后再核对。', 409);
     if (!current.scopes.includes('r_member_social')) v.bad('当前授权没有受限的 r_member_social 读取权限；请在 LinkedIn 人工核对。发布权限不代表读取权限。', 403);
     try { return store.finish(id, await api.reconcile({ token: current.token, account: current.account, id: record.platformId })); }
-    catch (error) { if (error instanceof v.ContentError) throw error; asExpected(error); }
+    catch (error) {
+      if (error instanceof LinkedInError && error.status === 401 && session?.id === current.id) session.problem = 401;
+      if (error instanceof v.ContentError) throw error; asExpected(error);
+    }
   }
-  return { connection, startAuth, callback, disconnect, preview, execute, reconcile, list: store.list, get: store.get, async close() { closed = true; disconnect(); api.close(); await Promise.allSettled([...work]); } };
+  return { connection, startAuth, callback, browserCallback, disconnect, preview, execute, reconcile, list: store.list, get: store.get, async close() { closed = true; disconnect(); api.close(); await Promise.allSettled([...work]); } };
 }
