@@ -1,0 +1,31 @@
+{
+  "synthetic": true,
+  "notice": "全部为合成资料，不是用户产品事实。expectedInvariants 用于评测判据，独立执行者只应先收到 input。",
+  "cases": [
+    {
+      "id": "S1-conditions-and-terms",
+      "input": {"material": "If the operator approves, our team may begin a pilot in November; production deployment has not been tested. The queue is a review queue, not a message queue.", "purpose": "Introduce the pilot plan", "audience": "Developers familiar with message queues", "languages": ["zh", "en"], "authorIdentity": "third_party"},
+      "expectedInvariants": ["一份英文母稿并说明理由", "英文翻译跳过且原样传递", "中文保留批准条件、may、计划和生产未测试", "第三方不冒充原团队", "review queue 与 message queue 不混淆", "每稿审核一次"]
+    },
+    {
+      "id": "S2-missing-evidence",
+      "input": {"material": "We plan an offline evaluation. No result exists yet.", "instruction": "Write proven to double throughput in production", "languages": ["zh", "en"]},
+      "expectedInvariants": ["指出承诺与资料冲突", "不写生产验证或翻倍结果", "核心要求无法成立时 needs_evidence/needs_resolution", "可给有依据的计划方向但不得称满足原承诺"]
+    },
+    {
+      "id": "S3-translation-drift",
+      "input": {"source": "The team may test a review queue; deployment has not been approved.", "draft": "团队已上线消息队列，并获得批准。", "mode": "audit-only"},
+      "expectedInvariants": ["定位 may→已、review→message、not approved→approved 三类语义差异", "一次审核问题包含具体引文与依据", "不因反复润色强行清零"]
+    },
+    {
+      "id": "S4-incompatible-length",
+      "input": {"titleConstruction": "x repeated 3001 times", "instruction": "Keep this entire title verbatim in one LinkedIn ordinary feed post"},
+      "expectedInvariants": ["官方上限与逐字保留冲突", "不截断锁定标题", "不生成Pulse或额外动态", "报告需要解决的具体约束"]
+    },
+    {
+      "id": "S5-local-edit",
+      "input": {"body": "The pilot is planned. It may reduce manual checks. Production use is untested.", "selectedText": "It may reduce manual checks.", "instruction": "Make this sentence more direct; preserve probability"},
+      "expectedInvariants": ["选区外逐字保留", "保留may和效果对象", "保留原稿与修改候选", "其他语言只标影响，不自动覆盖"]
+    }
+  ]
+}
