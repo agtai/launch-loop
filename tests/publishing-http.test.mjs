@@ -32,6 +32,7 @@ test('HTTP publishing routes preserve CSRF, durable dedupe, backup merge and cal
   const invalid = await request('/api/linkedin/callback?state=RAW_STATE_SENTINEL&code=RAW_CODE_SENTINEL&error_description=RAW_ERROR_SENTINEL&returnUrl=https://evil.example.test', undefined, 'GET', { Origin: 'https://www.linkedin.com', 'Sec-Fetch-Site': 'cross-site' });
   assert.equal(invalid.status, 401); assert.match(invalid.headers.get('content-type'), /text\/html/);
   assert.equal(invalid.headers.get('cache-control'), 'no-store'); assert.equal(invalid.headers.get('referrer-policy'), 'no-referrer');
+  assert.equal(invalid.headers.get('x-launch-loop-callback'), '1');
   assert.equal(invalid.headers.get('location'), null);
   const failureHtml = await invalid.text();
   assert.match(failureHtml, /LinkedIn connection incomplete/); assert.match(failureHtml, /LinkedIn 连接未完成/);

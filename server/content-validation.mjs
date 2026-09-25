@@ -11,6 +11,7 @@ export const maxAssetBytes = 4 * 1024 * 1024;
 export const maxContentItems = 10000;
 export const maxContentVersions = 10000;
 export const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+export const documentsHash = documents => hash(JSON.stringify(documents));
 
 export function fields(value, required, optional = []) {
   if (!isObject(value) || required.some(key => !Object.hasOwn(value, key)) || Object.keys(value).some(key => !required.includes(key) && !optional.includes(key))) bad('内容字段不完整或包含无法识别的字段。');
@@ -96,7 +97,7 @@ export function content(value, formal = false) {
 export function temporary(value) { fields(value, ['initialDocuments', 'reviewFindings', 'prompt']); return { initialDocuments: documents(value.initialDocuments), reviewFindings: string(value.reviewFindings, 200000), prompt: string(value.prompt, 200000) }; }
 export function base(value) { if (value === null) return null; fields(value, ['itemId', 'revision', 'versionId']); return { itemId: id(value.itemId), revision: integer(value.revision), versionId: id(value.versionId) }; }
 export function assetMetadata(value) {
-  fields(value, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption']);
+  fields(value, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption'], ['imageBinding']);
   const fileName = string(value.fileName, 200, true);
   if (/[<>:"/\\|?*\u0000-\u001f\u007f]/.test(fileName) || fileName === '.' || fileName === '..' || /[. ]$/.test(fileName) || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(fileName)) bad('素材文件名必须是安全的单个文件名。');
   const mimeType = choice(value.mimeType, ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'application/pdf', 'text/plain', 'application/octet-stream']);
@@ -104,7 +105,13 @@ export function assetMetadata(value) {
   if (byteLength > maxAssetBytes) bad('单个素材超过 4 MiB。', 413);
   if (typeof value.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(value.sha256)) bad('素材校验值无效。');
   fields(value.source, ['kind', 'url']);
-  return { id: id(value.id), fileName, mimeType, byteLength, sha256: value.sha256, source: { kind: choice(value.source.kind, ['upload', 'generated']), url: value.source.url === null ? null : url(value.source.url) }, caption: string(value.caption, 4000) };
+  let imageBinding;
+  if (value.imageBinding !== undefined) {
+    fields(value.imageBinding, ['documentsHash', 'width', 'height', 'checkedAt']);
+    if (!['image/png', 'image/jpeg'].includes(mimeType) || !/^[a-f0-9]{64}$/.test(value.imageBinding.documentsHash)) bad('配图与正文的关联无效。');
+    imageBinding = { documentsHash: value.imageBinding.documentsHash, width: integer(value.imageBinding.width, 1), height: integer(value.imageBinding.height, 1), checkedAt: timestamp(value.imageBinding.checkedAt) };
+  }
+  return { id: id(value.id), fileName, mimeType, byteLength, sha256: value.sha256, source: { kind: choice(value.source.kind, ['upload', 'generated']), url: value.source.url === null ? null : url(value.source.url) }, caption: string(value.caption, 4000), ...(imageBinding ? { imageBinding } : {}) };
 }
 export function bytes(value) {
   if (typeof value !== 'string' || !value.length || value.length > Math.ceil(maxAssetBytes / 3) * 4 || value.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(value)) bad('素材 Base64 无效或超过 4 MiB。');

@@ -14,7 +14,7 @@ export async function servePublishing(req, res, pathname, service, { readBody, j
   } else if (pathname === '/api/linkedin/callback') {
     if (req.method === 'GET') {
       const result = await service.browserCallback(new URL(req.url, 'http://localhost').searchParams);
-      const headers = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff' };
+      const headers = { 'Cache-Control': 'no-store', 'Referrer-Policy': 'no-referrer', 'X-Content-Type-Options': 'nosniff', 'X-Launch-Loop-Callback': '1' };
       if (result.ok) {
         res.writeHead(303, { ...headers, Location: workbenchReturnUrl(result.returnOrigin, true) });
         return res.end();

@@ -2,11 +2,11 @@
 
 为个人开发者和内容运营执行者准备的本地内容工作台：创作、看稿改稿、确认保存和准备发布。资料、任务与历史研究／审查记录继续保留，反馈位置留空。
 
-**当前实现：** 创作与发布页面、资料和图片上传、独立中英文稿件、一次审核后修订、右侧编辑、局部修改建议、tmp暂存、确认保存与不可变版本；44项任务、28项资源及备份恢复继续可用。
+**当前实现：** text-v2共同母稿、LinkedIn改写、中英文本地化、每稿一次审核后统一修订；独立后台图片、选区提案、接受／拒绝／撤回、显式跨语言同步、tmp暂存、确认保存与不可变版本；44项任务、28项资源及备份恢复继续可用。
 
-**外部能力有条件：** 文本执行器通过本机已登录的Codex CLI调用真实模型，实际验收结果见[验证记录](https://github.com/agtai/launch-loop/blob/main/docs/验证记录.md)。自动配图尚未连接，可选用上传图片。LinkedIn普通动态发布适配已实现，仍需应用权限、HTTPS回调和用户OAuth授权，尚未真实发帖；确认保存不会自动发布。本地资料和任务功能无需Codex账号。
+**外部能力有条件：** 文本与图片复用本机正式登录的Codex；图片需启用官方缓存适配，实际完成状态以本次任务为准。LinkedIn普通动态适配已实现，操作者尚未准备应用与HTTPS回调，真实OAuth和发布仍未验收。确认保存不会自动发布，本地资料和任务功能无需Codex账号。
 
-2026-09-24 第三轮已从实际界面完成真实中英文初稿、各一次审核及修订（共6次模型调用），并完成真实局部改稿、接受提案、源稿变化后的迟到结果拒绝和取消验证。稿件仍在tmp，未代用户确认保存。最新本地自动测试99项通过；后台自动配图和真实LinkedIn授权／发布仍未验收，详见[本轮结果](https://github.com/agtai/launch-loop/blob/main/docs/第三轮接入与真实验收.md)与[验证记录](https://github.com/agtai/launch-loop/blob/main/docs/验证记录.md)。
+2026-09-24 MVP整合位于独立分支codex/mvp-integration，尚未提交或推送。请读取本项目中的docs/MVP验收报告.md与docs/SESSION_HANDOFF.md核对最新证据；公开main文档可能仍是前轮版本。旧v1真实验证保留为历史，不能代替新流程验收；真实稿件始终留tmp，尚待用户确认。
 
 **当前范围：** 一个产品、LinkedIn普通feed、中英文独立稿件与配图路径。中英文长文章、kit/copy、DOCX、其他四个平台和视频仍保留后续需求。当前不宣称完整MVP已打通。实施边界见[第三轮接入与真实验收](https://github.com/agtai/launch-loop/blob/main/docs/第三轮接入与真实验收.md)。
 
@@ -73,6 +73,8 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start-Workbench.ps1 -U
 
 真实生成需要当前Windows用户可运行、已正式登录的Codex CLI及网络，会使用对应账号额度；工作台不会购买服务或提取会话token。使用本地资料／台账可离线；本项目不使用Sites托管额度。自动配图没有可用后端入口时显示未连接，不能用上传图推断自动配图成功。
 
+本轮用户已批准官方图片缓存例外。停止本目录已有服务后，使用 `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Start-Workbench.ps1 -EnableCodexImages` 启用后台图片；需要现有系统代理时加 `-UseSystemProxy`。图片先写官方缓存，再纳入项目tmp并看图核对。改稿后原图会提示需要更新；可重新生成、重新选择或不选用。失败保留文本，不自动重试。下一位操作者需使用自己的登录。
+
 发布页显示具体缺失配置并使用正式LinkedIn OAuth。按[授权配置指南](https://github.com/agtai/launch-loop/blob/main/docs/LinkedIn授权配置.md)在本机安全配置应用及仅开放回调路径的HTTPS资源；不要在聊天中粘贴secret。授权成功返回工作台并读取实际连接状态。预览绑定账号、明确版本和图片，换账号或恢复后需重新确认；未知发布结果禁止自动重试。配置、权限、接口和恢复规则见[执行与发布接口](https://github.com/agtai/launch-loop/blob/main/docs/第二阶段执行与发布接口.md)。
 
 供应商研究属于官方文档核查，不代表已连接账号或登录商业产品试用。完整事实、来源和未验证项见 [竞品与复用调研](https://github.com/agtai/launch-loop/blob/main/docs/完整竞品与复用调研.md)。
@@ -113,7 +115,7 @@ npm start
 |---|---|
 | `src/` | React／TypeScript 页面、任务定义、资源目录和工作流模板 |
 | `server/` | Node HTTP／SQLite 服务及 Windows 启动器公共逻辑 |
-| `rules/text/v1/` | 版本化文本规则、来源及固定映射；其他平台与格式明确标为待适配 |
+| `rules/text/v1/`、`rules/text/v2/` | 保留旧快照；新任务采用共同母稿与双语管线的v2；其他平台与格式待适配 |
 | `data-seed/` | 新数据库的初始模块与任务 ID |
 | `public/docs/` → `dist/docs/` | 页面可下载的指南、调研和清单；构建时复制 |
 | `dist/` | 已构建页面，供克隆后直接启动 |

@@ -30,8 +30,12 @@ export function translateText(source, locale = 'zh', params = {}) {
     if (match) {
       const captured = Object.fromEntries(template.keys.map((key, index) => [key, match[index + 1]]));
       if (template.source === '生成规则状态 {value1}：{value2}') captured.value2 = captured.value2.split('；').map(issue => translateText(issue, locale)).join('; ');
+      if (['文本阶段包含重复引用：{value1}。', '文本阶段引用了不存在的{value1}。', '文本阶段缺少{value1}。'].includes(template.source)) captured.value1 = translateText(captured.value1, locale);
       if (['{value1}网络中断或超时。', '{value1}被 LinkedIn 拒绝（HTTP {value2}）。', '{value1}返回了无法验证的数据。'].includes(template.source)) captured.value1 = translateText(captured.value1, locale);
-      if (template.source === 'LinkedIn 提交结果无法确认（HTTP {value1}{value2}）。请先核对，禁止自动重发。') captured.value2 = translateText(captured.value2, locale);
+      if (template.source === 'LinkedIn 提交结果无法确认（HTTP {value1}{value2}）。请先核对，禁止自动重发。') {
+        const details = /^LinkedIn 提交结果无法确认（HTTP (\d{3})([^）]*)）/.exec(source);
+        if (details) { captured.value1 = details[1]; captured.value2 = translateText(details[2], locale); }
+      }
       return interpolate(template.target, { ...captured, ...params });
     }
   }

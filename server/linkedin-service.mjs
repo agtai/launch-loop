@@ -18,22 +18,25 @@ function configuration(env) {
   const scopes = [...new Set((env.LINKEDIN_SCOPES || requiredScopes.join(' ')).split(/[ ,]+/).filter(Boolean))];
   const missing = [];
   if (!/^[a-zA-Z0-9_-]{1,200}$/.test(clientId)) missing.push('LINKEDIN_CLIENT_ID');
-  if (!clientSecret || clientSecret.length > 10000 || /[\r\n\0]/.test(clientSecret)) missing.push('LINKEDIN_CLIENT_SECRET');
+  if (!clientSecret.trim() || clientSecret.length > 10000 || /[\r\n\0]/.test(clientSecret)) missing.push('LINKEDIN_CLIENT_SECRET');
   let redirect;
   try { redirect = new URL(redirectUri); } catch { /* Report configuration without disclosing credentials. */ }
-  const validRedirect = redirect && redirect.protocol === 'https:' && !redirect.username && !redirect.password && !redirect.search && !redirect.hash && redirect.pathname === '/api/linkedin/callback';
+  const validRedirect = redirect && redirectUri === redirectUri.trim() && !/[\\\r\n\0]/.test(redirectUri) && redirect.protocol === 'https:' && !redirect.username && !redirect.password && !redirect.search && !redirect.hash && redirect.pathname === '/api/linkedin/callback';
   if (!validRedirect) missing.push('LINKEDIN_REDIRECT_URI（HTTPS，路径 /api/linkedin/callback）');
   if (!/^20[0-9]{2}(0[1-9]|1[0-2])$/.test(apiVersion)) missing.push('LINKEDIN_API_VERSION（YYYYMM）');
   if (requiredScopes.some(scope => !scopes.includes(scope)) || scopes.some(scope => ![...requiredScopes, 'r_member_social'].includes(scope))) missing.push('LINKEDIN_SCOPES');
-  return { clientId, clientSecret, redirectUri, apiVersion, scopes, public: { configured: missing.length === 0, clientId: /^[a-zA-Z0-9_-]{1,200}$/.test(clientId) ? clientId : null, redirectUri: validRedirect ? redirectUri : null, apiVersion, missing } };
+  return { clientId, clientSecret, redirectUri, apiVersion, scopes, public: { configured: missing.length === 0, clientId: /^[a-zA-Z0-9_-]{1,200}$/.test(clientId) ? clientId : null, redirectUri: validRedirect ? redirectUri : null, apiVersion: /^20[0-9]{2}(0[1-9]|1[0-2])$/.test(apiVersion) ? apiVersion : '', missing } };
 }
+
+// Only non-secret, validated fields are available to the standalone preflight.
+export function inspectLinkedInConfiguration(env = process.env) { return configuration(env).public; }
 
 export function createLinkedInService({ store, content, env = process.env, fetchImpl = globalThis.fetch, clock = now, timeoutMs = 30000 }) {
   const config = configuration(env), api = createLinkedInApi({ fetchImpl, apiVersion: config.apiVersion, timeoutMs });
   let session = null, pending = null, authGeneration = 0, closed = false;
   const previews = new Map(), work = new Set();
   function connection() {
-    const base = { account: session?.account ?? null, scopes: session ? [...session.scopes] : [], canPublish: false, config: { ...config.public, missing: [...config.public.missing] } };
+    const base = { account: session?.account ?? null, scopes: session ? [...session.scopes] : [], expiresAt: session ? new Date(session.expiresAt).toISOString() : null, canPublish: false, config: { ...config.public, missing: [...config.public.missing] } };
     if (!config.public.configured) return { ...base, status: 'unconfigured', message: '尚未配置 LinkedIn 官方应用。需在服务端设置应用凭据及已注册的 HTTPS 回调；只将回调路径代理到本机，勿公开工作台。' };
     if (!session) return { ...base, status: 'disconnected', message: '尚未连接 LinkedIn。授权凭证只保存在本次服务内存，重启后需重新登录。' };
     if (session.problem === 401) return { ...base, status: 'expired', message: 'LinkedIn 已拒绝当前凭证（HTTP 401），请重新连接。' };
@@ -100,6 +103,7 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     const assets = version.assets.filter(asset => draft.assetIds.includes(asset.id) && asset.mimeType.startsWith('image/'));
     if (assets.length > 1 || assets.some(asset => !['image/png', 'image/jpeg'].includes(asset.mimeType))) v.bad('当前只支持最多一张 PNG 或 JPEG 配图；请在创作中调整后确认新版本。');
     const binary = assets.map(asset => {
+      if (asset.imageBinding && asset.imageBinding.documentsHash !== v.documentsHash(draft.documents)) v.bad('配图对应的正文已改变，请在创作中重新生成或移除配图后确认新版本。', 409);
       const result = content.getAsset(itemId, versionId, asset.id);
       if (v.hash(result.bytes) !== asset.sha256 || result.bytes.length !== asset.byteLength) v.bad('正式图片字节与版本校验值不一致。', 409);
       const png = result.bytes.length >= 24 && result.bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
@@ -114,7 +118,7 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     if (assets.length) warnings.push('当前写权限不保证可读取图片处理状态；平台仍可能拒绝或延迟显示配图。');
     if (!assets.length) warnings.push('本次为纯文字动态，没有实际配图。');
     const contentHash = v.hash(JSON.stringify({ body, assets: assets.map(asset => ({ sha256: asset.sha256, mimeType: asset.mimeType, byteLength: asset.byteLength })) }));
-    return { body, assets, binary, language: draft.language, contentHash, warnings };
+    return { body, assets, binary, language: draft.language, versionNumber: version.number, contentHash, warnings };
   }
   function preview(raw) {
     v.fields(raw, ['itemId', 'versionId', 'accountId']);
@@ -124,7 +128,7 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     for (const [id, value] of previews) if (value.expiresAt <= clock()) previews.delete(id);
     if (previews.size >= 100) v.bad('待确认预览过多，请等待旧预览过期后再试。', 429);
     const id = randomUUID(), confirmationToken = randomBytes(32).toString('base64url'), expiresAt = clock() + 10 * 60 * 1000;
-    const result = { id, itemId: raw.itemId, versionId: raw.versionId, accountId: current.account.id, accountName: current.account.name, language: payload.language, body: payload.body, assets: payload.assets.map(asset => ({ ...asset, url: `/api/content/${raw.itemId}/versions/${raw.versionId}/assets/${asset.id}` })), contentHash: payload.contentHash, confirmationToken, expiresAt: new Date(expiresAt).toISOString(), warnings: payload.warnings };
+    const result = { id, itemId: raw.itemId, versionId: raw.versionId, versionNumber: payload.versionNumber, accountId: current.account.id, accountName: current.account.name, language: payload.language, body: payload.body, assets: payload.assets.map(asset => ({ ...asset, url: `/api/content/${raw.itemId}/versions/${raw.versionId}/assets/${asset.id}` })), contentHash: payload.contentHash, confirmationToken, expiresAt: new Date(expiresAt).toISOString(), warnings: payload.warnings };
     // No body or token reaches SQLite. Only immutable pointers and digests are durable.
     previews.set(id, { ...result, body: undefined, assets: undefined, confirmationToken: undefined, confirmationHash: v.hash(confirmationToken), expiresAt, epoch: store.epoch(), sessionId: current.id });
     return result;
@@ -140,7 +144,7 @@ export function createLinkedInService({ store, content, env = process.env, fetch
     let posting = false, remoteResult = null;
     try {
       let { current, payload } = validatePreview(value), image;
-      if (payload.binary.length) image = await api.upload({ token: current.token, account: current.account, ...payload.binary[0] });
+      if (payload.binary.length) image = await api.upload({ token: current.token, account: current.account, ...payload.binary[0], assertCurrent: () => validatePreview(value) });
       ({ current, payload } = validatePreview(value));
       posting = true;
       const { httpStatus, ...result } = await api.publish({ token: current.token, account: current.account, body: payload.body, image });

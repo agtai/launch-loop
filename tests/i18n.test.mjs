@@ -29,6 +29,8 @@ test('translation placeholders preserve counts and filenames, and nested service
   assert.equal(tr('读取授权账号被 LinkedIn 拒绝（HTTP 403）。','en'),'Read authorized account was refused by LinkedIn (HTTP 403).');
   assert.equal(tr('生成规则状态 pending：包含尚未适配的平台或格式，不得套用其他平台规则执行。','en'),'Generation rules are pending: This selection includes an unsupported platform or format. Rules from another platform must not be substituted.');
   assert.equal(tr('用户原文：不要改变这个句子','en'),'用户原文：不要改变这个句子');
+  assert.equal(tr('LinkedIn 提交结果无法确认（HTTP 503，无有效平台 ID）。请先核对，禁止自动重发。','en'),'The LinkedIn submission result cannot be confirmed (HTTP 503, no valid platform ID). Check it first. Automatic resubmission is prohibited.');
+  assert.equal(tr('LinkedIn 提交结果无法确认（HTTP 502，已保留平台 ID）。请先核对，禁止自动重发。','en'),'The LinkedIn submission result cannot be confirmed (HTTP 502, platform ID retained). Check it first. Automatic resubmission is prohibited.');
   assert.equal(tr('资料 {value1} 不是有效 UTF-8 文本。','en',{value1:'$&中文.md'}),'The material $&中文.md is not valid UTF-8 text.');
 });
 

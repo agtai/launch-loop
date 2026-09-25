@@ -32,6 +32,7 @@ export type ContentDraft = {
 export type ContentAsset = {
   id: string; fileName: string; mimeType: string; byteLength: number; sha256: string;
   source: { kind: 'upload' | 'generated'; url: string | null }; caption: string;
+  imageBinding?: { documentsHash: string; width: number; height: number; checkedAt: string };
 };
 export type ContentUploadInput = Pick<ContentAsset, 'id' | 'fileName' | 'mimeType' | 'source' | 'caption'> & { dataBase64: string };
 export type ContentTmpCreateInput = { content: ContentDraft; base?: ContentBase | null; uploads?: ContentUploadInput[] };
@@ -51,18 +52,26 @@ export type ContentSummary = { id: string; name: string; platform: ContentPlatfo
 export type ContentBackup = { schemaVersion: 1; items: Array<Omit<ContentItem, 'versions'> & { versions: Array<Omit<ContentVersion, 'assets'> & { assets: Array<ContentAsset & { dataBase64: string }> }> }> };
 
 // Stage 2: execution remains temporary; publishing requires a separate confirmation.
-export type GenerationStatus = 'queued' | 'running' | 'completed' | 'failed' | 'cancelling' | 'cancelled' | 'interrupted';
-export type GenerationStage = 'queued' | 'reading' | 'generating' | 'reviewing' | 'revising' | 'completed' | 'failed' | 'cancelled' | 'interrupted';
-export type GenerationAssetStatus = 'uploaded' | 'unconnected' | 'generating' | 'ready' | 'failed';
+export type GenerationStatus = 'queued' | 'running' | 'completed' | 'failed' | 'cancelling' | 'cancelled' | 'interrupted' | 'needs_evidence' | 'needs_resolution';
+export type GenerationStage = GenerationStatus | 'reading' | 'generating' | 'reviewing' | 'reviewed' | 'revising' | 'mother' | 'platform' | 'localization' | 'drafts_frozen' | 'image_generation' | 'image_check';
+export type GenerationAssetStatus = 'none' | 'pending' | 'uploaded' | 'unconnected' | 'generating' | 'checking' | 'ready' | 'failed' | 'cancelled' | 'interrupted' | 'outdated';
 export type GenerationVariant = {
   platform: ContentPlatform; language: ContentLanguage; tmpId: string | null;
   status: GenerationStatus; stage: GenerationStage; error: string | null;
   assetStatus: GenerationAssetStatus; unresolved: string[];
+  assetError?: string | null;
 };
 export type GenerationJob = {
-  id: string; requestId: string; kind: 'generation' | 'modification';
+  id: string; requestId: string; kind: 'generation' | 'modification' | 'image';
   status: GenerationStatus; stage: GenerationStage; createdAt: string; updatedAt: string;
   error: string | null; source: { tmpId: string; revision: number } | null; variants: GenerationVariant[];
+  disposition?: 'pending' | 'accepted' | 'rejected' | 'undone';
+  acceptedTmpId?: string; undoOf?: string;
+  canResumeMother?: boolean; resumedMother?: boolean;
+  canResumeReview?: boolean; resumedReview?: boolean;
+  change?: ModificationRequest['selection'] & { replacement: string; changesSharedFacts: boolean; impactReason: string; changedClaimIds: string[] };
+  languageImpact?: { sourceLanguage: ContentLanguage; modificationId: string; reason: string; affectedLanguages: ContentLanguage[] };
+  progress?: { stage: string; startedAt: string; budgetMs: number };
 };
 export type GenerationOptions = {
   authorIdentities?: Array<'product_author' | 'team' | 'third_party'>;
@@ -79,19 +88,21 @@ export type ModificationRequest = {
 };
 export type GenerationCapabilities = {
   text: { status: 'available' | 'unavailable' | 'unknown'; message: string };
-  image: { status: 'available' | 'unconnected'; message: string };
+  image: { status: 'available' | 'unconnected'; message: string; checking?: boolean; canRefresh?: boolean };
   materials: { extensions: string[] };
 };
 export type LinkedInConnection = {
   status: 'unconfigured' | 'disconnected' | 'connected' | 'missing_permissions' | 'expired';
   message: string; account: { id: string; name: string; urn: string } | null;
   scopes: string[]; canPublish: boolean;
+  expiresAt: string | null;
   config: { configured: boolean; clientId: string | null; redirectUri: string | null; apiVersion: string; missing: string[] };
 };
 export type PublishingPreview = {
   id: string; itemId: string; versionId: string; accountId: string; accountName: string;
   language: ContentLanguage; body: string; assets: Array<ContentAsset & { url: string }>;
   contentHash: string; confirmationToken: string; expiresAt: string; warnings: string[];
+  versionNumber: number;
 };
 export type PublishingRecord = {
   id: string; itemId: string; versionId: string; accountId: string; accountName: string;

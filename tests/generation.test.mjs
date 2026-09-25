@@ -20,9 +20,9 @@ function setup(t, runner = goodRunner) {
   const dataDir = mkdtempSync(path.join(tmpdir(), 'launch-generation-'));
   const db = new DatabaseSync(path.join(dataDir, 'content.sqlite'));
   const content = createContentStore(db, dataDir, { snapshot() {}, checkBackupSize() {} });
-  let service = createGenerationService({ content, dataDir, testOnlyRunner: runner });
+  let service = createGenerationService({ content, dataDir, testOnlyLegacyRules: true, testOnlyRunner: runner });
   t.after(async () => { await service.close(); db.close(); rmSync(dataDir, { recursive: true, force: true }); });
-  return { dataDir, content, db, get service() { return service; }, async restart() { await service.close(); service = createGenerationService({ content, dataDir, testOnlyRunner: runner }); } };
+  return { dataDir, content, db, get service() { return service; }, async restart() { await service.close(); service = createGenerationService({ content, dataDir, testOnlyLegacyRules: true, testOnlyRunner: runner }); } };
 }
 async function finish(service, id) {
   for (let n = 0; n < 500; n++) { const value = service.get(id); if (['completed', 'failed', 'cancelled', 'interrupted'].includes(value.status)) return value; await new Promise(resolve => setTimeout(resolve, 10)); }

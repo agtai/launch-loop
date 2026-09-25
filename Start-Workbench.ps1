@@ -1,4 +1,4 @@
-﻿param([ValidateRange(1024,65535)][int]$Port = 4318, [switch]$NoBrowser, [switch]$UseSystemProxy)
+﻿param([ValidateRange(1024,65535)][int]$Port = 4318, [switch]$NoBrowser, [switch]$UseSystemProxy, [switch]$EnableCodexImages)
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath($PSScriptRoot)
 . (Join-Path $root 'server\Launcher.Common.ps1')
@@ -27,6 +27,7 @@ try {
             if (-not ($listener | Where-Object { $_.OwningProcess -eq $existing.Id }) -or -not (Test-WorkbenchHealth $Port)) { throw '已记录的工作台进程未正常响应。请运行停止工作台后重试，并查看 data/server-error.log。' }
             Write-Host ('工作台已在运行，继续使用：' + $url)
             if ($UseSystemProxy) { Write-Host '现有服务的代理环境不会改变；如需应用 -UseSystemProxy，请先运行 Stop-Workbench.ps1 再重新启动。' }
+            if ($EnableCodexImages) { Write-Host '现有服务的配图设置不会改变；如需应用 -EnableCodexImages，请先运行 Stop-Workbench.ps1 再重新启动。' }
             if (-not $NoBrowser) { Start-Process $url }
             exit 0
         }
@@ -48,6 +49,7 @@ try {
     $childEnvironment = $proxy.Values
     $childEnvironment.PORT = [string]$Port
     $childEnvironment.DATA_DIR = $dataDir
+    if ($EnableCodexImages) { $childEnvironment.LAUNCH_LOOP_IMAGE_PROVIDER = 'codex-cache' }
     $child = Invoke-WithWorkbenchEnvironment $childEnvironment {
         Start-Process -FilePath $nodePath -ArgumentList $nodeArguments -WorkingDirectory $root -WindowStyle Hidden -RedirectStandardOutput (Join-Path $dataDir 'server.log') -RedirectStandardError (Join-Path $dataDir 'server-error.log') -PassThru
     }

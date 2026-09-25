@@ -3,6 +3,10 @@ import { postId, postUrl } from './publishing-store.mjs';
 
 const apiRoot = 'https://api.linkedin.com';
 const knownPostId = value => { try { return postId(value); } catch { return null; } };
+// Posts commentary uses LinkedIn's little grammar. Drafts are plain text, so
+// never let brackets, mentions or other reserved characters become markup.
+// https://learn.microsoft.com/linkedin/marketing/community-management/shares/little-text-format
+export const plainTextCommentary = value => value.replace(/[|{}@\[\]()<>#\\*_~]/g, character => `\\${character}`);
 function grantedScopes(value) {
   // LinkedIn documents this token-response field as URL-encoded. Missing or
   // malformed values must not inherit the scopes requested by the application.
@@ -58,7 +62,7 @@ export function createLinkedInApi({ fetchImpl = globalThis.fetch, apiVersion, ti
     const scopes = grantedScopes(token.scope);
     return { token: token.access_token, expiresIn: token.expires_in, scopes, account: { id: profile.sub, name: profile.name, urn: `urn:li:person:${profile.sub}` } };
   }
-  async function upload({ token, account, asset, bytes }) {
+  async function upload({ token, account, asset, bytes, assertCurrent = () => {} }) {
     const result = await json(await request(`${apiRoot}/rest/images?action=initializeUpload`, {
       method: 'POST', headers: headers(token), body: JSON.stringify({ initializeUploadRequest: { owner: account.urn } }),
     }, '初始化图片上传'), '初始化图片上传');
@@ -68,12 +72,15 @@ export function createLinkedInApi({ fetchImpl = globalThis.fetch, apiVersion, ti
     try { url = new URL(value.uploadUrl); } catch { throw new LinkedInError('图片上传地址无效。'); }
     // Only send the credential to LinkedIn's documented upload host. No redirects.
     if (url.protocol !== 'https:' || url.hostname !== 'www.linkedin.com' || url.port || url.username || url.password || !url.pathname.startsWith('/dms-uploads/')) throw new LinkedInError('图片上传地址不在允许的 LinkedIn 上传路径。');
+    // Disconnect, expiry or a restored version during initialization must stop
+    // the next remote write as well as the eventual post creation.
+    assertCurrent();
     const uploaded = await request(url.href, { method: 'PUT', headers: { Authorization: `Bearer ${token}`, 'Content-Type': asset.mimeType }, body: bytes }, '上传图片', false);
     if (!uploaded.ok) throw new LinkedInError(`图片上传失败（HTTP ${uploaded.status}）。`, uploaded.status);
     return value.image;
   }
   async function publish({ token, account, body, image }) {
-    const payload = { author: account.urn, commentary: body, visibility: 'PUBLIC', distribution: { feedDistribution: 'MAIN_FEED', targetEntities: [], thirdPartyDistributionChannels: [] }, lifecycleState: 'PUBLISHED', isReshareDisabledByAuthor: false };
+    const payload = { author: account.urn, commentary: plainTextCommentary(body), visibility: 'PUBLIC', distribution: { feedDistribution: 'MAIN_FEED', targetEntities: [], thirdPartyDistributionChannels: [] }, lifecycleState: 'PUBLISHED', isReshareDisabledByAuthor: false };
     if (image) payload.content = { media: { id: image } };
     let response;
     try { response = await request(`${apiRoot}/rest/posts`, { method: 'POST', headers: headers(token), body: JSON.stringify(payload) }, '提交帖子', false); }

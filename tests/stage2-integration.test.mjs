@@ -24,7 +24,7 @@ function fakeRunner(calls) {
 }
 async function fixture(t, runner) {
   const root = await mkdtemp(path.join(tmpdir(), 'launch-loop-stage2-integration-'));
-  const app = await startServer({ port: 0, dataDir: root, generationOptions: { testOnlyRunner: runner }, linkedInOptions: { env: {} } });
+  const app = await startServer({ port: 0, dataDir: root, generationOptions: { testOnlyLegacyRules: true, testOnlyRunner: runner }, linkedInOptions: { env: {} } });
   t.after(async () => { await app.close(); assert.ok(path.resolve(root).startsWith(path.resolve(tmpdir()) + path.sep)); await rm(root, { recursive: true, force: true }); });
   async function api(route, body, method = 'POST', expected = 200) {
     const response = await fetch(app.url + route, body === undefined ? {} : { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });

@@ -7,6 +7,8 @@ import { DatabaseSync } from 'node:sqlite';
 import { createContentStore } from '../server/content-store.mjs';
 import { createPublishingStore } from '../server/publishing-store.mjs';
 import { createLinkedInService } from '../server/linkedin-service.mjs';
+import { plainTextCommentary } from '../server/linkedin-api.mjs';
+import { documentsHash } from '../server/content-validation.mjs';
 
 // Synthetic credentials and payloads only. fetch is always injected, never LinkedIn.
 const env = { LINKEDIN_CLIENT_ID: 'SYNTHETIC_CLIENT', LINKEDIN_CLIENT_SECRET: 'SECRET_SENTINEL', LINKEDIN_REDIRECT_URI: 'https://callback.example.test/api/linkedin/callback', LINKEDIN_API_VERSION: '202609' };
@@ -93,6 +95,7 @@ test('OAuth state is random, expires, is single use, and only actual returned sc
   const connection = await f.service.callback(new URLSearchParams({ state, code: 'SYNTHETIC_CODE' }));
   assert.equal(connection.status, 'connected'); assert.equal(connection.canPublish, true);
   assert.equal(connection.account.urn, 'urn:li:person:synthetic-member');
+  assert.equal(Date.parse(connection.expiresAt) > Date.now(), true);
   const tokenRequest = new URLSearchParams(f.calls[0].body);
   assert.equal(tokenRequest.get('redirect_uri'), start.searchParams.get('redirect_uri'));
   assert.equal(tokenRequest.get('client_secret'), 'SECRET_SENTINEL');
@@ -123,6 +126,7 @@ test('preview uses saved version title and blocks, real asset hash, and rejects 
   const f = await fixture(t); await f.connect();
   const saved = f.save(payload(), true), preview = f.preview(saved);
   assert.equal(preview.body, 'Synthetic title\n\nSYNTHETIC_BODY_SENTINEL');
+  assert.equal(preview.versionNumber, saved.version.number);
   assert.doesNotMatch(JSON.stringify(preview), /NOT_PUBLIC_SENTINEL/);
   assert.equal(preview.assets[0].sha256, saved.version.assets[0].sha256);
   assert.equal(preview.assets[0].url, `/api/content/${saved.item.id}/versions/${saved.version.id}/assets/${saved.version.assets[0].id}`);
@@ -151,9 +155,37 @@ test('confirmation requires token and true; concurrent repeated clicks send only
   assert.equal(final.url, 'https://www.linkedin.com/feed/update/urn:li:share:123456789/');
   assert.equal(f.calls.filter(call => call.url.endsWith('/rest/posts')).length, 1);
   const request = f.calls.find(call => call.url.endsWith('/rest/posts'));
-  assert.equal(JSON.parse(request.body).commentary, preview.body); assert.equal(request.headers['LinkedIn-Version'], '202609');
+  assert.equal(JSON.parse(request.body).commentary, plainTextCommentary(preview.body)); assert.equal(request.headers['LinkedIn-Version'], '202609');
   assert.equal(request.headers['X-Restli-Protocol-Version'], '2.0.0');
   assert.equal(f.service.execute(confirmation(preview)).id, final.id);
+});
+
+test('plain-text LinkedIn commentary preserves visible symbols, Unicode and line breaks instead of interpreting markup', async t => {
+  const f = await fixture(t); await f.connect();
+  const body = '中文😀 first\nsecond\n\n@[Name](urn:li:person:123) #topic |{}<> \\ * _ ~';
+  const draft = payload(body); draft.documents[0].title = '';
+  const saved = f.save(draft), preview = f.preview(saved);
+  assert.equal(preview.body, body);
+  f.service.execute(confirmation(preview)); assert.equal((await f.settle()).status, 'published');
+  const commentary = JSON.parse(f.calls.find(call => call.url.endsWith('/rest/posts')).body).commentary;
+  assert.equal(commentary, '中文😀 first\nsecond\n\n' + String.raw`\@\[Name\]\(urn:li:person:123\) \#topic \|\{\}\<\> \\ \* \_ \~`);
+  assert.equal(commentary.split('\n').length, body.split('\n').length);
+  assert.equal(commentary.replace(/\\([|{}@\[\]()<>#\\*_~])/g, '$1'), preview.body);
+  assert.equal(f.preview(saved).contentHash, preview.contentHash);
+});
+
+test('published preview binds generated images to the same saved document and rejects stale bindings before any upload', async t => {
+  const f = await fixture(t); await f.connect(); const saved = f.save(payload(), true);
+  const version = f.content.version(saved.item.id, saved.version.id);
+  version.assets[0].imageBinding = { documentsHash: documentsHash(version.content.documents), width: 1, height: 1, checkedAt: new Date().toISOString() };
+  f.db.prepare('UPDATE content_versions SET payload=? WHERE id=?').run(JSON.stringify(version), version.id);
+  const preview = f.preview(saved);
+  assert.equal(preview.assets[0].imageBinding.documentsHash, documentsHash(version.content.documents));
+  version.assets[0].imageBinding.documentsHash = '0'.repeat(64);
+  f.db.prepare('UPDATE content_versions SET payload=? WHERE id=?').run(JSON.stringify(version), version.id);
+  assert.throws(() => f.preview(saved), caught => caught.status === 409 && /配图/.test(caught.message));
+  assert.throws(() => f.service.execute(confirmation(preview)), error(409));
+  assert.equal(f.store.list().length, 0); assert.equal(f.calls.filter(call => call.url.includes('/rest/')).length, 0);
 });
 
 test('account/session change, expiry, restore epoch and corrupted version/asset bytes invalidate preview', async t => {
@@ -193,6 +225,7 @@ test('upload refusal, credential-exfiltration upload URL and disconnect during u
     if (release) { f.service.disconnect(); release(); }
     assert.equal((await f.settle()).status, 'failed');
     assert.equal(f.calls.filter(call => call.url.endsWith('/rest/posts')).length, 0);
+    if (variant === 'disconnect') assert.equal(f.calls.filter(call => call.method === 'PUT').length, 0);
     assert.equal(f.calls.filter(call => call.url.includes('evil.example.test')).length, 0);
   });
 });

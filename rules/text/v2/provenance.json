@@ -1,0 +1,37 @@
+{
+  "sourceVersion": "linkedin-text-candidate.0.2.1",
+  "productionVersion": "text-v2.0.0",
+  "files": [
+    {
+      "path": "skill-preparation/linkedin-text/rules/core.md",
+      "sha256": "58d0a6e67eea1e42d7aa1451a3c3e4623aac6db85a5fb9eb20160de4713e5528",
+      "productionPath": "rules/text/v2/core.md"
+    },
+    {
+      "path": "skill-preparation/linkedin-text/rules/assets.md",
+      "sha256": "7826229ab6d299d66a64c588e28111682776c0eb30b66e4bf6ddad1f2a7cf099",
+      "productionPath": "rules/text/v2/assets.md"
+    },
+    {
+      "path": "skill-preparation/linkedin-text/rules/linkedin.md",
+      "sha256": "04a3cffb5a0bc4c3a4bd7d0ba3b2d4d4f9c199540b5ab412c8957e8647e76119",
+      "productionPath": "rules/text/v2/linkedin.md"
+    },
+    {
+      "path": "skill-preparation/linkedin-text/rules/localization.md",
+      "sha256": "21b862c088e67698586bdfcb92df71eed9a75dc3d54d569c64cce03dbbbc8c33",
+      "productionPath": "rules/text/v2/localization.md"
+    },
+    {
+      "path": "skill-preparation/linkedin-text/rules/audit-revision.md",
+      "sha256": "fceb69da4dc6d5d3b1d832f67260a8acaeca822c1f8fecd2962f249ea3aa0872",
+      "productionPath": "rules/text/v2/audit-revision.md"
+    },
+    {
+      "path": "skill-preparation/linkedin-text/rules/author-system1.md",
+      "sha256": "ade3d3e3d6170260bfe9c21e779d846d41c4d294d3bf5bce8cb7736fdca533b6",
+      "productionPath": "rules/text/v2/author-system1.md"
+    }
+  ],
+  "adaptation": "Original rule synthesis retained. Production routing/status headers updated; source files unchanged. Runtime stage constraints and bounded schemas are defined in text-pipeline.mjs. Source rule examples are historical context, not evidence for a new draft."
+}

@@ -196,6 +196,32 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
       return { item: next, asset };
     });
   }
+  // Internal adapter boundary: accepted image bytes and their checked document
+  // version are committed to the same tmp revision. Browser uploads cannot claim
+  // that an image has passed the automatic content check.
+  function attachImage(tmpId, raw) {
+    v.fields(raw, ['revision', 'fileName', 'mimeType', 'dataBase64', 'source', 'caption', 'imageBinding']);
+    const bytes = v.bytes(raw.dataBase64);
+    const asset = v.assetMetadata({ id: randomUUID(), fileName: raw.fileName, mimeType: raw.mimeType, byteLength: bytes.length, sha256: v.hash(bytes), source: raw.source, caption: raw.caption, imageBinding: raw.imageBinding });
+    return withLock(tmpId, () => {
+      const draft = writable(tmpId, raw.revision);
+      if (asset.imageBinding.documentsHash !== v.documentsHash(draft.content.documents)) v.bad('正文已改变，迟到配图不能覆盖当前稿件。', 409);
+      if (draft.assets.length >= 30) v.bad('单份暂存最多 30 个素材。');
+      const replaced = new Set(draft.assets.filter(item => item.mimeType.startsWith('image/') && !v.allSources(draft.content).some(source => source.type === 'asset' && source.assetId === item.id)).map(item => item.id));
+      const next = { ...draft, revision: v.increment(draft.revision), updatedAt: now(), assets: [...draft.assets, asset], content: { ...draft.content, assetIds: [...draft.content.assetIds.filter(id => !replaced.has(id)), asset.id] } };
+      atomicWrite(tmpPath(tmpId, asset.id), bytes); writeTmp(next);
+      return { item: next, asset };
+    });
+  }
+  function bindImage(tmpId, { revision, assetId, imageBinding }) {
+    return withLock(tmpId, () => {
+      const draft = writable(tmpId, revision), asset = draft.assets.find(asset => asset.id === assetId && draft.content.assetIds.includes(asset.id));
+      if (!asset || imageBinding.documentsHash !== v.documentsHash(draft.content.documents)) v.bad('正文已改变，迟到配图不能覆盖当前稿件。', 409);
+      const bound = v.assetMetadata({ ...asset, imageBinding });
+      const next = { ...draft, revision: v.increment(draft.revision), updatedAt: now(), assets: draft.assets.map(item => item.id === assetId ? bound : item) };
+      writeTmp(next); return { item: next, asset: bound };
+    });
+  }
   function getTmpAsset(tmpId, assetId) {
     v.id(assetId);
     const asset = readTmp(tmpId).assets.find(entry => entry.id === assetId);
@@ -241,6 +267,7 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
       const draft = writable(tmpId, raw.revision), content = v.content(draft.content, true);
       validateReferences(content, draft.assets);
       const assets = draft.assets.filter(asset => content.assetIds.includes(asset.id));
+      if (assets.some(asset => asset.imageBinding && asset.imageBinding.documentsHash !== v.documentsHash(content.documents))) v.bad('正文已修改，配图需要更新或重新选择后才能确认保存。', 409);
       const binary = new Map(assets.map(asset => [asset.id, tmpBytes(tmpId, asset)]));
       {
         // Recheck under the DB write lock for a second server sharing this data directory.
@@ -292,7 +319,7 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
         const content = v.content(sourceVersion.content, true);
         const binary = new Map();
         const assets = v.unique(v.list(sourceVersion.assets, sourceAsset => {
-          v.fields(sourceAsset, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption', 'dataBase64']);
+          v.fields(sourceAsset, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption', 'dataBase64'], ['imageBinding']);
           const { dataBase64, ...metadata } = sourceAsset;
           const asset = v.assetMetadata(metadata), bytes = v.bytes(dataBase64);
           if (bytes.length !== asset.byteLength || v.hash(bytes) !== asset.sha256) v.bad('内容备份的素材校验失败。');
@@ -300,6 +327,7 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
           return asset;
         }, 30), asset => asset.id);
         if (assets.length !== content.assetIds.length || assets.some(asset => !content.assetIds.includes(asset.id))) v.bad('内容备份素材与稿件选择不一致。');
+        if (assets.some(asset => asset.imageBinding && asset.imageBinding.documentsHash !== v.documentsHash(content.documents))) v.bad('备份配图与对应正文版本不一致，恢复已拒绝。');
         const version = { id: versionId, number: v.integer(sourceVersion.number, 1), createdAt: v.timestamp(sourceVersion.createdAt), content, assets };
         const existing = db.prepare('SELECT item_id,payload FROM content_versions WHERE id=?').get(versionId);
         if (existing && (existing.item_id !== itemId || JSON.stringify(JSON.parse(existing.payload)) !== JSON.stringify(version))) v.bad('同一正式版本 ID 的内容不同，拒绝改写不可变历史。');
@@ -332,5 +360,5 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
     }
     db.prepare('UPDATE content_meta SET restore_epoch=? WHERE singleton=1').run(v.increment(epoch()));
   }
-  return { list, item, version, createTmp, listTmp, readTmp, updateTmp, upload, getTmpAsset, getAsset, fork, revise, confirm, exportAll, validateBackup, restore };
+  return { list, item, version, createTmp, listTmp, readTmp, updateTmp, upload, attachImage, bindImage, getTmpAsset, getAsset, fork, revise, confirm, exportAll, validateBackup, restore };
 }

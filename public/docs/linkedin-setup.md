@@ -1,5 +1,17 @@
 # LinkedIn 应用、回调与正式授权
 
+## 尚未准备应用时的最小步骤
+
+本轮操作者尚无应用和HTTPS回调。先继续本机创作，不需为此开放整个工作台。一次性准备：
+
+1. 在LinkedIn开发者门户创建应用，申请下方的OpenID Connect和Share产品，核对`openid profile w_member_social`。
+2. 准备自己控制的HTTPS回调，只代理GET `/api/linkedin/callback`到本机；其他路径和方法拒绝，不记录带授权码的query。
+3. 在本机安全设置`LINKEDIN_CLIENT_ID`、`LINKEDIN_CLIENT_SECRET`和完全一致的`LINKEDIN_REDIRECT_URI`；不把secret粘贴到聊天或写进Git。项目`docs/LinkedIn最小配置.md`提供遮罩输入及临时环境变量脚本。
+4. 执行`node server/linkedin-preflight.mjs`；启动本目录服务后执行`node server/linkedin-preflight.mjs --check-callback`。未准备时明确报缺项，不发帖。
+5. 在“发布”进入官方页面，由操作者登录授权；返回工作台核对账号和权限。真实发帖要等选定正式版本、完整正文和图片另行确认。
+
+本轮真实OAuth、LinkedIn上传及发布未验收。以下是详细配置与边界。
+
 更新：2026-09-24。本指南只准备个人 LinkedIn 普通 feed 的纯文本／单图发布。代码与本地替身测试已完成，不代表应用获权、OAuth 成功或实际发帖。当前环境的 Process／User／Machine 层均未配置应用 ID、secret、回调、API 版本或 scopes。不要在聊天中粘贴 secret 或 token。
 
 ## 操作者准备应用
