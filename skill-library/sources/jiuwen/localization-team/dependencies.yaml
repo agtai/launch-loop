@@ -1,0 +1,50 @@
+# dependencies.yaml — Teamskill startup dependency check
+#
+# Agent reads this file in SKILL.md Workflow Step 0 (pre-flight).
+# Each entry is checked. Results are reported to the user, who decides go/no-go.
+#
+# THIS FILE IS POPULATED FROM STAGE 2 AUTO-MATCHING RESULTS.
+# Do NOT fill it from scratch — it codifies what was discovered during the
+# local scan in Stage 2 (and optional post-generation community enrichment).
+#
+# RULES:
+# - Both `skills:` and `tools:` segments are MANDATORY (write `[]` if empty).
+# - Empty lists are valid ONLY when the auto-matching scan confirms no matches
+#   — they signal "checked, confirmed none", which is different from "never looked".
+# - Every entry in `roles[].skills` and `roles[].tools` (in SKILL.md frontmatter)
+#   MUST appear here. The validator script enforces this consistency.
+# - `purpose` is shown to the user when the dep is missing — write user-facing
+#   prose explaining the consequence, not internal jargon.
+
+skills:
+  # --- Local skills (discovered in Stage 2 auto-matching) ---
+  - name: web-research
+    source: local
+    required: false
+    purpose: Search target culture's taboos, sensitivities, historical context, and popular expressions/memes (both roles use this for cultural context retrieval)
+
+  - name: fact-checker
+    source: local
+    required: false
+    purpose: Verify cultural facts, historical references, and claims about target locale norms (cultural-auditor uses this for evidence validation)
+
+  # --- Community skills (added via post-generation community enrichment, user-authorized) ---
+  - name: localization-testing
+    source: "https://github.com/proffesor-for-testing/agentic-qe"
+    required: false
+    purpose: i18n/l10n testing including cultural appropriateness validation (cultural-auditor uses this for structured cultural risk detection)
+
+  - name: idiomatic-translate
+    source: "https://github.com/Fr-e-d/GAAI-framework"
+    required: false
+    purpose: Idiomatic translation preserving tone and domain terminology (language-polisher uses this for native-quality expression conversion)
+
+tools:
+  # --- Local tools (probed in Stage 2 auto-matching via `where`/`which`) ---
+  - name: curl
+    required: false
+    purpose: Fetch cultural reference materials from web sources (optional enhancement for cultural-auditor)
+
+  - name: python
+    required: false
+    purpose: Process text data and perform linguistic analysis (optional enhancement for both roles)

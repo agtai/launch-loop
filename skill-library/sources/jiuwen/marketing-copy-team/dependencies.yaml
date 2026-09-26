@@ -1,0 +1,37 @@
+# dependencies.yaml —— Teamskill 启动时依赖检查
+
+skills:
+  - name: copywriting
+    source: "https://skills.sh/?q=copywriting"
+    required: false
+    purpose: |
+      copywriter 与 brief-strategist 的血缘来源。转化型文案原则（清晰优于巧妙、
+      收益优于功能、具体优于空泛、客户语言优于公司语言、每节一个核心观点）。
+      Inline persona 已内嵌这些核心原则。
+
+  - name: copy-editing
+    source: "https://skills.sh/?q=copy-editing"
+    required: false
+    purpose: |
+      copy-editor 的血缘来源。7 轮打磨框架（清晰 / 简洁 / 具体 / 声音 / 节奏 /
+      说服 / 精修）改编自该 skill；该 skill 本身在营销社区被广泛引用。
+      Inline persona 已内嵌全部 7 轮。
+
+  - name: content-strategy
+    source: "https://skills.sh/?q=content-strategy"
+    required: false
+    purpose: brief-strategist 的血缘来源。定位 + 受众 + offer + 客户语言提取方法论。
+
+  - name: conversion-optimization
+    source: "https://skills.sh/?q=conversion-optimization"
+    required: false
+    purpose: conversion-auditor 的血缘来源。CRO 清单（CTA 强度 / 摩擦地图 / 支撑证据 / 移动端可读性）。
+
+tools: []
+
+resources:
+  - name: ".claude/product-marketing-context.md"
+    type: optional file
+    purpose: |
+      若工作目录中存在该文件，brief-strategist 会从中读取品牌声音 + 定位语境，
+      而非向用户询问。此为常见的产品营销上下文文件约定。

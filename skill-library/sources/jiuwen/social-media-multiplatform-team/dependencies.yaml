@@ -1,0 +1,78 @@
+# dependencies.yaml — Teamskill 启动时的依赖检查
+
+skills:
+  - name: platform-voice-library
+    source: "https://skills.sh/?q=platform-voice"
+    required: false
+    purpose: |
+      platform-adapter 的传承来源。提供主流平台（Twitter/X、LinkedIn、小红书、
+      Instagram、Reddit、Threads 等）的参考语气画像。若不可用，
+      适配器回退到 inline persona 中内嵌的启发式规则。
+
+  - name: social-copywriting
+    source: "https://skills.sh/?q=social-copywriting"
+    required: false
+    purpose: platform-adapter 的参考。各平台的 hook 套路、长度规范、话题标签惯例。
+
+  - name: brand-voice-guardian
+    source: "https://skills.sh/?q=brand-voice"
+    required: false
+    purpose: |
+      brand-consistency-reviewer 的传承来源。语气漂移检测、品牌词汇
+      一致性检查套路。
+
+  - name: content-cross-check
+    source: "https://skills.sh/?q=content-cross-check"
+    required: false
+    purpose: brand-consistency-reviewer 的参考。多变体事实 / 声明一致性检查。
+
+  - name: content-compliance-check
+    source: "https://skills.sh/?q=content-compliance"
+    required: false
+    purpose: |
+      compliance-reviewer 的传承来源。声明实证评分表、监管行业
+      核查清单（医疗 / 金融 / 法律免责声明）、平台 ToS 摘要。
+
+  - name: brand-safety
+    source: "https://skills.sh/?q=brand-safety"
+    required: false
+    purpose: compliance-reviewer 的参考。争议性表述 / 暗语 / 意外冒犯套路。
+
+  - name: social-engagement-strategy
+    source: "https://skills.sh/?q=social-engagement-strategy"
+    required: false
+    purpose: |
+      engagement-strategist 的传承来源。每平台的互动先验（点击 / 回复 /
+      收藏 / 分享），按 KPI 的 hook 挑选启发式。
+
+  - name: posting-sequence-planner
+    source: "https://skills.sh/?q=posting-sequence"
+    required: false
+    purpose: engagement-strategist 的参考。跨平台排序 + 交叉推广套路。
+
+tools:
+  - name: file-read
+    source: builtin
+    required: false
+    purpose: |
+      所有角色都用它读取源信息 / 品牌语气指南 / 平台 ToS 文件。
+      如果内容已粘贴进上下文则可选。
+
+resources:
+  - name: brand-voice-guide
+    type: optional reference
+    purpose: |
+      用户提供的品牌语气指南能显著提升 brand-consistency-reviewer 的
+      精度。若缺失，复核将仅退回到语气一致性检查（不做品牌特定的
+      词汇检查）。
+  - name: platform-tos-summaries
+    type: optional reference
+    purpose: |
+      按平台的 ToS 摘要（由外部定期更新）能让 compliance-reviewer 的
+      ToS 违规检测更敏锐。若缺失，复核将使用通用知识默认值，可能
+      滞后于平台政策变化。
+  - name: example-past-posts
+    type: optional reference
+    purpose: |
+      用户为每个平台提供的 2-3 条历史示例帖子能为 platform-adapter 的
+      语气校准提供锚点。若缺失，适配器使用平台默认值——可行，但品牌特征偏弱。

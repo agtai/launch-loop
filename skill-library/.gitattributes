@@ -1,0 +1,2 @@
+# Preserve upstream snapshots byte-for-byte, including line endings and whitespace.
+sources/** -text -whitespace

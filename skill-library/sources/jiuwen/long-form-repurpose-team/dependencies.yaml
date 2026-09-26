@@ -1,0 +1,35 @@
+# 长内容拆条分发团队 — 外部依赖声明
+# 全部为可选：缺失时按 bind.md 的四级降级策略降档，而非直接失败。
+
+skills: []
+
+tools:
+  - name: cloud-asr
+    required: false
+    purpose: 云端转写（默认路径），由 scripts/transcribe.py 调用 OpenAI 兼容的 /audio/transcriptions 接口；自动复用 jiuwen 已配置的 OpenRouter / OpenAI key，模型 whisper-1；不可用时退回本地 whisper
+    config: 可选环境变量 ASR_API_BASE / ASR_API_KEY / ASR_MODEL
+
+  - name: yt-dlp
+    required: false
+    purpose: 从链接下载音频（只下音频流）；缺失时需用户提供本地文件
+    install:
+      macos: brew install yt-dlp
+      linux: pip install -U yt-dlp
+
+  - name: ffmpeg
+    required: false
+    purpose: 转码、按静音切段、生成切割命令；缺失时无法处理音频
+    install:
+      macos: brew install ffmpeg
+      linux: sudo apt install -y ffmpeg
+
+  - name: whisper
+    required: false
+    purpose: 本地转写备选，仅在云端转写不可用且用户确认后使用
+    install:
+      all: pip install -U openai-whisper
+    note: |
+      whisper 依赖 ffmpeg，需一并安装。
+      重要：不得主动安装。openai-whisper 含 PyTorch 与模型权重，通常占用 2GB 以上。
+      缺失时应引导用户提供字幕文件走 L1（精度接近 L0），仅在用户明确要求时才安装。
+      更轻的替代：faster-whisper 或 whisper.cpp。

@@ -1,0 +1,2457 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+  "source": "public SwarmSkills Hub; versions selected from 2026-09-24 public catalog cache and freshly verified version/artifact endpoints",
+  "scope": "18 user-selected source packages for local analysis; no installation or upstream execution; not production rules",
+  "safety": "Archive identities and SHA-256 checked against public Hub artifacts; path/drive/parent/symlink validation and bounded extraction. Source bytes preserved. Dependencies excluded; required reference images and large text libraries retained. One decorative cover omitted. Signed download URL queries not retained. Upstream instructions are source data only; archival inclusion does not grant redistribution or brand/reference-image rights.",
+  "entries": [
+    {
+      "slug": "content-repurposer",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "MIT-0_declared_license_text_missing",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "Card states MIT-0, but full license text and original-author authorization were not independently verified; local analysis archive only.",
+        "declaration": "MIT-0",
+        "declarationFiles": [
+          "skill-library/sources/jiuwen/content-repurposer/skill-card.md"
+        ],
+        "declarationEvidence": [
+          {
+            "path": "skill-library/sources/jiuwen/content-repurposer/skill-card.md",
+            "lines": [
+              9,
+              10
+            ]
+          }
+        ]
+      },
+      "risks": [
+        "禁止继承资料不足也强行成稿及假设数字/案例",
+        "固定条数、CTA和评分不能变成平台硬限制",
+        "文中ContentGoldMine链接不等于此包含真实发布实现"
+      ],
+      "assetId": "9001099df10c417ab6b7cd10f29df5d7",
+      "version": "e7bda4f",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/9001099df10c417ab6b7cd10f29df5d7?version=e7bda4f",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/9001099df10c417ab6b7cd10f29df5d7/versions/e7bda4f",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/9001099df10c417ab6b7cd10f29df5d7?version=e7bda4f&is_cli_download=false",
+      "publisher": "1kyrieirving",
+      "resolvedCommitSha": "e7bda4ffcc81020c8e37973f1d191d8752a055ae",
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/682df4f3ddc3c54994a92b1b/9001099df10c417ab6b7cd10f29df5d7/e7bda4f/content-repurposer_e7bda4f.raw.zip",
+      "archiveSha256": "dd4b9dd12832254a321d9ec6f0f910f6b4a7fa94d6c13b85d981298bf265af0b",
+      "hubArchiveSha256": "dd4b9dd12832254a321d9ec6f0f910f6b4a7fa94d6c13b85d981298bf265af0b",
+      "archiveBytes": 3802,
+      "acquisition": "verified_cached_artifact",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/content-repurposer/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 4849,
+          "sha256": "9a88ff78f4628c47a88b91abb1eabf5c9d4a46413cc03c9cdb4663b7d29fa2eb"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-repurposer/_meta.json",
+          "archivePath": "_meta.json",
+          "bytes": 137,
+          "sha256": "731bef6f775391c824584f09e9c730836b00fda56d5a051c32242585f6b6db66"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-repurposer/skill-card.md",
+          "archivePath": "skill-card.md",
+          "bytes": 2228,
+          "sha256": "b6fc114e7df39da43730ce20109ea7145f93189f05c4169143a268aa45cd24ef"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [
+        "https://github.com/mohitagw15856/ContentGoldMine"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/content-repurposer/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/content-repurposer",
+      "completeness": "complete_hub_artifact",
+      "id": "9001099df10c417ab6b7cd10f29df5d7",
+      "name": "content-repurposer",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/9001099df10c417ab6b7cd10f29df5d7?version=e7bda4f",
+      "localPath": "skill-library/sources/jiuwen/content-repurposer/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "优先分析",
+      "adoptionRecommendation": "提炼同一主线的LinkedIn/X原生改写、串帖每条完整表达。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "MIT-0 declared in skill-card.md; full license text absent; declaration not independently verified; no blanket redistribution claim",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [],
+      "declaredPublisherUrl": "https://clawhub.ai/user/mohitagw15856",
+      "upstreamSkillUrl": "https://clawhub.ai/mohitagw15856/skills/content-repurposer",
+      "declaredHomepageUrl": "https://mohitagw15856.github.io/pm-claude-skills/skill/content-repurposer.html",
+      "publisherDeclarationEvidence": {
+        "path": "skill-library/sources/jiuwen/content-repurposer/skill-card.md",
+        "publisherLine": 7,
+        "sourceLinksStartLine": 27,
+        "verification": "Archive card declaration only; publisher identity and external source not independently reverified this round. Hub publisher may differ."
+      }
+    },
+    {
+      "slug": "social-media-multiplatform-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "不照搬至少三个平台或整套多角色编排",
+        "发布顺序与素材清单不是发布API/上传实现",
+        "不增加每稿一次审核的轮数"
+      ],
+      "assetId": "76fcdde8c2ae4f3486fc37ed3bb2f8eb",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/76fcdde8c2ae4f3486fc37ed3bb2f8eb?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/76fcdde8c2ae4f3486fc37ed3bb2f8eb/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/76fcdde8c2ae4f3486fc37ed3bb2f8eb?version=1.0.0&is_cli_download=false",
+      "publisher": "xiaoxiawang",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/69306aecc5538775c7fb5a37/76fcdde8c2ae4f3486fc37ed3bb2f8eb/1.0.0/social-media-multiplatform-team_1.0.0.raw.zip",
+      "archiveSha256": "3ceff479e82938d199a282a42b6bc8ea6789748e181439c8c5bc4a037d7256ce",
+      "hubArchiveSha256": "3ceff479e82938d199a282a42b6bc8ea6789748e181439c8c5bc4a037d7256ce",
+      "archiveBytes": 23006,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 5665,
+          "sha256": "393ffca2d2dcc7ead8b9ef29740cd77cfc9a16930c9c6d8fd8a328a8e2154fd7"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 5816,
+          "sha256": "afbe63cd466087f313af161d2143b7e849beb37ca31f846e9b62bdcdd6087760"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 3119,
+          "sha256": "e9e57b630f4898d91a684821ea21699bdd86d78fa100bc00ce85f7cbb5bc918a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/roles/brand-consistency-reviewer.md",
+          "archivePath": "roles/brand-consistency-reviewer.md",
+          "bytes": 4638,
+          "sha256": "15e340ea3bafa61f27a58300dd7ddbfc076582f03c4eabc53d6656b5078dacb4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/roles/compliance-reviewer.md",
+          "archivePath": "roles/compliance-reviewer.md",
+          "bytes": 4926,
+          "sha256": "fd98b9dd30741fd17bcc1cf87151e37f1303e5d56338f45839592c837ea63710"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/roles/engagement-strategist.md",
+          "archivePath": "roles/engagement-strategist.md",
+          "bytes": 5178,
+          "sha256": "eb327a451b4efae6c8da1e8c2bbde5f97b316ba09661e7cee467389ed9adb7fd"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/roles/platform-adapter.md",
+          "archivePath": "roles/platform-adapter.md",
+          "bytes": 5985,
+          "sha256": "03d588e7cde9822eb34a65d5c7f9f4ad537d3aa98bcbeb781c06ec0b0bd21a3b"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/social-media-multiplatform-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 8404,
+          "sha256": "3dbcb22aef970412c87289f476b2dbd61a98d248d04cb8b21b23a413607b4faf"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/social-media-multiplatform-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/social-media-multiplatform-team",
+      "completeness": "complete_hub_artifact",
+      "id": "76fcdde8c2ae4f3486fc37ed3bb2f8eb",
+      "name": "social-media-multiplatform-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/76fcdde8c2ae4f3486fc37ed3bb2f8eb?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/social-media-multiplatform-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "优先分析",
+      "adoptionRecommendation": "提炼跨平台稿件事实、品牌和作者语气一致性检查。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "visual-content-brief-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "输出视觉简报而非实际图片",
+        "平台尺寸和无障碍建议需再核官方资料",
+        "实际图文一致性仍须看图验收"
+      ],
+      "assetId": "e641421e624842a0930f6230421e9611",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/e641421e624842a0930f6230421e9611?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/e641421e624842a0930f6230421e9611/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/e641421e624842a0930f6230421e9611?version=1.0.0&is_cli_download=false",
+      "publisher": "kangwei01",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/67a4ac7026e15e1bdb82046e/e641421e624842a0930f6230421e9611/1.0.0/visual-content-brief-team_1.0.0.raw.zip",
+      "archiveSha256": "98395bf14d0502eb96ad106563f424e6fc3ebe8e0c9e31437294940eb09445da",
+      "hubArchiveSha256": "98395bf14d0502eb96ad106563f424e6fc3ebe8e0c9e31437294940eb09445da",
+      "archiveBytes": 10718,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 3722,
+          "sha256": "49113a7522c4df215b085e9e7a028f0f1d53ca8568606f18c9dcd12bc3264216"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 2034,
+          "sha256": "96c3cd07946eb962678292090dd5dafbb8e70f0e01f43c03b47c7f304b7999a3"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 27,
+          "sha256": "6a015d6615b9ebb131880b78a766fb5b3c24a6ff5c7bad5d562506bd47049d35"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/roles/accessibility-reviewer.md",
+          "archivePath": "roles/accessibility-reviewer.md",
+          "bytes": 3184,
+          "sha256": "47da2191628bceab9228201f22fa3be0f951c09d72560213263629101209dbaa"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/roles/platform-adapter.md",
+          "archivePath": "roles/platform-adapter.md",
+          "bytes": 3030,
+          "sha256": "b0cc7a27fcb34d3fb36588028afa05b81b63b6f38d8e161ea2be467d93474c70"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/roles/visual-concept-designer.md",
+          "archivePath": "roles/visual-concept-designer.md",
+          "bytes": 3086,
+          "sha256": "b02a42228dadc0d74a462dcd181e75cec81119227d245ad1f0687e7378d1b165"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/visual-content-brief-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 3216,
+          "sha256": "bd7543cac79c8226542817e8ae29b33578d03ae2a6010b87a3dde3af840eec75"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/visual-content-brief-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/visual-content-brief-team",
+      "completeness": "complete_hub_artifact",
+      "id": "e641421e624842a0930f6230421e9611",
+      "name": "visual-content-brief-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/e641421e624842a0930f6230421e9611?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/visual-content-brief-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "优先分析",
+      "adoptionRecommendation": "提炼主视觉概念、平台构图、手机可读性与替代说明。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "baoyu-image-gen",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": "https://github.com/JimLiu/baoyu-skills#baoyu-image-gen",
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "有API/CLI/官方缓存与配置依赖",
+        "未运行任何上游脚本或模型调用",
+        "Hub包没有LICENSE，不能仅凭另一个上游版本MIT推断此包许可",
+        "不能以会话生图替代工作台真实配图验收",
+        "scripts/codex-imagegen/spawn.ts显式传--sandbox danger-full-access启动Codex；仅作源码比较，不继承其执行权限或运行此脚本。"
+      ],
+      "assetId": "8b90b4f8367748ba8df74bbd45929fbe",
+      "version": "2.1.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/8b90b4f8367748ba8df74bbd45929fbe?version=2.1.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/8b90b4f8367748ba8df74bbd45929fbe/versions/2.1.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/8b90b4f8367748ba8df74bbd45929fbe?version=2.1.0&is_cli_download=false",
+      "publisher": "wlmao18",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/6948a2e76415d64a21d09c4c/8b90b4f8367748ba8df74bbd45929fbe/2.1.0/baoyu-image-gen_2.1.0.raw.zip",
+      "archiveSha256": "5640d5092a39776fffc02d78dfbcb8a5016ef0cf5c86ecd97f6b9f50e606ff40",
+      "hubArchiveSha256": "5640d5092a39776fffc02d78dfbcb8a5016ef0cf5c86ecd97f6b9f50e606ff40",
+      "archiveBytes": 118859,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 21009,
+          "sha256": "cd1e2cf5a4e39f55e0d3aedd9e5f2245cc20a6b87d7c356f3d2852e13b9ede57"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/codex-image2-fallback.md",
+          "archivePath": "references/codex-image2-fallback.md",
+          "bytes": 2020,
+          "sha256": "9d3870af1c16ab0012f166072fa5b8601b18752db49648a06c9f4fbd20b6a8aa"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/codex-oauth-vs-openai-api-key.md",
+          "archivePath": "references/codex-oauth-vs-openai-api-key.md",
+          "bytes": 2155,
+          "sha256": "fa53179ee62d5f1b319bd27ab8dc47aeb63fbd6b09362f200f968a73d15800c5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/config/first-time-setup.md",
+          "archivePath": "references/config/first-time-setup.md",
+          "bytes": 13690,
+          "sha256": "5b05d033c0fb88a018a6fe694b4908a69b98235038896107f12dd1a05db336cd"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/config/preferences-schema.md",
+          "archivePath": "references/config/preferences-schema.md",
+          "bytes": 5039,
+          "sha256": "9353bced279de1cc906a562316ae72c474dd946f3b78a77aad0443a9dda3be65"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/agnes.md",
+          "archivePath": "references/providers/agnes.md",
+          "bytes": 2356,
+          "sha256": "7fd3d9a7ad52740312f0d3a829163b688ea902a246c1bbe94724198f4ec0b892"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/codex-cli.md",
+          "archivePath": "references/providers/codex-cli.md",
+          "bytes": 6092,
+          "sha256": "df95cebdd20c3643f3db1b3df2f4d672491105b304c09fb0a708d1624fbdbcce"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/dashscope.md",
+          "archivePath": "references/providers/dashscope.md",
+          "bytes": 4666,
+          "sha256": "f5ce0b4f59e923eb3a129b7008cf9f702903abb00b1d584dc3f653b60c4099d2"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/minimax.md",
+          "archivePath": "references/providers/minimax.md",
+          "bytes": 1257,
+          "sha256": "39ee609e8118551a83ec2c8271729ee3725025c6d11b9e11e5829cbc3eaf837e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/openrouter.md",
+          "archivePath": "references/providers/openrouter.md",
+          "bytes": 779,
+          "sha256": "bb4c830c00282a78e0d0be1ab94206ce1c817fb3e85cdb988f94e3abb9404b2c"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/replicate.md",
+          "archivePath": "references/providers/replicate.md",
+          "bytes": 1864,
+          "sha256": "98f920a42b19f94e5c8d7ed2ba5ce8c7fea54bce8592875b21d1dd1152c2141d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/providers/zai.md",
+          "archivePath": "references/providers/zai.md",
+          "bytes": 1126,
+          "sha256": "41d3737894fc75c2f71d19e7807098179e087274e084cc324d2fdb1f0c64e7a7"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/references/usage-examples.md",
+          "archivePath": "references/usage-examples.md",
+          "bytes": 6238,
+          "sha256": "2f4558b28009f00e59ecdca75224b5e4e1c559d55de134ea04a61c5e69121368"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/build-batch.test.ts",
+          "archivePath": "scripts/build-batch.test.ts",
+          "bytes": 4765,
+          "sha256": "68af4b1871f46e777ed6d0e7221fa6bbc76f3b75341baff6623aa4ad98be7835"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/build-batch.ts",
+          "archivePath": "scripts/build-batch.ts",
+          "bytes": 7832,
+          "sha256": "4f02064e056adc6e97ae19c6ab5173452b7fbf08d5e990a8b4ef266f2f6fae51"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/cache.ts",
+          "archivePath": "scripts/codex-imagegen/cache.ts",
+          "bytes": 2380,
+          "sha256": "fd7109b411e090940b714c728cb7077950921e1c23b403ef1e890ba3b186172f"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/logger.ts",
+          "archivePath": "scripts/codex-imagegen/logger.ts",
+          "bytes": 1395,
+          "sha256": "831a41fc08f3b4aed12b075a50e59ae24bdf1c32595d8a3f081b282a3c9858db"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/main.ts",
+          "archivePath": "scripts/codex-imagegen/main.ts",
+          "bytes": 12421,
+          "sha256": "d4b0d902eaf6b278ce5124c02389fb95b73ecc75fd0183b373f089bb78146b68"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/parser.ts",
+          "archivePath": "scripts/codex-imagegen/parser.ts",
+          "bytes": 2136,
+          "sha256": "e01644ecb4edf48594385c57e9c71f2541dcfa0c7930c7461e4b3cf792425a50"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/spawn.ts",
+          "archivePath": "scripts/codex-imagegen/spawn.ts",
+          "bytes": 2513,
+          "sha256": "2fc69d85353405dc64e5ff1cb14fbdb7cf98989a85da71377cd7d6b0af5ba0ad"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/types.ts",
+          "archivePath": "scripts/codex-imagegen/types.ts",
+          "bytes": 1711,
+          "sha256": "8469d7eeb8b25ff07c5ac028d845879cd04685b15b5a3758774be6b346014c93"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/validator.ts",
+          "archivePath": "scripts/codex-imagegen/validator.ts",
+          "bytes": 2409,
+          "sha256": "2155a0f1adb015e229f3ac18d01ec5b942ce7c7809295888f36f16cfb0350c0e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/main.test.ts",
+          "archivePath": "scripts/main.test.ts",
+          "bytes": 19427,
+          "sha256": "d217a09b84e1dc3fec292e72dd865f63865e876d5c985b9ad92e4f3b4481a1f4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/main.ts",
+          "archivePath": "scripts/main.ts",
+          "bytes": 47837,
+          "sha256": "04e5f15cdfc8d2a36c1a3a61676c92cf441a3f14b3d4ae0abecd27c82110a71a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/agnes.test.ts",
+          "archivePath": "scripts/providers/agnes.test.ts",
+          "bytes": 7023,
+          "sha256": "9c79aab76d8189b418b2df8e28df0b139f407d0f6b65b8ab2865d6bc2fe78785"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/agnes.ts",
+          "archivePath": "scripts/providers/agnes.ts",
+          "bytes": 5177,
+          "sha256": "74d0fbd3faa43fdf567be8135c2f8c82c659ad56a48765eaed6be2faada6d7be"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/azure.test.ts",
+          "archivePath": "scripts/providers/azure.test.ts",
+          "bytes": 5614,
+          "sha256": "82754606f89b26f1f4d22705e09625aa7ce853e94ac4c887b8c7ffe47b4e86c8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/azure.ts",
+          "archivePath": "scripts/providers/azure.ts",
+          "bytes": 6012,
+          "sha256": "7974ae971d58e8ab8e3636b62a3e52ac20ba0f10ffd48ecb64ff5ba83ba71910"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/codex-cli.test.ts",
+          "archivePath": "scripts/providers/codex-cli.test.ts",
+          "bytes": 1736,
+          "sha256": "30bd89828e63d1951fbff4b852ca2dceac29cf418dca4c0a3b11a0d90c7b2ff9"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/codex-cli.ts",
+          "archivePath": "scripts/providers/codex-cli.ts",
+          "bytes": 6089,
+          "sha256": "7ca2fa4eb489b1011aac0abc9e33018a7ce744ac4594ef5103983a42a4ac13f8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/dashscope.test.ts",
+          "archivePath": "scripts/providers/dashscope.test.ts",
+          "bytes": 11926,
+          "sha256": "cdea349466bf4cba5b310102d22c00e43816304dbaa1941a871db97d3ad63f63"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/dashscope.ts",
+          "archivePath": "scripts/providers/dashscope.ts",
+          "bytes": 19083,
+          "sha256": "b3f6f2b718e72f05934481d4cd4990062c6702c58b1a13382a42efa75de54cdb"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/google.test.ts",
+          "archivePath": "scripts/providers/google.test.ts",
+          "bytes": 3750,
+          "sha256": "f27760a7a8e977b5d0f55bf5841f39cdafcda8b2b267627d06f786c3e9de5c63"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/google.ts",
+          "archivePath": "scripts/providers/google.ts",
+          "bytes": 10393,
+          "sha256": "ed782142bf45fa5094ac340122e690c327de4b576061855520d825b900e944c2"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/jimeng.test.ts",
+          "archivePath": "scripts/providers/jimeng.test.ts",
+          "bytes": 2852,
+          "sha256": "6a5ad4a7fbe94734fbb0d4968aabdfb0ede8e6b279ce47849f37ddf0fd85c799"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/jimeng.ts",
+          "archivePath": "scripts/providers/jimeng.ts",
+          "bytes": 13312,
+          "sha256": "ad20f026104bbc219bdbd34d52826ad6f08d08711573260226850bb7e0fe9141"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/minimax.test.ts",
+          "archivePath": "scripts/providers/minimax.test.ts",
+          "bytes": 5429,
+          "sha256": "a12270aee9779dd981f55010533c833a7e16981e2e76f36ef6036612de62ad30"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/minimax.ts",
+          "archivePath": "scripts/providers/minimax.ts",
+          "bytes": 6551,
+          "sha256": "36664c93b2ba8aab715d7083ccebe8b8f4d979acb5f384e232221ba9f45e9bae"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/openai.test.ts",
+          "archivePath": "scripts/providers/openai.test.ts",
+          "bytes": 5715,
+          "sha256": "8f5059558e0db921e42e5716699e05d6473d8c2300d8af23bfe38785a79f2f43"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/openai.ts",
+          "archivePath": "scripts/providers/openai.ts",
+          "bytes": 13115,
+          "sha256": "20efedf841d49903bdf3adb93731c0e51f646941c42976c371186a16c89e589b"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/openrouter.test.ts",
+          "archivePath": "scripts/providers/openrouter.test.ts",
+          "bytes": 5619,
+          "sha256": "8ba94adac16bec93796d75972dfb6b69fe024a5ac27584b0151c87906a9fcbb4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/openrouter.ts",
+          "archivePath": "scripts/providers/openrouter.ts",
+          "bytes": 10329,
+          "sha256": "19d62c6e569fd7b073ec0ba6304f586c31e33f62dc77b8a8ec6ed15bd1bd4439"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/replicate.test.ts",
+          "archivePath": "scripts/providers/replicate.test.ts",
+          "bytes": 7500,
+          "sha256": "89cafa563fbd1469972b89e8e84319b4f13d9772a39c3b6464ef7c99f9e46627"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/replicate.ts",
+          "archivePath": "scripts/providers/replicate.ts",
+          "bytes": 18438,
+          "sha256": "0d9a632b6eefe14f4b447c7f21826853f169ebcffbf30d9bbaa3590758f63b2e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/seedream.test.ts",
+          "archivePath": "scripts/providers/seedream.test.ts",
+          "bytes": 6789,
+          "sha256": "9af84faeb170263387ab7d0a161d3e2852787efa299afe4cc9c4c809a0679a37"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/seedream.ts",
+          "archivePath": "scripts/providers/seedream.ts",
+          "bytes": 10196,
+          "sha256": "268d1348c968c048a7b105f7c8c771ad1c1f9bae29f6ea75d69c83ee26f7f2e9"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/zai.test.ts",
+          "archivePath": "scripts/providers/zai.test.ts",
+          "bytes": 5455,
+          "sha256": "c4fe097fd513f4ef62f8d869cce1d22967c3cc987ec3d6b74856490c43906762"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/providers/zai.ts",
+          "archivePath": "scripts/providers/zai.ts",
+          "bytes": 9256,
+          "sha256": "9ca6159f31b1c331e8e930886c73c22fd1e6eb3801ef4e8ad9fb31c508aa6e91"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/types.ts",
+          "archivePath": "scripts/types.ts",
+          "bytes": 2434,
+          "sha256": "a49dec11195032d86836b44a2904259412865b018b7c1a8954d1ea1bf0c1b188"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [
+        "https://github.com/JimLiu/baoyu-skills#baoyu-image-gen"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/baoyu-image-gen/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/baoyu-image-gen",
+      "completeness": "complete_hub_artifact",
+      "id": "8b90b4f8367748ba8df74bbd45929fbe",
+      "name": "baoyu-image-gen",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/8b90b4f8367748ba8df74bbd45929fbe?version=2.1.0",
+      "localPath": "skill-library/sources/jiuwen/baoyu-image-gen/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "package SKILL/README homepage or source link",
+      "priority": "优先代码比较",
+      "adoptionRecommendation": "比较提供商适配、Codex CLI图片执行与错误处理，避免重复建设现有图片后端。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [],
+      "riskEvidence": [
+        {
+          "path": "skill-library/sources/jiuwen/baoyu-image-gen/scripts/codex-imagegen/spawn.ts",
+          "lines": [
+            23,
+            26
+          ],
+          "finding": "Codex spawned with danger-full-access sandbox option"
+        }
+      ]
+    },
+    {
+      "slug": "localization-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "保留事实条件和术语",
+        "不新增独立多轮审核",
+        "dependencies中的外部技能并非包含在此包"
+      ],
+      "assetId": "74d14bd2c53c4f348bba6530937764ce",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/74d14bd2c53c4f348bba6530937764ce?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/74d14bd2c53c4f348bba6530937764ce/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/74d14bd2c53c4f348bba6530937764ce?version=1.0.0&is_cli_download=false",
+      "publisher": "gl_zhou",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/664ac05ebfbdb7459e0e6a30/74d14bd2c53c4f348bba6530937764ce/1.0.0/localization-team_1.0.0.raw.zip",
+      "archiveSha256": "01af6ae58e8009d309fdb7db1a25fc29206495317fb8cb00457c81a00e09522f",
+      "hubArchiveSha256": "01af6ae58e8009d309fdb7db1a25fc29206495317fb8cb00457c81a00e09522f",
+      "archiveBytes": 11152,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 4939,
+          "sha256": "85898f6fdfff695dc1c44f553f2d4c160acf96ce4db5fafec273190d242797ff"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 3907,
+          "sha256": "47306fe74b9392c396ed07ea0a382e1b90dc240ffebc35e42018ee4cbb7f209e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 2456,
+          "sha256": "65738b204ccca7167c160851de6b40a65b95a9bed81ba24855067d6e0c173371"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/roles/cultural-auditor.md",
+          "archivePath": "roles/cultural-auditor.md",
+          "bytes": 3715,
+          "sha256": "9e71371e19e2d077424efd33af7f62e0e596bc8f1f09fef334b530d66b54bb48"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/roles/language-polisher.md",
+          "archivePath": "roles/language-polisher.md",
+          "bytes": 4251,
+          "sha256": "f9b152c23874d66726a747e7d3e04eadac521d3586a8c77991fdb33995d9a306"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/localization-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 5270,
+          "sha256": "765dbafbd8f229912ce7b722b97f6da6096aef6562d04b7569229777f4a4a065"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [
+        "https://github.com/Fr-e-d/GAAI-framework",
+        "https://github.com/proffesor-for-testing/agentic-qe"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/localization-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/localization-team",
+      "completeness": "complete_hub_artifact",
+      "id": "74d14bd2c53c4f348bba6530937764ce",
+      "name": "localization-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/74d14bd2c53c4f348bba6530937764ce?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/localization-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "补充规则",
+      "adoptionRecommendation": "提炼文化语境、自然表达与跨语言保真检查。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "technical-review-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "来源存在不等于已核实事实",
+        "整合到一次审核，不照搬多轮工作流"
+      ],
+      "assetId": "7e6d242d5de9461db6cc4b60ba5af620",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/7e6d242d5de9461db6cc4b60ba5af620?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/7e6d242d5de9461db6cc4b60ba5af620/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/7e6d242d5de9461db6cc4b60ba5af620?version=1.0.0&is_cli_download=false",
+      "publisher": "gl_zhou",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/664ac05ebfbdb7459e0e6a30/7e6d242d5de9461db6cc4b60ba5af620/1.0.0/technical-review-team_1.0.0.raw.zip",
+      "archiveSha256": "4f67408f9b75c0b363aad0900c65d4b89cdeceb8195b052d8dfb76e3638cbfca",
+      "hubArchiveSha256": "4f67408f9b75c0b363aad0900c65d4b89cdeceb8195b052d8dfb76e3638cbfca",
+      "archiveBytes": 11062,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 4588,
+          "sha256": "c6b22cbbe19aa3e19372bf505a78690ad573d7e690d253fde1f0d81bfd2f3a96"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 3718,
+          "sha256": "eddaba54279ab3f28496bba05580ac92c3f943d79fb763b7520afcdbb3f40cf6"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 1768,
+          "sha256": "a47606c6d832aa25d0f9c5fcc9828033fa0c4a355a33859406d98bf3ab12cb70"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/roles/copy-editor.md",
+          "archivePath": "roles/copy-editor.md",
+          "bytes": 3343,
+          "sha256": "ba0e3cd7857d351499b1be330449492b4c7c5b6de4e9a252cf5f35fe967826d7"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/roles/fact-checker.md",
+          "archivePath": "roles/fact-checker.md",
+          "bytes": 3533,
+          "sha256": "4c0585b308d8c0a648b9fc144dd3126fc5b7713c491d22cbf91cf54446ff110d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/roles/subject-matter-expert.md",
+          "archivePath": "roles/subject-matter-expert.md",
+          "bytes": 3337,
+          "sha256": "16f2540f33b47f6fe0e46c6f0adb0cfac862d35b50f58156c140bb0bd0661fa6"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-review-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 4957,
+          "sha256": "f2e4d5388638e8979d8828925571c9dd5ffc8bdd8cf4da9177db01b77cf67311"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/technical-review-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/technical-review-team",
+      "completeness": "complete_hub_artifact",
+      "id": "7e6d242d5de9461db6cc4b60ba5af620",
+      "name": "technical-review-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/7e6d242d5de9461db6cc4b60ba5af620?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/technical-review-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "补充规则",
+      "adoptionRecommendation": "提炼技术准确性、语言与引用依据的不同检查维度。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "infographic",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": "https://github.com/amigoscode/infographics-skill",
+      "license": {
+        "status": "MIT",
+        "evidenceFiles": [
+          "skill-library/sources/jiuwen/infographic/LICENSE"
+        ],
+        "redistributionAuthorization": "MIT applies to code/workflow; brand/logo/reference media excluded by README",
+        "assetRights": {
+          "status": "excluded_from_code_license; local analysis only",
+          "evidence": "skill-library/sources/jiuwen/infographic/README.md:113",
+          "scope": "Amigoscode name, logo, and reference images remain property of Amigoscode. MIT covers code/workflow only; archival inclusion is not permission to republish images or use branding."
+        }
+      },
+      "risks": [
+        "MIT覆盖代码/流程，README明确品牌、logo与参考图不在授权内",
+        "配置、图片服务和脚本均未执行",
+        "3张参考图是SKILL要求全部传入的核心视觉输入，已恢复原字节供离线分析；图片、品牌名和logo不属MIT代码许可，未授予发布或商用权。",
+        "assets/generate-diagram.ts会读取~/.jiuwenswarm/config/config.yaml已有OpenRouter key，并把提示词及参考图发送到OpenRouter；本轮仅归档和静态检查，未读取任何账号配置或执行。"
+      ],
+      "assetId": "2f7ccb3f0c5446adbe9ec198361b9fa6",
+      "version": "1.0.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/2f7ccb3f0c5446adbe9ec198361b9fa6?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/2f7ccb3f0c5446adbe9ec198361b9fa6/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/2f7ccb3f0c5446adbe9ec198361b9fa6?version=1.0.0&is_cli_download=false",
+      "publisher": "Evan_Yunkai",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/6a0e687cc96a6900fc112ecf/2f7ccb3f0c5446adbe9ec198361b9fa6/1.0.0/infographic_1.0.0.raw.zip",
+      "archiveSha256": "fb8301d1443184c5e08ba9761269ddcd4fa5eb684ea4a9b481524b4af348665d",
+      "hubArchiveSha256": "fb8301d1443184c5e08ba9761269ddcd4fa5eb684ea4a9b481524b4af348665d",
+      "archiveBytes": 1907239,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/infographic/LICENSE",
+          "archivePath": "LICENSE",
+          "bytes": 1067,
+          "sha256": "a0680db3829967e3ef809b164ebad40c01dc09a076792f324df5ab1255134b36"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/README.md",
+          "archivePath": "README.md",
+          "bytes": 4047,
+          "sha256": "bf7af3c7d28cb60bc0ced6e0e9617d07b2dcb9d661d95cb2dcde5afbb4f644a8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 23983,
+          "sha256": "7ea6b60bf539d56cf657297f4b55d127751f18b6cd5fb2c3d2246bc40bb8200b"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/amigoscode-wordmark.svg",
+          "archivePath": "assets/amigoscode-wordmark.svg",
+          "bytes": 13375,
+          "sha256": "c202b0ee7d9b20ad37b3e9a6ac6a6b971a6fde72837ca059e418271c508cb949"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/caption-examples.md",
+          "archivePath": "assets/caption-examples.md",
+          "bytes": 11438,
+          "sha256": "ab0758a48386bedbf8f00d73ad3339e7b119bede2d954b4906898d12c163b709"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/generate-diagram.ts",
+          "archivePath": "assets/generate-diagram.ts",
+          "bytes": 7235,
+          "sha256": "3b45f3cd5f2c802f5f42c1186a4f78bb8168da6fdedbd39600a0ebcc1bba11d3"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/reference-kafka.jpeg",
+          "archivePath": "assets/reference-kafka.jpeg",
+          "bytes": 1107452,
+          "sha256": "08647715247eee209c037ba65043c775f9a747261ec75b2382c2a717e8b21dd8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/reference-linux-processes.jpeg",
+          "archivePath": "assets/reference-linux-processes.jpeg",
+          "bytes": 635565,
+          "sha256": "6a170b945416003c3aba4112af071f4c1bb1558b837901eeda39b94c8e2a2476"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/reference-rate-limiting.jpeg",
+          "archivePath": "assets/reference-rate-limiting.jpeg",
+          "bytes": 1576861,
+          "sha256": "0312b4eb157344283e923415b39676c8ca316a99c59fd93ed7032b85cf2177da"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/template.html",
+          "archivePath": "assets/template.html",
+          "bytes": 3299,
+          "sha256": "f655879a5f154fb66107ba9fa2c06cfdc14f2d6078f2976a8b837a26a0c725f3"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/config.example.json",
+          "archivePath": "config.example.json",
+          "bytes": 330,
+          "sha256": "cd413fbb3085d687f746b725219011ae9a4ba91db92a8efd8e6fe2fa84739c4b"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/install.sh",
+          "archivePath": "install.sh",
+          "bytes": 1557,
+          "sha256": "b5b2d79238109cd1066cb4a5a00660f617d8ba29c48a211bcf43ea0a300c5f33"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/package-lock.json",
+          "archivePath": "package-lock.json",
+          "bytes": 35441,
+          "sha256": "4cf3ee68fbbc4aae24a27d66928a38f2aeee51866b70efee1b53b970441826cb"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/package.json",
+          "archivePath": "package.json",
+          "bytes": 525,
+          "sha256": "908f139ed6cf9d2a8e25bd4cb42af0124286b9a99c8e0339a035061ccf63c829"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [
+        "https://github.com/amigoscode/infographics-skill.git",
+        "https://github.com/sponsors/broofa",
+        "https://github.com/sponsors/feross",
+        "https://github.com/sponsors/jimmywarting"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/infographic/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/infographic",
+      "completeness": "complete_hub_artifact",
+      "id": "2f7ccb3f0c5446adbe9ec198361b9fa6",
+      "name": "infographic",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/2f7ccb3f0c5446adbe9ec198361b9fa6?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/infographic/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "package SKILL/README homepage or source link",
+      "priority": "视觉素材参考",
+      "adoptionRecommendation": "参考信息层次、布局和清晰图解的方法。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "MIT license included; excludes brand assets and reference images per README",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [],
+      "riskEvidence": [
+        {
+          "path": "skill-library/sources/jiuwen/infographic/SKILL.md",
+          "lines": [
+            86,
+            104,
+            430
+          ],
+          "finding": "all three references required as visual inputs"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/README.md",
+          "lines": [
+            113
+          ],
+          "finding": "reference images and brand excluded from MIT code/workflow license"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/infographic/assets/generate-diagram.ts",
+          "lines": [
+            38,
+            46,
+            55,
+            79,
+            88
+          ],
+          "finding": "reads existing configured key and sends reference images/prompt to OpenRouter"
+        }
+      ]
+    },
+    {
+      "slug": "nano-banana-pro-prompts-recommend-skill",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+      "license": {
+        "status": "MIT_declared_license_text_missing",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only",
+        "declarationFiles": [
+          "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/package.json",
+          "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/README.md"
+        ]
+      },
+      "risks": [
+        "包含postinstall/下载setup脚本，禁止因归档而执行",
+        "提示库包含第三方内容，package的MIT声明不能自动覆盖所有图片/提示权利",
+        "大封面图片排除；全部JSON参考原字节保留",
+        "不得把图库样式强制套在所有平台",
+        "package.json的postinstall会运行scripts/setup.js，从可变main下载manifest/参考库；--force还删除过期文件并覆盖分类JSON，可能破坏本次固定快照。不得在此归档目录执行npm install/setup/sync。"
+      ],
+      "assetId": "a2087259967a49bda518a32c52dcfc07",
+      "version": "e7bda4f",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/a2087259967a49bda518a32c52dcfc07?version=e7bda4f",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/a2087259967a49bda518a32c52dcfc07/versions/e7bda4f",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/a2087259967a49bda518a32c52dcfc07?version=e7bda4f&is_cli_download=false",
+      "publisher": "1kyrieirving",
+      "resolvedCommitSha": "e7bda4ffcc81020c8e37973f1d191d8752a055ae",
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/682df4f3ddc3c54994a92b1b/a2087259967a49bda518a32c52dcfc07/e7bda4f/nano-banana-pro-prompts-recommend-skill_e7bda4f.raw.zip",
+      "archiveSha256": "89dac08d31bb5c35bdefa0838d2ec0dc3515e842bc4ffabe3572850297992852",
+      "hubArchiveSha256": "89dac08d31bb5c35bdefa0838d2ec0dc3515e842bc4ffabe3572850297992852",
+      "archiveBytes": 14897248,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/PUBLISHING.md",
+          "archivePath": "PUBLISHING.md",
+          "bytes": 3442,
+          "sha256": "96d0e96bd9375ad003a3cf2a95b1228b2643fe22c6ab88fea321d96c5d5f2b45"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/README.md",
+          "archivePath": "README.md",
+          "bytes": 9551,
+          "sha256": "511bffd2e08093d2e378c59e64449215c26b6190b1ea8c4775697269c37e9d83"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 16503,
+          "sha256": "64abd6a5f9d5d509ea6619c51652274aee50d9ca8834fc7b6b8cb8318a8a440c"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/package.json",
+          "archivePath": "package.json",
+          "bytes": 1648,
+          "sha256": "582eb7a06e9e82e7c5500de7cbf40543bc82bc2979c3ea66f3534901591dee86"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/pnpm-lock.yaml",
+          "archivePath": "pnpm-lock.yaml",
+          "bytes": 10799,
+          "sha256": "28a1007dee58228e5fac9fcc86f310de6b983d202b68a2ce92ba1821fe662f88"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/.gitkeep",
+          "archivePath": "references/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/.last-updated",
+          "archivePath": "references/.last-updated",
+          "bytes": 13,
+          "sha256": "378b04b2a09ebe2b893f2a21658e5688477b859a2121e39cd9c04e365d1a3177"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/app-web-design.json",
+          "archivePath": "references/app-web-design.json",
+          "bytes": 340394,
+          "sha256": "5ee85a31d0a972d1d98685dbbded706fdb590fb351dfdb992968c556e8b946d9"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/comic-storyboard.json",
+          "archivePath": "references/comic-storyboard.json",
+          "bytes": 872669,
+          "sha256": "08b08bfd1b2586b8091bafd2e2b7b50a269351ed4fa09265caac25fb74f69377"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/ecommerce-main-image.json",
+          "archivePath": "references/ecommerce-main-image.json",
+          "bytes": 1049557,
+          "sha256": "db7118008ce24c7be0b082e335baca3a1132f7d18cc30a80a03802fc1b8fe8bc"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/game-asset.json",
+          "archivePath": "references/game-asset.json",
+          "bytes": 1023983,
+          "sha256": "3c45afb32b9a857b8d84d114bed158d7ab5e2b73ab42e1f4174e94e0d23da9bb"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/infographic-edu-visual.json",
+          "archivePath": "references/infographic-edu-visual.json",
+          "bytes": 883325,
+          "sha256": "762a5f656c861cd107cf043cb219d1443fee47dfbdd133c615aeed7cf7f2fb67"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/manifest.json",
+          "archivePath": "references/manifest.json",
+          "bytes": 1621,
+          "sha256": "7ff2440e78df5e1320872d64a5e981270d4d67c52aa401dc79ea06afece98d69"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/others.json",
+          "archivePath": "references/others.json",
+          "bytes": 1221632,
+          "sha256": "f8fe624a77fb137418848af1568ed8960204f003acbc24b93a6ace0eb02f3598"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/poster-flyer.json",
+          "archivePath": "references/poster-flyer.json",
+          "bytes": 1651597,
+          "sha256": "87afceaeed9a05ad99c96f0c3baa7ccda12b73c2aabbf128d719d4b7d8349548"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/product-marketing.json",
+          "archivePath": "references/product-marketing.json",
+          "bytes": 12731379,
+          "sha256": "db63a5514fc40761c5b6ac89877c19f4dcf2d62bd9a8464a9bd7f3da659afb15"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/profile-avatar.json",
+          "archivePath": "references/profile-avatar.json",
+          "bytes": 4021678,
+          "sha256": "1b67a1e4393a9369affa6109477511a2e0d61a72d1982fae792399bb1d8b3d21"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/social-media-post.json",
+          "archivePath": "references/social-media-post.json",
+          "bytes": 21356759,
+          "sha256": "8c897cfb0092e310650bc8672af72207e3fc409cfec8ad930b402738e01a153c"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/references/youtube-thumbnail.json",
+          "archivePath": "references/youtube-thumbnail.json",
+          "bytes": 358771,
+          "sha256": "29b6dc051b10a43a121f0ee07678113dd40b31eedc3979b64011001417842284"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/scripts/generate-references.ts",
+          "archivePath": "scripts/generate-references.ts",
+          "bytes": 10789,
+          "sha256": "f392f1f0dde4460619c18ae9373812a446ef5c0aee1cb49237e45033b734444a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/scripts/setup.js",
+          "archivePath": "scripts/setup.js",
+          "bytes": 4272,
+          "sha256": "8090ba236e2bf838fd2d7581c5a2549dcaff0de3eb8ca1cffb35406e36eaa363"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/tsconfig.json",
+          "archivePath": "tsconfig.json",
+          "bytes": 414,
+          "sha256": "747ab64c49439aed9ab6b5cd2e436c305c29247b9b546bbb17558d1a2dc6803d"
+        }
+      ],
+      "omittedFiles": [
+        {
+          "archivePath": "public/cover.png",
+          "bytes": 1872197,
+          "reason": "media_or_font"
+        }
+      ],
+      "upstreamGithubLinks": [
+        "https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts",
+        "https://github.com/YouMind-OpenLab/awesome-seedance-2-prompts",
+        "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill",
+        "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill.git",
+        "https://github.com/YouMind-OpenLab/nano-banana-pro-prompts-recommend-skill/tree/main/references",
+        "https://github.com/nicepkg/openskills"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill",
+      "completeness": "hub_artifact_except_listed_large_media",
+      "id": "a2087259967a49bda518a32c52dcfc07",
+      "name": "nano-banana-pro-prompts-recommend-skill",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/a2087259967a49bda518a32c52dcfc07?version=e7bda4f",
+      "localPath": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "package SKILL/README homepage or source link",
+      "priority": "提示资料参考",
+      "adoptionRecommendation": "保留完整分类JSON提示库，按平台/主题选取可借鉴构图后原创提炼。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "MIT declared by package.json/README; LICENSE file not present in Hub package; third-party prompt/media rights unverified",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [
+        {
+          "source": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/README.md",
+          "target": "public/cover.png",
+          "status": "explicit_large_media_exclusion"
+        }
+      ],
+      "riskEvidence": [
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/package.json",
+          "lines": [
+            9,
+            10,
+            11
+          ],
+          "finding": "postinstall/setup/sync hooks invoke setup.js"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/nano-banana-pro-prompts-recommend-skill/scripts/setup.js",
+          "lines": [
+            22,
+            75,
+            96
+          ],
+          "finding": "downloads mutable main and writes/removes local reference files in force mode"
+        }
+      ]
+    },
+    {
+      "slug": "technical-blog-generator",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "generate_image.py关闭TLS验证，并存在配置输出泄露API key风险；不可直接运行接入",
+        "发布步骤主要为素材整理和人工操作指导",
+        "小红书规则与服务接入需独立核实"
+      ],
+      "assetId": "0c2f857372b54c988e897911a6b3cdc7",
+      "version": "3.0.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/0c2f857372b54c988e897911a6b3cdc7?version=3.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/0c2f857372b54c988e897911a6b3cdc7/versions/3.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/0c2f857372b54c988e897911a6b3cdc7?version=3.0.0&is_cli_download=false",
+      "publisher": "wuyongkang2025",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/68f72eed49a2234f8cc83c0c/0c2f857372b54c988e897911a6b3cdc7/3.0.0/technical-blog-generator_3.0.0.raw.zip",
+      "archiveSha256": "82606d270ce0021e50b18f02b728e5c3d3f47d63afb720a80d99fb604cec695d",
+      "hubArchiveSha256": "82606d270ce0021e50b18f02b728e5c3d3f47d63afb720a80d99fb604cec695d",
+      "archiveBytes": 11928,
+      "acquisition": "verified_cached_artifact",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/technical-blog-generator/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 18771,
+          "sha256": "f158882a8971288218a0cfe37952aafcb3f282b22f27210c0fff63d640cf9bc6"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/technical-blog-generator/scripts/generate_image.py",
+          "archivePath": "scripts/generate_image.py",
+          "bytes": 9583,
+          "sha256": "1635de6d1eb6b5920ce6ef7240e15f5ea71f6d2a8b6522f27067f5d5f35e8f84"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/technical-blog-generator/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/technical-blog-generator",
+      "completeness": "complete_hub_artifact",
+      "id": "0c2f857372b54c988e897911a6b3cdc7",
+      "name": "technical-blog-generator",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/0c2f857372b54c988e897911a6b3cdc7?version=3.0.0",
+      "localPath": "skill-library/sources/jiuwen/technical-blog-generator/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续小红书",
+      "adoptionRecommendation": "参考技术资料核验、正文与教程卡片/截图/概念图的选择。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "blog-post-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "不继承强制压缩15–20%字数",
+        "不恢复独立研究模块或机械多轮审核"
+      ],
+      "assetId": "cfc96cf8440c4019a27e9201c6da8ca5",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/cfc96cf8440c4019a27e9201c6da8ca5?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/cfc96cf8440c4019a27e9201c6da8ca5/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/cfc96cf8440c4019a27e9201c6da8ca5?version=1.0.0&is_cli_download=false",
+      "publisher": "Feng-Wang",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/670f7783b0b43e285b2f41bb/cfc96cf8440c4019a27e9201c6da8ca5/1.0.0/blog-post-team_1.0.0.raw.zip",
+      "archiveSha256": "61c52f5ea1803b684740c1aff3acf89d8bde8b3e2571800cbe8c6f34195977b5",
+      "hubArchiveSha256": "61c52f5ea1803b684740c1aff3acf89d8bde8b3e2571800cbe8c6f34195977b5",
+      "archiveBytes": 12684,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 4166,
+          "sha256": "d153926876c5526712d0f4bebb1cb9ae01ae55219e830a1e83c1fd299f832cf1"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 2081,
+          "sha256": "d224e37d3a1c6ac6eceec1d34c6ab28278e31cced27520ed06a919579a87b3f2"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 27,
+          "sha256": "6a015d6615b9ebb131880b78a766fb5b3c24a6ff5c7bad5d562506bd47049d35"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/roles/content-writer.md",
+          "archivePath": "roles/content-writer.md",
+          "bytes": 2653,
+          "sha256": "137e1a0ce7fa46bb844ef27a013396a8d36bbbfe20b3bc473a8d83788fc3bc4f"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/roles/editor-reviewer.md",
+          "archivePath": "roles/editor-reviewer.md",
+          "bytes": 3044,
+          "sha256": "9b827cec825b214f82979ff77ee31370e85a59f54a71f8ecff1e8f7d0d450c6c"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/roles/outline-architect.md",
+          "archivePath": "roles/outline-architect.md",
+          "bytes": 3076,
+          "sha256": "c27cb774c11c43f13a0a0bb4bf1e1747e4aeab1036e6f1b19726d32238cf9716"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/roles/research-analyst.md",
+          "archivePath": "roles/research-analyst.md",
+          "bytes": 2951,
+          "sha256": "888aba9bf463e252f338cba58ecab060b7bf81ec757d993d2ea70a8a33cb96c8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/blog-post-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 4105,
+          "sha256": "3fb566a9bd558c243eefc8a7365090af472eb1e9a1da07b999010f4b79f15cad"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/blog-post-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/blog-post-team",
+      "completeness": "complete_hub_artifact",
+      "id": "cfc96cf8440c4019a27e9201c6da8ca5",
+      "name": "blog-post-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/cfc96cf8440c4019a27e9201c6da8ca5?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/blog-post-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续长文",
+      "adoptionRecommendation": "参考调研—提纲—撰写—编辑的交接维度。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "marketing-copy-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "强制CTA/多轮精修不适用于所有目的",
+        "不编造收益或保证，限制词不能为转化删除"
+      ],
+      "assetId": "a2dbefd2842044c8bbb85b5f94a8730b",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/a2dbefd2842044c8bbb85b5f94a8730b?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/a2dbefd2842044c8bbb85b5f94a8730b/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/a2dbefd2842044c8bbb85b5f94a8730b?version=1.0.0&is_cli_download=false",
+      "publisher": "jingjinduo",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/6852c122950ce6412289964b/a2dbefd2842044c8bbb85b5f94a8730b/1.0.0/marketing-copy-team_1.0.0.raw.zip",
+      "archiveSha256": "6f8d54d60a3e20d18a7ecc79f5f196616f7bafe7054cc2f9e949ec2c3c68ad8a",
+      "hubArchiveSha256": "6f8d54d60a3e20d18a7ecc79f5f196616f7bafe7054cc2f9e949ec2c3c68ad8a",
+      "archiveBytes": 23556,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 5181,
+          "sha256": "e324a0f0a8bf2ae43fe7c43a36360aa7620d49fd961ddab3d502ad1170bdfb83"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 5857,
+          "sha256": "2893fe83b9c9a3974992e82c79437549575e1c7f7cbae2c008ec6f530214c5dc"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 1572,
+          "sha256": "2bd290b3619ed495a4de95b0b0a1a0dd3b471237d00573b106422dee43972204"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/roles/brief-strategist.md",
+          "archivePath": "roles/brief-strategist.md",
+          "bytes": 6093,
+          "sha256": "51bafb99bc366e84fe00e92b0e963f0b769c790c8730cb0545396e3fb3679aed"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/roles/conversion-auditor.md",
+          "archivePath": "roles/conversion-auditor.md",
+          "bytes": 7128,
+          "sha256": "0a67f6cdc016c1d7a938c7bf08f75aafa2fee01f65a540b3380ec705e8c95b04"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/roles/copy-editor.md",
+          "archivePath": "roles/copy-editor.md",
+          "bytes": 6011,
+          "sha256": "ba7c93edd9229a901606c4b2724a350f705b4f9cd769313f3abedb688b81c7ba"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/roles/copywriter.md",
+          "archivePath": "roles/copywriter.md",
+          "bytes": 5452,
+          "sha256": "25328803c2115f342209b0e0456cfad46b1bed7fca92141f4eee6368c5560f53"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/marketing-copy-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 7757,
+          "sha256": "71e52b66de14c834454f40e4c2e6259fedd3a04c44dbd88678dea9f5a8a544eb"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/marketing-copy-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/marketing-copy-team",
+      "completeness": "complete_hub_artifact",
+      "id": "a2dbefd2842044c8bbb85b5f94a8730b",
+      "name": "marketing-copy-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/a2dbefd2842044c8bbb85b5f94a8730b?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/marketing-copy-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "营销目的补充",
+      "adoptionRecommendation": "提炼定位与受众、清晰度、文案和转化目标一致性。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "content-factory",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only",
+        "declarationFiles": [
+          "skill-library/sources/jiuwen/content-factory/skill-card.md"
+        ],
+        "declarationEvidence": [
+          {
+            "path": "skill-library/sources/jiuwen/content-factory/skill-card.md",
+            "lines": [
+              9,
+              10
+            ],
+            "finding": "License/Terms section is blank; ready-for-commercial wording does not specify a license."
+          }
+        ]
+      },
+      "risks": [
+        "固定受众假设",
+        "强制删减30%",
+        "删除不确定性措辞可能改变事实，不整包采用"
+      ],
+      "assetId": "999c8aac130247209b47bcbf3f61a9ec",
+      "version": "e7bda4f",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/999c8aac130247209b47bcbf3f61a9ec?version=e7bda4f",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/999c8aac130247209b47bcbf3f61a9ec/versions/e7bda4f",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/999c8aac130247209b47bcbf3f61a9ec?version=e7bda4f&is_cli_download=false",
+      "publisher": "1kyrieirving",
+      "resolvedCommitSha": "e7bda4ffcc81020c8e37973f1d191d8752a055ae",
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/682df4f3ddc3c54994a92b1b/999c8aac130247209b47bcbf3f61a9ec/e7bda4f/content-factory_e7bda4f.raw.zip",
+      "archiveSha256": "fb303de0acf3cf5c5d91cd039d7f44dc01bf6fe39ccbeafb2a105264a1c43baf",
+      "hubArchiveSha256": "fb303de0acf3cf5c5d91cd039d7f44dc01bf6fe39ccbeafb2a105264a1c43baf",
+      "archiveBytes": 16888,
+      "acquisition": "verified_cached_artifact",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/README.md",
+          "archivePath": "README.md",
+          "bytes": 3449,
+          "sha256": "b4baff6003fc85d3da3c8b5580c6ad4482240ad4ad25cb0c547f38442f2028c5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 11469,
+          "sha256": "bcb15bfb55b89c060dffc708c6256b28813d117928bfcbb31fa172fe47d849a6"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/_meta.json",
+          "archivePath": "_meta.json",
+          "bytes": 134,
+          "sha256": "0b7ab26214e4d6556ae286866e68b398ce495085d3a30b464c13628ec697253d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/argument-builder.md",
+          "archivePath": "prompts/argument-builder.md",
+          "bytes": 1499,
+          "sha256": "54910f1cf6b77561093dad4b405a0c9f32f782d7799f2ad2deaaa8924e0d659a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/clarity-pass.md",
+          "archivePath": "prompts/clarity-pass.md",
+          "bytes": 567,
+          "sha256": "225b254418460d04e7e30035534bd28d01ae16d9ecf99fab19f16834307db5b3"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/empathy-rewrite.md",
+          "archivePath": "prompts/empathy-rewrite.md",
+          "bytes": 1217,
+          "sha256": "43eb231bbf044bdb141abc69be2b2b793f6f0ce7dd5cbb1ddf13154b3d6d4b0d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/first-draft.md",
+          "archivePath": "prompts/first-draft.md",
+          "bytes": 873,
+          "sha256": "f38eb0fc3d157f65abcbaaa721f1d7449f4fdda98833539f975f889c6ae07f99"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/headlines.md",
+          "archivePath": "prompts/headlines.md",
+          "bytes": 846,
+          "sha256": "eebac2630f96b43f96fa4f80a819d2d6bb8808b4c625c26fccf5467bb9093ac3"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/polish-pass.md",
+          "archivePath": "prompts/polish-pass.md",
+          "bytes": 1351,
+          "sha256": "d2efd6ba31dc7b21b4e7deb18b440f148d08ddbfe294b750ac29e07283d48cf5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/remix-engine.md",
+          "archivePath": "prompts/remix-engine.md",
+          "bytes": 1709,
+          "sha256": "8497f7dfc53c24bf654f6230031da1a6701053fc288bf6fbe53fa92f68b4fa97"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/research-pipeline.md",
+          "archivePath": "prompts/research-pipeline.md",
+          "bytes": 1357,
+          "sha256": "16b9e1a486e86345da1e63a6db62db6a791497f54a79833fb0c99dda73689cf5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/story-overlay.md",
+          "archivePath": "prompts/story-overlay.md",
+          "bytes": 1282,
+          "sha256": "d328ac271c37e4a53ffc385c39f7ad300eb3ee3277803ced4aa1ca15e3c3e65e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/prompts/voice-cloner.md",
+          "archivePath": "prompts/voice-cloner.md",
+          "bytes": 1934,
+          "sha256": "680f076721b3916d1c6c2592d8bed7a2c3505a766676ef977db101d064615e25"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/content-factory/skill-card.md",
+          "archivePath": "skill-card.md",
+          "bytes": 2464,
+          "sha256": "ab046e0cfcb88d6eb66bcf7cbd70feba6880a8135ead48588e80b9cdb1dee908"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/content-factory/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/content-factory",
+      "completeness": "complete_hub_artifact",
+      "id": "999c8aac130247209b47bcbf3f61a9ec",
+      "name": "content-factory",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/999c8aac130247209b47bcbf3f61a9ec?version=e7bda4f",
+      "localPath": "skill-library/sources/jiuwen/content-factory/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "低优先方法库",
+      "adoptionRecommendation": "仅比较文章、社媒、邮件、脚本之间的拆分与内容复用。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [],
+      "declaredPublisherUrl": "https://clawhub.ai/user/Batsirai",
+      "upstreamSkillUrl": null,
+      "declaredHomepageUrl": null,
+      "publisherDeclarationEvidence": {
+        "path": "skill-library/sources/jiuwen/content-factory/skill-card.md",
+        "publisherLine": 7,
+        "sourceLinksStartLine": null,
+        "verification": "Archive card declaration only; publisher identity and external source not independently reverified this round. Hub publisher may differ."
+      }
+    },
+    {
+      "slug": "ecommerce-copywriter",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "MIT-0_declared_license_text_missing",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "Card states MIT-0, but full license text and original-author authorization were not independently verified; local analysis archive only.",
+        "declaration": "MIT-0",
+        "declarationFiles": [
+          "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md"
+        ],
+        "declarationEvidence": [
+          {
+            "path": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+            "lines": [
+              9,
+              10
+            ]
+          }
+        ]
+      },
+      "risks": [
+        "模板优惠、价格、销量、证言必须有实际来源",
+        "当前MVP不是电商场景，不强制其转化模板",
+        "原skill-card链接多出artifact/前缀；references原文件已归档，实际路径见unresolvedRelativeMarkdownLinks，不改写原文。"
+      ],
+      "assetId": "5cbba974c0a64d32914db1af914794ff",
+      "version": "e7bda4f",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/5cbba974c0a64d32914db1af914794ff?version=e7bda4f",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/5cbba974c0a64d32914db1af914794ff/versions/e7bda4f",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/5cbba974c0a64d32914db1af914794ff?version=e7bda4f&is_cli_download=false",
+      "publisher": "1kyrieirving",
+      "resolvedCommitSha": "e7bda4ffcc81020c8e37973f1d191d8752a055ae",
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/682df4f3ddc3c54994a92b1b/5cbba974c0a64d32914db1af914794ff/e7bda4f/ecommerce-copywriter_e7bda4f.raw.zip",
+      "archiveSha256": "b05a60fd0949ec7b9f1b4659b1a40b054bea84f66e7dfbbff62bb2d7b9bf4766",
+      "hubArchiveSha256": "b05a60fd0949ec7b9f1b4659b1a40b054bea84f66e7dfbbff62bb2d7b9bf4766",
+      "archiveBytes": 11459,
+      "acquisition": "verified_cached_artifact",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 4004,
+          "sha256": "efbda8dabe7b18a70245818ff0d1c88fcd2357a64a37b40f93d2809b8dd2bebe"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/_meta.json",
+          "archivePath": "_meta.json",
+          "bytes": 139,
+          "sha256": "77f75e2837b27f14981eca5f117817afa36269fb13322382c71bfce0a077041b"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/references/platform-rules.md",
+          "archivePath": "references/platform-rules.md",
+          "bytes": 3767,
+          "sha256": "c643664383ac5984d9a45ad037f34b9e76bb61c0967c22e915bcf40724e704c4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/references/selling-points.md",
+          "archivePath": "references/selling-points.md",
+          "bytes": 2695,
+          "sha256": "8e89f08b0dc8b31c7ea278084e30637910adfd8e70bef13027e5245effe18c2d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/references/templates.md",
+          "archivePath": "references/templates.md",
+          "bytes": 4337,
+          "sha256": "c2cfeb68c24f5234af1a1958f49005807686a464420ac3c7aa2102a559c5057a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/scripts/generate_title.py",
+          "archivePath": "scripts/generate_title.py",
+          "bytes": 3870,
+          "sha256": "839df29f0bdaae7148f959bd8adce7d5c243529f6978a5567c8ef1bd2c9b360a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+          "archivePath": "skill-card.md",
+          "bytes": 2364,
+          "sha256": "d8c888a16dcbfc55fc2788fd409e75380d5e16b57cab3e3f4c3972a8b7d0e56f"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/ecommerce-copywriter/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/ecommerce-copywriter",
+      "completeness": "complete_hub_artifact",
+      "id": "5cbba974c0a64d32914db1af914794ff",
+      "name": "ecommerce-copywriter",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/5cbba974c0a64d32914db1af914794ff?version=e7bda4f",
+      "localPath": "skill-library/sources/jiuwen/ecommerce-copywriter/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续电商场景",
+      "adoptionRecommendation": "借商品标题、卖点与详情信息组织。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "MIT-0 declared in skill-card.md; full license text absent; declaration not independently verified; no blanket redistribution claim",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [
+        {
+          "source": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+          "target": "artifact/references/platform-rules.md",
+          "status": "upstream_link_prefix_mismatch_file_present",
+          "actualLocalPath": "skill-library/sources/jiuwen/ecommerce-copywriter/references/platform-rules.md"
+        },
+        {
+          "source": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+          "target": "artifact/references/selling-points.md",
+          "status": "upstream_link_prefix_mismatch_file_present",
+          "actualLocalPath": "skill-library/sources/jiuwen/ecommerce-copywriter/references/selling-points.md"
+        },
+        {
+          "source": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+          "target": "artifact/references/templates.md",
+          "status": "upstream_link_prefix_mismatch_file_present",
+          "actualLocalPath": "skill-library/sources/jiuwen/ecommerce-copywriter/references/templates.md"
+        }
+      ],
+      "declaredPublisherUrl": "https://clawhub.ai/user/changeworldy-cyber",
+      "upstreamSkillUrl": "https://clawhub.ai/changeworldy-cyber/ecommerce-copywriter",
+      "declaredHomepageUrl": null,
+      "publisherDeclarationEvidence": {
+        "path": "skill-library/sources/jiuwen/ecommerce-copywriter/skill-card.md",
+        "publisherLine": 7,
+        "sourceLinksStartLine": 27,
+        "verification": "Archive card declaration only; publisher identity and external source not independently reverified this round. Hub publisher may differ."
+      }
+    },
+    {
+      "slug": "short-video-script-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "交付脚本，不等于已生成视频",
+        "CTA和评分阈值不能成为通用强制规则"
+      ],
+      "assetId": "7354f823822d4d0baf4253168601bfbe",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/7354f823822d4d0baf4253168601bfbe?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/7354f823822d4d0baf4253168601bfbe/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/7354f823822d4d0baf4253168601bfbe?version=1.0.0&is_cli_download=false",
+      "publisher": "Feng-Wang",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/670f7783b0b43e285b2f41bb/7354f823822d4d0baf4253168601bfbe/1.0.0/short-video-script-team_1.0.0.raw.zip",
+      "archiveSha256": "6b6a29c37aa20a987f3aae668c04935d36b99a4519cb2be98fdb75174c1a9217",
+      "hubArchiveSha256": "6b6a29c37aa20a987f3aae668c04935d36b99a4519cb2be98fdb75174c1a9217",
+      "archiveBytes": 10967,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 3660,
+          "sha256": "616a63669926c994410169b67ced2a53a6936866291ac5d2c6e9cf371b96a026"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 2092,
+          "sha256": "a99ca355205eab48c97bfee315211b54120199b5d244893ea28cc5fb84f41d5d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 27,
+          "sha256": "6a015d6615b9ebb131880b78a766fb5b3c24a6ff5c7bad5d562506bd47049d35"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/roles/content-structurer.md",
+          "archivePath": "roles/content-structurer.md",
+          "bytes": 3077,
+          "sha256": "2575d192e1221aa9826a63e309f49e4aa87ea82d2e9a709b33e60348a765e310"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/roles/cta-optimizer.md",
+          "archivePath": "roles/cta-optimizer.md",
+          "bytes": 3243,
+          "sha256": "bd9a20b75a91ae0b6182bcf6f9bed042eb4d6893ec4b3fc350b0eea785eedd5d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/roles/hook-creator.md",
+          "archivePath": "roles/hook-creator.md",
+          "bytes": 2929,
+          "sha256": "ae7380b397b09e979f9b898f465ff1e7715795dc82c43ee4ba7be6b7c8e458ed"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/short-video-script-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 4026,
+          "sha256": "8f1dc9ed96eb0f2bfbbf06dea21e56fd270d168f4802cd8ad3ce23cb04399e16"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/short-video-script-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/short-video-script-team",
+      "completeness": "complete_hub_artifact",
+      "id": "7354f823822d4d0baf4253168601bfbe",
+      "name": "short-video-script-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/7354f823822d4d0baf4253168601bfbe?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/short-video-script-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续视频",
+      "adoptionRecommendation": "参考开场、内容节奏、时间预算与结尾表达。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "remotion-video-toolkit",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": "https://github.com/shreefentsar/remotion-video-toolkit",
+      "license": {
+        "status": "MIT-0",
+        "evidenceFiles": [
+          "skill-library/sources/jiuwen/remotion-video-toolkit/LICENSE"
+        ],
+        "redistributionAuthorization": "MIT-0 in included LICENSE; does not establish separate third-party dependency or media rights"
+      },
+      "risks": [
+        "需真实代码、素材、依赖与渲染环境",
+        "归档不证明视频已渲染/质量合格",
+        "第三方素材与Remotion运行使用条件另核",
+        "上游charts.md示例链接与包中扁平文件名不一致；源码存在，原路径差异保留在清单。"
+      ],
+      "assetId": "97557b537a2c47748fcc1df8ea328c5d",
+      "version": "1.0.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/97557b537a2c47748fcc1df8ea328c5d?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/97557b537a2c47748fcc1df8ea328c5d/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/97557b537a2c47748fcc1df8ea328c5d?version=1.0.0&is_cli_download=false",
+      "publisher": "xudeling",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/69f0456efdc0251f03dbf4b3/97557b537a2c47748fcc1df8ea328c5d/1.0.0/remotion-video-toolkit_1.0.0.raw.zip",
+      "archiveSha256": "004856467760f3373d9f5718c5aabb0a2d2063ff9ef1d600bc8a4b3f9e34a3be",
+      "hubArchiveSha256": "004856467760f3373d9f5718c5aabb0a2d2063ff9ef1d600bc8a4b3f9e34a3be",
+      "archiveBytes": 38077,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/LICENSE",
+          "archivePath": "LICENSE",
+          "bytes": 919,
+          "sha256": "3519edb35fec37fb39d92a2458c0517da6fc4618aba13f991587bfa5e28a3350"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 5760,
+          "sha256": "a30250dd496bee1e797ebc9725020d02745e951d9c92ed76ecf64a0dfc932ff0"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/3d.md",
+          "archivePath": "rules/3d.md",
+          "bytes": 2375,
+          "sha256": "4860ef5877ecd65ca9d928dcd874513eddd319f72750122670d07ea631720604"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/animations.md",
+          "archivePath": "rules/animations.md",
+          "bytes": 818,
+          "sha256": "22dcca277772813f5f1748cb9b6a34969753bfb8328baaa38d86802bebf28535"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/assets.md",
+          "archivePath": "rules/assets.md",
+          "bytes": 1668,
+          "sha256": "f550e98872e2e73bc32673d19b610df4894e00557369b3d9e1e7d3d0374c0fdd"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/assets/charts-bar-chart.tsx",
+          "archivePath": "rules/assets/charts-bar-chart.tsx",
+          "bytes": 3602,
+          "sha256": "17cd31ff098e6ac784c06480d6d3a126f6f72365654f76fa6e9b2526daab88f0"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/assets/text-animations-typewriter.tsx",
+          "archivePath": "rules/assets/text-animations-typewriter.tsx",
+          "bytes": 2283,
+          "sha256": "fc710c71560df2837463dc0816cd0bd6459add1178ec7f031950a57eed9b94f1"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/assets/text-animations-word-highlight.tsx",
+          "archivePath": "rules/assets/text-animations-word-highlight.tsx",
+          "bytes": 2495,
+          "sha256": "906b17e423b959961cbc9a27f2dc2a86fcecd525410c40e5b8819fcdfdba0ae5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/audio.md",
+          "archivePath": "rules/audio.md",
+          "bytes": 3994,
+          "sha256": "ed43ce3192eaf2bd4835ca69825e7f2aa1d00731274522aa3b9c45fa68207b50"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/calculate-metadata.md",
+          "archivePath": "rules/calculate-metadata.md",
+          "bytes": 3024,
+          "sha256": "bbc532f14a73d7e2e6e33d4178d65775e96870a761d422875fec3aa40ca3f098"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/can-decode.md",
+          "archivePath": "rules/can-decode.md",
+          "bytes": 1662,
+          "sha256": "1962e0af0499bc580d30b46a0f8dc5550895298b7a98a070e8d0698a6fdb8059"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/charts.md",
+          "archivePath": "rules/charts.md",
+          "bytes": 1809,
+          "sha256": "39c8638f05a5453a7ae07d586869a8a6432bf2de331b518e012d4c6de5add275"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/compositions.md",
+          "archivePath": "rules/compositions.md",
+          "bytes": 3590,
+          "sha256": "ed6338e017565880fe87c28e5852704280c6dd6e832931eea0aa154009ea7c9d"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/display-captions.md",
+          "archivePath": "rules/display-captions.md",
+          "bytes": 3824,
+          "sha256": "86904fe76dc3bcd706fb64ca1a981aaadd00db12636a37749ffd165e22e96788"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/extract-frames.md",
+          "archivePath": "rules/extract-frames.md",
+          "bytes": 5725,
+          "sha256": "37d49d55187a3fd700033e50eeb8219de3fc90a0d683908e632cfe7235b250b5"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/fonts.md",
+          "archivePath": "rules/fonts.md",
+          "bytes": 3636,
+          "sha256": "2668899018239ef31e278f947ecc37dd936a3da5eb52f8558c68cf1372881e8a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/get-audio-duration.md",
+          "archivePath": "rules/get-audio-duration.md",
+          "bytes": 1412,
+          "sha256": "2103cf5ce440f58b871e2762242b103f3dc6e21a6847e54fb1641379e7e565b1"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/get-video-dimensions.md",
+          "archivePath": "rules/get-video-dimensions.md",
+          "bytes": 1695,
+          "sha256": "7321faaebbf5893f236ef9b36e2362ea056ce91ebc3e5f19ddba6ee5c2b75091"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/get-video-duration.md",
+          "archivePath": "rules/get-video-duration.md",
+          "bytes": 1399,
+          "sha256": "01a6ceb30ddc5391621e3f8d787bbeeb6965d7809fe83d046687460502d4a472"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/gifs.md",
+          "archivePath": "rules/gifs.md",
+          "bytes": 4006,
+          "sha256": "418aa4e422d00832eee67b896d19cc0c5f24d7c9a64d57d10de568ca934188d2"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/images.md",
+          "archivePath": "rules/images.md",
+          "bytes": 2913,
+          "sha256": "53a71c16780ce093dc317a30357560a3481a58958f4fc8d4a3f2f2e631a58d3c"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/import-srt-captions.md",
+          "archivePath": "rules/import-srt-captions.md",
+          "bytes": 2180,
+          "sha256": "5fce8f9b445eec7108b4207add5b1d20036adaded1312121216e270da1006b57"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/lottie.md",
+          "archivePath": "rules/lottie.md",
+          "bytes": 1847,
+          "sha256": "d43c61c65dd77c30d560cf25bd488bb340b79068823037f7cd2a9379fe6142c7"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/measuring-dom-nodes.md",
+          "archivePath": "rules/measuring-dom-nodes.md",
+          "bytes": 1009,
+          "sha256": "9836d5dc7fbedf424ddb48526e427a55e61fb80ccff64d7d94c2249c1eb54aea"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/measuring-text.md",
+          "archivePath": "rules/measuring-text.md",
+          "bytes": 3143,
+          "sha256": "c4abbf40340560a73e1e49c24a762c61c07448b46703dd1e6f1eb8b06b1dcdfc"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/rendering.md",
+          "archivePath": "rules/rendering.md",
+          "bytes": 6088,
+          "sha256": "0ab420b241f220a419032787d9fee834ded7393892511f8bb18ba7ef2c74a828"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/sequencing.md",
+          "archivePath": "rules/sequencing.md",
+          "bytes": 2495,
+          "sha256": "e2aef94c86bb788145f16854bd423220e7c9c973fe2d31f60ff651df8ba4dafd"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/tailwind.md",
+          "archivePath": "rules/tailwind.md",
+          "bytes": 432,
+          "sha256": "d2e07c5173bee5ef3f5d3ff066699d182df482bad64ce3f8298f4d3890efbeb8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/text-animations.md",
+          "archivePath": "rules/text-animations.md",
+          "bytes": 720,
+          "sha256": "06c71f3928e0cde4d047d4ee10f99a8d0cb9b10160924a89c866ebbd9436667e"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/timing.md",
+          "archivePath": "rules/timing.md",
+          "bytes": 4118,
+          "sha256": "30efe0b3c17a334bf01c48fdbc334f122effeb65602bea3cf4c07545ce0ea5f8"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/transcribe-captions.md",
+          "archivePath": "rules/transcribe-captions.md",
+          "bytes": 869,
+          "sha256": "9487f6d0c4053846f17094b740e2051098752d15ef39b1f95f2707d028d9b7bc"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/transitions.md",
+          "archivePath": "rules/transitions.md",
+          "bytes": 3852,
+          "sha256": "bd5fe090e631a1a44c24ab70ef88f55cfffa622157ad83fe6e3fe7fe5ee89c20"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/trimming.md",
+          "archivePath": "rules/trimming.md",
+          "bytes": 1263,
+          "sha256": "fbfa4d55404e12e962942850c1e5bbdcff0cb824a8ecf8394bd5b5398262a9b4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/videos.md",
+          "archivePath": "rules/videos.md",
+          "bytes": 3680,
+          "sha256": "b7d50319e1bac1046cc4dcb66a77b594bc2f92d4266556e6b16cca3ae6a222be"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [
+        "https://github.com/shreefentsar/remotion-video-toolkit"
+      ],
+      "localEntries": [
+        "skill-library/sources/jiuwen/remotion-video-toolkit/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/remotion-video-toolkit",
+      "completeness": "complete_hub_artifact",
+      "id": "97557b537a2c47748fcc1df8ea328c5d",
+      "name": "remotion-video-toolkit",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/97557b537a2c47748fcc1df8ea328c5d?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/remotion-video-toolkit/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "package SKILL/README homepage or source link",
+      "priority": "后续视频技术",
+      "adoptionRecommendation": "参考React/Remotion分镜、字幕和渲染结构。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "MIT-0 license included",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [
+        {
+          "source": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/charts.md",
+          "target": "assets/charts/bar-chart.tsx",
+          "status": "upstream_link_path_mismatch_file_present",
+          "actualLocalPath": "skill-library/sources/jiuwen/remotion-video-toolkit/rules/assets/charts-bar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "slug": "long-form-repurpose-team",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "命令和方案不等于已剪辑或发布",
+        "转录脚本依赖与视频使用权需独立核查",
+        "scripts/transcribe.py会从~/.jiuwenswarm/config/config.yaml复用现有OpenRouter/OpenAI key并进行云转写；归档不授权读取凭据或上传音频，需独立选择服务和隐私/费用边界。"
+      ],
+      "assetId": "ed94d3d2c56f4b9bab0c82eac7829717",
+      "version": "1.0.0",
+      "pluginType": "swarmskill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/ed94d3d2c56f4b9bab0c82eac7829717?version=1.0.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/ed94d3d2c56f4b9bab0c82eac7829717/versions/1.0.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/ed94d3d2c56f4b9bab0c82eac7829717?version=1.0.0&is_cli_download=false",
+      "publisher": "Evan_Yunkai",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/6a0e687cc96a6900fc112ecf/ed94d3d2c56f4b9bab0c82eac7829717/1.0.0/long-form-repurpose-team_1.0.0.raw.zip",
+      "archiveSha256": "1a13c263a19e534b73d4ad72e1b71afe29b3a3a534ee0908cd73dc91c61aa1e1",
+      "hubArchiveSha256": "1a13c263a19e534b73d4ad72e1b71afe29b3a3a534ee0908cd73dc91c61aa1e1",
+      "archiveBytes": 41836,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 10238,
+          "sha256": "0f2c60d22de2455a321d7f25308a79e53dde8211da07a05c5649f7d1fe89683a"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/bind.md",
+          "archivePath": "bind.md",
+          "bytes": 13691,
+          "sha256": "14c595c4f5462669d2d52291c3c6387435dfdc59c7f1f457788c399c330108c0"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/dependencies.yaml",
+          "archivePath": "dependencies.yaml",
+          "bytes": 1465,
+          "sha256": "ca22735747a194ae58f2e63556160fa02799325c96543935db3728043d236db4"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/roles/context-integrity-guard.md",
+          "archivePath": "roles/context-integrity-guard.md",
+          "bytes": 6576,
+          "sha256": "f2ccf8c34048902b3e57504c08e8a9992db623b07182390e40ffc205e909c581"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/roles/emotion-peak-scout.md",
+          "archivePath": "roles/emotion-peak-scout.md",
+          "bytes": 7008,
+          "sha256": "33241a3b839293ff76a8475fa7f0cf8099440a4ad070b5398cd6bf829c157773"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/roles/info-density-scout.md",
+          "archivePath": "roles/info-density-scout.md",
+          "bytes": 6047,
+          "sha256": "4af3e7a0a9ce90330ca5c81e9138453b594fdda97c58ebe615a4a31394a582bd"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/roles/platform-recomposer.md",
+          "archivePath": "roles/platform-recomposer.md",
+          "bytes": 7706,
+          "sha256": "f894dbf7c73330175650765f1408ded64d302a2028ff6470900eaa18ba474f39"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/roles/standalone-integrity-scout.md",
+          "archivePath": "roles/standalone-integrity-scout.md",
+          "bytes": 6832,
+          "sha256": "6cf57d02efcb6491f1c68d28c206b0e48cf8503a0fb89d4defc44ed644acbecb"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/scripts/transcribe.py",
+          "archivePath": "scripts/transcribe.py",
+          "bytes": 15891,
+          "sha256": "132163b11c2be47f6cb8c68a86157825948c1bd8fa04cfb3d2e18eef8c65ec27"
+        },
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/workflow.md",
+          "archivePath": "workflow.md",
+          "bytes": 13834,
+          "sha256": "dbde6f27ee33dd07cdbdd3321903b8dde71cf31fdfe1e3374a6f3a81fd3117ae"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/long-form-repurpose-team/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/long-form-repurpose-team",
+      "completeness": "complete_hub_artifact",
+      "id": "ed94d3d2c56f4b9bab0c82eac7829717",
+      "name": "long-form-repurpose-team",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/ed94d3d2c56f4b9bab0c82eac7829717?version=1.0.0",
+      "localPath": "skill-library/sources/jiuwen/long-form-repurpose-team/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续视频拆条",
+      "adoptionRecommendation": "提炼有来源的时间码、片段选择、上下文完整性与FFmpeg方案。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": [],
+      "riskEvidence": [
+        {
+          "path": "skill-library/sources/jiuwen/long-form-repurpose-team/scripts/transcribe.py",
+          "lines": [
+            15,
+            40,
+            41,
+            47,
+            67,
+            72
+          ],
+          "finding": "existing configured credentials may be reused for cloud transcription"
+        }
+      ]
+    },
+    {
+      "slug": "bilibili-video-studio",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "Hub包仅SKILL.md；依赖Cue远程解析及API key，服务/工具未内附",
+        "URL发往第三方、积分/计费与隐私承诺需独立核实",
+        "不执行文中的账号配置、充值/邀请引导或反爬相关步骤",
+        "爆款归因/评分不是验证传播效果，逐字搬运不可当原创",
+        "这是视频分析创作资料，不是Bilibili发布技能"
+      ],
+      "assetId": "083e2277527b44a492b169d17975bb64",
+      "version": "1.1.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/083e2277527b44a492b169d17975bb64?version=1.1.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/083e2277527b44a492b169d17975bb64/versions/1.1.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/083e2277527b44a492b169d17975bb64?version=1.1.0&is_cli_download=false",
+      "publisher": "panting09266-ai",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/294417848/083e2277527b44a492b169d17975bb64/1.1.0/bilibili-video-studio_1.1.0.raw.zip",
+      "archiveSha256": "ae839f534b345a9f095bb85102fadc7e594e1c9e22065b21a1b83de643138b6a",
+      "hubArchiveSha256": "ae839f534b345a9f095bb85102fadc7e594e1c9e22065b21a1b83de643138b6a",
+      "archiveBytes": 17412,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/bilibili-video-studio/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 39068,
+          "sha256": "9af0bb0b0011bd981857d1f292c6f9d0f0fb4f41c9a13be5a2b94295d7137dfe"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/bilibili-video-studio/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/bilibili-video-studio",
+      "completeness": "complete_hub_artifact",
+      "id": "083e2277527b44a492b169d17975bb64",
+      "name": "bilibili-video-studio",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/083e2277527b44a492b169d17975bb64?version=1.1.0",
+      "localPath": "skill-library/sources/jiuwen/bilibili-video-studio/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续视频输入分析",
+      "adoptionRecommendation": "参考转录/OCR/时间码与推断分开的证据结构、脚本和分镜表。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    },
+    {
+      "slug": "xiaohongshu-video-studio",
+      "checkedAt": "2026-09-26T08:18:16.901499+00:00",
+      "status": "archived",
+      "purpose": "read_only_analysis_archive",
+      "installed": false,
+      "executed": false,
+      "originalAuthorUrl": null,
+      "license": {
+        "status": "unknown",
+        "evidenceFiles": [],
+        "redistributionAuthorization": "not_established; local analysis only"
+      },
+      "risks": [
+        "Hub包仅SKILL.md；依赖Cue远程解析及API key，服务/工具未内附",
+        "仅面向视频，不是小红书图文发布实现",
+        "远程传输、积分/计费/隐私声明及签名链接处理均未实测",
+        "不执行账号配置、充值/邀请引导或抓取步骤",
+        "不继承强制评分返工或无证据爆款因果归因"
+      ],
+      "assetId": "82d4b2ecd5794f0b86645e1d07eb979a",
+      "version": "1.1.0",
+      "pluginType": "skill",
+      "hubDetailUrl": "https://swarmskills.openjiuwen.com/skills/82d4b2ecd5794f0b86645e1d07eb979a?version=1.1.0",
+      "versionApiUrl": "https://swarmskills.openjiuwen.com/api/v1/plugins/82d4b2ecd5794f0b86645e1d07eb979a/versions/1.1.0",
+      "artifactApiUrl": "https://swarmskills.openjiuwen.com/api/v1/artifacts/82d4b2ecd5794f0b86645e1d07eb979a?version=1.1.0&is_cli_download=false",
+      "publisher": "panting09266-ai",
+      "resolvedCommitSha": null,
+      "declaredSkillVersion": null,
+      "artifactUrlWithoutQuery": "https://openjiuwen-market.obs.ap-southeast-1.myhuaweicloud.com/skills/294417848/82d4b2ecd5794f0b86645e1d07eb979a/1.1.0/xiaohongshu-video-studio_1.1.0.raw.zip",
+      "archiveSha256": "21a96c01df15a633475624b60b6b8b762c984b207e2d4f1201b764d38afc155f",
+      "hubArchiveSha256": "21a96c01df15a633475624b60b6b8b762c984b207e2d4f1201b764d38afc155f",
+      "archiveBytes": 10204,
+      "acquisition": "public_hub_download",
+      "files": [
+        {
+          "path": "skill-library/sources/jiuwen/xiaohongshu-video-studio/SKILL.md",
+          "archivePath": "SKILL.md",
+          "bytes": 21992,
+          "sha256": "7e015a5ce0451af0d975838fb0652508d9eeace8ea8c0373974ea2cc6872c241"
+        }
+      ],
+      "omittedFiles": [],
+      "upstreamGithubLinks": [],
+      "localEntries": [
+        "skill-library/sources/jiuwen/xiaohongshu-video-studio/SKILL.md"
+      ],
+      "localRoot": "skill-library/sources/jiuwen/xiaohongshu-video-studio",
+      "completeness": "complete_hub_artifact",
+      "id": "82d4b2ecd5794f0b86645e1d07eb979a",
+      "name": "xiaohongshu-video-studio",
+      "sourceUrl": "https://swarmskills.openjiuwen.com/skills/82d4b2ecd5794f0b86645e1d07eb979a?version=1.1.0",
+      "localPath": "skill-library/sources/jiuwen/xiaohongshu-video-studio/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "originalAuthorUrlEvidence": "not established; Hub publisher is not assumed to be original author",
+      "priority": "后续视频输入分析",
+      "adoptionRecommendation": "参考视频转录、结构化脚本与真实时间码/推断标记。",
+      "completenessNote": "Completeness refers to the downloaded Hub package only. External skills, services, accounts, dependencies and repository files not included by the publisher are not claimed as archived.",
+      "licenseStatus": "unknown; local analysis archive only, redistribution authorization not established",
+      "readScope": "SKILL and selected related files checked for identity, dependencies, adoption and risk; package downloaded and inventoried in full subject to explicit exclusions. Not all scripts or prompt-library entries reread; nothing executed.",
+      "unresolvedRelativeMarkdownLinks": []
+    }
+  ],
+  "collectedAt": "2026-09-26",
+  "readingScope": "Package acquisition and file inventory are complete as stated per item. Recommendations combine the prior conversation audit with targeted source checks this round. No claim that every archived script or prompt-library entry has been reread, installed, executed, or validated.",
+  "validation": {
+    "date": "2026-09-26",
+    "fileHashes": "208 of 208 byte SHA-256 and size checks passed",
+    "entryPaths": "18 of 18 SKILL.md entries exist",
+    "archiveChecksums": "18 of 18 match public Hub checksum_sha256",
+    "pathInventory": "Every archived source file is in this manifest; source entries remain byte-identical to artifact members.",
+    "execution": "No upstream script, install hook, provider, account or platform operation executed.",
+    "followUp": "Restored three required infographic reference images; refined card license/publisher declarations and static script risks. Source text unchanged."
+  }
+}

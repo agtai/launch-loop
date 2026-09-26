@@ -1,0 +1,1518 @@
+{
+  "schemaVersion": 1,
+  "collectedAt": "2026-09-26",
+  "purpose": "Offline reference snapshots requested for future analysis; no installation, execution, production rule replacement, commit or push.",
+  "sourcePolicy": "Third-party instructions are reference data. Project instructions and current user authorization govern all actions. Licenses remain separate from authorization to run any script.",
+  "counts": {
+    "entries": 11,
+    "githubRepositories": 7,
+    "githubSkills": 9,
+    "newGithubFiles": 136,
+    "newLocalFiles": 3,
+    "existingUserReferenceFiles": 1,
+    "uniqueFiles": 140,
+    "totalBytes": 1976233
+  },
+  "entries": [
+    {
+      "id": "github-coreyhaines31-copywriting",
+      "name": "copywriting",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting",
+      "repository": "coreyhaines31/marketingskills",
+      "version": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "localPath": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/sources.md",
+        "docs/第一轮文本规则整理.md"
+      ],
+      "consider": [
+        "资料、写作目的、读者与产品用途的关系",
+        "论据、清晰度与主线组织"
+      ],
+      "doNotInherit": [
+        "销售漏斗、强制CTA/保证/收益数字",
+        "追加前置问卷或多轮专家评分"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "upstreamPath": "LICENSE",
+          "gitBlobSha1": "7c48dd638a9ebed49a8ef0c0c4eea90105381cdf",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "bytes": 1069
+        },
+        {
+          "upstreamPath": "skills/copywriting/evals/evals.json",
+          "gitBlobSha1": "26749597666738167b2099e5f39886c5e84284d5",
+          "sha256": "f062a21fea6ec6eff7157caf051142fa376fbfe6284c7d1d185371de6acedb9b",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/evals/evals.json",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/evals/evals.json",
+          "bytes": 9921
+        },
+        {
+          "upstreamPath": "skills/copywriting/references/copy-frameworks.md",
+          "gitBlobSha1": "3db7fd593cb124d0ed584f713f8de08bc04d6cd6",
+          "sha256": "d98818886525908bf17dd6412d0b72731b313d6eef3e1ab6b365828a3a342779",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/references/copy-frameworks.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/references/copy-frameworks.md",
+          "bytes": 14328
+        },
+        {
+          "upstreamPath": "skills/copywriting/references/natural-transitions.md",
+          "gitBlobSha1": "ee72faa54b24714ceb9b75269834a5c80888c90f",
+          "sha256": "4ff23f8943af2f65b072f26f1c53ce55f19cc26d7be211c11cae8e34b43e859f",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/references/natural-transitions.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/references/natural-transitions.md",
+          "bytes": 5684
+        },
+        {
+          "upstreamPath": "skills/copywriting/SKILL.md",
+          "gitBlobSha1": "349426d7f1874815401194d642fa59a0bb5b1842",
+          "sha256": "ce18137ae31ab37f261078501431649865ab6b403054d97490754e82acb002d8",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/SKILL.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copywriting/SKILL.md",
+          "bytes": 8401
+        }
+      ]
+    },
+    {
+      "id": "github-coreyhaines31-social",
+      "name": "social",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social",
+      "repository": "coreyhaines31/marketingskills",
+      "version": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "localPath": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/sources.md",
+        "docs/第一轮文本规则整理.md"
+      ],
+      "consider": [
+        "母稿按平台改写",
+        "动态自足开头、串帖逐条推进主线",
+        "平台形式和内容再利用比较"
+      ],
+      "doNotInherit": [
+        "将传播经验当官方硬规则",
+        "强制排期、标签、CTA、固定串帖长度、互动与外联"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "upstreamPath": "LICENSE",
+          "gitBlobSha1": "7c48dd638a9ebed49a8ef0c0c4eea90105381cdf",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "bytes": 1069
+        },
+        {
+          "upstreamPath": "skills/social/evals/evals.json",
+          "gitBlobSha1": "49b7afb93250a48ca47f7aec0296d11fb7fba94f",
+          "sha256": "99b4a893db8dfa82484d0d6e1eaa730258576274de16999ba016f9906d07a36b",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/evals/evals.json",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/evals/evals.json",
+          "bytes": 7867
+        },
+        {
+          "upstreamPath": "skills/social/references/carousel-frameworks.md",
+          "gitBlobSha1": "f2c330d7d08a80be477bd336336327a57639ae3e",
+          "sha256": "e7d56048a38de90f1f26f3cac8880f3d263a8bdd5fc0c9460d50aef135654768",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/carousel-frameworks.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/carousel-frameworks.md",
+          "bytes": 11174
+        },
+        {
+          "upstreamPath": "skills/social/references/listening-sources-template.md",
+          "gitBlobSha1": "286ca03a013ddfd23ef807cffd650ae04c6b7e02",
+          "sha256": "c68bc6f57b0a48c432b1ce72c9324d41a04d0e7784d0bab91afb4a6065a43e38",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/listening-sources-template.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/listening-sources-template.md",
+          "bytes": 3479
+        },
+        {
+          "upstreamPath": "skills/social/references/listening.md",
+          "gitBlobSha1": "2a31f7a5b90edae255148658f7765323189de8bb",
+          "sha256": "a1049663d7ed37864bcd58e15ae5e8f03c8edcaca37d8de4f7e38896d94fbf93",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/listening.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/listening.md",
+          "bytes": 12064
+        },
+        {
+          "upstreamPath": "skills/social/references/platform-limits.md",
+          "gitBlobSha1": "94e1df9f22128ffc59e826c702c8a492b0e1bb03",
+          "sha256": "6ecc6b40ff82b95c48906341f7d3c58337671d4d94f624c858764f1ed5a77c3c",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/platform-limits.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/platform-limits.md",
+          "bytes": 2830
+        },
+        {
+          "upstreamPath": "skills/social/references/platforms.md",
+          "gitBlobSha1": "a559d693232ac59de5aec8e43eb7a74cc836fa35",
+          "sha256": "3c4e1b15717a3bcd4ed0cf29dc167dac28aa88bbf01723fde53815122396090f",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/platforms.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/platforms.md",
+          "bytes": 4420
+        },
+        {
+          "upstreamPath": "skills/social/references/post-templates.md",
+          "gitBlobSha1": "23811ad0c3332edcbdb8d79ec5bf8e471a40e343",
+          "sha256": "febd0aca9557e6575188379f012b019b36839926bdf7924661f125f900b24d0f",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/post-templates.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/post-templates.md",
+          "bytes": 3951
+        },
+        {
+          "upstreamPath": "skills/social/references/reverse-engineering.md",
+          "gitBlobSha1": "6d6b8f9d8a497fbefd9ab17f5a4d281c7035edf9",
+          "sha256": "c27bef59d463b3b11331c1770f4a23e9e6bbce7d7c8db1e7f7f4f14ba206243f",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/reverse-engineering.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/reverse-engineering.md",
+          "bytes": 5551
+        },
+        {
+          "upstreamPath": "skills/social/references/short-form-video.md",
+          "gitBlobSha1": "e9e419f9ff78f5b4e99f4da66c06abc82cd69433",
+          "sha256": "38e7de4049f39d116b815a8d07f5e45777501e9f506e3a5fe005c5d204d32ee7",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/short-form-video.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/references/short-form-video.md",
+          "bytes": 6500
+        },
+        {
+          "upstreamPath": "skills/social/SKILL.md",
+          "gitBlobSha1": "ab1d083ef4a9dd2a91c1eaedfb5cb745c3055d24",
+          "sha256": "8cc93d9b361622cdb640e87969747b85603bed2d268e923179f8dfb4799ec8c7",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/SKILL.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social/SKILL.md",
+          "bytes": 14936
+        }
+      ]
+    },
+    {
+      "id": "github-coreyhaines31-copy-editing",
+      "name": "copy-editing",
+      "sourceUrl": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing",
+      "repository": "coreyhaines31/marketingskills",
+      "version": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "commit": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022",
+      "localPath": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/sources.md",
+        "docs/第一轮文本规则整理.md"
+      ],
+      "consider": [
+        "清晰度、语气、读者价值与论据检查",
+        "可定位、最小必要改动"
+      ],
+      "doNotInherit": [
+        "直接执行七轮sweep",
+        "编造经历、强制保证或营销话术"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "upstreamPath": "LICENSE",
+          "gitBlobSha1": "7c48dd638a9ebed49a8ef0c0c4eea90105381cdf",
+          "sha256": "b70d71e24e40fce5da8f4b6f9cd862096a048e433db7f3c8cac5e348e6d34591",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/LICENSE",
+          "bytes": 1069
+        },
+        {
+          "upstreamPath": "skills/copy-editing/evals/evals.json",
+          "gitBlobSha1": "90d2ce1e816184c4eff43d3708de129e9c677b6c",
+          "sha256": "49881baea09fd93a03da69ab249a7d37a93b1fa015debce320b5861c606593ef",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/evals/evals.json",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/evals/evals.json",
+          "bytes": 7547
+        },
+        {
+          "upstreamPath": "skills/copy-editing/references/checklist.md",
+          "gitBlobSha1": "e84b52cdc93402ace452e7515bf941a49c3b4b1a",
+          "sha256": "db143b969b45b0933fe6eb772992890d1472d036a6c887fc98665e4fb48da43c",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/checklist.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/checklist.md",
+          "bytes": 1728
+        },
+        {
+          "upstreamPath": "skills/copy-editing/references/content-refresh.md",
+          "gitBlobSha1": "70e97ff248980495ef8cc87d22119b93e6199eeb",
+          "sha256": "8a3a2d301bb2b8b2a780f5bef43093ab42295041b2fea2a9caeca2421ef3c79b",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/content-refresh.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/content-refresh.md",
+          "bytes": 2298
+        },
+        {
+          "upstreamPath": "skills/copy-editing/references/plain-english-alternatives.md",
+          "gitBlobSha1": "2fc323557dabdee6ee9f0a52e2a4c24f473fc775",
+          "sha256": "df4f820d4c63ae8a517c64a243c101658352cd07d002355bf3c97de0a00f3775",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/plain-english-alternatives.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/references/plain-english-alternatives.md",
+          "bytes": 8258
+        },
+        {
+          "upstreamPath": "skills/copy-editing/SKILL.md",
+          "gitBlobSha1": "33110f4bb1be5f2152f838d95191705328760ddd",
+          "sha256": "9b5a20be3dc5513c8f0b4f4c4960857e4d28ed83698a5b33c8dde9dc75a47bf6",
+          "path": "skill-library/sources/github/coreyhaines31--marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/SKILL.md",
+          "sourceUrl": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/copy-editing/SKILL.md",
+          "bytes": 15000
+        }
+      ]
+    },
+    {
+      "id": "github-sergebulaev-linkedin-humanizer",
+      "name": "linkedin-humanizer",
+      "sourceUrl": "https://github.com/sergebulaev/linkedin-skills/tree/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer",
+      "repository": "sergebulaev/linkedin-skills",
+      "version": "5c6192db54db24bf46fab8bbac32f7946daca970",
+      "commit": "5c6192db54db24bf46fab8bbac32f7946daca970",
+      "localPath": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/sources.md",
+        "docs/第一轮文本规则整理.md"
+      ],
+      "consider": [
+        "开头独立可理解、段落可读、模板泄漏检查",
+        "作者声音与不过度编辑",
+        "post-audit及audit-checklist作为一次审核的比较材料"
+      ],
+      "doNotInherit": [
+        "外部检测器、传播预测、算法阈值",
+        "强制感官经历、精确数字、强制scrub或静默发布"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/LICENSE",
+          "sha256": "1a21cf7c208981ef516dcf2edb4517dab907b8dc94c2cfc523565c794ea8e148",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/LICENSE",
+          "upstreamPath": "LICENSE",
+          "gitBlobSha1": "6170859542913d403316ed4556e43d6f31d97512",
+          "bytes": 1070
+        },
+        {
+          "bytes": 2990,
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/references/voice-profile.md",
+          "gitBlobSha1": "ee58562fe0e0c673e732ebd8e93b819b2243fe20",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/references/voice-profile.md",
+          "sha256": "a4880406ae37c9e66b2f759f7d63b9d635faf316a35430148e50fe2c9b9053b5",
+          "upstreamPath": "references/voice-profile.md"
+        },
+        {
+          "bytes": 15127,
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/scripts/check_config.py",
+          "gitBlobSha1": "d48de4548b9d8ce7aaa867345b3df825f2df0fcf",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/scripts/check_config.py",
+          "sha256": "9bd686207f9dfa2f6b6968cc7933eeeeb05df5a82241e182f6c22fc16a8d5ab7",
+          "upstreamPath": "scripts/check_config.py"
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-ai-tells.md",
+          "sha256": "87baf1ae90f04d2c8c5cb519ab65ecf48f961730548deeadcc737d51f22cb104",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-ai-tells.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/audit-ai-tells.md",
+          "gitBlobSha1": "1ad20e29c430102184ffe23707fe25b1d74e548c",
+          "bytes": 11884
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-checklist.md",
+          "sha256": "94c200a1b8a90396bc59cae7d624e47f53b1222efb5a18c3ca8f9dda7f1489f4",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-checklist.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/audit-checklist.md",
+          "gitBlobSha1": "a5ed760873fb968853b2a7464b31234e183a902d",
+          "bytes": 4183
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-examples.md",
+          "sha256": "932c6a2465f02946f113a22ec9f882bffb3d6e4bda69c98770379a147d553de0",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/audit-examples.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/audit-examples.md",
+          "gitBlobSha1": "b6190b68bc0ee5bf5fdddcda159fc71af639e939",
+          "bytes": 452
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/detector-list.md",
+          "sha256": "200174145fa441f304fc52caae96fbc72e4ce9de36679a66a17d8ad11eb1ace4",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/detector-list.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/detector-list.md",
+          "gitBlobSha1": "2c0c20273bf71f1eca9124d0d345f6ed359775ed",
+          "bytes": 6284
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/emoji-patterns.md",
+          "sha256": "0d0334be2d4cf9700876cda92d2d8992a0d713aa2044059e5e1a340df8831c27",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/emoji-patterns.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/emoji-patterns.md",
+          "gitBlobSha1": "9a8f16f9f18d0d9cf99e88caa946b973d7811d91",
+          "bytes": 3845
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/examples.md",
+          "sha256": "5c30bb5699ff29661dadb5fa63438792eff30b710f960c02520df6f5ec52ea7a",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/examples.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/examples.md",
+          "gitBlobSha1": "5831812b2ca6b494f18e030354d06dac1066b599",
+          "bytes": 1441
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/rules-explainer.md",
+          "sha256": "b1fc35ea0a3d364ea0bcfbb50ade0c9bb7096e855ff9ac4c9c38786ce72bbcff",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/rules-explainer.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/rules-explainer.md",
+          "gitBlobSha1": "4f474143ff8c94289e45e9a7f68bfa13fc189fa8",
+          "bytes": 15137
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/scrub-rules.md",
+          "sha256": "9716865a9f78fb06f191c1b09836f28dcdb7753bee5336fe55d3754d6e90540d",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/scrub-rules.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/scrub-rules.md",
+          "gitBlobSha1": "665316a794fbc551c764574c7fafd0341e1d7458",
+          "bytes": 27676
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/tier-rationale.md",
+          "sha256": "7c5fc51ff281adff25ba5e99b1dac3f7f70c615f90e61b80f45c4a97524e19fa",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/tier-rationale.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/tier-rationale.md",
+          "gitBlobSha1": "6f97ff80e6480e95ab09b32cf33775b4faefb46c",
+          "bytes": 17700
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/voice-fingerprint.md",
+          "sha256": "2eb1af1a0b9a1f6a62dfb5ccd89f17cc73b99bfb883792fb8897a66acca40c4d",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/references/voice-fingerprint.md",
+          "upstreamPath": "skills/linkedin-humanizer/references/voice-fingerprint.md",
+          "gitBlobSha1": "4e1f1ea651b83a6dffe2104b96b5fed9248d466a",
+          "bytes": 5434
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/scripts/detectors.env.example",
+          "sha256": "26eaf2f5f05abef88e6f23aacaf636fc55289f9a91c5a8cbc47518a98451ded5",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/scripts/detectors.env.example",
+          "upstreamPath": "skills/linkedin-humanizer/scripts/detectors.env.example",
+          "gitBlobSha1": "86ca3bb8fb9f23d0cbad1936be8a0be5f8524862",
+          "bytes": 428
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/scripts/test_detectors.py",
+          "sha256": "13d7f8c98f4f7c08a8b1d07fcc45428e961cffc2951f3a9e7b7e79cc0ba4a76f",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/scripts/test_detectors.py",
+          "upstreamPath": "skills/linkedin-humanizer/scripts/test_detectors.py",
+          "gitBlobSha1": "9ebe1a59a8925ec9a9bea702586b4a74e17d191b",
+          "bytes": 12995
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/SKILL.md",
+          "sha256": "3bf5d57f18f91bc43af4616cbbd5f2f008bf5bfcb67f3d32e6706557feec400c",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/SKILL.md",
+          "upstreamPath": "skills/linkedin-humanizer/SKILL.md",
+          "gitBlobSha1": "7630d058d43775df09e2c0e97b291e123ad58aa6",
+          "bytes": 19995
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/detector-tester.md",
+          "sha256": "91a5f3941c0af3be93b0d1eae6efb6df0837dce58af65468835913e54b7a4833",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/detector-tester.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/detector-tester.md",
+          "gitBlobSha1": "4179316755f68519144485109f1d6e6074c79ff8",
+          "bytes": 6148
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/emoji-detector.md",
+          "sha256": "fa4323dfc7792a025a29fd25d96ba13f29de9db6f99f1d5c2486b711e257696c",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/emoji-detector.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/emoji-detector.md",
+          "gitBlobSha1": "972088aee7dd2cab83efb92d48bca26307c24d22",
+          "bytes": 3993
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/illustration.md",
+          "sha256": "68fe8b93402e44efe966e005934ecb78fbac7ede6f51d4f988e4ecbdae4c4f6f",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/illustration.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/illustration.md",
+          "gitBlobSha1": "d0c7818161395a44f78943f030d184de390ba024",
+          "bytes": 7606
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/post-audit.md",
+          "sha256": "83be4f7e755143780a4bcfb0bf3b8f8b592095816f07f80a87010ea56aa9605a",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/post-audit.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/post-audit.md",
+          "gitBlobSha1": "0a329a3f0d3a1f33e12af56bdfbd3e6557141604",
+          "bytes": 4974
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/rules-explainer.md",
+          "sha256": "3b2a8c0b5eaab8fdc7ce1bcba77964a97712c42501f50b6ecac6891c1a64ca25",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/rules-explainer.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/rules-explainer.md",
+          "gitBlobSha1": "254bedba6af7b45d13d547cb357e6755a73a55ca",
+          "bytes": 5371
+        },
+        {
+          "path": "skill-library/sources/github/sergebulaev--linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/voice-profile.md",
+          "sha256": "ee4b339805850d108d3cedf2eb2b4687a6fcc7e99571c906b6b189a2a3710625",
+          "sourceUrl": "https://raw.githubusercontent.com/sergebulaev/linkedin-skills/5c6192db54db24bf46fab8bbac32f7946daca970/skills/linkedin-humanizer/sub-skills/voice-profile.md",
+          "upstreamPath": "skills/linkedin-humanizer/sub-skills/voice-profile.md",
+          "gitBlobSha1": "af480b8fa28bb57492296d4978592112e0496239",
+          "bytes": 3053
+        }
+      ],
+      "includedSubresources": [
+        "skills/linkedin-humanizer/sub-skills/post-audit.md",
+        "skills/linkedin-humanizer/references/audit-checklist.md",
+        "references/voice-profile.md",
+        "scripts/check_config.py"
+      ],
+      "externalDependencies": "Other sibling skills, optional external APIs, credentials and Python dependencies are not installed or bundled. Root check_config.py is retained as referenced source only; never execute it as part of browsing this library."
+    },
+    {
+      "id": "github-ksopyla-linkedin-post",
+      "name": "linkedin-post",
+      "sourceUrl": "https://github.com/ksopyla/ksopyla-ai-blog/tree/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/.cursor/skills/linkedin-post",
+      "repository": "ksopyla/ksopyla-ai-blog",
+      "version": "d6fd55427e48e3a4a336e76f25827a5db0c9c7d9",
+      "commit": "d6fd55427e48e3a4a336e76f25827a5db0c9c7d9",
+      "localPath": "skill-library/sources/github/ksopyla--ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/.cursor/skills/linkedin-post/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "CC0-1.0 stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/ksopyla--ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/sources.md",
+        "docs/第一轮文本规则整理.md"
+      ],
+      "consider": [
+        "长资料抽取一条论证主线",
+        "原生动态自足性和工程意义解释"
+      ],
+      "doNotInherit": [
+        "来源作者人设、英文唯一、强制第一人称",
+        "删除事实限定、固定CTA、增长计划"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "bytes": 9902,
+          "path": "skill-library/sources/github/ksopyla--ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/.cursor/skills/linkedin-post/SKILL.md",
+          "sourceUrl": "https://raw.githubusercontent.com/ksopyla/ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/.cursor/skills/linkedin-post/SKILL.md",
+          "gitBlobSha1": "174af67d75024837384a4c33c56f5bbec8d0c029",
+          "upstreamPath": ".cursor/skills/linkedin-post/SKILL.md",
+          "sha256": "85b0da6029f2b1212902d61d2c13b09429348fe68699dd02f4a7f15af2aaac9d"
+        },
+        {
+          "bytes": 7048,
+          "path": "skill-library/sources/github/ksopyla--ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/ksopyla/ksopyla-ai-blog/d6fd55427e48e3a4a336e76f25827a5db0c9c7d9/LICENSE",
+          "gitBlobSha1": "0e259d42c996742e9e3cba14c677129b2c1b6311",
+          "upstreamPath": "LICENSE",
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+        }
+      ]
+    },
+    {
+      "id": "github-jimliu-baoyu-translate",
+      "name": "baoyu-translate",
+      "sourceUrl": "https://github.com/JimLiu/baoyu-skills/tree/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate",
+      "repository": "JimLiu/baoyu-skills",
+      "version": "1567581c26ec29f4216c6e6835415bf30343b0e3",
+      "commit": "1567581c26ec29f4216c6e6835415bf30343b0e3",
+      "localPath": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/localization-sources.md"
+      ],
+      "consider": [
+        "作者目的与上下文驱动本地化",
+        "事实与术语保真、自然语言表达",
+        "对照检查维度并入每稿一次审核"
+      ],
+      "doNotInherit": [
+        "首次配置问卷、全局偏好写入",
+        "额外review/revision/polish循环或自主subagent",
+        "在原材料旁落盘、默认中文及图片已翻译声明"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "bytes": 1064,
+          "sha256": "601839401f6ce68b7a8aec0f7ba247ab8ef0848113378220bec4b2615cc84ee7",
+          "gitBlobSha1": "9f2cc0d74570c5841f02b639593d12a70dc7dc65",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/LICENSE",
+          "upstreamPath": "LICENSE",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/LICENSE"
+        },
+        {
+          "bytes": 3449,
+          "sha256": "ba3677cf40bb5063f450927b4fcde2f361a832e6a8632604a270df8372884593",
+          "gitBlobSha1": "d6367d19f19ea3a739054314f3e9a52cbb016a10",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/config/extend-schema.md",
+          "upstreamPath": "skills/baoyu-translate/references/config/extend-schema.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/config/extend-schema.md"
+        },
+        {
+          "bytes": 4505,
+          "sha256": "a5c3541af360bc51a127836297032d270e49ea67152c8745e9ae537d561f8113",
+          "gitBlobSha1": "dd9da9d993ab7109ca37e467d311b08b4512e549",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/config/first-time-setup.md",
+          "upstreamPath": "skills/baoyu-translate/references/config/first-time-setup.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/config/first-time-setup.md"
+        },
+        {
+          "bytes": 927,
+          "sha256": "3e74ef5c6bcbd6f62bc91445000f5485d613ca4f13cab647f6ce450a796a5033",
+          "gitBlobSha1": "c4dca2f707bb53a7ee5c0a9f033c8c6919f1bb65",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/glossary-en-zh.md",
+          "upstreamPath": "skills/baoyu-translate/references/glossary-en-zh.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/glossary-en-zh.md"
+        },
+        {
+          "bytes": 6040,
+          "sha256": "146d074b59f42a68578a9e62afaa68507598e58b09a51ac3db486245a3239550",
+          "gitBlobSha1": "58603c618be96fde3f6f2dd0d81fd39e3adc5d25",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/refined-workflow.md",
+          "upstreamPath": "skills/baoyu-translate/references/refined-workflow.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/refined-workflow.md"
+        },
+        {
+          "bytes": 3442,
+          "sha256": "9eaa650ffc01b23dac555c78d9b202e73942f59cf1110b4018f54b1fb7ae478f",
+          "gitBlobSha1": "e2c9d3eae352755072bed4f67a454ad4be12611e",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/subagent-prompt-template.md",
+          "upstreamPath": "skills/baoyu-translate/references/subagent-prompt-template.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/subagent-prompt-template.md"
+        },
+        {
+          "bytes": 812,
+          "sha256": "bea93ebaf1d8e39e535af8c713498705533a108f322644691b20566586495fcc",
+          "gitBlobSha1": "353e0aab11a6d2bda5fe1b21a56c47891ac3217a",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/workflow-mechanics.md",
+          "upstreamPath": "skills/baoyu-translate/references/workflow-mechanics.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/references/workflow-mechanics.md"
+        },
+        {
+          "bytes": 1456,
+          "sha256": "0c6a7e6e63e7ed889604fc25b8d3641d67560a57f95c088c835192a68a3f4886",
+          "gitBlobSha1": "0dbc2e7fb4366bec584b9a1f416eecabfc6d5ebf",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/bun.lock",
+          "upstreamPath": "skills/baoyu-translate/scripts/bun.lock",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/bun.lock"
+        },
+        {
+          "bytes": 8368,
+          "sha256": "cadf822bce4de9c38f353112a45aa140a75b93ed02399bd6f7f7b5a120908db5",
+          "gitBlobSha1": "0291330748fb2990eb2d53489365264dbf4e0028",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/chunk.ts",
+          "upstreamPath": "skills/baoyu-translate/scripts/chunk.ts",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/chunk.ts"
+        },
+        {
+          "bytes": 1410,
+          "sha256": "8a5122ace7d84fcc67219d23f67972cfa8c7d35f6f60d08cc9423e80787fb959",
+          "gitBlobSha1": "24f8e46e8ae797ff23d3b61c5a8850bd2d9820e7",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/main.ts",
+          "upstreamPath": "skills/baoyu-translate/scripts/main.ts",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/main.ts"
+        },
+        {
+          "bytes": 110,
+          "sha256": "043a4e579c33be1fb62920181596224ca2a3421d5d11ad0f7bd55b09b14e98b4",
+          "gitBlobSha1": "e19c9bb47217ecd4133c6f55d26ec05741d08a85",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/package.json",
+          "upstreamPath": "skills/baoyu-translate/scripts/package.json",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/scripts/package.json"
+        },
+        {
+          "bytes": 15844,
+          "sha256": "772f7170a61f1246d7505c97539579bb4d055f21653462e8cfaaddc65a3a5b31",
+          "gitBlobSha1": "401aa885d51543e871b2f531603e5b0294298e5c",
+          "path": "skill-library/sources/github/JimLiu--baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/SKILL.md",
+          "upstreamPath": "skills/baoyu-translate/SKILL.md",
+          "sourceUrl": "https://raw.githubusercontent.com/JimLiu/baoyu-skills/1567581c26ec29f4216c6e6835415bf30343b0e3/skills/baoyu-translate/SKILL.md"
+        }
+      ],
+      "externalDependencies": "Bun/markdown-it and any external translation/model service are not installed. Default setup and output-location instructions remain inert source text."
+    },
+    {
+      "id": "github-testany-io-media-writer",
+      "name": "media-writer",
+      "sourceUrl": "https://github.com/TestAny-io/testany-agent-skills/tree/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer",
+      "repository": "TestAny-io/testany-agent-skills",
+      "version": "880a8d43011a44df5b35020aedb81426cdc926e4",
+      "commit": "880a8d43011a44df5b35020aedb81426cdc926e4",
+      "localPath": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/LICENSE"
+      ],
+      "completeness": "complete selected skill directory plus repository license; other sibling skills and external resources excluded",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Prior selective comparison is documented; this collection preserves additional attachments without claiming full fresh analysis or execution.",
+      "existingAnalysis": [
+        "docs/第一轮文本规则整理.md",
+        "docs/平台审核skill初筛.md"
+      ],
+      "consider": [
+        "逻辑/风格/细节审校维度",
+        "多平台写作资料和小红书/知乎/LinkedIn指南",
+        "作者表达、事实来源与可追溯关系"
+      ],
+      "doNotInherit": [
+        "完整多阶段编排原样移植",
+        "无来源算法数字、作者经历、固定硬数据配额",
+        "固定路径/原地修改、自动归档或发布"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "bytes": 1064,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/LICENSE",
+          "gitBlobSha1": "3fedfcb91007d32119643ed93fb4f2c68731a9db",
+          "upstreamPath": "LICENSE",
+          "sha256": "68b0cc11f57caa652451f96cf8855c24a9ffcf304107b1eaec98c443048a8288",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/LICENSE"
+        },
+        {
+          "bytes": 288,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/agents/openai.yaml",
+          "gitBlobSha1": "20144130ff405c97d9d8418f55f221854d878779",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/agents/openai.yaml",
+          "sha256": "0f1ff9bb338edad01bc869b090634679f5336043e0eaa47a6ebccb74ff7e0e51",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/agents/openai.yaml"
+        },
+        {
+          "bytes": 10315,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/angle-analysis-template.md",
+          "gitBlobSha1": "323c97cbedbab130d66aec2aa973d70845c3e7fb",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/assets/angle-analysis-template.md",
+          "sha256": "d11a8ee191d4e8bcc21073561c6a4e00345a125b131c766226c0788686197b18",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/angle-analysis-template.md"
+        },
+        {
+          "bytes": 8740,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/brief-template.md",
+          "gitBlobSha1": "14dcfaf67660ea650856d96175b860cdf0c32f62",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/assets/brief-template.md",
+          "sha256": "a2d509b3a39b20ad643cfcb27bf4b78692a71f1d5d9ed6f4d5168f74503d2114",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/brief-template.md"
+        },
+        {
+          "bytes": 10732,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/draft-checklist.md",
+          "gitBlobSha1": "f118a46c0671942639e05ea7b842ce6cbfa92a6b",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/assets/draft-checklist.md",
+          "sha256": "ca6f12669526589bf76d70cbbf9992f5c691403b3055ed1608c8a06bb6c25eac",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/draft-checklist.md"
+        },
+        {
+          "bytes": 49082,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/testany-logo-small.png",
+          "gitBlobSha1": "ef6b16f68156b06687d20a6b0d889e79fd7c18f5",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/assets/testany-logo-small.png",
+          "sha256": "6ba1d21e1f6f4cff36a5e9f065509da7866cf90ec7dcbb6a25905a29adf45649",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/testany-logo-small.png"
+        },
+        {
+          "bytes": 7663,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/testany-logo.svg",
+          "gitBlobSha1": "404728cbeb538cd0a3b1ad12d7a649a2247008fe",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/assets/testany-logo.svg",
+          "sha256": "dce6336bf22f7f1267ec519bd072db859e7d9919405b10879e97b6d37c552df2",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/assets/testany-logo.svg"
+        },
+        {
+          "bytes": 4462,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/execution-modes.md",
+          "gitBlobSha1": "92936269b044cc330d1c54c8cc6d2f53a5fd97f4",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/execution-modes.md",
+          "sha256": "a4b35a1b0439b6ccb7b2405bed3f7cd20901ba7412a2651bf2d0f9f9fb8c81bb",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/execution-modes.md"
+        },
+        {
+          "bytes": 8588,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/orchestrator-manual.md",
+          "gitBlobSha1": "5250add8830dfd09b33b00929dc42dad3c1374ab",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/orchestrator-manual.md",
+          "sha256": "d52002b5bc39892ecc308e0b00130896c4e942cad25ffd25737e78790b5db713",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/orchestrator-manual.md"
+        },
+        {
+          "bytes": 7568,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-audience.md",
+          "gitBlobSha1": "ff74d4ae0bdc1eb364d8aad497f9079519f24ebf",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/persona/my-audience.md",
+          "sha256": "300c3beb53260a32e4e8ceb5edaa2a71dc67da91de27b90f2130d471b0855f81",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-audience.md"
+        },
+        {
+          "bytes": 6498,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-values.md",
+          "gitBlobSha1": "96e333025486f1802699992a078d52db9c447ed3",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/persona/my-values.md",
+          "sha256": "dd48f72615aaf50f5699a958db285d25cef2fe85458d9f509511125e166131d5",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-values.md"
+        },
+        {
+          "bytes": 6584,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-voice.md",
+          "gitBlobSha1": "97d5aa2bd4c62d8bbba9fa78e5eb37dd69cdbeaf",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/persona/my-voice.md",
+          "sha256": "019d2b5b05b1386e87b63fe557846831088013b67560933c302a4a5208509bae",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/my-voice.md"
+        },
+        {
+          "bytes": 1986,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/past-articles/README.md",
+          "gitBlobSha1": "e84920ee6c609da647063b4461aa939fb91d943e",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/persona/past-articles/README.md",
+          "sha256": "cfb83c42e78c8294c934effa572d166ad5ab9a4364659a9e2293502fb56f1f8e",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/persona/past-articles/README.md"
+        },
+        {
+          "bytes": 16402,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/linkedin-guide.md",
+          "gitBlobSha1": "96051c63a794e2e6c00a0ccbe86ced13ee5202dc",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/linkedin-guide.md",
+          "sha256": "088289ed2cf63e2dae1207f5d044bb662e2c3aee168f771b7f968c5c553d0083",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/linkedin-guide.md"
+        },
+        {
+          "bytes": 17589,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/medium-guide.md",
+          "gitBlobSha1": "f7f8c1d761fba36ba588b53bd39f3db98e4af3e0",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/medium-guide.md",
+          "sha256": "17a19591cacf0cff2df00a2a46c631fa8bd15d0d14b9e9621f392e960ae6b2a6",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/medium-guide.md"
+        },
+        {
+          "bytes": 17889,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/reddit-guide.md",
+          "gitBlobSha1": "afa1e8a83fb7137feb4bcb091be0b9f3606632a9",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/reddit-guide.md",
+          "sha256": "32805c514b01b5066931cadd5588a5addede4d5bae098dd2ae063dcc41537548",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/reddit-guide.md"
+        },
+        {
+          "bytes": 12288,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/wechat-guide.md",
+          "gitBlobSha1": "8939c6b4c07dad6f7552fd79b1656b0c214bf8a2",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/wechat-guide.md",
+          "sha256": "4214b34c015a82fb42c24d190491c8c67948fc397079d8e7c6873d5f8d679025",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/wechat-guide.md"
+        },
+        {
+          "bytes": 12544,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/xiaohongshu-guide.md",
+          "gitBlobSha1": "41cd70a1c2ad77d7be09e7ecc30be1c19b114849",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/xiaohongshu-guide.md",
+          "sha256": "8ce12d42c51030a036cce3dd3c2d3dcfdd3043525ec997065a582bf8e8d68b24",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/xiaohongshu-guide.md"
+        },
+        {
+          "bytes": 13838,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/zhihu-guide.md",
+          "gitBlobSha1": "484ee4ed430ca4ebb263eac3009d98e5abfdc713",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/platforms/zhihu-guide.md",
+          "sha256": "26710a0ce39c160eaa26d5c703063dc635e465edda82edd429048fc67c407d86",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/platforms/zhihu-guide.md"
+        },
+        {
+          "bytes": 25897,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/01-topic-scout.md",
+          "gitBlobSha1": "57e452587db3d2accbca6f874464099beb7281a3",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/01-topic-scout.md",
+          "sha256": "53ea83d000a1ca2787b6cd47344c37e27abc08a28e7e018a81df2db8bad4eda6",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/01-topic-scout.md"
+        },
+        {
+          "bytes": 17208,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/02-researcher.md",
+          "gitBlobSha1": "c0609591f00c74f0e406312bb5701897aa7616d6",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/02-researcher.md",
+          "sha256": "fd64f533508c8ee1f2f6ee7e47c7d153c560081daefb2df390f173ef88db03a4",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/02-researcher.md"
+        },
+        {
+          "bytes": 14442,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/03-strategist.md",
+          "gitBlobSha1": "077eab189c9352db9602fc37d86bbe8813061a8b",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/03-strategist.md",
+          "sha256": "9d94d6244c4fedc0df5cbaf72a2e8e2dcd6e806800be84da35f4b91051b5dc68",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/03-strategist.md"
+        },
+        {
+          "bytes": 17224,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-linkedin.md",
+          "gitBlobSha1": "83fd22bcc774854f4043801e50b921eec5c3992e",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-linkedin.md",
+          "sha256": "df25bffd499b953ef47228a6e937d258b4476f8a8c3006a46e7769572d2ccf39",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-linkedin.md"
+        },
+        {
+          "bytes": 17642,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-medium.md",
+          "gitBlobSha1": "c534d806541ae1251bef6a2ea074f645f8a16873",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-medium.md",
+          "sha256": "b399f4d784ffbf557788165e2af8660dbc43ec649aa357fceaa835d4216a9cd8",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-medium.md"
+        },
+        {
+          "bytes": 14777,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-reddit.md",
+          "gitBlobSha1": "cd055062b65063db5b6b4541c24c680881d26b2e",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-reddit.md",
+          "sha256": "a1d30693b0f868d32fe11567b0663809bd7d4723d5b3897eb7b186e44b0f1be0",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-reddit.md"
+        },
+        {
+          "bytes": 17753,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-wechat.md",
+          "gitBlobSha1": "9a3f68bdab2c4af2667038713d6c8846ae2dca53",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-wechat.md",
+          "sha256": "5fb1a37b00c096bcdea78e8ab28408d1d06778e3b1c0dfaa000cffae2197ef82",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-wechat.md"
+        },
+        {
+          "bytes": 12827,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-xiaohongshu.md",
+          "gitBlobSha1": "f5091583d4dea042cb995778b411ac6d28d645f5",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-xiaohongshu.md",
+          "sha256": "3cfe97217050039e980961614c5e297dad0fc36f75f709df8f65fddd2f8c67ba",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-xiaohongshu.md"
+        },
+        {
+          "bytes": 19719,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-zhihu.md",
+          "gitBlobSha1": "278df1787cf3435c46459c1a476a5494412343dd",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-zhihu.md",
+          "sha256": "361cb9f31f2df4bf04e688e005e0ca923f56c45484769941c7466eed90b399b4",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/04-writer-zhihu.md"
+        },
+        {
+          "bytes": 13718,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/05-selector.md",
+          "gitBlobSha1": "e997b06c836c048b751a08ac1e1e18249bb3e152",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/05-selector.md",
+          "sha256": "2dc4164dd31cb3b6abf89831888be77889f26a075378e2f51dfae8f705c39e98",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/05-selector.md"
+        },
+        {
+          "bytes": 14575,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-detail-editor.md",
+          "gitBlobSha1": "638af2ca43c7dcead17276b82a19ea8c5963d4b8",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/06-detail-editor.md",
+          "sha256": "c4b7a1d73e52815b2d24445d41f1667b873e7dbc9c8a214c079243a2d6c8eae0",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-detail-editor.md"
+        },
+        {
+          "bytes": 14495,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-logic-editor.md",
+          "gitBlobSha1": "4e68693095ba4c3fcd9b8d4b5a9b587e9810c59c",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/06-logic-editor.md",
+          "sha256": "4b951f904a85d6d49ee70bbbfba78416dc5cdf74176ed09cf997a04d3d58d5cb",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-logic-editor.md"
+        },
+        {
+          "bytes": 16704,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-style-editor.md",
+          "gitBlobSha1": "5f7b76ce82d8d3c4053d19a33531b43e8f60c842",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/06-style-editor.md",
+          "sha256": "e5e8a19bb3001bd5552fddeec58309c8e138563b9af7f586f25d158835574b64",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/06-style-editor.md"
+        },
+        {
+          "bytes": 10536,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/07-illustrator.md",
+          "gitBlobSha1": "5357679bbbee32411a0299ee6449477dda42eca5",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/07-illustrator.md",
+          "sha256": "8c643ea6aca2fd7a69256c1a7e4e47d212c2aae1ddd91c42527911c42c09611a",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/07-illustrator.md"
+        },
+        {
+          "bytes": 10280,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/08-archivist.md",
+          "gitBlobSha1": "6134aa3aa274ac98bcfd7046cee2b9794c95a7a9",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/references/prompts/08-archivist.md",
+          "sha256": "e29cb7d2074160f505f508e9aff238c28cd7ec9e312fb1dc6ab44e8895820f1e",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/references/prompts/08-archivist.md"
+        },
+        {
+          "bytes": 1116,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-platforms.sh",
+          "gitBlobSha1": "009d0620b865972c78642bee2f914c19e0c952a0",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/check-platforms.sh",
+          "sha256": "fac275b8555b79890762e9fbd058e75521d265a48edb481cc44b092ea79bd9ad",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-platforms.sh"
+        },
+        {
+          "bytes": 1116,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-prompts.sh",
+          "gitBlobSha1": "009d0620b865972c78642bee2f914c19e0c952a0",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/check-prompts.sh",
+          "sha256": "fac275b8555b79890762e9fbd058e75521d265a48edb481cc44b092ea79bd9ad",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-prompts.sh"
+        },
+        {
+          "bytes": 504,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-structure.sh",
+          "gitBlobSha1": "074cfa2353e665777e29d72acd1d6e889936f290",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/check-structure.sh",
+          "sha256": "ca203d5cc5865df090128eff6adaa44d19cddacab5dcdfe549a4ee17d6421b3e",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-structure.sh"
+        },
+        {
+          "bytes": 886,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-workflow-status.sh",
+          "gitBlobSha1": "6bfe93bfb55e0f7109bc4160485c552587ff8078",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/check-workflow-status.sh",
+          "sha256": "9d8703ecbf11d19e95cebe9c3244e092e4761ea37efadb3fb240898065ec5523",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/check-workflow-status.sh"
+        },
+        {
+          "bytes": 582,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/count-drafts.sh",
+          "gitBlobSha1": "df9ee3eda84d39daaaff07745da8c3c148e9d9a7",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/count-drafts.sh",
+          "sha256": "2e34bd47d54dde79d8915cad22656a85867ded7d20e73967be707abe1bd98f79",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/count-drafts.sh"
+        },
+        {
+          "bytes": 383,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/create-dirs.sh",
+          "gitBlobSha1": "0518b3758cb3f2ddc2645093a7dd5a6296649e0e",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/create-dirs.sh",
+          "sha256": "9dac4ed46e679973204ef71319fcca11eedcd2d9032963ab7ed48e19d9e9060e",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/create-dirs.sh"
+        },
+        {
+          "bytes": 5628,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/credentials.py",
+          "gitBlobSha1": "67ed501e42e47aa454b8c9539886b8072e0f1094",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/credentials.py",
+          "sha256": "48776c3f28d272ca436582465a5714138af95cf7f9d0ea360f7698efc07474cc",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/credentials.py"
+        },
+        {
+          "bytes": 4648,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_download.py",
+          "gitBlobSha1": "abce29dcc6837bf09eae92fa2fd6cc8e6b45e429",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/image_download.py",
+          "sha256": "63d53c03dc1d93367cf6df721055f1626800c698a8835c1c6710d92cdbff484b",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_download.py"
+        },
+        {
+          "bytes": 10590,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_generate.py",
+          "gitBlobSha1": "8f64f38cb58b29690a3b045a212e89b21943d4c6",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/image_generate.py",
+          "sha256": "acfd3316d05b2436fada37d4db9a98ced49b9968731c20090eb7516ba2cf0c8a",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_generate.py"
+        },
+        {
+          "bytes": 6894,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_get.py",
+          "gitBlobSha1": "00d6f68790af873780e47d56b1762bf9bccf7341",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/image_get.py",
+          "sha256": "d37883b339c7814c503630e6c91c8a2e75e0b1fc7850a57dbd5d34299246ce14",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_get.py"
+        },
+        {
+          "bytes": 9383,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_search.py",
+          "gitBlobSha1": "898110ecfb455a8a054078a217ff1efc5c2b6ca1",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/image_search.py",
+          "sha256": "d14ac2add137276b73620ecad5884bd8ff9397a939bed621c6145a012cd9e886",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/image_search.py"
+        },
+        {
+          "bytes": 317,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/requirements.txt",
+          "gitBlobSha1": "1f1a2be1e43e9c54623574d6b04739416c82d5b1",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/requirements.txt",
+          "sha256": "8e5be1c81903007e8552b01da83592f2faec350bb22a8dae55b9af8d732a7ba3",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/requirements.txt"
+        },
+        {
+          "bytes": 537,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/start-workflow.sh",
+          "gitBlobSha1": "9b35dc2379870ee8e871e4711be902f6f977a0f9",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/scripts/start-workflow.sh",
+          "sha256": "d692ffcbaac89c3cb655227efbeacf2b42464205cd853eb22242d345b32c6a05",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/scripts/start-workflow.sh"
+        },
+        {
+          "bytes": 5604,
+          "sourceUrl": "https://raw.githubusercontent.com/TestAny-io/testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/SKILL.md",
+          "gitBlobSha1": "28b237b7a4c42c80f16bba6c2aa90a8c2fd27424",
+          "upstreamPath": "plugins/testany-mrkt/skills/media-writer/SKILL.md",
+          "sha256": "18536f896576992d75b24f1c614040622687ba4490d421c03592648afd5de5a2",
+          "path": "skill-library/sources/github/TestAny-io--testany-agent-skills/880a8d43011a44df5b35020aedb81426cdc926e4/plugins/testany-mrkt/skills/media-writer/SKILL.md"
+        }
+      ],
+      "externalDependencies": "Python requirements, optional keyring/network/image services and credentials are not installed or configured; scripts are inert source code."
+    },
+    {
+      "id": "github-gududefengzhong-xhs-note-compliance",
+      "name": "xhs-note-compliance",
+      "sourceUrl": "https://github.com/gududefengzhong/xhs-note-compliance/tree/d3ef3519794c43efa48969f528a442ec45472750",
+      "repository": "gududefengzhong/xhs-note-compliance",
+      "version": "d3ef3519794c43efa48969f528a442ec45472750",
+      "commit": "d3ef3519794c43efa48969f528a442ec45472750",
+      "localPath": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/LICENSE.md"
+      ],
+      "completeness": "complete fixed-commit repository tree",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Previously discovered candidate; this fixed snapshot is now available offline, not integrated or runtime-validated.",
+      "existingAnalysis": [
+        "docs/平台审核skill初筛.md"
+      ],
+      "consider": [
+        "中文风险词候选结合语境判误报",
+        "标题、正文、图片文字中的效果承诺和商业导向",
+        "规则与词库脚本作为静态分析对象"
+      ],
+      "doNotInherit": [
+        "无命中即保证平台通过",
+        "凭模板补个人经历/缺点",
+        "把中文规则宣称英文已覆盖"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "sha256": "8f2881927398cf423f22c0e2c17d4b75e012c06e25e012ff80722606f67e8dbd",
+          "gitBlobSha1": "d413b76e176aa0ee8c029257f41e89995f075a80",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/CHANGELOG.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/CHANGELOG.md",
+          "bytes": 4463,
+          "upstreamPath": "CHANGELOG.md"
+        },
+        {
+          "sha256": "19a619e62819ff0b4833f8a51aa60a88d865323303382bd5986b99d06913093b",
+          "gitBlobSha1": "edb987adf1d69d33b96237f8475eb391e84404ba",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/CONTRIBUTING.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/CONTRIBUTING.md",
+          "bytes": 8476,
+          "upstreamPath": "CONTRIBUTING.md"
+        },
+        {
+          "sha256": "97bbb644f04410db4769ca574b6008b022c4301acbb3811993e53a6c2f06e7a4",
+          "gitBlobSha1": "1ce718924b016844233048dc9e4da6e5ae93d1b5",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/examples/risky-note.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/examples/risky-note.md",
+          "bytes": 498,
+          "upstreamPath": "examples/risky-note.md"
+        },
+        {
+          "sha256": "f3be369a7e22288caa6b07345098bc4a1a96751f06cc1402c15d3ef0e08f747a",
+          "gitBlobSha1": "0b22ca0478195f41cbd6f563bb70dd260dbfc790",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/examples/sample-report.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/examples/sample-report.md",
+          "bytes": 4481,
+          "upstreamPath": "examples/sample-report.md"
+        },
+        {
+          "sha256": "366f833f5c4d3f9e23aae37546d57f783bd2de327a1236d8f681511035bd2bc0",
+          "gitBlobSha1": "82687c1e31dd29b91e9bc41acae676def2a33d8b",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/LICENSE.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/LICENSE.md",
+          "bytes": 1072,
+          "upstreamPath": "LICENSE.md"
+        },
+        {
+          "sha256": "e21fc20a04f39487670ccad8da7edf85dfb55514b8c5df3075c72661480b1060",
+          "gitBlobSha1": "517034699a1a2a1e38e3931eab477de4b5c1130b",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/README.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/README.md",
+          "bytes": 10277,
+          "upstreamPath": "README.md"
+        },
+        {
+          "sha256": "d2b01a368a828b323fc1ea9f45e1df844326fddb2309f49cdde4c2d1dca655f8",
+          "gitBlobSha1": "35bb1f6f970a36c26d8122da96cf06f7ca700cc9",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/references/rules.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/references/rules.md",
+          "bytes": 3802,
+          "upstreamPath": "references/rules.md"
+        },
+        {
+          "sha256": "a89c7664e46c0ca1bf6fd981fdb2fdfb7f5f32fbe304a1fbef9a854e0a5dddad",
+          "gitBlobSha1": "cc239d1840993c29e1fc5cc3d617244fce028aed",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/references/semantic-checks.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/references/semantic-checks.md",
+          "bytes": 4305,
+          "upstreamPath": "references/semantic-checks.md"
+        },
+        {
+          "sha256": "4b1a3904a7c2731cd9a2a9b5a2c8f9a4f4f2d96c26d9230c68349cda5a337265",
+          "gitBlobSha1": "04fc9311fafa06a91258ad168dfcbf5323af8645",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/banned_words.json",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/banned_words.json",
+          "bytes": 11557,
+          "upstreamPath": "scripts/banned_words.json"
+        },
+        {
+          "sha256": "96910e1d7743be24005861443261a6c3b02d46877e93bae848789a4c648a0650",
+          "gitBlobSha1": "3f11f2c421f3916b2fa142e5d050006f92d94bc0",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/check_note.py",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/check_note.py",
+          "bytes": 10040,
+          "upstreamPath": "scripts/check_note.py"
+        },
+        {
+          "sha256": "5bb495f592641951db4e252a690f57127724252d4ef516ebc1fa0e779ea66a7a",
+          "gitBlobSha1": "65d2ac03c1fc5df135934589d6f9c837371e09d6",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/test_check_note.py",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/scripts/test_check_note.py",
+          "bytes": 3112,
+          "upstreamPath": "scripts/test_check_note.py"
+        },
+        {
+          "sha256": "32871ffb20dfc21bf0c2dbaf4a399e09287350d6086cf70c79793ade088a03ba",
+          "gitBlobSha1": "3c1d879485c5110678cf7b9e65ee53a9758916a3",
+          "sourceUrl": "https://raw.githubusercontent.com/gududefengzhong/xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/SKILL.md",
+          "path": "skill-library/sources/github/gududefengzhong--xhs-note-compliance/d3ef3519794c43efa48969f528a442ec45472750/SKILL.md",
+          "bytes": 10028,
+          "upstreamPath": "SKILL.md"
+        }
+      ],
+      "versionSelection": "Prior record used a moving branch; master was resolved through anonymous GitHub commits API on 2026-09-26, then all bytes fetched by immutable commit."
+    },
+    {
+      "id": "github-alchaincyf-x-mentor-skill",
+      "name": "x-mentor-skill",
+      "sourceUrl": "https://github.com/alchaincyf/x-mentor-skill/tree/f913c720135e54828dc1ea8f4fa256a5e32fe5bb",
+      "repository": "alchaincyf/x-mentor-skill",
+      "version": "f913c720135e54828dc1ea8f4fa256a5e32fe5bb",
+      "commit": "f913c720135e54828dc1ea8f4fa256a5e32fe5bb",
+      "localPath": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "MIT stated in fixed-commit repository LICENSE",
+      "licenseFiles": [
+        "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/LICENSE"
+      ],
+      "completeness": "skill, all references/research and examples archived; promotional/system files omitted",
+      "scope": "Static source snapshot for offline analysis. Not installed, invoked, or adopted wholesale.",
+      "analysisStatus": "Previously discovered candidate; this fixed snapshot is now available offline, not integrated or runtime-validated.",
+      "existingAnalysis": [
+        "docs/平台审核skill初筛.md"
+      ],
+      "consider": [
+        "开头价值、串帖推进、结构自查",
+        "写作方法与反例的可比分析"
+      ],
+      "doNotInherit": [
+        "购买Premium、算法权重及增长经验当硬规则",
+        "固定串帖长度和强制CTA",
+        "照搬运营辅导/持久化/外部动作"
+      ],
+      "verification": "Raw download byte length and Git blob SHA-1 matched the fixed-commit GitHub tree; SHA-256 recorded for offline integrity.",
+      "files": [
+        {
+          "sha256": "fbb9bf1795d344e33ddff278161d94a494f6aea9cd7b78d2d07d96f7bb26ebc4",
+          "gitBlobSha1": "9a435de93f32a4954e2eef096d07cda52cb1364e",
+          "upstreamPath": "examples/account-diagnosis-demo.md",
+          "bytes": 1774,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/account-diagnosis-demo.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/account-diagnosis-demo.md"
+        },
+        {
+          "sha256": "a1bd5edcf20a1ada1c04d6ae993246bec4f6e0db2ea0eb56e22b1d20fb9ac761",
+          "gitBlobSha1": "a793dfc3cbdcfaae0b22c95f5de99f81447394bd",
+          "upstreamPath": "examples/routing-diagram.html",
+          "bytes": 11376,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-diagram.html",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-diagram.html"
+        },
+        {
+          "sha256": "5dff00cf2e3700beca80b3d594b36225e6e9100d4b9af5058c6e0b725b8a7fe7",
+          "gitBlobSha1": "f7b3109d747bfa9751fbcfca6b8d79e129399b28",
+          "upstreamPath": "examples/routing-diagram.png",
+          "bytes": 172772,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-diagram.png",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-diagram.png"
+        },
+        {
+          "sha256": "0aa54c05942f13bf82d2607af9349a37946ca5a1f5304e29610ceb0a4c520d0c",
+          "gitBlobSha1": "b19395783257bc6985ffc1159c5889fd01f78873",
+          "upstreamPath": "examples/routing-infographic.html",
+          "bytes": 10972,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-infographic.html",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-infographic.html"
+        },
+        {
+          "sha256": "bd3be6169d41c95478d17dc296e9b00680054608caef2c593cf0720dca0ddf43",
+          "gitBlobSha1": "58fcf8896f85564e93d5b7f5960282afd8acbde8",
+          "upstreamPath": "examples/routing-infographic.png",
+          "bytes": 151744,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-infographic.png",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/examples/routing-infographic.png"
+        },
+        {
+          "sha256": "d0952e801d7484cc5344f41cc0378567d20a3c996b784eb97460287adde9ab37",
+          "gitBlobSha1": "b95c3fcf6bcd81713196a8523188be50fa712edf",
+          "upstreamPath": "LICENSE",
+          "bytes": 1072,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/LICENSE",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/LICENSE"
+        },
+        {
+          "sha256": "9753acb3e1a9d7c203ab837367459b223b51337418f70ca644c1eebf4d112142",
+          "gitBlobSha1": "06bcb7c4ae881a1eb6df79c8f4cf03cf59616082",
+          "upstreamPath": "README.md",
+          "bytes": 17550,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/README.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/README.md"
+        },
+        {
+          "sha256": "f0742d5dade4a56c6355910e9167377f1dad0ac0ffc0fb83a2c2ac6288fdb9f8",
+          "gitBlobSha1": "a019147d71d607f704a427ee3cf9ce0c6c67cf6c",
+          "upstreamPath": "references/algorithm-niche.md",
+          "bytes": 4679,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/algorithm-niche.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/algorithm-niche.md"
+        },
+        {
+          "sha256": "f53bdbdb1a51f371d1c3dbb96a7d2113053d7f531d34a00dc2846cc666506160",
+          "gitBlobSha1": "5a87ee941eda519a76b321004fb7718f9e61febc",
+          "upstreamPath": "references/growth-monetization.md",
+          "bytes": 3564,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/growth-monetization.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/growth-monetization.md"
+        },
+        {
+          "sha256": "af785b8faae66a04aa9a0420ef17ce434618a6174cddf1090550f280f7a3feda",
+          "gitBlobSha1": "f871a85614f02e1c9223c792fc50e72de23fd6c4",
+          "upstreamPath": "references/mental-models-heuristics.md",
+          "bytes": 10435,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/mental-models-heuristics.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/mental-models-heuristics.md"
+        },
+        {
+          "sha256": "6dcdec9a25b5aa9d49e88eb04784a81a8524614262f5e19c3143e3411f363010",
+          "gitBlobSha1": "2b6767e6a882cdd0fb39b05b341ed346ef4588ca",
+          "upstreamPath": "references/quality-analytics.md",
+          "bytes": 4693,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/quality-analytics.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/quality-analytics.md"
+        },
+        {
+          "sha256": "cc62ecce3d285250ac91999f0405c519d6e6b3348bc97a8cb08c6f729b4c16fc",
+          "gitBlobSha1": "eff8bdc5acf7e80e99acbeb957d370105039eb89",
+          "upstreamPath": "references/research/01-writing-methods.md",
+          "bytes": 27690,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/01-writing-methods.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/01-writing-methods.md"
+        },
+        {
+          "sha256": "a4006e7b713c139526f912ae595ca43f56387e2c287f56dc31448babdf2ff5c7",
+          "gitBlobSha1": "b653a5e1217852d6c83cdf7960968ce2370dc827",
+          "upstreamPath": "references/research/02-growth-engines.md",
+          "bytes": 21345,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/02-growth-engines.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/02-growth-engines.md"
+        },
+        {
+          "sha256": "b9ee383ef2b83641403378ba28c1a4b95e439d79456fa610375fd85b97bc84d0",
+          "gitBlobSha1": "639a90c6868a4f14b134297fe202bf77cf7bce8d",
+          "upstreamPath": "references/research/03-content-brand.md",
+          "bytes": 21855,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/03-content-brand.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/03-content-brand.md"
+        },
+        {
+          "sha256": "6cd4e8ff396b26c2acd82759625b86ee46c5c35a135d0b87c7993190da76c933",
+          "gitBlobSha1": "dfcb877c51085937c5dba3121693823d27eb86a0",
+          "upstreamPath": "references/research/04-platform-mechanics.md",
+          "bytes": 19790,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/04-platform-mechanics.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/04-platform-mechanics.md"
+        },
+        {
+          "sha256": "b3e787da449671de0fa73f0cce7ed183b4442688f3a582367ea258dd25914895",
+          "gitBlobSha1": "4f203bdeb2993690cf36b91c74fee5cea48e9532",
+          "upstreamPath": "references/research/05-ai-tech-niche.md",
+          "bytes": 21610,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/05-ai-tech-niche.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/05-ai-tech-niche.md"
+        },
+        {
+          "sha256": "77c0e1479636361d0e38f76d46a428fdaa553c7e4a714b1831980f3a4fc1165f",
+          "gitBlobSha1": "d5ccd74fc04585ff4f341019aa392e3a58780f3c",
+          "upstreamPath": "references/research/06-cases-antipatterns.md",
+          "bytes": 18965,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/06-cases-antipatterns.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/research/06-cases-antipatterns.md"
+        },
+        {
+          "sha256": "f19b547ffedeaf89f35e08c690055e8339f66d6e13a0a394aff0634833a13ac6",
+          "gitBlobSha1": "f1e4b51d4bef83a7dced086fb19b36b0ab859975",
+          "upstreamPath": "references/writing-workshop.md",
+          "bytes": 4102,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/writing-workshop.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/references/writing-workshop.md"
+        },
+        {
+          "sha256": "7d6851f3c96e601c2a82e782b366ae5831a635f68fae0c89169d14188d74fa6d",
+          "gitBlobSha1": "377cbf57a143452f4b3deb053454234f6657cd9c",
+          "upstreamPath": "SKILL.md",
+          "bytes": 17543,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/SKILL.md",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/SKILL.md"
+        },
+        {
+          "sha256": "29519af84e002b7cdfb5c81629d2aedcfce8028d772ddbc3788d6399318796f2",
+          "gitBlobSha1": "e851e178485c2352b5200398ba2af224676193c6",
+          "upstreamPath": "工作逻辑.png",
+          "bytes": 447000,
+          "sourceUrl": "https://raw.githubusercontent.com/alchaincyf/x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/工作逻辑.png",
+          "path": "skill-library/sources/github/alchaincyf--x-mentor-skill/f913c720135e54828dc1ea8f4fa256a5e32fe5bb/工作逻辑.png"
+        }
+      ],
+      "versionSelection": "Prior record used a moving branch; master was resolved through anonymous GitHub commits API on 2026-09-26, then all bytes fetched by immutable commit.",
+      "omissions": [
+        {
+          "path": ".DS_Store",
+          "reason": "repository/system metadata"
+        },
+        {
+          "path": ".gitignore",
+          "reason": "repository/system metadata"
+        },
+        {
+          "path": "assets/hero.gif",
+          "reason": "promotional media, not needed for text/rule analysis"
+        },
+        {
+          "path": "wechat-qrcode.jpg",
+          "reason": "promotional media, not needed for text/rule analysis"
+        }
+      ]
+    },
+    {
+      "id": "local-shuorenhua",
+      "name": "shuorenhua",
+      "sourceUrl": "local:shuorenhua",
+      "sourceIdentity": "User-installed shuorenhua skill; logical provenance only, no machine-specific runtime dependency.",
+      "version": "sha256:8096fc698ab76dca0041ce124ca1dedf22889619b8995191523c8d8db30c1b98",
+      "localPath": "skill-library/sources/local/shuorenhua/2026-09-26/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "No standalone license or author/version declaration found; user-authorized local analysis copy, public redistribution permission not established.",
+      "completeness": "All three files in the installed source directory copied byte-for-byte.",
+      "scope": "Static reference only; not installed or invoked from this repository.",
+      "analysisStatus": "Prior full reading of these three files documented; current copy matches the previously recorded SHA-256 values.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/localization-sources.md"
+      ],
+      "consider": [
+        "保留事实、限定、否定作用域、责任主体与作者表达",
+        "最小必要改动、选区外逐字保留"
+      ],
+      "doNotInherit": [
+        "把编辑当作独立事实认证",
+        "强制改写额度、编造个人经历或AI检测分数"
+      ],
+      "files": [
+        {
+          "bytes": 8270,
+          "path": "skill-library/sources/local/shuorenhua/2026-09-26/SKILL.md",
+          "sha256": "8096fc698ab76dca0041ce124ca1dedf22889619b8995191523c8d8db30c1b98"
+        },
+        {
+          "bytes": 5496,
+          "path": "skill-library/sources/local/shuorenhua/2026-09-26/references/editing-guide.md",
+          "sha256": "c4ce2a4b43f967fc18f688b486908751563c0503263a28ea7a5b65bfe04d94b6"
+        },
+        {
+          "bytes": 3722,
+          "path": "skill-library/sources/local/shuorenhua/2026-09-26/references/examples.md",
+          "sha256": "ef6c9e19edd8f0addf6a95335adab1a0f6344bbebdc3f15981fd4182b0e6c29c"
+        }
+      ]
+    },
+    {
+      "id": "user-s1a-launch-kit",
+      "name": "s1a-launch-kit",
+      "sourceUrl": "repository:docs/references/s1a-launch-kit/SKILL.md",
+      "version": "sha256:122e9e661ad27ca19c9d62c3e13f00e276a8ad335235c03102b36cb4e0508f03",
+      "localPath": "docs/references/s1a-launch-kit/SKILL.md",
+      "collectedAt": "2026-09-26",
+      "licenseStatus": "User-provided reference; no separate license stated. Existing repository original retained; public redistribution permission not inferred.",
+      "completeness": "Existing original SKILL.md referenced without duplicate copy or modification; accompanying user documents remain indexed by docs/references/README.md.",
+      "scope": "Historical user reference, not current execution authorization.",
+      "analysisStatus": "Prior source analysis preserved; no new product fact or runtime claim.",
+      "existingAnalysis": [
+        "skill-preparation/linkedin-text/author-reference.md",
+        "docs/references/README.md"
+      ],
+      "consider": [
+        "术语与作者偏好",
+        "功能/限制/证据区分",
+        "发布前事实核对及真实输出验证"
+      ],
+      "doNotInherit": [
+        "历史命令、日期、发帖/发信排期或密钥路径",
+        "旧性能结果当作当前已验证事实"
+      ],
+      "files": [
+        {
+          "bytes": 6829,
+          "path": "docs/references/s1a-launch-kit/SKILL.md",
+          "sha256": "122e9e661ad27ca19c9d62c3e13f00e276a8ad335235c03102b36cb4e0508f03"
+        }
+      ]
+    }
+  ]
+}

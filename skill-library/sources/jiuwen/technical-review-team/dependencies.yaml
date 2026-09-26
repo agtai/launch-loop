@@ -1,0 +1,35 @@
+# dependencies.yaml — Teamskill startup dependency check
+#
+# Agent reads this file in SKILL.md Workflow Step 0 (pre-flight).
+# Each entry is checked. Results are reported to the user, who decides go/no-go.
+#
+# THIS FILE IS POPULATED FROM STAGE 2 AUTO-MATCHING RESULTS.
+# Do NOT fill it from scratch — it codifies what was discovered during the
+# local scan in Stage 2 (and optional post-generation community enrichment).
+#
+# RULES:
+# - Both `skills:` and `tools:` segments are MANDATORY (write `[]` if empty).
+# - Empty lists are valid ONLY when the auto-matching scan confirms no matches
+#   — they signal "checked, confirmed none", which is different from "never looked".
+# - Every entry in `roles[].skills` and `roles[].tools` (in SKILL.md frontmatter)
+#   MUST appear here. The validator script enforces this consistency.
+# - `purpose` is shown to the user when the dep is missing — write user-facing
+#   prose explaining the consequence, not internal jargon.
+
+skills:
+  # --- Local skills (discovered in Stage 2 auto-matching) ---
+  - name: fact-checker
+    source: local
+    required: false
+    purpose: Provides structured fact verification methodology for the Fact Checker role (degraded mode if unavailable)
+
+  # Use `skills: []` ONLY after Stage 2 auto-matching confirms no skill matches for any role.
+
+tools:
+  # --- Local tools (probed in Stage 2 auto-matching via `where`/`which`) ---
+  # No CLI tools required for this team — all roles operate via LLM reasoning.
+
+  # Use `tools: []` ONLY after Stage 2 auto-matching confirms no tool matches for any role.
+
+# Note: This team primarily operates via LLM native capabilities (reasoning, verification, editing).
+# The fact-checker skill is optional and enhances the Fact Checker role's methodology.

@@ -135,21 +135,23 @@ npm start
 
 ## 在新会话中继续项目
 
-新执行者或 Agent 直接以此仓库为工作目录，无需查找旧聊天或原电脑的 Downloads 文件夹。
+新 session 直接以此仓库为工作目录继续，无需查找旧聊天或原电脑的 Downloads 文件夹。本轮接手不以换机器、迁服务器或Linux适配为前提。当前main已包含LinkedIn MVP与X；真实生成、图片及外部发布的验证边界见会话交接。
 
 按此顺序阅读：
 
-1. [会话交接](docs/SESSION_HANDOFF.md)：已完成事项、关键决定、当前状态与下一步。
-2. [Agent 工作约定](AGENTS.md)：继续工作时需遵守的项目边界和验证方式。
-3. [内容生产与发布需求](docs/内容生产与发布需求.md)：完整双语内容、编辑迭代、真实执行与验收目标。
-4. [用户参考资料](docs/references/README.md)：[Launch kit](docs/references/launch-kit.docx)、[Launch copy](docs/references/launch-copy.docx)、[s1a-launch-kit skill](docs/references/s1a-launch-kit/SKILL.md) 及其分析。
-5. [全部工作与复用清单](docs/全部工作与复用清单.md)、[完整调研](docs/完整竞品与复用调研.md)、[流程试跑样例](docs/流程试跑样例.md)。
+1. [Agent 工作约定](AGENTS.md)和[会话交接](docs/SESSION_HANDOFF.md)：当前规则、代码和实际验证状态。
+2. [新 session 接手指南](docs/新session接手指南.md)：最短阅读路径、Git核对和可复制提示。
+3. [开发总清单](docs/开发总清单.md)：MVP、体验、多平台、技能深化与延期任务的依赖和验收。
+4. [技能候选与取舍清单](docs/技能候选与取舍清单.md)和[本地skill资料库](skill-library/README.md)：固定版本原件、附属参考、许可和hash，直接在仓库分析。
+5. [内容需求历史](docs/内容生产与发布需求.md)和[用户参考资料](docs/references/README.md)：[Launch kit](docs/references/launch-kit.docx)、[Launch copy](docs/references/launch-copy.docx)、[s1a-launch-kit skill](docs/references/s1a-launch-kit/SKILL.md)。
+
+[早期44项运营清单](docs/全部工作与复用清单.md)、[完整调研](docs/完整竞品与复用调研.md)、[流程试跑样例](docs/流程试跑样例.md)保留作历史参考，不替代当前开发总清单。
 
 可把下面这段作为新会话的起点：
 
-> 请先读取AGENTS.md、docs/SESSION_HANDOFF.md、docs/第二阶段接口与分工.md和docs/第二阶段执行与发布接口.md，核对Git、源码与最新验证记录。区分本地实现、替身测试、真实模型结果和未验证外部能力。未确认内容只在tmp；保存与发布分别确认，不自动扩展其他平台、视频、DOCX或反馈。
+> 请先读取AGENTS.md、docs/SESSION_HANDOFF.md、docs/新session接手指南.md和docs/开发总清单.md，核对Git与最新验证。本轮任务是【填写任务ID或目标】。涉及skill时从skill-library本地快照分析，不重复搜集或直接执行原包。区分代码、替身测试、真实模型／图片和平台结果；未确认内容只在tmp，保存与发布分别确认。按本轮指定范围继续，不自动commit、push、部署或实际发帖。
 
-其他接入依据：[LinkedIn 发布与反馈核查](docs/LinkedIn发布与反馈接入核查.md)。历史验证见 [验证记录](docs/验证记录.md)，本次迁移范围见 [迁移记录](docs/MIGRATION.md)。
+其他接入依据：[LinkedIn 发布与反馈核查](docs/LinkedIn发布与反馈接入核查.md)。历史验证见 [验证记录](docs/验证记录.md)，2026-09-23的历史仓库迁移见 [迁移记录](docs/MIGRATION.md)。本轮是同项目的新session交接整理。
 
 ## 常见问题
 
