@@ -13,6 +13,11 @@ import { createPublishingStore } from './publishing-store.mjs';
 import { createLinkedInService } from './linkedin-service.mjs';
 import { servePublishing } from './publishing-http.mjs';
 import { acquireDataLease } from './runtime-lease.mjs';
+import { createXPublishingStore } from './x-publishing-store.mjs';
+import { createXService } from './x-service.mjs';
+import { serveX } from './x-http.mjs';
+import { serveXImages } from './x-image-http.mjs';
+import { createXImageService } from './x-image-service.mjs';
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const moduleIds = ['research','creation','review','publishing','feedback'];
@@ -60,9 +65,9 @@ function createStore(dataDir,seedDir){
   const select=db.prepare('SELECT payload FROM records WHERE kind=? AND id=?');
   const get=(kind,id)=>JSON.parse(select.get(kind,id).payload);
   const list=kind=>ids[kind].map(id=>get(kind,id));
-  let content,publishing;
+  let content,publishing,xPublishing;
   const exportAll=()=>{
-    const backup={app:'content-workbench-local',version:1,exportedAt:new Date().toISOString(),modules:list('modules'),tasks:list('tasks'),content:content.exportAll(),publishing:publishing.exportAll()};
+    const backup={app:'content-workbench-local',version:1,exportedAt:new Date().toISOString(),modules:list('modules'),tasks:list('tasks'),content:content.exportAll(),publishing:publishing.exportAll(),xPublishing:xPublishing.exportAll()};
     if(Buffer.byteLength(JSON.stringify(backup),'utf8')>maxRestoreBody)fail('完整备份超过 16 MiB，操作已拒绝；请减少本次新增内容或素材后重试。',413);
     return backup;
   };
@@ -84,6 +89,7 @@ function createStore(dataDir,seedDir){
   }
   content=createContentStore(db,dataDir,{snapshot,checkBackupSize:()=>exportAll()});
   publishing=createPublishingStore(db,{snapshot,checkBackupSize:()=>exportAll(),content});
+  xPublishing=createXPublishingStore(db,{snapshot,checkBackupSize:()=>exportAll()});
   const update=db.prepare('UPDATE records SET payload=?,revision=? WHERE kind=? AND id=? AND revision=?');
   function save(kind,raw){
     const item=validateItem(raw,kind,ids[kind]);
@@ -102,7 +108,7 @@ function createStore(dataDir,seedDir){
   }
   function restore(raw){
     if(!object(raw)||raw.app!=='content-workbench-local'||raw.version!==1||typeof raw.exportedAt!=='string'||!Number.isFinite(Date.parse(raw.exportedAt)))fail('这不是兼容的本地工作台备份（版本 1）。');
-    if(Object.keys(raw).some(key=>!['app','version','exportedAt','modules','tasks','content','publishing'].includes(key)))fail('备份包含无法识别的字段。');
+    if(Object.keys(raw).some(key=>!['app','version','exportedAt','modules','tasks','content','publishing','xPublishing'].includes(key)))fail('备份包含无法识别的字段。');
     const validated={};
     for(const kind of ['modules','tasks']){
       if(!Array.isArray(raw[kind])||raw[kind].length!==ids[kind].length)fail('备份记录数量与当前工作台不符，未更改现有数据。');
@@ -112,11 +118,15 @@ function createStore(dataDir,seedDir){
     const validatedContent=content.validateBackup(raw.content);
     publishing.assertCanRestore();
     const validatedPublishing=publishing.validateBackup(raw.publishing);
+    xPublishing.assertCanRestore();
+    const validatedXPublishing=xPublishing.validateBackup(raw.xPublishing);
     db.exec('BEGIN IMMEDIATE');
     try{
       content.validateBackup(raw.content);
       publishing.assertCanRestore();
       publishing.validateBackup(raw.publishing);
+      xPublishing.assertCanRestore();
+      xPublishing.validateBackup(raw.xPublishing);
       snapshot('daily');snapshot('pre-restore');
       const now=new Date().toISOString();
       for(const kind of ['modules','tasks'])for(const item of validated[kind]){
@@ -125,12 +135,13 @@ function createStore(dataDir,seedDir){
       }
       content.restore(validatedContent);
       publishing.restore(validatedPublishing);
+      xPublishing.restore(validatedXPublishing);
       exportAll();
       db.exec('COMMIT');
     }catch(error){db.exec('ROLLBACK');throw error;}
     return {ok:true,modules:list('modules'),tasks:list('tasks'),content:{items:content.list()},publishing:{items:publishing.list()}};
   }
-  return {list,save,restore,backup,content,publishing,close:()=>db.close()};
+  return {list,save,restore,backup,content,publishing,xPublishing,close:()=>db.close()};
 }
 
 async function readBody(req,limit=maxBody){
@@ -143,17 +154,42 @@ async function readBody(req,limit=maxBody){
 }
 function json(res,status,body,headers={}){res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store',...headers});res.end(JSON.stringify(body));}
 
-export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.join(projectDir,'data'),seedDir=path.join(projectDir,'data-seed'),distDir=path.join(projectDir,'dist'),generationOptions={},linkedInOptions={}}={}){
+export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.join(projectDir,'data'),seedDir=path.join(projectDir,'data-seed'),distDir=path.join(projectDir,'dist'),generationOptions={},linkedInOptions={},xOptions={},xImageOptions={}}={}){
   if(!Number.isInteger(port)||port<0||port>65535)throw new Error('端口号无效。');
   const releaseLease=await acquireDataLease(path.resolve(dataDir));
   let store;
   try{store=createStore(path.resolve(dataDir),path.resolve(seedDir));}
   catch(error){await releaseLease();throw error;}
-  let generation,linkedin;
+  let generation,linkedin,x,xImages,imageScheduleEpoch=0,stoppingImages=false;
+  const imageSchedules=new Set();
+  function scheduleXImages(tmpIds,finalTexts=[]){
+    const epoch=imageScheduleEpoch;
+    const revisions=new Map(finalTexts.map(({tmpId,revision})=>[tmpId,revision]));
+    const tasks=tmpIds.map(async tmpId=>{
+      let current=store.content.readTmp(tmpId),expectedRevision=revisions.get(tmpId);
+      if(current.stale||current.confirmed||current.revision!==expectedRevision)return;
+      const documentIds=current.content.documents.map(doc=>doc.id);
+      for(const documentId of documentIds){
+        if(stoppingImages||imageScheduleEpoch!==epoch)return;
+        current=store.content.readTmp(tmpId);
+        if(current.stale||current.confirmed||current.revision!==expectedRevision)return;
+        const doc=current.content.documents.find(item=>item.id===documentId);
+        const job=xImages.create({requestId:randomUUID(),tmpId,revision:current.revision,documentId,mode:doc.blocks[0]?.assetIds?.length?'check':'generate'});
+        const result=await xImages.wait(job.id);
+        if(result.status!=='ready')return;
+        expectedRevision=result.resultRevision;
+      }
+    });
+    const completion=Promise.allSettled(tasks);
+    imageSchedules.add(completion);void completion.finally(()=>imageSchedules.delete(completion));
+  }
   try{
-    generation=await createGenerationService({content:store.content,dataDir:path.resolve(dataDir),...generationOptions});
+    xImages=createXImageService({content:store.content,dataDir:path.resolve(dataDir),...xImageOptions});
+    const imagesEnabled=(xImageOptions.env??process.env).LAUNCH_LOOP_IMAGE_PROVIDER==='codex-cache';
+    generation=await createGenerationService({content:store.content,dataDir:path.resolve(dataDir),...(imagesEnabled?{onXReady:scheduleXImages,xImageCapabilities:()=>xImages.capabilities()}:{}),...generationOptions});
     linkedin=await createLinkedInService({store:store.publishing,content:store.content,dataDir:path.resolve(dataDir),...linkedInOptions});
-  }catch(error){await generation?.close();store.close();await releaseLease();throw error;}
+    x=await createXService({store:store.xPublishing,content:store.content,...xOptions});
+  }catch(error){stoppingImages=true;await generation?.close();await xImages?.close();await linkedin?.close();await x?.close();await Promise.allSettled([...imageSchedules]);store.close();await releaseLease();throw error;}
   const publicDir=path.resolve(distDir);
   let actualPort=port,closing=null;
   const server=http.createServer(async(req,res)=>{
@@ -166,13 +202,15 @@ export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.
       if(!req.url?.startsWith('/'))fail('请求地址无效。');
       const pathname=req.url.split('?')[0];
       if(pathname==='/api'||pathname.startsWith('/api/')){
-        const oauthCallback=req.method==='GET'&&pathname==='/api/linkedin/callback';
+        const oauthCallback=req.method==='GET'&&['/api/linkedin/callback','/api/x/callback'].includes(pathname);
         if(!oauthCallback&&(req.headers['sec-fetch-site']==='cross-site'||(req.headers.origin&&req.headers.origin!==`http://${req.headers.host}`)))fail('已拒绝来自其他网站的请求，请从本地工作台页面操作。',403);
         if(req.method==='GET'&&pathname==='/api/health')return json(res,200,{app:'content-workbench-local',version:1});
         if(req.method==='GET'&&pathname==='/api/backup')return json(res,200,store.backup(),{'Content-Disposition':`attachment; filename="workbench-backup-${new Date().toISOString().slice(0,10)}.json"`});
         if(pathname==='/api/content'||pathname.startsWith('/api/content/'))return await serveContent(req,res,pathname,store.content,{readBody,json});
         if(pathname==='/api/generation'||pathname.startsWith('/api/generation/'))return await serveGeneration(req,res,pathname,generation,{readBody,json});
         if(pathname.startsWith('/api/linkedin/')||pathname.startsWith('/api/publishing/'))return await servePublishing(req,res,pathname,linkedin,{readBody,json});
+        if(pathname.startsWith('/api/x/'))return await serveX(req,res,pathname,x,{readBody,json});
+        if(pathname.startsWith('/api/x-images/'))return await serveXImages(req,res,pathname,store.content,{readBody,json,imageService:xImages});
         for(const kind of ['modules','tasks'])if(pathname===`/api/${kind}`){
           if(req.method==='GET')return json(res,200,{items:store.list(kind)});
           if(req.method==='PUT')return json(res,200,{item:store.save(kind,await readBody(req))});
@@ -181,7 +219,9 @@ export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.
         if(pathname==='/api/restore'){
           if(req.method!=='POST')fail('恢复备份请使用 POST。',405);
           const restored=store.restore(await readBody(req,maxRestoreBody));
-          await generation.interruptAll();
+          imageScheduleEpoch++;
+          await Promise.all([generation.interruptAll(),xImages.interruptAll()]);
+          await Promise.allSettled([...imageSchedules]);
           return json(res,200,restored);
         }
         fail('找不到这个接口。',404);
@@ -203,12 +243,14 @@ export async function startServer({port=4318,dataDir=process.env.DATA_DIR||path.
     }catch(error){const expected=error instanceof RequestError||error instanceof ContentError;if(!res.headersSent)json(res,expected?error.status:500,{error:expected?error.message:'本地数据操作失败，请查看 data/server-error.log 并重试。'});else res.end();if(!expected)console.error(error);}
   });
   server.requestTimeout=15000;server.headersTimeout=10000;
-  try{await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',()=>{server.off('error',reject);resolve();});});}catch(error){await generation.close();await linkedin.close();store.close();await releaseLease();throw error;}
+  try{await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',()=>{server.off('error',reject);resolve();});});}catch(error){stoppingImages=true;await Promise.all([generation.close(),xImages.close(),linkedin.close(),x.close()]);await Promise.allSettled([...imageSchedules]);store.close();await releaseLease();throw error;}
   actualPort=server.address().port;
   return {url:`http://127.0.0.1:${actualPort}`,port:actualPort,close(){
     if(!closing)closing=(async()=>{
       const stopped=new Promise((resolve,reject)=>server.close(error=>error?reject(error):resolve()));
-      await Promise.all([generation.close(),linkedin.close()]);
+      stoppingImages=true;imageScheduleEpoch++;
+      await Promise.all([generation.close(),xImages.close(),linkedin.close(),x.close()]);
+      await Promise.allSettled([...imageSchedules]);
       await stopped;
       store.close();
       await releaseLease();

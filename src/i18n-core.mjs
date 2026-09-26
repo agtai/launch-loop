@@ -2,9 +2,10 @@ import app from './locales/app.en.json' with { type: 'json' };
 import workspaces from './locales/workspaces.en.json' with { type: 'json' };
 import catalog from './locales/catalog.en.json' with { type: 'json' };
 import messages from './locales/messages.en.json' with { type: 'json' };
+import x from './locales/x.en.json' with { type: 'json' };
 
 export const languageStorageKey = 'launch-loop.ui-language';
-export const englishMessages = Object.freeze({ ...catalog, ...messages, ...app, ...workspaces });
+export const englishMessages = Object.freeze({ ...catalog, ...messages, ...app, ...workspaces, ...x });
 export const normalizeLocale = value => value === 'en' ? 'en' : 'zh';
 const tokenPattern = /\{([a-zA-Z][\w]*)\}/g;
 const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

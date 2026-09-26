@@ -20,8 +20,8 @@ test('text rules: platform × language only; pending adaptations do not silently
   const resolved = resolveTextRules({ ...base, platforms: ['linkedin', 'x', 'xiaohongshu', 'zhihu', 'bilibili'] });
   assert.equal(resolved.variants.length, 10);
   assert.equal(resolved.status, 'pending');
-  assert.equal(resolved.variants.filter(item => item.status === 'ready').length, 2);
-  for (const variant of resolved.variants.filter(item => item.platform !== 'linkedin')) {
+  assert.equal(resolved.variants.filter(item => item.status === 'ready').length, 4);
+  for (const variant of resolved.variants.filter(item => !['linkedin', 'x'].includes(item.platform))) {
     assert.equal(variant.instructions, null);
     assert.ok(!variant.ruleMetadata.fragmentIds.includes('platform.linkedin'));
     assert.equal(variant.status, 'pending');

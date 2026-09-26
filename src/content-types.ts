@@ -5,7 +5,17 @@ export type ContentPlatform = 'linkedin' | 'x' | 'xiaohongshu' | 'zhihu' | 'bili
 export type ContentLanguage = 'zh' | 'en';
 export type ContentFormat = 'short_post' | 'long_article' | 'thread';
 export type ContentKind = 'linkedin_article' | 'linkedin_post' | 'article' | 'post' | 'thread';
-export type ContentBlock = { id: string; type: 'paragraph' | 'heading' | 'list' | 'quote'; text: string };
+export type XImageBinding = {
+  ruleVersion: string; intent: 'generate' | 'uploaded'; status: 'dependency_blocked' | 'uploaded' | 'generated' | 'needs_update' | 'failed';
+  language: ContentLanguage; textHash: string; documentHash: string; brief: string; briefHash: string;
+  sourceAssetIds: string[]; assetId: string | null; assetHash: string | null; mimeType: string | null;
+  width: number | null; height: number | null; visualVerification: 'not_run' | 'passed' | 'failed';
+  visualMethod?: 'user' | 'codex-image-input';
+  altText: string; generated: boolean; errorCode: string | null;
+};
+export type ContentBlock = { id: string; type: 'paragraph' | 'heading' | 'list' | 'quote' | 'x_post'; text: string; assetIds?: string[]; image?: XImageBinding };
+export type XImageCapability = {available: boolean; checking?: boolean; status: string; reason?: string; canRefresh?: boolean};
+export type XImageJob = {id: string; tmpId: string; documentId: string; mode: 'generate' | 'check'; status: string; stage: string; error: string | null; sourceRevision: number; resultRevision: number | null; assetId: string | null; createdAt: string; updatedAt: string};
 export type ContentDocument = { id: string; kind: ContentKind; title: string; blocks: ContentBlock[]; postingNote: string };
 export type ContentSource = { id: string; label: string } & (
   | { type: 'text'; text: string }
@@ -31,6 +41,7 @@ export type ContentDraft = {
 };
 export type ContentAsset = {
   id: string; fileName: string; mimeType: string; byteLength: number; sha256: string;
+  madeWithAi?: boolean;
   source: { kind: 'upload' | 'generated'; url: string | null }; caption: string;
   imageBinding?: { documentsHash: string; width: number; height: number; checkedAt: string };
 };
@@ -53,7 +64,7 @@ export type ContentBackup = { schemaVersion: 1; items: Array<Omit<ContentItem, '
 
 // Stage 2: execution remains temporary; publishing requires a separate confirmation.
 export type GenerationStatus = 'queued' | 'running' | 'completed' | 'failed' | 'cancelling' | 'cancelled' | 'interrupted' | 'needs_evidence' | 'needs_resolution';
-export type GenerationStage = GenerationStatus | 'reading' | 'generating' | 'reviewing' | 'reviewed' | 'revising' | 'mother' | 'platform' | 'localization' | 'drafts_frozen' | 'image_generation' | 'image_check';
+export type GenerationStage = GenerationStatus | 'reading' | 'generating' | 'reviewing' | 'reviewed' | 'revising' | 'mother' | 'platform' | 'localization' | 'drafts_frozen' | 'image_generation' | 'image_check' | 'adapting' | 'localizing';
 export type GenerationAssetStatus = 'none' | 'pending' | 'uploaded' | 'unconnected' | 'generating' | 'checking' | 'ready' | 'failed' | 'cancelled' | 'interrupted' | 'outdated';
 export type GenerationVariant = {
   platform: ContentPlatform; language: ContentLanguage; tmpId: string | null;
@@ -70,7 +81,7 @@ export type GenerationJob = {
   canResumeMother?: boolean; resumedMother?: boolean;
   canResumeReview?: boolean; resumedReview?: boolean;
   change?: ModificationRequest['selection'] & { replacement: string; changesSharedFacts: boolean; impactReason: string; changedClaimIds: string[] };
-  languageImpact?: { sourceLanguage: ContentLanguage; modificationId: string; reason: string; affectedLanguages: ContentLanguage[] };
+  languageImpact?: { sourcePlatform?: ContentPlatform; sourceLanguage: ContentLanguage; modificationId: string; reason: string; affectedLanguages: ContentLanguage[] };
   progress?: { stage: string; startedAt: string; budgetMs: number };
 };
 export type GenerationOptions = {
@@ -88,7 +99,7 @@ export type ModificationRequest = {
 };
 export type GenerationCapabilities = {
   text: { status: 'available' | 'unavailable' | 'unknown'; message: string };
-  image: { status: 'available' | 'unconnected'; message: string; checking?: boolean; canRefresh?: boolean };
+  image: { status: 'available' | 'unconnected'; message: string; checking?: boolean; canRefresh?: boolean; x?: XImageCapability };
   materials: { extensions: string[] };
 };
 export type LinkedInConnection = {

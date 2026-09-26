@@ -15,7 +15,8 @@
   "dependencies": {
     "lucide-react": "1.31.0",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "twitter-text": "3.1.0"
   },
   "devDependencies": {
     "@types/node": "22.19.19",

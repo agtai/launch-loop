@@ -8,7 +8,11 @@ export { CANDIDATE_VERSION };
 export function resolveIntegratedTextRules(config = {}) {
   const previous = resolveTextRules(config);
   const result = { ...previous, ruleSetVersion: RULE_SET_VERSION, candidateVersion: CANDIDATE_VERSION, variants: [] };
-  if (previous.status !== 'ready') {
+  if (previous.status !== 'ready' || previous.variants.some(variant => variant.platform !== 'linkedin')) {
+    if (previous.status === 'ready') {
+      result.status = 'pending';
+      result.issues = [...result.issues, { code: 'adaptation_pending', field: 'platforms', message: '包含尚未适配的平台或格式，不得套用其他平台规则执行。' }];
+    }
     // A mixed ready/pending request must never partially execute.
     result.variants = previous.variants.map(variant => ({ ...variant, status: 'pending', instructions: null, ruleMetadata: null }));
     return result;

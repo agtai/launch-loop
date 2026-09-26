@@ -35,7 +35,7 @@ test('translation placeholders preserve counts and filenames, and nested service
 });
 
 test('UI source has no untranslated visible Chinese literals and each translation key exists', () => {
-  for(const file of ['src/App.tsx','src/ContentWorkspace.tsx','src/PublishingWorkspace.tsx']){
+  for(const file of ['src/App.tsx','src/ContentWorkspace.tsx','src/PublishingWorkspace.tsx','src/XDocuments.tsx','src/XImageTasks.tsx','src/XPublishingWorkspace.tsx']){
     const source=readFileSync(new URL('../'+file,import.meta.url),'utf8'),tree=ts.createSourceFile(file,source,ts.ScriptTarget.Latest,true,ts.ScriptKind.TSX);
     function visit(node){
       if(ts.isJsxText(node)) {

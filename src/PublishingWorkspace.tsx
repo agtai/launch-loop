@@ -4,12 +4,13 @@ import type {ContentItem, ContentPlatform, ContentSummary, LinkedInConnection, P
 import {contentApi, errorMessage, languageNames, platformNames} from './content-api';
 import './content-workspace.css';
 import {useI18n} from './i18n';
+import XPublishingWorkspace from './XPublishingWorkspace';
 
 const statusNames = {submitting: '提交中', published: '已发布', failed: '发布失败', unknown: '结果未知'};
 
-export default function PublishingWorkspace({active = true, dataEpoch = 0}: {active?: boolean; dataEpoch?: number}) {
+export default function PublishingWorkspace({active = true, dataEpoch = 0, initialPlatform = 'linkedin'}: {active?: boolean; dataEpoch?: number; initialPlatform?: ContentPlatform}) {
   const {t, date, locale} = useI18n();
-  const [platform, setPlatform] = useState<ContentPlatform>('linkedin');
+  const [platform, setPlatform] = useState<ContentPlatform>(initialPlatform);
   const [connection, setConnection] = useState<LinkedInConnection | null>(null), [items, setItems] = useState<ContentSummary[]>([]), [records, setRecords] = useState<PublishingRecord[]>([]);
   const [item, setItem] = useState<ContentItem | null>(null), [versionId, setVersionId] = useState('');
   const [preview, setPreview] = useState<PublishingPreview | null>(null), [confirmed, setConfirmed] = useState(false), [busy, setBusy] = useState(false), [error, setError] = useState('');
@@ -116,7 +117,7 @@ export default function PublishingWorkspace({active = true, dataEpoch = 0}: {act
     <div className='page-heading'><div><span className='eyebrow'>{t('发布 / 02')}</span><h1>{t("核对版本，再确认发布。")}</h1><p>{t("这里只使用已确认保存的正式版本。发布需要单独确认。")}</p></div><button className='button' disabled={busy} onClick={() => {invalidatePreview(); void run(refresh);}}><RefreshCw size={16}/>{t("刷新连接与记录")}</button></div>
     {error && <div className='cw-alert' role='alert'>{t(error)}</div>}
     <div className='cw-platform-tabs' aria-label={t("发布平台")}>{Object.entries(platformNames).map(([id, label]) => <button className={'button ' + (platform === id ? 'primary' : '')} key={id} disabled={busy} onClick={() => {setPlatform(id as ContentPlatform); setPreview(null); setConfirmed(false);}}>{t(label)}</button>)}</div>
-    {platform !== 'linkedin' ? <section className='panel cw-empty'><Send size={34}/><h2>{t('{platform} 发布待适配', {platform: t(platformNames[platform])})}</h2><p>{t("此平台的发布入口尚未接入，不能提交或返回发布结果。")}</p></section> : <div className='pw-columns'>
+    {platform === 'x' ? <XPublishingWorkspace active={active} dataEpoch={dataEpoch}/> : platform !== 'linkedin' ? <section className='panel cw-empty'><Send size={34}/><h2>{t('{platform} 发布待适配', {platform: t(platformNames[platform])})}</h2><p>{t("此平台的发布入口尚未接入，不能提交或返回发布结果。")}</p></section> : <div className='pw-columns'>
       <div>
         <section className='panel pw-connection'><div className='cw-section-heading'><h2>{t("LinkedIn 个人账号")}</h2><span className='tag'>{canPublish ? t("已连接，可发布") : t("尚不可发布")}</span></div><p>{connectionExpired ? t('LinkedIn 授权已过期，请重新连接。') : connection?.message ? t(connection.message) : t("正在读取实际连接状态…")}</p>
           {connection?.account && <p><strong>{connection.account.name}</strong><small className='cw-help'>{t('账号 ID：')}{connection.account.id}</small><small className='cw-help'>{t("授权权限：")}{connection.scopes.join(', ') || t("未返回")}</small>{connection.expiresAt && <small className='cw-help'>{t('授权有效期至 {date}', {date: date(connection.expiresAt)})}</small>}</p>}
@@ -129,7 +130,7 @@ export default function PublishingWorkspace({active = true, dataEpoch = 0}: {act
       </div>
       <section className='panel pw-preview'><div className='cw-section-heading'><h2>{t("发布预览")}</h2>{preview && <span className='tag'>{t(languageNames[preview.language])}</span>}</div>{!preview ? <div className='cw-empty'><FilePreview/><p>{t("选定正式版本和已连接账号后，生成可确认的发布预览。")}</p>{version && <div className='pw-local-preview'><h3>{t("正式版本正文（尚未核对发布）")}</h3>{version.content.documents.map(doc => <div key={doc.id}><h4>{doc.title}</h4>{doc.blocks.map(block => <p key={block.id}>{block.text}</p>)}</div>)}<div className='cw-assets'>{version.assets.filter(asset => version.content.assetIds.includes(asset.id) && ['image/png', 'image/jpeg'].includes(asset.mimeType)).map(asset => <figure key={asset.id}><img src={`/api/content/${item!.id}/versions/${version.id}/assets/${asset.id}`} alt={asset.caption || asset.fileName}/><figcaption>{asset.fileName}</figcaption></figure>)}</div></div>}</div> : <><div className='pw-preview-account'><strong>{preview.accountName}</strong><small>{t('账号 ID：')}{preview.accountId}</small><small>{t('LinkedIn 普通动态 · 版本 {number}', {number: preview.versionNumber})}</small></div><div className='pw-body'>{preview.body}</div><div className='cw-assets'>{preview.assets.map(asset => <figure key={asset.id}>{asset.mimeType.startsWith('image/') && <img src={asset.url} alt={asset.caption || asset.fileName}/>}<figcaption>{asset.fileName}</figcaption></figure>)}</div>{preview.warnings.map((warning, index) => <p className='cw-warning' key={index}>{t(warning)}</p>)}<p className='cw-help'>{t('确认有效期至 {date}；账号或正式版本变化后需重新预览。', {date: date(preview.expiresAt)})}</p>{expired ? <p className='cw-warning'>{t("预览已过期，请重新核对发布预览。")}</p> : <label className='pw-confirm'><input type='checkbox' checked={confirmed} disabled={busy} onChange={e => setConfirmed(e.target.checked)}/><span>{t("我已核对以上正文、图片、语言与账号，确认将此正式版本发布到 LinkedIn。")}</span></label>}<button className='button primary' disabled={busy || !confirmed || expired || !canPublish} onClick={() => void publish()}><Send size={16}/>{busy ? t("正在提交…") : t("确认发布到 LinkedIn")}</button></>}</section>
     </div>}
-    <section className='panel pw-records'><div className='cw-section-heading'><h2>{t("真实发布记录")}</h2><small>{t("不包含未发布的暂存稿")}</small></div>{!records.length ? <p className='cw-help'>{t("目前没有发布记录。")}</p> : records.map(record => <article className='pw-record' key={record.id}>
+    {platform === 'linkedin' && <section className='panel pw-records'><div className='cw-section-heading'><h2>{t("真实发布记录")}</h2><small>{t("不包含未发布的暂存稿")}</small></div>{!records.length ? <p className='cw-help'>{t("目前没有发布记录。")}</p> : records.map(record => <article className='pw-record' key={record.id}>
       <div><strong>{record.accountName} {t("·")}{t(languageNames[record.language])}</strong><span className='tag'>{t(statusNames[record.status])}</span><small>{date(record.createdAt)}</small></div>
       <small className='cw-help'>{t('账号 ID：')}{record.accountId}</small>
       {record.platformId && <small className='cw-help'>{t('平台帖子 ID：')}{record.platformId}</small>}
@@ -138,7 +139,7 @@ export default function PublishingWorkspace({active = true, dataEpoch = 0}: {act
       {record.url && /^https:\/\/(www\.)?linkedin\.com\//.test(record.url) && <a href={record.url} target='_blank' rel='noreferrer'>{t("查看实际发布结果")}<ExternalLink size={14}/></a>}
       {record.status === 'published' && <p className='cw-help'>{t('已取得平台帖子 ID；请打开 LinkedIn 核对账号、正文、配图和可见状态。')}</p>}
       {record.platformId && record.status === 'unknown' && <><button className='button small-btn' disabled={busy || !canPublish || connection?.account?.id !== record.accountId || !connection?.scopes.includes('r_member_social')} onClick={() => void reconcileRecord(record.id)}>{t("查询平台结果（不重发）")}</button>{!connection?.scopes.includes('r_member_social') && <p className='cw-help'>{t('当前授权没有受限的 r_member_social 读取权限；请在 LinkedIn 人工核对。发布权限不代表读取权限。')}</p>}</>}
-    </article>)}</section>
+    </article>)}</section>}
   </div>;
 }
 

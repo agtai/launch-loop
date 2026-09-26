@@ -1,0 +1,69 @@
+{
+  "ruleSetVersion": "x-text-v1.0.0",
+  "checkedAt": "2026-09-24",
+  "sources": [
+    {
+      "url": "https://docs.x.com/fundamentals/counting-characters",
+      "classification": "official_limit_and_implementation_recommendation",
+      "version": "live page checked 2026-09-24",
+      "readScope": "character weights, emoji, URLs, mentions, NFC and implementation",
+      "adopt": "280 weighted units for ordinary posts; count actual text with official twitter-text; URLs 23; NFC; normal hashtag and manual mention counting",
+      "omit": "Premium long-post capability not inferred; no live platform acceptance claimed"
+    },
+    {
+      "url": "https://docs.x.com/x-api/posts/create-post",
+      "classification": "official_api_contract",
+      "version": "live page checked 2026-09-24",
+      "readScope": "text, reply, media, made_with_ai and response fields",
+      "adopt": "per-post actual text and explicit media/reply relationships; structured ordinary posts",
+      "omit": "Articles, quote posts, video and automatic interaction; documentation does not establish current account permission"
+    },
+    {
+      "url": "https://github.com/twitter/twitter-text/tree/v3.1.0",
+      "classification": "official_open_source_implementation",
+      "version": "twitter-text 3.1.0, configuration v3",
+      "license": "Apache-2.0; transitive MIT notices in COUNTER-LICENSES.txt",
+      "readScope": "npm package metadata, parseTweet, configs, LICENSE, upstream validate.yml discounted emoji and directional tests",
+      "adopt": "official parser bundled without changing counting code; same ESM used by UI and publishing",
+      "fixtureUrl": "https://raw.githubusercontent.com/twitter/twitter-text/v3.1.0/conformance/validate.yml",
+      "fixtureSha256": "29fa1be663676f3d0bb0a67f393b32c15d92c5dd10db9be401bf7708d7c5b703",
+      "bundleSha256": "779910b22a2d1b97fb05375a923cde09424a772b54ad0d01db363f5b3c70b556",
+      "omit": "No hand-written string.length substitute; no claim to have exercised current X servers or future Unicode tables"
+    },
+    {
+      "url": "https://github.com/coreyhaines31/marketingskills/tree/5b2c0007766c6a1cf1d53fd8fc73e979e0821022/skills/social",
+      "classification": "community_writing_experience",
+      "author": "Corey Haines",
+      "version": "5b2c0007766c6a1cf1d53fd8fc73e979e0821022 / social 2.2.0",
+      "license": "MIT (existing fixed-commit license evidence in ../text/v1/sources.json)",
+      "readScope": "SKILL.md; references/platforms.md X section; references/post-templates.md X thread examples",
+      "adopt": "adapt a common source to platform; standalone opening; thread promises a useful explanation and then delivers; each step or analysis point has a purpose",
+      "omit": "under-100-character engagement claim, posting frequency, algorithm boosts, viral formulas, mandatory CTA, prescribed 7-post length, quote posts, invented personal stories, outreach and analytics"
+    },
+    {
+      "path": "skill-preparation/linkedin-text",
+      "classification": "repository_candidate_general_principles",
+      "version": "linkedin-text-candidate.0.2.1 from baseline 5942773",
+      "license": "repository-local original synthesis; not a copied third-party skill",
+      "readScope": "SKILL, contracts, integration, option-mapping, editing-protocol, quality-target, validation, core, localization, audit-revision and sources",
+      "adopt": "common mother before platform adaptation and localization, actual evidence and terms, source-language passthrough, freeze drafts before one review, preserve uncertainty, precise selected-text edits",
+      "omit": "LinkedIn 3000 limits, Pulse, LinkedIn-specific styles and unimplemented candidate UI; does not replace LinkedIn text-v1.0.0 or claim its candidate validation proves X quality"
+    },
+    {
+      "source": "local skill shuorenhua/SKILL.md",
+      "classification": "user_installed_editing_preference",
+      "version": "SHA256 8096fc698ab76dca0041ce124ca1dedf22889619b8995191523c8d8db30c1b98",
+      "license": "No standalone redistribution license claimed; original rules summarized, source not copied",
+      "readScope": "full SKILL.md",
+      "adopt": "preserve facts, qualifications, author judgement and responsibility; remove only complete redundancy; selected-text boundary; no AI score",
+      "omit": "No synonym substitution quota, fabricated experience or extra model audit passes"
+    }
+  ],
+  "projectPreferences": [
+    "Thread length 2..25 is this workbench scope, not an official X maximum.",
+    "Ordinary post plus thread produces two documents inside one platform-language content package.",
+    "title is empty; blocks[].text contains exact future submitted text; no automatic numbering, trimming or splitting.",
+    "One successful review per platform-language content package covers its ordinary post and complete thread; deterministic checks remain separate.",
+    "Image rules, API permissions, actual model validation and real publication have independent evidence."
+  ]
+}

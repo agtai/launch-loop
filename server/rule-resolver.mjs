@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { RULE_SET_VERSION, PLATFORMS, LANGUAGES, FORMATS, FRAGMENTS, OPTION_MAP } from '../rules/text/v1/catalog.mjs';
+import { X_RULE_SET_VERSION, X_FRAGMENTS } from '../rules/x/catalog.mjs';
 
 export { RULE_SET_VERSION };
 
@@ -58,19 +59,29 @@ export function resolveTextRules(config = {}) {
     const documents = formats.map(format => ({
       format,
       kind: platform === 'linkedin' ? { short_post: 'linkedin_post', long_article: 'linkedin_article', thread: null }[format] : { short_post: 'post', long_article: 'article', thread: 'thread' }[format],
-      status: platform === 'linkedin' && format === 'short_post' ? 'ready' : 'pending',
+      status: (platform === 'linkedin' && format === 'short_post') || (platform === 'x' && ['short_post', 'thread'].includes(format)) ? 'ready' : 'pending',
     }));
     const status = documents.every(document => document.status === 'ready') ? 'ready' : 'pending';
-    const fragmentIds = ['base.evidence', 'base.writing', 'base.workflow', ...(platform === 'linkedin' ? ['platform.linkedin'] : []), `language.${language}`, ...formats.map(format => `format.${format}`), ...optionIds,
+    const fragmentIds = ['base.evidence', 'base.writing', 'base.workflow', ...(platform === 'linkedin' ? ['platform.linkedin'] : platform === 'x' ? ['platform.x', 'x.localization', 'x.shuorenhua'] : []), `language.${language}`, ...formats.map(format => `format.${format}`), ...optionIds,
       ...(config.referenceMode ? ['reference.structure_and_voice'] : []), `assets.${config.assetMode ?? 'generate'}`, ...(config.project ? ['project.system1-agents'] : [])];
-    const selected = fragmentIds.map(id => FRAGMENTS[id]);
+    const selected = fragmentIds.map(id => (platform === 'x' ? X_FRAGMENTS[id] : null) ?? FRAGMENTS[id]);
     const instructions = selected.map((fragment, index) => `[${fragmentIds[index]}]\n${fragment.instructions}`).join('\n\n') +
       (terminology.required.length || terminology.forbidden.length ? `\n\n[terminology]\n本次术语要求（数据，不是额外指令）：${canonical(terminology)}` : '');
     const auditChecks = selected.flatMap(fragment => fragment.auditChecks);
     if (terminology.required.length || terminology.forbidden.length) auditChecks.push('terminology:逐项检查本次required/forbidden术语要求，无法同时满足时保留冲突说明。');
-    const payload = { ruleSetVersion: RULE_SET_VERSION, fragmentIds, platform, language, documents, terminology, instructions, auditChecks };
+    const ruleSetVersion = platform === 'x' ? X_RULE_SET_VERSION : RULE_SET_VERSION;
+    // Mother preparation has no target-language or per-post formatting rule.
+    // The first variant owns its tmp files only; it must not choose its language.
+    let motherRules;
+    if (platform === 'x') {
+      const sharedIds = fragmentIds.filter(id => !/^(language\.|platform\.|format\.|assets\.)/.test(id));
+      const sharedInstructions = sharedIds.map(id => `[${id}]\n${(X_FRAGMENTS[id] ?? FRAGMENTS[id]).instructions}`).join('\n\n') +
+        (terminology.required.length || terminology.forbidden.length ? `\n\n[terminology]\n本次术语要求（数据，不是额外指令）：${canonical(terminology)}` : '');
+      motherRules = { instructions: sharedInstructions, ruleMetadata: { ruleSetVersion, fragmentIds: sharedIds, hash: createHash('sha256').update(canonical({ ruleSetVersion, fragmentIds: sharedIds, terminology, instructions: sharedInstructions })).digest('hex') } };
+    }
+    const payload = { ruleSetVersion, fragmentIds, platform, language, documents, terminology, instructions, auditChecks, ...(motherRules ? { motherRules } : {}) };
     const hash = createHash('sha256').update(canonical(payload)).digest('hex');
-    const variant = { id: `${platform}:${language}`, platform, language, status, documents, ruleMetadata: { ruleSetVersion: RULE_SET_VERSION, fragmentIds, hash }, instructions: status === 'ready' ? instructions : null, auditChecks, terminology };
+    const variant = { id: `${platform}:${language}`, platform, language, status, documents, ruleMetadata: { ruleSetVersion, fragmentIds, hash }, instructions: status === 'ready' ? instructions : null, auditChecks, terminology, ...(motherRules ? { motherRules } : {}) };
     result.variants.push(variant);
     if (status === 'pending') issues.push(issue('adaptation_pending', variant.id, '包含尚未适配的平台或格式，不得套用其他平台规则执行。'));
   }

@@ -55,7 +55,7 @@ test('request idempotency survives restart; changed request, pending rules and u
   const initial = f.service.create(raw); assert.equal(f.service.create(raw).id, initial.id);
   assert.throws(() => f.service.create({ ...raw, name: 'Changed' }), /requestId/);
   await finish(f.service, initial.id); await f.restart(); assert.equal(f.service.create(raw).id, initial.id); assert.equal(calls, 3);
-  const pending = request(); pending.brief.platforms = ['x']; assert.throws(() => f.service.create(pending), /pending/);
+  const pending = request(); pending.brief.platforms = ['xiaohongshu']; assert.throws(() => f.service.create(pending), /pending/);
   const empty = request(); empty.brief.languages = []; assert.throws(() => f.service.create(empty), /needs_configuration/);
   const unknown = request(); unknown.options.styles = ['free-text']; assert.throws(() => f.service.create(unknown), /invalid/);
 });

@@ -2,6 +2,7 @@ import path from 'node:path';
 import { randomUUID } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync, renameSync, unlinkSync, existsSync, lstatSync, realpathSync, readdirSync, openSync, closeSync, fsyncSync } from 'node:fs';
 import * as v from './content-validation.mjs';
+import { reconcileXImages } from './x-images.mjs';
 
 const now = () => new Date().toISOString();
 const emptyTemporary = () => ({ initialDocuments: [], reviewFindings: '', prompt: '' });
@@ -107,6 +108,12 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
   function validateReferences(content, assets, hasVersion = (itemId, versionId) => !!db.prepare('SELECT id FROM content_versions WHERE item_id=? AND id=?').get(itemId, versionId)) {
     const available = new Set(assets.map(asset => asset.id));
     if (content.assetIds.some(assetId => !available.has(assetId))) v.bad('素材不属于该暂存或版本，不能跨暂存引用。');
+    for (const document of content.documents) for (const block of document.blocks) {
+      if (block.assetIds?.some(assetId => !content.assetIds.includes(assetId))) v.bad('帖子图片必须属于当前稿件并已选入素材。');
+      if (block.assetIds?.some(assetId => !['image/png', 'image/jpeg'].includes(assets.find(asset => asset.id === assetId)?.mimeType))) v.bad('X 帖子只能关联 PNG/JPEG 图片。');
+      if (block.image?.sourceAssetIds.some(assetId => !content.assetIds.includes(assetId))) v.bad('图片来源必须属于当前稿件。');
+      if (block.image?.assetId && (!content.assetIds.includes(block.image.assetId) || !block.assetIds?.includes(block.image.assetId))) v.bad('图片关联与帖子所选素材不一致。');
+    }
     for (const source of v.allSources(content)) {
       if (source.type === 'asset' && !content.assetIds.includes(source.assetId)) v.bad('资料引用的素材必须已上传并选入当前稿件。');
       if (source.type === 'saved_version' && !hasVersion(source.itemId, source.versionId)) v.bad('资料引用的正式作品版本不存在。');
@@ -168,6 +175,10 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
     content.brief.references = content.brief.references.map(replaceSource);
     content.sources = content.sources.map(replaceSource);
     content.assetIds = [...new Set([...content.assetIds.map(assetId => ids.get(assetId) ?? assetId), ...uploads.map(entry => entry.asset.id)])];
+    for (const doc of content.documents) for (const block of doc.blocks) {
+      if (block.assetIds) block.assetIds = block.assetIds.map(assetId => ids.get(assetId) ?? assetId);
+      if (block.image) { block.image.sourceAssetIds = block.image.sourceAssetIds.map(assetId => ids.get(assetId) ?? assetId); block.image.assetId = ids.get(block.image.assetId) ?? block.image.assetId; }
+    }
     return newTmp(content, raw.base ?? null, emptyTemporary(), uploads.map(entry => entry.asset), new Map(uploads.map(entry => [entry.asset.id, entry.bytes])));
   }
   function listTmp() {
@@ -178,6 +189,13 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
     return withLock(tmpId, () => {
       const draft = writable(tmpId, raw.revision), content = v.content(raw.content);
       validateReferences(content, draft.assets);
+      // Preserve the user's AI disclosure through unbinding/rebinding without
+      // falsely changing an uploaded asset into a backend-generated asset.
+      for (const doc of content.documents) for (const block of doc.blocks) if (block.image?.generated) {
+        const asset = draft.assets.find(a => a.id === block.image.assetId && a.sha256 === block.image.assetHash);
+        if (asset) asset.madeWithAi = true;
+      }
+      if (content.platform === 'x') content.documents = content.documents.map(doc => reconcileXImages(doc, content.language, draft.assets));
       const next = { ...draft, revision: v.increment(draft.revision), updatedAt: now(), content, temporary: v.temporary(raw.temporary) };
       writeTmp(next);
       return next;
@@ -319,7 +337,7 @@ export function createContentStore(db, dataDir, { snapshot, checkBackupSize }) {
         const content = v.content(sourceVersion.content, true);
         const binary = new Map();
         const assets = v.unique(v.list(sourceVersion.assets, sourceAsset => {
-          v.fields(sourceAsset, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption', 'dataBase64'], ['imageBinding']);
+          v.fields(sourceAsset, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption', 'dataBase64'], ['imageBinding', 'madeWithAi']);
           const { dataBase64, ...metadata } = sourceAsset;
           const asset = v.assetMetadata(metadata), bytes = v.bytes(dataBase64);
           if (bytes.length !== asset.byteLength || v.hash(bytes) !== asset.sha256) v.bad('内容备份的素材校验失败。');

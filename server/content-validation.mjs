@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { validateXImageBinding } from './x-images.mjs';
 
 export class ContentError extends Error { constructor(status, message) { super(message); this.status = status; } }
 export const bad = (message, status = 400) => { throw new ContentError(status, message); };
@@ -43,8 +44,12 @@ export function documents(value) {
   return unique(list(value, document => {
     fields(document, ['id', 'kind', 'title', 'blocks', 'postingNote']);
     const blocks = unique(list(document.blocks, block => {
-      fields(block, ['id', 'type', 'text']);
-      return { id: id(block.id), type: choice(block.type, ['paragraph', 'heading', 'list', 'quote']), text: string(block.text, 40000) };
+      fields(block, ['id', 'type', 'text'], ['assetIds', 'image']);
+      const result = { id: id(block.id), type: choice(block.type, ['paragraph', 'heading', 'list', 'quote', 'x_post']), text: string(block.text, 40000) };
+      if (block.assetIds !== undefined) result.assetIds = unique(list(block.assetIds, id, 1));
+      if (block.image !== undefined) result.image = validateXImageBinding(block.image);
+      if (result.type !== 'x_post' && (block.assetIds !== undefined || block.image !== undefined)) bad('逐帖配图只能关联 X 帖子。');
+      return result;
     }, 500), block => block.id);
     return { id: id(document.id), kind: choice(document.kind, kinds), title: string(document.title, 1000), blocks, postingNote: string(document.postingNote, 4000) };
   }, 20), document => document.id);
@@ -75,6 +80,14 @@ export function content(value, formal = false) {
   if (formal && (!platform || !language)) bad('默认平台和语言尚未确定，请先明确该稿件的平台与语言。');
   if ((platform && brief.platforms.length && !brief.platforms.includes(platform)) || (language && brief.languages.length && !brief.languages.includes(language))) bad('稿件平台或语言不在已选配置中。');
   const docs = documents(value.documents);
+  for (const doc of docs) {
+    if (!doc.blocks.some(block => block.type === 'x_post')) continue;
+    if (platform !== 'x' || !['post', 'thread'].includes(doc.kind) || doc.blocks.some(block => block.type !== 'x_post')) bad('X 帖子结构与平台或格式不匹配。');
+    if (doc.title !== '') bad('X 文稿标题必须为空；实际发布文字全部写入逐帖正文。');
+    if (formal && doc.blocks.some(block => !block.text.trim())) bad('确认保存需要每条 X 帖子都有正文。');
+    if (doc.kind === 'post' && doc.blocks.length !== 1 || doc.kind === 'thread' && (doc.blocks.length > 25 || formal && doc.blocks.length < 2)) bad('普通帖子需要一条正文；串帖需要 2–25 条正文。');
+    if (doc.blocks.some((block, index) => index > 0 && (block.assetIds?.length || block.image))) bad('当前串帖只支持首帖配图。');
+  }
   if (platform && docs.some(doc => platform === 'linkedin' ? !['linkedin_article', 'linkedin_post'].includes(doc.kind) : doc.kind.startsWith('linkedin_'))) bad('文稿形式与平台不匹配，LinkedIn 长文与动态必须分别建模。');
   if (formal && (!docs.length || docs.some(doc => !doc.blocks.some(block => block.text.trim())))) bad('确认保存需要实际文稿正文。');
   let rule = null;
@@ -97,7 +110,8 @@ export function content(value, formal = false) {
 export function temporary(value) { fields(value, ['initialDocuments', 'reviewFindings', 'prompt']); return { initialDocuments: documents(value.initialDocuments), reviewFindings: string(value.reviewFindings, 200000), prompt: string(value.prompt, 200000) }; }
 export function base(value) { if (value === null) return null; fields(value, ['itemId', 'revision', 'versionId']); return { itemId: id(value.itemId), revision: integer(value.revision), versionId: id(value.versionId) }; }
 export function assetMetadata(value) {
-  fields(value, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption'], ['imageBinding']);
+  fields(value, ['id', 'fileName', 'mimeType', 'byteLength', 'sha256', 'source', 'caption'], ['imageBinding', 'madeWithAi']);
+  if (value.madeWithAi !== undefined && typeof value.madeWithAi !== 'boolean') bad('图片生成来源标记无效。');
   const fileName = string(value.fileName, 200, true);
   if (/[<>:"/\\|?*\u0000-\u001f\u007f]/.test(fileName) || fileName === '.' || fileName === '..' || /[. ]$/.test(fileName) || /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i.test(fileName)) bad('素材文件名必须是安全的单个文件名。');
   const mimeType = choice(value.mimeType, ['image/png', 'image/jpeg', 'image/webp', 'image/gif', 'application/pdf', 'text/plain', 'application/octet-stream']);
@@ -111,7 +125,7 @@ export function assetMetadata(value) {
     if (!['image/png', 'image/jpeg'].includes(mimeType) || !/^[a-f0-9]{64}$/.test(value.imageBinding.documentsHash)) bad('配图与正文的关联无效。');
     imageBinding = { documentsHash: value.imageBinding.documentsHash, width: integer(value.imageBinding.width, 1), height: integer(value.imageBinding.height, 1), checkedAt: timestamp(value.imageBinding.checkedAt) };
   }
-  return { id: id(value.id), fileName, mimeType, byteLength, sha256: value.sha256, source: { kind: choice(value.source.kind, ['upload', 'generated']), url: value.source.url === null ? null : url(value.source.url) }, caption: string(value.caption, 4000), ...(imageBinding ? { imageBinding } : {}) };
+  return { id: id(value.id), fileName, mimeType, byteLength, sha256: value.sha256, source: { kind: choice(value.source.kind, ['upload', 'generated']), url: value.source.url === null ? null : url(value.source.url) }, caption: string(value.caption, 4000), ...(imageBinding ? { imageBinding } : {}), ...(value.madeWithAi === undefined ? {} : { madeWithAi: value.madeWithAi }) };
 }
 export function bytes(value) {
   if (typeof value !== 'string' || !value.length || value.length > Math.ceil(maxAssetBytes / 3) * 4 || value.length % 4 !== 0 || !/^[A-Za-z0-9+/]*={0,2}$/.test(value)) bad('素材 Base64 无效或超过 4 MiB。');
